@@ -48,7 +48,7 @@ First of all, download *Roadiz* latest version using Git
 .. code-block:: bash
 
     cd your/webroot/folder;
-    git clone xxxxxxxxxxxx ./;
+    git clone git@github.com:roadiz/roadiz.git ./;
 
 Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download dependancies
 
