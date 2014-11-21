@@ -49,7 +49,7 @@ help:
 clean:
 	rm -rf $(BUILDDIR)/*
 
-html: _themes
+html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
@@ -176,5 +176,3 @@ pseudoxml:
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
-_themes:
-	git submodule update --init;

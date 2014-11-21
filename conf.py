@@ -15,7 +15,38 @@
 import sys
 import os
 
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
+#
+# Add and use Pylons theme
+if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
+    from subprocess import call, Popen, PIPE
+
+    p = Popen('which git', shell=True, stdout=PIPE)
+    git = p.stdout.read().strip()
+    cwd = os.getcwd()
+    _themes = os.path.join(cwd, '_themes/sphinx_rtd_theme')
+
+    if not os.path.isdir(_themes):
+        call([git, 'clone', 'git@github.com:rezozero/sphinx_rtd_theme.git',
+                '_themes/sphinx_rtd_theme'])
+    else:
+        os.chdir(_themes)
+        call([git, 'checkout', 'master'])
+        call([git, 'pull'])
+        os.chdir(cwd)
+
+    sys.path.append(os.path.abspath('_themes/sphinx_rtd_theme'))
+
+    parent = os.path.dirname(os.path.dirname(__file__))
+    sys.path.append(os.path.abspath(parent))
+    wd = os.getcwd()
+    os.chdir(parent)
+    os.system('%s setup.py test -q' % sys.executable)
+    os.chdir(wd)
+
+    for item in os.listdir(parent):
+        if item.endswith('.egg'):
+            sys.path.append(os.path.join(parent, item))
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
