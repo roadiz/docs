@@ -4,7 +4,12 @@
 Upgrading
 =========
 
-**Always do a database backup before upgrading.**
+.. note::
+    **Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools
+    to quickly export your database as a file.
+
+    * With a MySQL server: ``mysqldump -u [user] -p[user_password] [database_name] > dumpfilename.sql``
+    * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 
 Download latest version using *Git*
 

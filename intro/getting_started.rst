@@ -26,15 +26,15 @@ We want Roadiz to be a great tool for designers and developers to build strong e
 CMS Structure
 -------------
 
-* ``bin`` : Contains the Roadiz CLI executable
-* ``cache`` : Every caches files for *Twig* templates and *SLIR* images
-* ``conf`` : Your setup configuration file(s)
-* ``files`` : Documents and fonts files root
-* ``gen-src`` : Generated PHP code for Doctrine and your Node-types entities
-* ``src`` : Roadiz CMS logic and core source code
-* ``tests`` : PHP Unit tests root
-* ``themes`` : Contains your themes and systems themes such as *Rozier* and *Install*
-* ``vendor`` : Dependencies folder managed by *Composer*
+* ``bin/`` : Contains the Roadiz CLI executable
+* ``cache/`` : Every caches files for *Twig* templates and *SLIR* images
+* ``conf/`` : Your setup configuration file(s)
+* ``files/`` : Documents and fonts files root
+* ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities
+* ``src/`` : Roadiz CMS logic and core source code
+* ``tests/`` : PHP Unit tests root
+* ``themes/`` : Contains your themes and systems themes such as *Rozier* and *Install*
+* ``vendor/`` : Dependencies folder managed by *Composer*
 
 Requirements
 ------------
