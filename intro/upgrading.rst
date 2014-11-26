@@ -40,7 +40,7 @@ If migration summary is OK, perform the changes
 Upgrading Node-types source entities
 ------------------------------------
 
-If some Doctrine errors occur about some fields missing in your *NodesSources*,
+If some Doctrine errors occur about some missing fields in your *NodesSources*,
 you must *regenerate all entities* source files
 
 .. code-block:: bash
