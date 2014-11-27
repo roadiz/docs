@@ -17,6 +17,7 @@ First contact
    intro/upgrading
    intro/moving
    intro/manual_config
+   intro/contributing
 
 Document system
 ---------------
@@ -80,4 +81,3 @@ Forms
 
 .. * :ref:`genindex`
 .. * :ref:`search`
-

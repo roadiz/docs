@@ -28,13 +28,13 @@ Then run database schema update
 
 .. code-block:: bash
 
-    bin/roadiz schema --update;
+    bin/roadiz orm:schema-tool:update --dump-sql;
 
 If migration summary is OK, perform the changes
 
 .. code-block:: bash
 
-    bin/roadiz schema --update --execute;
+    bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache --clear-all
 
 Upgrading Node-types source entities
@@ -45,12 +45,16 @@ you must *regenerate all entities* source files
 
 .. code-block:: bash
 
-    bin/roadiz core:node:types --regenerateAllEntities;
-    bin/roadiz schema --update;
+    bin/roadiz core:node-types --regenerateAllEntities;
+    bin/roadiz orm:schema-tool:update --dump-sql;
 
 Verify here that no data field will be removed and apply changes
 
 .. code-block:: bash
 
-    bin/roadiz schema --update --execute;
+    bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache --clear-all
+
+.. note::
+    If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
+    because it cannot done from a CLI interface as they are shared cache engines.
