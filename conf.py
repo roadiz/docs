@@ -24,18 +24,18 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
     p = Popen('which git', shell=True, stdout=PIPE)
     git = p.stdout.read().strip()
     cwd = os.getcwd()
-    _themes = os.path.join(cwd, '_themes/sphinx_rtd_theme')
+    _themes = os.path.join(cwd, '_themes/roadiz_rtd_theme')
 
     if not os.path.isdir(_themes):
-        call([git, 'clone', 'git@github.com:rezozero/sphinx_rtd_theme.git',
-                '_themes/sphinx_rtd_theme'])
+        call([git, 'clone', 'git@github.com:roadiz/roadiz_rtd_theme.git',
+                '_themes/roadiz_rtd_theme'])
     else:
         os.chdir(_themes)
         call([git, 'checkout', 'master'])
         call([git, 'pull'])
         os.chdir(cwd)
 
-    sys.path.append(os.path.abspath('_themes/sphinx_rtd_theme'))
+    sys.path.append(os.path.abspath('_themes/roadiz_rtd_theme'))
 
     parent = os.path.dirname(os.path.dirname(__file__))
     sys.path.append(os.path.abspath(parent))
@@ -145,8 +145,8 @@ primary_domain = 'php'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #html_theme = 'default'
-html_theme = "sphinx_rtd_theme"
-html_theme_path = ["_themes/sphinx_rtd_theme"]
+html_theme = "roadiz_rtd_theme"
+html_theme_path = ["_themes/roadiz_rtd_theme"]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -289,7 +289,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'Roadiz', u'Roadiz Documentation',
-   u'REZO ZERO', 'Roadiz', 'One line description of project.',
+   u'REZO ZERO', 'Roadiz', 'Roadiz is a polymorphic CMS based on a node system which can handle many type of services.',
    'Miscellaneous'),
 ]
 
