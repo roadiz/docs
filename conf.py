@@ -27,7 +27,7 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
     _themes = os.path.join(cwd, '_themes/roadiz_rtd_theme')
 
     if not os.path.isdir(_themes):
-        call([git, 'clone', 'git@github.com:roadiz/roadiz_rtd_theme.git',
+        call([git, 'clone', 'https://github.com/roadiz/roadiz_rtd_theme.git',
                 '_themes/roadiz_rtd_theme'])
     else:
         os.chdir(_themes)
