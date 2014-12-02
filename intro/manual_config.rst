@@ -61,3 +61,23 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
         "src/Roadiz/Core/AbstractEntities",
         "gen-src/GeneratedNodeSources"
     ]
+
+Console command
+---------------
+
+Roadiz have an executable in bin folder at the CMS' root.
+The goal is to have a cli ways to configure and manage some low-levels paramaters
+You can call it like that:
+
+.. code-block:: console
+
+    ./bin/roadiz
+
+By default, the used command is list so it will list all command available.
+
+You can use the argument ``--help`` to have more information about the command.
+Example:
+
+.. code-block:: console
+
+    ./bin/roadiz install --help
