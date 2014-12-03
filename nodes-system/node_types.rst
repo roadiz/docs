@@ -20,4 +20,10 @@ Let's see a little schema of what data field avec the generated class with the e
 
 The translation is not a field. It's write on the schema because it's a important thing which comming by node-type.
 
+With the roadiz command you have several commande for manage node-type. We really encourage you to check the commande with de argument `` --help `` , as this example:
+
+.. code-block:: console
+
+    bin/roadiz core:node-type --help
+
 Now let's have a look on node-source.
