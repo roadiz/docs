@@ -27,8 +27,8 @@ Node system
 
    nodes-system/intro
    nodes-system/node_types
-   nodes-system/nodes
    nodes-system/nodes_sources
+   nodes-system/nodes
 
 Tag system
 ----------
