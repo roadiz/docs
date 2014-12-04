@@ -7,23 +7,31 @@ Node-types
 What is a Node-type
 -------------------
 
-A node-type is the blueprint of your node-source. It will contain all the fields that we will use to generate a extended node-source class.
+A node-type is the blueprint for your node-source.
+It will contain all fields that Roadiz will use to generate an extended node-source class.
 
-For example, a node-type "Page" will contain the field "content" and "header image". The "title" field is always a content of node-source class.
-It's node-type generate a class named "NSPage" which extend the node-source class. We can find it in the ``gen-src/GeneratedNodeSources``.
-Dont modify the generate class! You need to modify it by the backend interface.
+.. image:: ./NSPage-php.svg
+   :align: center
 
-Let's see a little schema of what data field avec the generated class with the example node-type:
+
+For example, a node-type "Page" will contain "content" and "header image" fields.
+The "title" field is always available as it is hard-coded in ``NodesSources`` class.
+After saving your node-type, Roadiz generates a ``NSPage`` class which extends the ``NodesSources`` class.
+You will find it in the ``gen-src/GeneratedNodeSources``.
+Don’t modify the generated class! You’ll have to update it by the backend interface.
+
+Here is a schema to understand how node-types can define custom fields into node-sources:
 
 .. image:: ./NSPage-schema.svg
    :align: center
 
-The translation is not a field. It's write on the schema because it's a important thing which comming by node-type.
 
-With the roadiz command you have several commande for manage node-type. We really encourage you to check the commande with de argument `` --help `` , as this example:
+
+With Roadiz commands you get several commands to manage node-types.
+We really encourage you to check the commands with ``--help`` argument, as following:
 
 .. code-block:: console
 
-    bin/roadiz core:node-type --help
+    bin/roadiz core:node-types --help
 
 Now let's have a look on node-source.
