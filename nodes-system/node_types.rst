@@ -10,7 +10,7 @@ What is a Node-type
 A node-type is the blueprint for your node-source.
 It will contain all fields that Roadiz will use to generate an extended node-source class.
 
-.. image:: ./NSPage-php.svg
+.. image:: ./NSPage-php.*
    :align: center
 
 
@@ -22,7 +22,7 @@ Don’t modify the generated class! You’ll have to update it by the backend in
 
 Here is a schema to understand how node-types can define custom fields into node-sources:
 
-.. image:: ./NSPage-schema.svg
+.. image:: ./NSPage-schema.*
    :align: center
 
 

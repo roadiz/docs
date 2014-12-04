@@ -8,6 +8,6 @@ This part is the most important part of Roadiz. Quite everything in your website
 
 Let's check this simple node schema before explain it.
 
-.. image:: ./node-struct.svg
+.. image:: ./node-struct.*
 
 Now, it's time explain how it's working!
