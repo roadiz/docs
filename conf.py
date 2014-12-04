@@ -14,6 +14,7 @@
 
 import sys
 import os
+import shutil
 
 # import sphinx_rtd_theme
 #
@@ -34,6 +35,9 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
         call([git, 'checkout', 'master'])
         call([git, 'pull'])
         os.chdir(cwd)
+
+    # Remove theme demo docs avoid PDF and ePub issues
+    shutil.rmtree('_themes/roadiz_rtd_theme/demo_docs', ignore_errors=True)
 
     sys.path.append(os.path.abspath('_themes/roadiz_rtd_theme'))
 
