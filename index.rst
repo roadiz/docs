@@ -26,9 +26,6 @@ Node system
    :maxdepth: 1
 
    nodes-system/intro
-   nodes-system/node_types
-   nodes-system/nodes_sources
-   nodes-system/nodes
 
 Tag system
 ----------
