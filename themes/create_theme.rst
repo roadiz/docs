@@ -4,9 +4,27 @@
 Creating a theme
 ================
 
+Roadiz themes are one of the main parts of the CMS. They allow you to create your really personnal website.
+You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build
+your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it.
 
-First copy ``DefaultTheme`` folder and rename it against your new theme.
-Do not forget to rename every references in:
+Each theme is a folder which must be placed in ``themes/`` folder. Roadiz comes with 3 default themes :
+
+- *Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time.
+- *Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall.
+- *DefaultTheme* : It’s… the default theme which can be copied to start your own themes.
+
+As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode
+the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands.
+
+Preparing your own frontend theme
+---------------------------------
+
+First copy ``DefaultTheme`` folder and rename it against your new theme. Keep in mind that *DefaultTheme*
+folder will be overrode at each CMS updates, so don’t update its files or you’ll suffer of losing precious
+data. And we don’t want you to be mad at us.
+
+So once you duplicated and renamed *DefaultTheme* with your own sweet name, do not forget to rename every references in:
 
 * **Folder name** and **Class namespace** must be the same (Ex: “MyAwesomeTheme”) for making autoloader works with your theme.
 * **Theme entry point class**: your main theme class must be named after your folder name plus ``App`` suffix (Ex: “MyAwesomeThemeApp.php”)
