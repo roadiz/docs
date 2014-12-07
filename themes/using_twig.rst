@@ -56,7 +56,11 @@ You can of course call objects members within Twig using the *dot* separator.
         <h1><a href="{{ nodeSource.handler.getUrl }}">{{ nodeSource.title }}</a></h1>
         <div>{{ nodeSource.content|markdown }}</div>
 
-        {% set images = nodeSource.handler.getDocumentsFromFieldName('images') %}
+        {# Use complex syntax to grab documents #}
+        {% set images = nodeSource.handler.documentsFromFieldName('images') %}
+        {# or Shortcut syntax #}
+        {% set images = nodeSource.images() %}
+
         {% for image in images %}
 
             {% set imageMetas = image.documentTranslations.first %}
@@ -66,6 +70,37 @@ You can of course call objects members within Twig using the *dot* separator.
             </figure>
         {% endfor %}
     </article>
+
+Handling Nodes and NodesSources with Twig
+-----------------------------------------
+
+Most of frontent work will consist in Twig templating and Twig assignations. Roadiz Core entities are already
+linked together not to prepare your data before rendering it. Basically, you can access nodes or nodeSources data
+directly in Twig using the “dot” seperator.
+
+There is even some magic about Twig when accessing private or protected fields:
+just write the fieldname and it will use the field getter: ``{{ nodeSource.content|markdown }}`` will be interpreted as
+``{{ nodeSource.getContent|markdown }}`` by Twig. It can be a time and space saver to just use fieldnames.
+You can access methods too! You will certainly need to get a nodeSources documents to display them. Instead of assigning each document
+in your PHP Controller before, you can directly use them in Twig:
+
+.. code-block:: html+jinja
+
+    {% set images = nodeSource.images() %}
+
+    {% for image in images %}
+
+        {% set imageMetas = image.documentTranslations.first %}
+        <figure>
+            {{ image.viewer.documentByArray({ width:200 })|raw }}
+            <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
+        </figure>
+    {% endfor %}
+
+Did you noticed that *images* relation is available directly in nodeSource object? That’s a little shortcut to
+``nodeSource.handler.documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
+node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
+
 
 Additional filters
 ------------------
