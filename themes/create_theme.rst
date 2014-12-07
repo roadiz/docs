@@ -28,7 +28,7 @@ So once you duplicated and renamed *DefaultTheme* with your own sweet name, do n
 
 * **Folder name** and **Class namespace** must be the same (Ex: “MyAwesomeTheme”) for making autoloader works with your theme.
 * **Theme entry point class**: your main theme class must be named after your folder name plus ``App`` suffix (Ex: “MyAwesomeThemeApp.php”)
-* **routes.yml**: rename every route class path using your namespace:
+* **Resources/routes.yml**: rename every route class path using your namespace:
 
 .. code-block:: yaml
 
@@ -244,3 +244,104 @@ render your current node.
     }
 
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
+
+Home page case
+--------------
+
+Homepage is always a special page to handle. With Roadiz you have the choice to handle it as
+a static page or as a dynamic page. In both case you’ll need to setup a static route
+in your theme ``Resources/routes.yml`` file.
+
+.. code-block:: yaml
+
+    homePage:
+        path:     /
+        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
+    homePageLocale:
+        path:     /{_locale}
+        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
+        requirements:
+            # Use every 2 letter codes
+            _locale: "[a-z]{2}"
+
+Now you can code your ``homeAction`` method in ``MyAwesomeThemeApp`` class. It will need 2 arguments:
+
+- A ``Request`` object: ``$request``
+- An optional locale string variable ``$_locale = null``
+
+Dynamic home
+^^^^^^^^^^^^
+
+If your home page is built with a node. You can tell Roadiz to handle home request as
+a *Page* request (if your home is a *page* type node) using ``$this->handle($request);`` method.
+This method will use the ``PageController`` class and ``page.html.twig`` template to render your home.
+This can be useful when you need to switch your home page to an other page, there is no need to make
+special ajustments.
+
+.. code-block:: php
+
+    /**
+     * {@inheritdoc}
+     */
+    public function homeAction(
+        Request $request,
+        $_locale = null
+    ) {
+        /*
+         * Get language from static route
+         */
+        $translation = $this->bindLocaleFromRoute($request, $_locale);
+        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
+                                       ->findHomeWithTranslation($translation);
+
+        $this->prepareThemeAssignation($home, $translation);
+
+        /*
+         * Render Homepage according to its node-type controller
+         */
+        return $this->handle($request);
+    }
+
+Static home
+^^^^^^^^^^^
+
+Imagine now that your home page has a totally different look than other pages. Instead of letting
+``handle()`` method returning your Response object, you can create it directly and use a dedicated
+``home.html.twig`` template.
+
+.. code-block:: php
+
+    /**
+     * {@inheritdoc}
+     */
+    public function homeAction(
+        Request $request,
+        $_locale = null
+    ) {
+        /*
+         * Get language from static route
+         */
+        $translation = $this->bindLocaleFromRoute($request, $_locale);
+        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
+                                       ->findHomeWithTranslation($translation);
+
+        $this->prepareThemeAssignation($home, $translation);
+
+        /*
+         * Render Homepage manually
+         */
+        return new Response(
+            $this->getTwig()->render('home.html.twig', $this->assignation),
+            Response::HTTP_OK,
+            array('content-type' => 'text/html')
+        );
+    }
+
+Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice
+a dynamic or a static home handling:
+
+- ``node``
+- ``nodeSource``
+- ``translation``
+
+
