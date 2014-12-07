@@ -65,19 +65,33 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
 Console command
 ---------------
 
-Roadiz have an executable in bin folder at the CMS' root.
-The goal is to have a cli ways to configure and manage some low-levels paramaters
-You can call it like that:
+Roadiz can be executed as a simple CLI tool using your SSH connexion. This is useful to
+handle basic administration tasks with no need of backoffice administration.
 
 .. code-block:: console
 
     ./bin/roadiz
 
-By default, the used command is list so it will list all command available.
-
-You can use the argument ``--help`` to have more information about the command.
-Example:
+Default command with no arguments will show you the available commands list. Each command have its
+own parameters. You can use the argument ``--help`` to get more informations about each tool:
 
 .. code-block:: console
 
     ./bin/roadiz install --help
+
+As you already saw in :ref:`upgrading` section, CLI tools are useful to handle database upgrades and
+to regenerate nodes-sources entities classes. But you also can switch *development mode* too:
+
+.. code-block:: console
+
+    # Enabling development mode
+    ./bin/roadiz config --enable-devmode
+
+    # Disabling development mode
+    ./bin/roadiz config --disable-devmode
+
+You can even review every user roles:
+
+.. code-block:: console
+
+    ./bin/roadiz users

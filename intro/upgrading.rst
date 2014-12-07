@@ -24,24 +24,29 @@ Use *Composer* to update dependancies
 
     composer update;
 
-Then run database schema update
+Then run database schema update, first review migration details
+to see if no data will be removed:
 
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --dump-sql;
 
-If migration summary is OK, perform the changes
+Then, if migration summary is OK, perform the changes:
 
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache --clear-all
 
+.. note::
+    If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
+    because it cannot done from a CLI interface as they are shared cache engines.
+
 Upgrading Node-types source entities
 ------------------------------------
 
 If some Doctrine errors occur about some missing fields in your *NodesSources*,
-you must *regenerate all entities* source files
+you must *regenerate all entities* source files:
 
 .. code-block:: bash
 
@@ -54,7 +59,3 @@ Verify here that no data field will be removed and apply changes
 
     bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache --clear-all
-
-.. note::
-    If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
-    because it cannot done from a CLI interface as they are shared cache engines.
