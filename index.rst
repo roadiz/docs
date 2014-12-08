@@ -34,23 +34,6 @@ Tag system
    :maxdepth: 1
 
    tags-system/intro
-   tags-system/tags
-
-Translation
------------
-
-.. toctree::
-   :maxdepth: 1
-
-   translation/intro
-
-Document system
----------------
-
-.. toctree::
-   :maxdepth: 1
-
-   documents/intro
 
 
 User system
