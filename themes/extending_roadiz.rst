@@ -104,7 +104,7 @@ And add in the class, if it doesn't existe, this function:
 
     public static function setupDependencyInjection(Container $container)
     {
-        FrontendController::setupDependencyInjection($container);
+        parent::setupDependencyInjection($container);
 
         $container->extend('backoffice.entries', function (array $entries, $c) {
 
