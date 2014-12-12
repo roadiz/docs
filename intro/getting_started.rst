@@ -14,8 +14,8 @@ For example: imagine you need to display your graphic design portfolio and… se
 to create your content forms from scratch and choose the right fields you need. Images and texts for your projects.
 Images, texts, prices and even geolocation for your products. That’s why it’s called *polymorphic*.
 
-When you’ll discover Roadiz back-office interface, you’ll notice that there aren’t any Rich text editor or called
-WYSIWYG editors. We made the choice to promote *Markdown* syntax in order to focus on content hierarchy and quality
+When you’ll discover Roadiz back-office interface, you’ll notice that there aren’t any Rich text editor also called
+*WYSIWYG* editors. We made the choice to promote *Markdown* syntax in order to focus on content hierarchy and quality
 instead of content style. Our guideline is to preserve and respect the webdesigners and graphic designers work.
 
 You’ll see that we built Roadiz as webdesigners and for webdesigners. It will allow you to create really quickly website
@@ -58,21 +58,45 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * ``php5-intl`` extension
 * ``php5-imap`` extension
 * ``php5-curl`` extension
+* PHP cache (APC/XCache) + Var cache (strongly recommended)
+* MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
 * Zip/Unzip
 * cUrl
-* PHP cache (APC/XCache) + Var cache (strongly recommended)
 * Composer
 * Git
+
+For Apache users
+^^^^^^^^^^^^^^^^
+
+If you are using *Apache* do not forget to activate these mods:
+
+* ``mod_rewrite``: for activating Roadiz front-controller system.
+* ``mod_expires``: to activate http cache headers on static assets.
+
+And do not use built-in ``mod_php``, prefer *PHP-FPM* ;-)
 
 Installation
 ------------
 
-You can either use *Apache* or *Nginx* with Roadiz. An example virtual host is provided for each:
+You can either use *Apache* or *Nginx* with Roadiz. An example virtual host is provided for each server:
 
-* ``apache.conf``
-* ``nginx.conf``
+* ``samples/apache.conf``
+* ``samples/nginx.conf``
 
-These example files will provide basic security configuration for private access folders. Such as ``conf`` or ``files/fonts`` folders.
+You just have to customize your root path and server name. *Nginx* has built-in support for *php-fpm* whereas *Apache*
+must be configured with *fastcgi* to do the same.
+
+These example files will provide basic security configuration for private access folders:
+such as ``conf`` or ``files/fonts`` folders. They will also configure your server to redirect all non static requests
+to Roadiz *front-controller*.
+
+.. note::
+    **For shared hosting plan owners**, if you can’t modify your virtual host definition.
+    Don’t panic, Roadiz has a built-in CLI command to generate ``.htaccess`` files for you.
+    Just execute ``bin/roadiz conf --generateHtaccess`` after you cloned Roadiz sources and run Composer.
+    In the other hand, if you are using *Apache* and have access to your virtual host, we strongly recommend you
+    to use our sample configuration and to disable ``.htaccess`` files: performances are at their best
+    without them.
 
 When your HTTP server is ready to go, download *Roadiz* latest version using Git:
 

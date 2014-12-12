@@ -3,12 +3,11 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file works as you would find
-it more convinient than launching Install theme for each update.
+This section explains how main configuration file ``conf/config.json`` works as you would find
+it more convenient than launching Install theme for each update.
 
-Your ``config.json`` file is built in parts. Each one match a *service* of your CMS.
-
-The most important part is the database credentials part:
+Your ``conf/config.json`` file is built using JSON syntax. Each part match a Roadiz *service* configuration.
+The most important part deals with Doctrine database credentials:
 
 .. code-block:: json
 
@@ -20,8 +19,8 @@ The most important part is the database credentials part:
         "dbname": ""
     }
 
-Roadiz uses *Doctrine ORM* to store your data. It will directly pass this part to *Doctrine* so
-you can use every available drivers or options from its documentation at
+Roadiz uses *Doctrine ORM* to store your data. It will directly pass this JSON part to *Doctrine* so
+you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 
 
@@ -46,6 +45,9 @@ Add this to your `config.json` to link your CMS to your *Solr* server:
             }
         }
     }
+
+Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr --help`` to get
+more informations.
 
 
 Entities paths
@@ -72,7 +74,13 @@ handle basic administration tasks with no need of backoffice administration.
 
     ./bin/roadiz
 
-Default command with no arguments will show you the available commands list. Each command have its
+If your system is not configured to have *php* located in ``/usr/bin/php`` use it this way:
+
+.. code-block:: console
+
+    php ./bin/roadiz
+
+Default command with no arguments will show you the available commands list. Each command has its
 own parameters. You can use the argument ``--help`` to get more informations about each tool:
 
 .. code-block:: console
@@ -95,3 +103,8 @@ You can even review every user roles:
 .. code-block:: console
 
     ./bin/roadiz users
+
+We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful
+commands which can alter your database and make you lose precious contents. Especially when you will need to update
+your database schema after a Theme or a Core update. **Always make a database back-up before any Doctrine operation**.
+

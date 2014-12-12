@@ -5,27 +5,30 @@ Extending Roadiz
 ================
 
 It's time to see how to extend Roadiz!
-As we said in the Roadiz philosophy, we dont want to have "plugin" or "module" like on another CMS.
-But we can add a lot of feature by theme!
+As we said in the Roadiz philosophy, we don’t want any "plugin" or "module" like on another CMS.
+But we can add a lot of feature using the really part that matters: Themes!
 
 Theme powered CMS
 -----------------
 
-We write the theme system to be the core of your extending experience.
-You don't need to change something else than your theme.
+We wrote the Theme system to be the core of your extending experience.
+You don't need to change something else than your theme. So you can use a versioning tool or backup
+easily your work which will be only at one place.
 
-You can add new entities. if you do, don't forget to add the namespace in the roadiz config file.
-With theses entities, you want maybe to create a back-office entry to manage them. It's easy!
-Let's see how to do.
+You can add new entities. If so, don't forget to add your ``Entities`` namespace in Roadiz config file.
+With theses additional entities, you maybe will need to create a back-office entry to manage them. It's easy!
+Let's see how to.
 
 Add back-office entry
 ---------------------
 
-At first create a controller into your theme folder.
+At first, create a controller into your theme folder, for example ``themes/MyTheme/AdminControllers/AdminController``.
 
 Example:
 
 .. code-block:: php
+
+    namespace Themes\MyTheme\AdminControllers;
 
     class AdminController extends RozierApp
     {
@@ -44,9 +47,10 @@ Example:
         }
     }
 
-If you look at this exemple you can see the class extends RozierApp. This is made for keep the rozier back-office DOM and style.
+If you look at this exemple you can see the class extends ``RozierApp`` not your ``MyThemeApp`` class!
+This will enable you to “inject” your code into Rozier Back-stage DOM and Style.
 
-Now let's have a look to the twig file.
+Now let's have a look to your twig template file ``admin/test.html.twig``.
 
 .. code-block:: jinja
 
@@ -71,20 +75,24 @@ Now let's have a look to the twig file.
         </header>
 
         <article class="content content-test">
-            <p>This page is created from DefaultTheme to show you how to extend backoffice features.</p>
+            <p>This page is created from MyTheme to show you how to extend backoffice features.</p>
         </article>
     </section>
     {% endblock %}
 
-The first line is for set the base template.
+The first line is for inheriting from Rozier base template.
 
-The two next blocks are made for you to add some css or javascript.
-For css, the block "customStyle": you css file with a balise "<link>", for the path that must be something like that ``{{ request.baseUrl ~ "/themes/YourTheme/static/css/customstyle.css" }}``,  or add some css in "<style>" balise.
-For js, the block "customScripts": work like "customStyle" block.
+The two next blocks are made for you to add some CSS or Javascript.
+For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ request.baseUrl ~ "/themes/MyTheme/static/css/customstyle.css" }}``,  or add directly some CSS with "<style>" tag.
+For JS, the block ``customScripts`` work as is, just link an external JS file or write your ``<script>`` tag.
 
-The end of the file is just test content.
+Then create your own content, do not hesitate to give a look at Rozier back-stage theme Twig files to use the right DOM structure.
+For simple features, you wouldn’t have to extend JS nor CSS if you follow the same HTML coding style.
 
-Add the route in the theme route file.
+Linking things together
+-----------------------
+
+Add the route in the theme ``route.yml`` file.
 
 In this case the route will be:
 
@@ -92,13 +100,15 @@ In this case the route will be:
 
     adminTestPage:
         path:     /rz-admin/test # Setting your path behind rz-admin will activate Firewall
-        defaults: { _controller: Themes\YourTheme\Controllers\AdminController::listAction }
+        defaults: { _controller: Themes\MyTheme\Controllers\AdminController::listAction }
 
-And now the last thing at the information in the back-office menu.
+Inject your own entries in back-stage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to your YourThemeApp.
+The last thing to do is to add your new admin entry in the back-office menu.
 
-And add in the class, if it doesn't existe, this function:
+Go to your ``MyThemeApp.php`` main class and override ``setupDependencyInjection`` method,
+or create it if it doesn’t exist.
 
 .. code-block:: php
 
@@ -123,23 +133,29 @@ And add in the class, if it doesn't existe, this function:
         });
     }
 
-Don't forget to add ``use Pimple\Container;``!
+Do not forget to add ``use Pimple\Container;`` in your file header.
 
-The important thing inside is the add entries. This will define your entry in the back-office menu.
+``setupDependencyInjection`` method is called statically at boot time when Roadiz’s kernel is running
+all available Themes to setup services. In the code above, you will extend ``backoffice.entries`` service which
+define every buttons available in Rozier backstage main-menu.
 
-If you want to have a category and subentries, just change the path at ``null`` value and add in ``subentries`` like the next example.
+If you want to have a category and sub-entries, just change the path at ``null`` value and create your ``subentries`` array as described in the next example:
 
 .. code-block:: php
 
     $entries['customAdmin'] = array(
-    'name' => 'customAdmin',
-    'path' => null,
-    'icon' => 'uk-icon-cube',
-    'roles' => null,
-    'subentries' => array(
-        'customAdminPage' => array(
-            'name' => 'customAdmin page',
-            'path' => $c['urlGenerator']->generate('adminTestPage'),
-            'icon' => 'uk-icon-cube',
-            'roles' => null
-        ),
+        'name' => 'customAdmin',
+        'path' => null,
+        'icon' => 'uk-icon-cube',
+        'roles' => null,
+        'subentries' => array(
+            'customAdminPage' => array(
+                'name' => 'customAdmin page',
+                'path' => $c['urlGenerator']->generate('adminTestPage'),
+                'icon' => 'uk-icon-cube',
+                'roles' => null
+            ),
+            // Add others if you want
+        )
+    );
+

@@ -15,9 +15,9 @@ First contact
 
    intro/why_roadiz
    intro/getting_started
+   intro/manual_config
    intro/upgrading
    intro/moving
-   intro/manual_config
    intro/contributing
 
 Node system
