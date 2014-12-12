@@ -30,6 +30,11 @@ Example:
 
     namespace Themes\MyTheme\AdminControllers;
 
+    use Themes\Rozier\RozierApp;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\HttpFoundation\RedirectResponse;
+
     class AdminController extends RozierApp
     {
 
@@ -100,7 +105,7 @@ In this case the route will be:
 
     adminTestPage:
         path:     /rz-admin/test # Setting your path behind rz-admin will activate Firewall
-        defaults: { _controller: Themes\MyTheme\Controllers\AdminController::listAction }
+        defaults: { _controller: Themes\MyTheme\AdminControllers\AdminController::listAction }
 
 Inject your own entries in back-stage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,4 +163,13 @@ If you want to have a category and sub-entries, just change the path at ``null``
             // Add others if you want
         )
     );
+
+You can restrict buttons to users with specific roles. Just replace ``'roles' => null`` with
+``'roles' => array('ROLE_ACCESS_NODES')``. You can even create your own roles to take full power of
+Roadiz extension system.
+
+.. warning::
+    Adding roles in ``backoffice.entries`` service will only restrict buttons display in Rozier backstage interface.
+    To really protect your controllers from unwanted users add ``$this->validateAccessForRole('ROLE_ACCESS_MY_FEATURE');`` at the first
+    line of your back-ofice controller‘s actions. This will kick non-granted users from your custom back-office parts. Give a look at Rozier theme controllers to see how we use it.
 
