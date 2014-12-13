@@ -13,7 +13,6 @@ First contact
 .. toctree::
    :maxdepth: 1
 
-   intro/why_roadiz
    intro/getting_started
    intro/manual_config
    intro/upgrading
@@ -55,7 +54,6 @@ Themes
    themes/create_theme
    themes/using_twig
    themes/custom_assignations
-   themes/extending_roadiz
 
 Forms
 -----
@@ -73,6 +71,14 @@ Services
    :maxdepth: 1
 
    services/intro
+
+Extension system
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   themes/extending_roadiz
 
 
 

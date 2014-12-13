@@ -14,6 +14,11 @@ For example: imagine you need to display your graphic design portfolio and… se
 to create your content forms from scratch and choose the right fields you need. Images and texts for your projects.
 Images, texts, prices and even geolocation for your products. That’s why it’s called *polymorphic*.
 
+.. _philosophy:
+
+Philosophy
+----------
+
 When you’ll discover Roadiz back-office interface, you’ll notice that there aren’t any Rich text editor also called
 *WYSIWYG* editors. We made the choice to promote *Markdown* syntax in order to focus on content hierarchy and quality
 instead of content style. Our guideline is to preserve and respect the webdesigners and graphic designers work.
@@ -21,6 +26,12 @@ instead of content style. Our guideline is to preserve and respect the webdesign
 You’ll see that we built Roadiz as webdesigners and for webdesigners. It will allow you to create really quickly website
 prototypes using *Twig* templates. But as the same time you will be able to get the power of the *Symfony* and *Doctrine* core components
 to build complex applications.
+
+We also decided to be really strict about Plugins and other addons modules. How many of yours do not upgrade your Wordpress
+website because of plugins dependencies? We decided not to build Roadiz around a “Plugin” system but a **Theme system**, as every Roadiz extensions will have to serve a theme’s features. Themes will enable you to create awesome website layouts but also great back-office additions for your customers. You will be able to centralize all your custom code at one place, so you can use a versioning tool such as Git.
+
+Roadiz theme system will allow you to daisy-chain themes and dispatch features on multiple code. As our CMS is built on Pimple dependency injection container, Roadiz can merge every available themes on the same website. For example, you will be able to create one portfolio theme using Node-system Urls and unlimited static themes which will use a static routing scheme, for a Forum or a Blog or both! Theme system will even allow you to create additional Doctrine entities and extend our back-office. Yes, just sat on your theme code and you can extend Roadiz to create a manager for your Forum. Cherry on the cake, you can assign each theme to a specific domain name to create mobile or media specific layouts. Believe me, this cake is not a lie.
+
 We want Roadiz to be a great tool for designers and developers to build strong experiences together. But we thought about editors too! Roadiz back-office theme “Rozier” has been designed to offer every back-users a great writing and administrating experience.
 
 CMS Structure
@@ -93,7 +104,7 @@ to Roadiz *front-controller*.
 .. note::
     **For shared hosting plan owners**, if you can’t modify your virtual host definition.
     Don’t panic, Roadiz has a built-in CLI command to generate ``.htaccess`` files for you.
-    Just execute ``bin/roadiz conf --generateHtaccess`` after you cloned Roadiz sources and run Composer.
+    Just execute ``bin/roadiz config --generateHtaccess`` after you cloned Roadiz sources and run Composer.
     In the other hand, if you are using *Apache* and have access to your virtual host, we strongly recommend you
     to use our sample configuration and to disable ``.htaccess`` files: performances are at their best
     without them.

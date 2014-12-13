@@ -5,13 +5,13 @@ Extending Roadiz
 ================
 
 It's time to see how to extend Roadiz!
-As we said in the Roadiz philosophy, we don’t want any "plugin" or "module" like on another CMS.
-But we can add a lot of feature using the really part that matters: Themes!
+As you read in Roadiz :ref:`philosophy` part, we won’t ship "plugin" or "module" like others CMS.
+But you will be able to add lots of features using the really part that matters: Themes!
 
 Theme powered CMS
 -----------------
 
-We wrote the Theme system to be the core of your extending experience.
+We code the Theme system to be the core of your extending experience.
 You don't need to change something else than your theme. So you can use a versioning tool or backup
 easily your work which will be only at one place.
 
