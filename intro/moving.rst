@@ -35,3 +35,27 @@ Now you can perform a schema update without losing your nodes data
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
     because it cannot done from a CLI interface as they are shared cache engines.
+
+
+Moving to a non-SSH hosting plan
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You have nearly finished your brand new website using Roadiz. You’ve worked on your own
+server using Git and Composer, up to this point everthing went well.
+
+Now you have to push to production, but your prod-server has no SSH connexion. You are stuck with
+your SFTP connexion or worst, an old FTP one. Don’t panic, it will take a little more time but it’s still possible.
+
+.. warning::
+    Many shared-plan hosters offer you only one or two databases. When moving a Roadiz website, make sure
+    that your database is empty and do not contain orphan tables, you must respect the rule “One app = One database”.
+
+* Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz config --generateHtaccess``.
+* If you have at least SFTP, you should have to rights to zip/unzip on your distant server. So zip the whole Roadiz folder.
+* If you only have FTP, you must be prepared to transfer your Roadiz folder, file-by-file. Just go get a cup of coffee.
+* Once everything is copied on your production server, verify than you have the same files as on your dev-server.
+* Import your database dump with phpmyadmin or pgmyadmin.
+* Edit your ``conf/config.json`` to match your new database credentials. Enable ``devMode`` manually.
+* Verify that every sensitive folders contain an ``.htaccess`` file to deny access. Verify that root ``.htaccess`` file contains every informations to enable Apache url-rewriting.
+* Try to connect to your website, if everything works disable ``devMode`` and enjoy your hard work.
+* If it doesn’t work or display anything, read your PHP log file to understand where does the problem come from. It might be your database credentials or you PHP version that is too low. Check that your hoster has installed every needed PHP extensions, see :ref:`requirements`.

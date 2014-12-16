@@ -47,6 +47,8 @@ CMS Structure
 * ``themes/`` : Contains your themes and systems themes such as *Rozier* and *Install*
 * ``vendor/`` : Dependencies folder managed by *Composer*
 
+.. _requirements:
+
 Requirements
 ------------
 
@@ -89,7 +91,16 @@ And do not use built-in ``mod_php``, prefer *PHP-FPM* ;-)
 Installation
 ------------
 
-You can either use *Apache* or *Nginx* with Roadiz. An example virtual host is provided for each server:
+Roadiz can be installed in two ways:
+
+* The Good one : using **Git** and **Composer** (needs a SSH connnexion to your server)
+* The Easy one : using a bundled Zip archive with composer dependencies.
+
+Using Git (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+First you’ll have to setup properly your server virtual host. You can either use *Apache* or *Nginx* with Roadiz.
+An example virtual host is provided in source-code for each server:
 
 * ``samples/apache.conf``
 * ``samples/nginx.conf``
@@ -116,16 +127,12 @@ When your HTTP server is ready to go, download *Roadiz* latest version using Git
     cd your/webroot/folder;
     git clone git@github.com:roadiz/roadiz.git ./;
 
-Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependancies
+Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies
 and to build PHP class autolader.
 
 .. code-block:: bash
 
     composer install;
-
-.. note::
-    Once your website will be ready and every node-types created you will be able to
-    optimize *Composer* autoload process: ``composer dumpautoload -o``
 
 Then copy `conf/config.default.json` file to `conf/config.json`.
 
@@ -134,3 +141,35 @@ Then copy `conf/config.default.json` file to `conf/config.json`.
     cp conf/config.default.json conf/config.json;
 
 When your virtual host is ready, just go to your website to begin with the setup assistant.
+
+.. note::
+    Once your website will be ready to be pushed to production you will be able to
+    optimize *Composer* autoload process: ``composer dumpautoload -o``
+
+The quick and dirty way: using a Zip archive
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This method must be used if you have to work on your own computer with softwares like MAMP, WAMP or
+if you need to setup your website on a shared hosting plan without any SSH or Git.
+
+If you downloaded Roadiz on the `Github release <https://github.com/roadiz/roadiz/releases>`_ page or
+`directly from our website <http://www.roadiz.io>`_, you should get a bundled
+Zip containing every Roadiz files and Composer dependencies. We even have generated ``.htaccess`` files
+and a ``conf/config.json`` file for you.
+
+If you can unzip directly on your server, that’s cool. It will save you time,
+if not, just unzip it on your desktop and upload files to your server via FTP.
+
+.. warning::
+    When you transfer your Roadiz site via FTP make sure ``.htaccess`` files are copied into each important
+    folders (``./``, ``./conf``, ``./src``, ``./files/fonts``, etc). If you are using an Apache setup, this will prevent
+    unwanted access to important files.
+
+Once you unzipped and moved your Roadiz files into your webserver folder, just launch the Install
+tool with your Internet browser by typing your new website address. If you are working on your own computer
+with MAMP, WAMP or other easy-server tool, just type ``http://localhost:8888/roadiz-folder`` in your browser (the port may change
+according to your server settings).
+
+You have to understand that using Zip archive way with FTP transfers will make updates Roadiz more difficult to be done.
+If you have a dedicated server or a VPS, we highly recommend you to use Git and Composer to install Roadiz. That way,
+you will be able to upgrade Roadiz just by typing ``git pull origin master``.
