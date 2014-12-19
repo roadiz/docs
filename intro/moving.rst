@@ -52,6 +52,13 @@ your SFTP connexion or worst, an old FTP one. Don’t panic, it will take a litt
 
 * Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz config --generateHtaccess``.
 * If you have at least SFTP, you should have to rights to zip/unzip on your distant server. So zip the whole Roadiz folder.
+
+.. note::
+    If you can ZIP on your production server or if you are going to push your files via FTP,
+    do not forget to exclude ``.git`` and ``node_modules`` folders! These folders have **lots** of useless files
+    for a production SSH-less environnement.
+    Here is a sample ZIP command to exclude them: ``zip -r mywebsite.zip mywebsite/ -x "mywebsite/.git/*" "mywebsite/themes/**/static/node_modules/*"``.
+
 * If you only have FTP, you must be prepared to transfer your Roadiz folder, file-by-file. Just go get a cup of coffee.
 * Once everything is copied on your production server, verify than you have the same files as on your dev-server.
 * Import your database dump with phpmyadmin or pgmyadmin.
