@@ -4,13 +4,13 @@
 Getting started
 ===============
 
-Roadiz is a polymorphic CMS based on a node system which can handle many type of services.
+Roadiz is a polymorphic CMS based on a node system which can handle many types of services.
 It’s based on *Symfony* components, *Doctrine ORM*, *Twig* and *Pimple* for maximum performances and security.
 
 Roadiz node system allows you to create your data schema and to organise your content as you want.
 We designed it to break technical constraints when you create tailor-made websites architectures and layouts.
 
-For example: imagine you need to display your graphic design portfolio and… sell some t-shirts. With Roadiz you’ll be able
+Imagine you need to display your graphic design portfolio and… sell some t-shirts. With Roadiz you’ll be able
 to create your content forms from scratch and choose the right fields you need. Images and texts for your projects.
 Images, texts, prices and even geolocation for your products. That’s why it’s called *polymorphic*.
 
@@ -132,7 +132,7 @@ and to build PHP class autolader.
 
 .. code-block:: bash
 
-    composer install;
+    composer install --no-dev;
 
 Then copy `conf/config.default.json` file to `conf/config.json`.
 

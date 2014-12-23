@@ -22,7 +22,7 @@ Use *Composer* to update dependancies
 
 .. code-block:: bash
 
-    composer update;
+    composer update --no-dev;
 
 Then run database schema update, first review migration details
 to see if no data will be removed:
@@ -31,7 +31,7 @@ to see if no data will be removed:
 
     bin/roadiz orm:schema-tool:update --dump-sql;
 
-Then, if migration summary is OK, perform the changes:
+Then, if migration summary is OK (no data loss), perform the changes:
 
 .. code-block:: bash
 
