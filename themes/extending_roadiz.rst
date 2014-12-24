@@ -11,7 +11,7 @@ But you will be able to add lots of features using the really part that matters:
 Theme powered CMS
 -----------------
 
-We code the Theme system to be the core of your extending experience.
+We coded the Theme system to be the core of your extending experience.
 You don't need to change something else than your theme. So you can use a versioning tool or backup
 easily your work which will be only at one place.
 

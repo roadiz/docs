@@ -10,7 +10,7 @@ Let's check this simple node schema before explain it.
 
 .. image:: ./img/node-struct.*
 
-Now, it's time explain how it's working!
+Now, it's time to explain how it's working!
 
 
 
@@ -29,7 +29,7 @@ It will contain all fields that Roadiz will use to generate an extended node-sou
 For example, a node-type "Page" will contain "content" and "header image" fields.
 The "title" field is always available as it is hard-coded in ``NodesSources`` class.
 After saving your node-type, Roadiz generates a ``NSPage`` class which extends the ``NodesSources`` class.
-You will find it in the ``gen-src/GeneratedNodeSources``.
+You will find it in the ``gen-src/GeneratedNodeSources``. Then Roadiz calls *Doctrine* schema to update.
 Don’t modify the generated class! You’ll have to update it by the backend interface.
 
 Here is a schema to understand how node-types can define custom fields into node-sources:
@@ -49,7 +49,9 @@ We really encourage you to check the commands with ``--help`` argument, as follo
 
 Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create
 a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform
-updates.
+updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before**
+upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could
+delete existing data since *Doctrine* won’t recognize specific tables.
 
 Now let's have a look on node-sources.
 
