@@ -8,43 +8,43 @@ Using Twig
 
     Twig is the default rendering engine for *Roadiz* CMS. You’ll find its documentation at http://twig.sensiolabs.org/doc/templates.html
 
-When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz will automatically assign some variables for you::
+When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz will automatically assign some variables for you.
 
-    * **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
-    * **head**
-        * **ajax** — [boolean] Tells if current request is an Ajax one
-        * **cmsVersion** — [string]
-        * **cmsBuild** — [string]
-        * **devMode** — [boolean]
-        * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
-        * **filesUrl** — [string]
-        * **resourcesUrl** — [string] Your theme ``Resources`` url. Useful to reach your assets.
-        * **ajaxToken** — [string]
-        * **fontToken** — [string]
-    * **session**
-        * **messages** — [array]
-        * **id** — [string]
-        * **user** — [object]
-    * **securityContext** — [object]
+* **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
+* **head**
+    * **ajax** — [boolean] Tells if current request is an Ajax one
+    * **cmsVersion** — [string]
+    * **cmsBuild** — [string]
+    * **devMode** — [boolean]
+    * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
+    * **filesUrl** — [string]
+    * **resourcesUrl** — [string] Your theme ``Resources`` url. Useful to reach your assets.
+    * **ajaxToken** — [string]
+    * **fontToken** — [string]
+* **session**
+    * **messages** — [array]
+    * **id** — [string]
+    * **user** — [object]
+* **securityContext** — [object]
 
-There are some more content only available from *FrontendControllers*::
+There are some more content only available from *FrontendControllers*.
 
-    * **_default_locale** — [string]
-    * **meta**
-        * **siteName** — [string]
-        * **siteCopyright** — [string]
-        * **siteDescription** — [string]
+* **_default_locale** — [string]
+* **meta**
+    * **siteName** — [string]
+    * **siteCopyright** — [string]
+    * **siteDescription** — [string]
 
 Then, in each dynamic routing *actions* you will need this line ``$this->storeNodeAndTranslation($node, $translation);``
-in order to make page content available from your Twig template::
+in order to make page content available from your Twig template.
 
-    * **node** — [object]
-    * **nodeSource** — [object]
-    * **translation** — [object]
-    * **pageMeta**
-        * **title** — [string]
-        * **description** — [string]
-        * **keywords** — [string]
+* **node** — [object]
+* **nodeSource** — [object]
+* **translation** — [object]
+* **pageMeta**
+    * **title** — [string]
+    * **description** — [string]
+    * **keywords** — [string]
 
 All these data will be available in your Twig template using ``{{ }}`` syntax.
 For example use ``{{ pageMeta.title }}`` inside your head’s ``<title>`` tag.

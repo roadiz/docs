@@ -34,14 +34,15 @@ when your are working on your themes but it’s a lot more slower.
 
 When you’ll switch to production mode, you must disable *devMode* so that database metadata
 and *Twig* templates are requested from cache. It is even better if you have a *Var cache*
-like *APC* or *XCache* since useful data ar kept in memory. This efficiency has a drawback:
+like *APC* or *XCache* since useful data are kept in memory. This efficiency has a drawback:
 you’ll need to empty caches if you make a code update or a Roadiz update.
 
 .. code-block:: json
+
     "devMode" : true
 
 Another point about devMode is that static *Routes* are compiled at each request into a plain
-PHP class (``gen-src/Compiled/…``). If you disable *devMode*, Symfony router will be a more efficient
+PHP class (``gen-src/Compiled/…``). If you disable *devMode*, Symfony router will be a lot more efficient
 and that’s the same for *UrlGenerator*
 
 
