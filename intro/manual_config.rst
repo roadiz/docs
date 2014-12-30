@@ -89,7 +89,7 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
 Console command
 ---------------
 
-Roadiz can be executed as a simple CLI tool using your SSH connexion. This is useful to
+Roadiz can be executed as a simple CLI tool using your SSH connection. This is useful to
 handle basic administration tasks with no need of backoffice administration.
 
 .. code-block:: console

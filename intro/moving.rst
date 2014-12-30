@@ -45,8 +45,8 @@ Moving to a non-SSH hosting plan
 You have nearly finished your brand new website using Roadiz. You’ve worked on your own
 server using Git and Composer, up to this point everthing went well.
 
-Now you have to push to production, but your prod-server has no SSH connexion. You are stuck with
-your SFTP connexion or worst, an old FTP one. Don’t panic, it will take a little more time but it’s still possible.
+Now you have to push to production, but your prod-server has no SSH connection. You are stuck with
+your SFTP connection or worst, an old FTP one. Don’t panic, it will take a little more time but it’s still possible.
 
 .. warning::
     Many shared-plan hosters offer you only one or two databases. When moving a Roadiz website, make sure
