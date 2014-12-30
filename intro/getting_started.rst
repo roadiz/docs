@@ -53,11 +53,11 @@ Requirements
 ------------
 
 Roadiz is a web application running with PHP. It requires an HTTP server for static assets
-and SSH with out/ingoing allowed connexions.
+and SSH with out/ingoing allowed connections.
 
 .. note::
-    If you are using a *shared hosting plan*, make sure that your server’s SSH connexion
-    allows external connexions. You can verify with a simple ``ping google.com``.
+    If you are using a *shared hosting plan*, make sure that your server’s SSH connection
+    allows external connections. You can verify with a simple ``ping google.com``.
     If you get request timeouts, your hosting provider might be blocking your SSH connectivity.
     You should consider using at least a VPS-like hosting.
     If you really need to setup Roadiz on a simple shared-hosting plan, we encourage you to
