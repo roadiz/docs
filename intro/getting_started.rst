@@ -66,7 +66,7 @@ and SSH with out/ingoing allowed connections.
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache
-* PHP 5.4+
+* PHP 5.4.3+
 * ``php5-gd`` extension
 * ``php5-intl`` extension
 * ``php5-imap`` extension
