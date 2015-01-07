@@ -38,10 +38,10 @@ CMS Structure
 -------------
 
 * ``bin/`` : Contains the Roadiz CLI executable
-* ``cache/`` : Every caches files for *Twig* templates and *SLIR* images
-* ``conf/`` : Your setup configuration file(s)
-* ``files/`` : Documents and fonts files root
-* ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities
+* ``cache/`` : Every caches files for *Twig* templates and *SLIR* images (this folder must be writable for PHP)
+* ``conf/`` : Your setup configuration file(s) (this folder must be writable for PHP)
+* ``files/`` : Documents and fonts files root (this folder must be writable for PHP)
+* ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
 * ``src/`` : Roadiz CMS logic and core source code
 * ``tests/`` : PHP Unit tests root
 * ``themes/`` : Contains your themes and systems themes such as *Rozier* and *Install*
