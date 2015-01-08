@@ -6,7 +6,7 @@ Extending your Twig assignation
 
 For a simple website theme, base assignation will work for almost every cases.
 Using ``node`` or ``nodeSource`` data from your Twig template, you will be able to
-render all your pages datas.
+render all your page fields.
 
 Now imagine you need to load data from another node than the one being
 requested. Or imagine that you want to create a complex homepage which displays a summary
@@ -80,7 +80,7 @@ template file:
 Add previous and next links
 ---------------------------
 
-Now we need to create links to jump to next and previous pages. So go back to your ``PageController.php``
+In this example, we want to create links to jump to next and previous pages. First, go back to your ``PageController.php``
 file to add some assignations.
 
 .. code-block:: php
@@ -111,10 +111,10 @@ file to add some assignations.
                  )
              );
 
-So we used ``nodeSourceApi`` service which is a Doctrine entity manager wrapper
+We used ``nodeSourceApi`` service which is a Doctrine entity manager wrapper
 to easily query over NodesSources entities and filtering with node criteria.
 
-You can now use these 2 new node-sources in your Twig template:
+You can now use these two new node-sources in your Twig template:
 
 .. code-block:: html+jinja
 
