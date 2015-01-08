@@ -77,6 +77,8 @@ template file:
     </div>
     {% endblock %}
 
+Add previous and next links
+---------------------------
 
 Now we need to create links to jump to next and previous pages. So go back to your ``PageController.php``
 file to add some assignations.
@@ -93,8 +95,9 @@ file to add some assignations.
         $this->getService('nodeSourceApi')
              ->getOneBy(
                  array(
-                     'node.parent' => $node->getParent()
-                     'node.position' => $node->getPosition() + 1
+                     'node.parent' => $node->getParent(),
+                     'node.position' => $node->getPosition() + 1,
+                     'translation' => $translation
                  )
              );
 
@@ -102,11 +105,150 @@ file to add some assignations.
         $this->getService('nodeSourceApi')
              ->getOneBy(
                  array(
-                     'node.parent' => $node->getParent()
-                     'node.position' => $node->getPosition() - 1
+                     'node.parent' => $node->getParent(),
+                     'node.position' => $node->getPosition() - 1,
+                     'translation' => $translation
                  )
              );
 
 So we used ``nodeSourceApi`` service which is a Doctrine entity manager wrapper
 to easily query over NodesSources entities and filtering with node criteria.
 
+You can now use these 2 new node-sources in your Twig template:
+
+.. code-block:: html+jinja
+
+    {% if prevNodeSource %}
+    <a class="previous" href="{{ prevNodeSource.handler.url }}">Prev.: {{ prevNodeSource.title }}</a>
+    {% endif %}
+
+    {% if nextNodeSource %}
+    <a class="next" href="{{ nextNodeSource.handler.url }}">Next: {{ nextNodeSource.title }}</a>
+    {% endif %}
+
+
+Use *Page / Block* data pattern
+-------------------------------
+
+At REZO ZERO, we often use complex page design which need removable and movable
+parts. At first we used to create long node-types with a lot of fields, and when
+editors needed to move content to an other position, they had to cut and paste text
+to another field. It was long and not very sexy.
+
+So we thought about a modulable way to build pages. We decided to use one master node-type and
+several slave node-types instead of a single big type. Here is what we call **Page/Block pattern**.
+
+This pattern takes advantage of Roadiz node hierarchy. We create a very light *Page* node-type, with
+an *excerpt* and a *thumbnail* fields, then we create an other node-type that we will call *BasicBlock*.
+This block node-type will have a *content* and *image* fields.
+
+The magic comes when we add a last field into *Page* master node-type called *children_nodes*. This special
+field will display a node-tree inside your edit page. In this field parameter, we add *BasicBlock* name as a default
+value to tell Roadiz that each *Page* nodes will be able to contain *BasicBlock* nodes.
+
+So you understood that all your page data will be allocated in several *BasicBlock* nodes. Then your
+editor will just have to change block order to re-arrange your page content. That’s not all! With this
+pattern you can join images to each block so that each paragraph can be pictured with a *Document* field.
+No need to insert image tags right into your Markdown text as you would do in a Wordpress article.
+
+How to template *Page / Block* pattern
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that you’ve structured your data with a *Page* node-type and a *BasicBlock*, how do render your data
+in only one page and only one URL request? We will use custom assignations!
+
+Open your ``PageController.php`` file:
+
+.. code-block:: php
+
+    …
+    $this->prepareThemeAssignation($node, $translation);
+    // Add your additional assignations after this method.
+
+    // Get BasicBlock node-type entity to filter
+    // over current node children
+    $basicBlockType = $this->getService('nodeTypeApi')
+                           ->getOneBy(
+                                'name' => 'BasicBlock'
+                           );
+
+    // Assign blocks using current nodeSource children
+    // filtering them by node-type (only BasicBlock nodes
+    // will be queried)
+    //
+    // http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren
+    $this->assignation['blocks'] =
+        $this->assignation['nodeSource']
+             ->getHandler()
+             ->getChildren(
+                array(
+                    'node.nodeType' => $basicBlockType
+                ),
+                array(
+                    'node.position' => 'ASC'
+                ),
+                $this->getService('securityContext')
+             );
+
+
+.. note::
+    You can use different *block* types in the same *page*. Just create as many
+    node-types as you need and add their name to your *Page* ``children_node`` default values.
+    Then add each node-type into ``getChildren`` criteria using an array instead of
+    a single value: ``'node.nodeType' => array($basicBlockType, $anotherBlockType)``. That way, you
+    will be able to create awesome pages with different looks but with the same template
+    (basic blocks, gallery blocks, etc).
+
+Now we can update your ``types/page.html.twig`` template to use your assignated blocks.
+
+.. code-block:: html+jinja
+
+    …
+    {% if blocks %}
+    <section class="page-blocks">
+    {% for pageBlock in blocks %}
+
+        {% include 'blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
+            'loop': loop,
+            'nodeSource': pageBlock,
+            'themeServices': themeServices,
+            'securityContext': securityContext
+        } only %}
+
+    {% endfor %}
+    </section>
+    {% endif %}
+
+*Whaaat? What is that include?* This trick will save you a lot of time! We ask Twig to
+include a sub-template according to each block type name. Eg. for a *BasicBlock* node,
+Twig will include a ``blocks/basicblock.html.twig`` file. It’s even more powerful when
+you are using multiple block types because Twig will automatically choose the right
+template to render each part of your page.
+
+Then create each of your blocks templates files in ``blocks`` folder:
+
+.. code-block:: html+jinja
+
+    {# This is file: blocks/basicblock.html.twig #}
+
+    <div class="basicblock {% if loop.index0 is even %}even{% else %}odd{% endif %}">
+        {#
+         # Did you notice that 'pageBlock' became 'nodeSource' as
+         # we passed it during include for a better compatibility
+         #}
+        <h3>{{ nodeSource.title }}</h3>
+        <div class="content">{{ nodeSource.content|markdown }}</div>
+
+        <div class="images">
+        {% for document in nodeSource.images %}
+            <figure>
+                {{ document.viewer.documentByArray({'width':200})|raw }}
+            </figure>
+        {% endfor %}
+        </div>
+    </div>
+
+*Voilà!*
+This is the simplest example to demonstrate you the power of *Page / Block*
+pattern. If you managed to reproduce this example you can now try it using
+multiple *block* node-types, combining multiple sub-templates.

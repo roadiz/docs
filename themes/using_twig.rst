@@ -53,7 +53,7 @@ You can of course call objects members within Twig using the *dot* separator.
 .. code-block:: html+jinja
 
     <article>
-        <h1><a href="{{ nodeSource.handler.getUrl }}">{{ nodeSource.title }}</a></h1>
+        <h1><a href="{{ nodeSource.handler.url }}">{{ nodeSource.title }}</a></h1>
         <div>{{ nodeSource.content|markdown }}</div>
 
         {# Use complex syntax to grab documents #}
@@ -65,7 +65,7 @@ You can of course call objects members within Twig using the *dot* separator.
 
             {% set imageMetas = image.documentTranslations.first %}
             <figure>
-                {{ image.viewer.getDocumentByArray({ width:200 })|raw }}
+                {{ image.viewer.getDocumentByArray({ 'width':200 })|raw }}
                 <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
             </figure>
         {% endfor %}
@@ -98,7 +98,7 @@ in your PHP Controller before, you can directly use them in Twig:
 
         {% set imageMetas = image.documentTranslations.first %}
         <figure>
-            {{ image.viewer.documentByArray({ width:200 })|raw }}
+            {{ image.viewer.documentByArray({ 'width':200 })|raw }}
             <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
         </figure>
     {% endfor %}
