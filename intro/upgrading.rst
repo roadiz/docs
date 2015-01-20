@@ -22,7 +22,14 @@ Use *Composer* to update dependancies
 
 .. code-block:: bash
 
-    composer update --no-dev;
+    composer update -n --no-dev;
+
+In order to avoid losing sensible node-sources data. You should
+regenerate your node-types entities files:
+
+.. code-block:: bash
+
+    bin/roadiz core:node-types --regenerateAllEntities;
 
 Then run database schema update, first review migration details
 to see if no data will be removed:
@@ -40,22 +47,6 @@ Then, if migration summary is OK (no data loss), perform the changes:
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
-    because it cannot done from a CLI interface as they are shared cache engines.
+    because it cannot done from a CLI interface as they are shared cache engines. As a last
+    chance try, you can restart you ``php5-fpm`` service.
 
-Upgrading Node-types source entities
-------------------------------------
-
-If some Doctrine errors occur about some missing fields in your *NodesSources*,
-you must *regenerate all entities* source files:
-
-.. code-block:: bash
-
-    bin/roadiz core:node-types --regenerateAllEntities;
-    bin/roadiz orm:schema-tool:update --dump-sql;
-
-Verify here that no data field will be removed and apply changes
-
-.. code-block:: bash
-
-    bin/roadiz orm:schema-tool:update --force;
-    bin/roadiz cache --clear-all

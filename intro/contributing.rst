@@ -30,7 +30,7 @@ The unit tests can be launched by the command:
 
 .. code-block:: console
 
-    ./vendor/bin/phpunit -v --bootstrap=bootstrap.php tests/
+    ./vendor/bin/phpunit -v --bootstrap=tests/bootstrap.php tests/
 
 If your are writing a feature, don't forget to write a unit test for it. You can find some example in the folder ``tests``.
 

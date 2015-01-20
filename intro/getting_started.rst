@@ -69,7 +69,6 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * PHP 5.4.3+
 * ``php5-gd`` extension
 * ``php5-intl`` extension
-* ``php5-imap`` extension
 * ``php5-curl`` extension
 * PHP cache (APC/XCache) + Var cache (strongly recommended)
 * MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
@@ -132,7 +131,7 @@ and to build PHP class autolader.
 
 .. code-block:: bash
 
-    composer install --no-dev;
+    composer install -n --no-dev;
 
 Then copy `conf/config.default.json` file to `conf/config.json`.
 
