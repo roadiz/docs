@@ -48,5 +48,5 @@ Then, if migration summary is OK (no data loss), perform the changes:
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
     because it cannot done from a CLI interface as they are shared cache engines. As a last
-    chance try, you can restart you ``php5-fpm`` service.
+    chance try, you can restart your ``php5-fpm`` service.
 
