@@ -86,6 +86,27 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
         "gen-src/GeneratedNodeSources"
     ]
 
+
+Swift Mailer
+------------
+
+Roadiz uses *Swift Mailer* to send emails. This awesome librairy is built to enable different
+kinds of mail transports or protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
+but you can tell it to use another transport (such as SMTP) in your ``conf/config.json`` file.
+
+You can use *SSL*, *TLS* or no encryption at all.
+
+.. code-block:: json
+
+    "mailer": {
+        "type": "smtp",
+        "host": "localhost",
+        "port": 25,
+        "encryption": false,
+        "username": "",
+        "password": ""
+    }
+
 Console command
 ---------------
 
