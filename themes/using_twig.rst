@@ -178,6 +178,11 @@ Now, you can use ``DocumentViewer`` to generate HTML view for your documents no
 
 .. code-block:: html+jinja
 
+    {# Grab only first document from “images” field #}
+    {% set image = nodeSource.images[0] %}
+
+    {# Always test if document exists #}
+    {% if image %}
     {{ image.viewer.documentByArray({
         'width':200,
         'height':200,
@@ -185,6 +190,7 @@ Now, you can use ``DocumentViewer`` to generate HTML view for your documents no
         'quality':75,
         'embed':true
     })|raw }}
+    {% endif %}
 
 HTML output options
 ^^^^^^^^^^^^^^^^^^^
