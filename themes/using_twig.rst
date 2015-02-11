@@ -14,18 +14,21 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
 * **head**
     * **ajax** — [boolean] Tells if current request is an Ajax one
     * **cmsVersion** — [string]
+    * cmsVersionNumber
     * **cmsBuild** — [string]
     * **devMode** — [boolean]
     * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
     * **filesUrl** — [string]
     * **resourcesUrl** — [string] Your theme ``Resources`` url. Useful to reach your assets.
     * **ajaxToken** — [string]
+    * **universalAnalyticsId** — [string]
+    * **useCdn** - [boolean]
     * **fontToken** — [string]
 * **session**
     * **messages** — [array]
     * **id** — [string]
     * **user** — [object]
-* **securityContext** — [object]
+* **securityContext** — [object] This object is required when you browse nodes not to display unpublished content for anonymous visitors
 
 There are some more content only available from *FrontendControllers*.
 
@@ -71,8 +74,8 @@ You can of course call objects members within Twig using the *dot* separator.
         {% endfor %}
     </article>
 
-Handling Nodes and NodesSources with Twig
------------------------------------------
+Handling node-sources with Twig
+-------------------------------
 
 Most of frontent work will consist in Twig templating and Twig assignations. Roadiz Core entities are already
 linked together not to prepare your data before rendering it. Basically, you can access nodes or nodeSources data
@@ -103,9 +106,117 @@ in your PHP Controller before, you can directly use them in Twig:
         </figure>
     {% endfor %}
 
+Loop over node-source children
+------------------------------
+
+With Roadiz you will be able to grab each node-source children.
+
+.. code-block:: html+jinja
+
+    {% set childrenBlocks = nodeSource.handler.children(null, null, securityContext) %}
+    {% for childBlock in childrenBlocks %}
+    <div class="block">
+        <h2>{{ childBlock.title }}</h2>
+        <div>{{ childBlock.content|markdown }}</div>
+    </div>
+    {% endfor %}
+
+`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``SecurityContext`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering.
+
+.. code-block:: html+jinja
+
+    {#
+     # This statement will only grab *visible* children node-sources and
+     # will order them ascendently according to their *title*.
+     #}
+    {% set childrenBlocks = nodeSource.handler.children(
+        {'node.visible': true},
+        {'title': 'ASC'},
+        securityContext
+    ) %}
+
+
+.. note::
+    Calling ``getChildren`` from a node-source *handler* will always return ``NodesSources`` objects from
+    the same translation as their parent.
+
+
+Add previous and next links
+---------------------------
+
+In this example, we want to create links to jump to *next* and *previous* pages. We will use node-source handler methods
+``getPrevious()`` and ``getNext()`` which work the same as ``getChildren`` method.
+
+.. code-block:: html+jinja
+
+    {% set prev = nodeSource.handler.previous(null,null,securityContext) %}
+    {% set next = nodeSource.handler.next(null,null,securityContext) %}
+
+    {% if (prev or next) %}
+    <nav class="contextual-menu">
+        {% if prev %}
+        <a class="previous" href="{{ prev.handler.url }}"><i class="uk-icon-arrow-left"></i> {{ prev.title }}</a>
+        {% endif %}
+        {% if next %}
+        <a class="next" href="{{ next.handler.url }}">{{ next.title }} <i class="uk-icon-arrow-right"></i></a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+.. note::
+    Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will always return ``NodesSources`` objects from
+    the same translation as their sibling.
+
+Displaying documents
+--------------------
+
 Did you noticed that *images* relation is available directly in nodeSource object? That’s a little shortcut to
 ``nodeSource.handler.documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
 node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
+
+Now, you can use ``DocumentViewer`` to generate HTML view for your documents no matter they are *images*, *videos* or *embed*.
+
+.. code-block:: html+jinja
+
+    {{ image.viewer.documentByArray({
+        'width':200,
+        'height':200,
+        'crop':"1:1",
+        'quality':75,
+        'embed':true
+    })|raw }}
+
+HTML output options
+^^^^^^^^^^^^^^^^^^^
+
+* embed (true|false), display an embed as iframe instead of its thumbnail
+* identifier
+* class
+* alt: If not filled, it will get the document name, then the document filename
+
+Images resampling options
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* width
+* height
+* crop ({w}x{h}, for example : 100x200)
+* grayscale / greyscale (boolean)
+* quality (1-100)
+* background (hexadecimal color without #)
+* progressive (boolean)
+* noProcess (boolean) : Disable SLIR resample
+
+Audio / Video options
+^^^^^^^^^^^^^^^^^^^^^
+
+* autoplay
+* controls
+
+You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/DocumentViewer.html#method_getDocumentByArray>`_.
+
+* If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
+* If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
+* Then if document is an **embed media**, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
 
 
 Additional filters

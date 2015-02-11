@@ -77,55 +77,6 @@ template file:
     </div>
     {% endblock %}
 
-Add previous and next links
----------------------------
-
-In this example, we want to create links to jump to next and previous pages. First, go back to your ``PageController.php``
-file to add some assignations.
-
-.. code-block:: php
-
-    …
-    $this->prepareThemeAssignation($node, $translation);
-    // Add your additional assignations after this method.
-
-    // Use NodesSources API to get next and previous nodes
-    // filtering by the same parent node and using current node position
-    $this->assignation['nextNodeSource'] =
-        $this->getService('nodeSourceApi')
-             ->getOneBy(
-                 array(
-                     'node.parent' => $node->getParent(),
-                     'node.position' => $node->getPosition() + 1,
-                     'translation' => $translation
-                 )
-             );
-
-    $this->assignation['prevNodeSource'] =
-        $this->getService('nodeSourceApi')
-             ->getOneBy(
-                 array(
-                     'node.parent' => $node->getParent(),
-                     'node.position' => $node->getPosition() - 1,
-                     'translation' => $translation
-                 )
-             );
-
-We used ``nodeSourceApi`` service which is a Doctrine entity manager wrapper
-to easily query over NodesSources entities and filtering with node criteria.
-
-You can now use these two new node-sources in your Twig template:
-
-.. code-block:: html+jinja
-
-    {% if prevNodeSource %}
-    <a class="previous" href="{{ prevNodeSource.handler.url }}">Prev.: {{ prevNodeSource.title }}</a>
-    {% endif %}
-
-    {% if nextNodeSource %}
-    <a class="next" href="{{ nextNodeSource.handler.url }}">Next: {{ nextNodeSource.title }}</a>
-    {% endif %}
-
 
 Use *Page / Block* data pattern
 -------------------------------
