@@ -6,7 +6,10 @@ Moving a website to another server
 Before moving your website, make sure you have backed up your data:
 
 * Dump your database, using ``mysqldump`` or ``pg_dump`` tools.
-* Archive your ``files/`` folder, it contains all your documents and font files
+* Archive your ``files/`` folder, it contains all your documents and font files.
+
+Moving to a SSH+Git hosting plan
+--------------------------------
 
 From this point you can install your new webserver, as described in :ref:`Install section <getting-started>`.
 
@@ -38,9 +41,22 @@ Now you can perform a schema update without losing your nodes data
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
     because it cannot done from a CLI interface as they are shared cache engines.
 
+Synchronize documents and fonts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can move your ``files/`` folder using SFTP but the best way is to use ``rsync`` command
+as it will upload only newer files and it’s so much faster!
+
+.. code-block:: bash
+
+    # This will synchronize files on your production server from your local Roadiz setup.
+    # Do not forget ending slash after each path!
+    rsync -avcz -e "ssh -p 22" /path/to/roadiz/files/ user@my-prod-server.com:/path/to/roadiz/files/
+
+
 
 Moving to a non-SSH hosting plan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
 
 You have nearly finished your brand new website using Roadiz. You’ve worked on your own
 server using Git and Composer, up to this point everthing went well.
