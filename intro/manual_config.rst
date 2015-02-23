@@ -3,10 +3,10 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file ``conf/config.yaml`` works as you would find
+This section explains how main configuration file ``conf/config.yml`` works as you would find
 it more convenient than launching Install theme for each update.
 
-Your ``conf/config.yaml`` file is built using YAML syntax. Each part match a Roadiz *service* configuration.
+Your ``conf/config.yml`` file is built using YAML syntax. Each part match a Roadiz *service* configuration.
 The most important part deals with Doctrine database credentials:
 
 .. code-block:: yaml
@@ -49,7 +49,7 @@ Solr endpoint
 -------------
 
 Roadiz can use an *Apache Solr* search-engine to index nodes-sources.
-Add this to your `config.yaml` to link your CMS to your *Solr* server:
+Add this to your `config.yml` to link your CMS to your *Solr* server:
 
 .. code-block:: yaml
 
@@ -87,7 +87,7 @@ Swift Mailer
 
 Roadiz uses *Swift Mailer* to send emails. This awesome librairy is built to enable different
 kinds of mail transports or protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
-but you can tell it to use another transport (such as SMTP) in your ``conf/config.yaml`` file.
+but you can tell it to use another transport (such as SMTP) in your ``conf/config.yml`` file.
 
 You can use *SSL*, *TLS* or no encryption at all.
 
