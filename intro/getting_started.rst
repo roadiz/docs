@@ -133,11 +133,11 @@ and to build PHP class autolader.
 
     composer install -n --no-dev;
 
-Then copy `conf/config.default.json` file to `conf/config.json`.
+Then copy `conf/config.default.yml` file to `conf/config.yml`.
 
 .. code-block:: bash
 
-    cp conf/config.default.json conf/config.json;
+    cp conf/config.default.yml conf/config.yml;
 
 When your virtual host is ready, just go to your website to begin with the setup assistant.
 
@@ -154,7 +154,7 @@ if you need to setup your website on a shared hosting plan without any SSH or Gi
 If you downloaded Roadiz on the `Github release <https://github.com/roadiz/roadiz/releases>`_ page or
 `directly from our website <http://www.roadiz.io>`_, you should get a bundled
 Zip containing every Roadiz files and Composer dependencies. We even have generated ``.htaccess`` files
-and a ``conf/config.json`` file for you.
+and a ``conf/config.yml`` file for you.
 
 If you can unzip directly on your server, that’s cool. It will save you time,
 if not, just unzip it on your desktop and upload files to your server via FTP.

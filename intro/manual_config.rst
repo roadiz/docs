@@ -3,21 +3,20 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file ``conf/config.json`` works as you would find
+This section explains how main configuration file ``conf/config.yml`` works as you would find
 it more convenient than launching Install theme for each update.
 
-Your ``conf/config.json`` file is built using JSON syntax. Each part match a Roadiz *service* configuration.
+Your ``conf/config.yml`` file is built using YAML syntax. Each part match a Roadiz *service* configuration.
 The most important part deals with Doctrine database credentials:
 
-.. code-block:: json
+.. code-block:: yaml
 
-    "doctrine": {
-        "driver": "pdo_mysql",
-        "host": "localhost",
-        "user": "",
-        "password": "",
-        "dbname": ""
-    }
+    doctrine:
+        driver: "pdo_mysql"
+        host: "localhost"
+        user: ""
+        password: ""
+        dbname: ""
 
 Roadiz uses *Doctrine ORM* to store your data. It will directly pass this JSON part to *Doctrine* so
 you can use every available drivers and options from its documentation at
@@ -37,9 +36,9 @@ and *Twig* templates are requested from cache. It is even better if you have a *
 like *APC* or *XCache* since useful data are kept in memory. This efficiency has a drawback:
 you’ll need to empty caches if you make a code update or a Roadiz update.
 
-.. code-block:: json
+.. code-block:: yaml
 
-    "devMode" : true
+    devMode: true
 
 Another point about devMode is that static *Routes* are compiled at each request into a plain
 PHP class (``gen-src/Compiled/…``). If you disable *devMode*, Symfony router will be a lot more efficient
@@ -50,23 +49,20 @@ Solr endpoint
 -------------
 
 Roadiz can use an *Apache Solr* search-engine to index nodes-sources.
-Add this to your `config.json` to link your CMS to your *Solr* server:
+Add this to your `config.yml` to link your CMS to your *Solr* server:
 
-.. code-block:: json
+.. code-block:: yaml
 
-    "solr": {
-        "endpoint": {
-            "localhost": {
-                "host":"localhost",
-                "port":"8983",
-                "path":"/solr",
-                "core":"mycore",
-                "timeout":3,
-                "username":"",
-                "password":""
-            }
-        }
-    }
+    solr:
+        endpoint:
+            localhost:
+                host: "localhost"
+                port: "8983"
+                path: "/solr"
+                core: "mycore"
+                timeout: 3
+                username: ""
+                password: ""
 
 Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr --help`` to get
 more informations.
@@ -78,13 +74,12 @@ Entities paths
 Roadiz uses *Doctrine* to map object entities to database tables.
 In order to make Roadiz more extensible, you can add your own paths to the ``entities`` part.
 
-.. code-block:: json
+.. code-block:: yaml
 
-    "entities": [
-        "src/Roadiz/Core/Entities",
-        "src/Roadiz/Core/AbstractEntities",
-        "gen-src/GeneratedNodeSources"
-    ]
+    entities:
+        - "src/Roadiz/Core/Entities"
+        - "src/Roadiz/Core/AbstractEntities"
+        - "gen-src/GeneratedNodeSources"
 
 
 Swift Mailer
@@ -92,20 +87,19 @@ Swift Mailer
 
 Roadiz uses *Swift Mailer* to send emails. This awesome librairy is built to enable different
 kinds of mail transports or protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
-but you can tell it to use another transport (such as SMTP) in your ``conf/config.json`` file.
+but you can tell it to use another transport (such as SMTP) in your ``conf/config.yml`` file.
 
 You can use *SSL*, *TLS* or no encryption at all.
 
-.. code-block:: json
+.. code-block:: yaml
 
-    "mailer": {
-        "type": "smtp",
-        "host": "localhost",
-        "port": 25,
-        "encryption": false,
-        "username": "",
-        "password": ""
-    }
+    mailer:
+        type: "smtp"
+        host: "localhost"
+        port: 25
+        encryption: false
+        username: ""
+        password: ""
 
 Console command
 ---------------
