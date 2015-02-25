@@ -67,28 +67,26 @@ So once you duplicated and renamed *DefaultTheme* with your own sweet name, do n
         methods: [GET]
 
 
-* Create your own theme ``config.json`` file, this file is needed by Roadiz to parse correctly your theme
-when you will add it to the backoffice. If your theme does not show up, you may check this JSON file
+* Create your own theme ``config.yml`` file, this file is needed by Roadiz to parse correctly your theme
+when you will add it to the backoffice. If your theme does not show up, you may check this YAML file
 syntax:
 
-.. code-block:: json
+.. code-block:: yaml
 
-    {
-        "name": "My awesome theme",
-        "author": "Ambroise Maupate",
-        "copyright": "REZO ZERO",
-        "themeDir": "MyAwesomeTheme",
-        "supportedLocale": ["en"],
-        "versionRequire": "1.0.0",
-        "importFiles": {
-            "roles": [],
-            "groups": [],
-            "settings": [],
-            "nodetypes": [],
-            "tags": [],
-            "nodes": []
-        }
-    }
+    name: My awesome theme
+    author: Ambroise Maupate
+    copyright: REZO ZERO
+    themeDir: MyAwesomeTheme
+    supportedLocale: ["en"]
+    versionRequire: 1.0.0
+    importFiles: {
+        roles: []
+        groups: []
+        settings: []
+        nodetypes: []
+        tags: []
+        nodes: []
+
 
 * Edit your main class informations (``MyAwesomeThemeApp.php``)
 
