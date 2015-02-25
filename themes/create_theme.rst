@@ -73,13 +73,13 @@ syntax:
 
 .. code-block:: yaml
 
-    name: My awesome theme
-    author: Ambroise Maupate
-    copyright: REZO ZERO
-    themeDir: MyAwesomeTheme
+    name: "My awesome theme"
+    author: "Ambroise Maupate"
+    copyright: "REZO ZERO"
+    themeDir: "MyAwesomeTheme"
     supportedLocale: ["en"]
-    versionRequire: 1.0.0
-    importFiles: {
+    versionRequire: "1.0.0"
+    importFiles:
         roles: []
         groups: []
         settings: []
