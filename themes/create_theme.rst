@@ -179,11 +179,7 @@ multilingual pages.
         $translation = $this->bindLocaleFromRoute($request, 'en');
         $this->prepareThemeAssignation(null, $translation);
 
-        return new Response(
-            $this->getTwig()->render('foo.html.twig', $this->assignation),
-            Response::HTTP_OK,
-            array('content-type' => 'text/html')
-        );
+        return $this->render('foo.html.twig', $this->assignation);
     }
 
     public function barAction(
@@ -195,11 +191,7 @@ multilingual pages.
         $this->prepareThemeAssignation(null, $translation);
 
 
-        return new Response(
-            $this->getTwig()->render('bar.html.twig', $this->assignation),
-            Response::HTTP_OK,
-            array('content-type' => 'text/html')
-        );
+        return $this->render('bar.html.twig', $this->assignation);
     }
 
 .. _dynamic-routing:
@@ -238,11 +230,7 @@ render your current node.
 
         $this->getService('stopwatch')->start('twigRender');
 
-        return new Response(
-            $this->getTwig()->render('types/page.html.twig', $this->assignation),
-            Response::HTTP_OK,
-            array('content-type' => 'text/html')
-        );
+        return $this->render('types/page.html.twig', $this->assignation);
     }
 
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
@@ -332,11 +320,7 @@ Imagine now that your home page has a totally different look than other pages. I
         /*
          * Render Homepage manually
          */
-        return new Response(
-            $this->getTwig()->render('home.html.twig', $this->assignation),
-            Response::HTTP_OK,
-            array('content-type' => 'text/html')
-        );
+        return $this->render('home.html.twig', $this->assignation);
     }
 
 Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice

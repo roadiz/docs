@@ -32,7 +32,6 @@ Example:
 
     use Themes\Rozier\RozierApp;
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\HttpFoundation\RedirectResponse;
 
     class AdminController extends RozierApp
@@ -44,11 +43,7 @@ Example:
 
             $this->getService('stopwatch')->start('twigRender');
 
-            return new Response(
-                $this->getTwig()->render('admin/test.html.twig', $this->assignation),
-                Response::HTTP_OK,
-                array('content-type' => 'text/html')
-            );
+            return $this->render('admin/test.html.twig', $this->assignation);
         }
     }
 
@@ -126,13 +121,13 @@ or create it if it doesn’t exist.
             /*
              * Add a customAdmin entry in your Backoffice
              */
-            $entries['customAdmin'] = array(
+            $entries['customAdmin'] = [
                 'name' => 'customAdmin',
                 'path' => $c['urlGenerator']->generate('adminTestPage'),
                 'icon' => 'uk-icon-cube',
                 'roles' => null,
                 'subentries' => null
-            );
+            ];
 
             return $entries;
         });
@@ -148,21 +143,21 @@ If you want to have a category and sub-entries, just change the path at ``null``
 
 .. code-block:: php
 
-    $entries['customAdmin'] = array(
+    $entries['customAdmin'] = [
         'name' => 'customAdmin',
         'path' => null,
         'icon' => 'uk-icon-cube',
         'roles' => null,
-        'subentries' => array(
-            'customAdminPage' => array(
+        'subentries' => [
+            'customAdminPage' => [
                 'name' => 'customAdmin page',
                 'path' => $c['urlGenerator']->generate('adminTestPage'),
                 'icon' => 'uk-icon-cube',
                 'roles' => null
-            ),
+            ],
             // Add others if you want
-        )
-    );
+        ]
+    ];
 
 You can restrict buttons to users with specific roles. Just replace ``'roles' => null`` with
 ``'roles' => array('ROLE_ACCESS_NODES')``. You can even create your own roles to take full power of

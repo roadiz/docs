@@ -24,9 +24,7 @@ create a *PageController.php* which look like this:
     use Themes\MyTheme\MyThemeApp;
     use RZ\Roadiz\Core\Entities\Node;
     use RZ\Roadiz\Core\Entities\Translation;
-
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\Response;
 
     /**
      * Frontend controller to handle Page node-type request.
@@ -49,11 +47,7 @@ create a *PageController.php* which look like this:
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
-            return new Response(
-                $this->getTwig()->render('types/page.html.twig', $this->assignation),
-                Response::HTTP_OK,
-                array('content-type' => 'text/html')
-            );
+            return $this->render('types/page.html.twig', $this->assignation);
         }
     }
 
@@ -119,9 +113,7 @@ Open your ``PageController.php`` file:
     // Get BasicBlock node-type entity to filter
     // over current node children
     $basicBlockType = $this->getService('nodeTypeApi')
-                           ->getOneBy(
-                                'name' => 'BasicBlock'
-                           );
+                           ->getOneBy(['name' => 'BasicBlock']);
 
     // Assign blocks using current nodeSource children
     // filtering them by node-type (only BasicBlock nodes
@@ -132,12 +124,12 @@ Open your ``PageController.php`` file:
         $this->assignation['nodeSource']
              ->getHandler()
              ->getChildren(
-                array(
+                [
                     'node.nodeType' => $basicBlockType
-                ),
-                array(
+                ],
+                [
                     'node.position' => 'ASC'
-                ),
+                ],
                 $this->getService('securityContext')
              );
 
