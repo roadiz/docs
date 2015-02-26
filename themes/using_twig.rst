@@ -56,7 +56,7 @@ You can of course call objects members within Twig using the *dot* separator.
 .. code-block:: html+jinja
 
     <article>
-        <h1><a href="{{ nodeSource.handler.url }}">{{ nodeSource.title }}</a></h1>
+        <h1><a href="{{ nodeSource|url }}">{{ nodeSource.title }}</a></h1>
         <div>{{ nodeSource.content|markdown }}</div>
 
         {# Use complex syntax to grab documents #}
@@ -68,7 +68,7 @@ You can of course call objects members within Twig using the *dot* separator.
 
             {% set imageMetas = image.documentTranslations.first %}
             <figure>
-                {{ image.viewer.getDocumentByArray({ 'width':200 })|raw }}
+                {{ image|display({ 'width':200 }) }}
                 <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
             </figure>
         {% endfor %}
@@ -101,7 +101,7 @@ in your PHP Controller before, you can directly use them in Twig:
 
         {% set imageMetas = image.documentTranslations.first %}
         <figure>
-            {{ image.viewer.documentByArray({ 'width':200 })|raw }}
+            {{ image|display({ 'width':200 }) }}
             <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
         </figure>
     {% endfor %}
@@ -109,11 +109,12 @@ in your PHP Controller before, you can directly use them in Twig:
 Loop over node-source children
 ------------------------------
 
-With Roadiz you will be able to grab each node-source children.
+With Roadiz you will be able to grab each node-source children using custom ``children`` Twig filter.
+This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $securityContext)``.
 
 .. code-block:: html+jinja
 
-    {% set childrenBlocks = nodeSource.handler.children(null, null, securityContext) %}
+    {% set childrenBlocks = nodeSource|children %}
     {% for childBlock in childrenBlocks %}
     <div class="block">
         <h2>{{ childBlock.title }}</h2>
@@ -121,7 +122,7 @@ With Roadiz you will be able to grab each node-source children.
     </div>
     {% endfor %}
 
-`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``SecurityContext`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering.
+`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``SecurityContext`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *security-context* is automatically passed to ``getChildren`` method.
 
 .. code-block:: html+jinja
 
@@ -129,15 +130,14 @@ With Roadiz you will be able to grab each node-source children.
      # This statement will only grab *visible* children node-sources and
      # will order them ascendently according to their *title*.
      #}
-    {% set childrenBlocks = nodeSource.handler.children(
+    {% set childrenBlocks = nodeSource|children(
         {'node.visible': true},
-        {'title': 'ASC'},
-        securityContext
+        {'title': 'ASC'}
     ) %}
 
 
 .. note::
-    Calling ``getChildren`` from a node-source *handler* will always return ``NodesSources`` objects from
+    Calling ``getChildren()`` from a node-source *handler* or ``|children`` filter will **always** return ``NodesSources`` objects from
     the same translation as their parent.
 
 
@@ -145,26 +145,27 @@ Add previous and next links
 ---------------------------
 
 In this example, we want to create links to jump to *next* and *previous* pages. We will use node-source handler methods
-``getPrevious()`` and ``getNext()`` which work the same as ``getChildren`` method.
+``getPrevious()`` and ``getNext()`` which work the same as ``getChildren()`` method.
+``|previous`` and ``|next`` Twig filters are also available.
 
 .. code-block:: html+jinja
 
-    {% set prev = nodeSource.handler.previous(null,null,securityContext) %}
-    {% set next = nodeSource.handler.next(null,null,securityContext) %}
+    {% set prev = nodeSource|previous %}
+    {% set next = nodeSource|next %}
 
     {% if (prev or next) %}
     <nav class="contextual-menu">
         {% if prev %}
-        <a class="previous" href="{{ prev.handler.url }}"><i class="uk-icon-arrow-left"></i> {{ prev.title }}</a>
+        <a class="previous" href="{{ prev|url }}"><i class="uk-icon-arrow-left"></i> {{ prev.title }}</a>
         {% endif %}
         {% if next %}
-        <a class="next" href="{{ next.handler.url }}">{{ next.title }} <i class="uk-icon-arrow-right"></i></a>
+        <a class="next" href="{{ next|url }}">{{ next.title }} <i class="uk-icon-arrow-right"></i></a>
         {% endif %}
     </nav>
     {% endif %}
 
 .. note::
-    Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will always return ``NodesSources`` objects from
+    Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will **always** return ``NodesSources`` objects from
     the same translation as their sibling.
 
 Displaying documents
@@ -175,6 +176,10 @@ Did you noticed that *images* relation is available directly in nodeSource objec
 node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
 
 Now, you can use ``DocumentViewer`` to generate HTML view for your documents no matter they are *images*, *videos* or *embed*.
+Two Twig filters are available with ``Documents``:
+
+- ``|display`` is a shortcut for ``getViewer()->getDocumentByArray($options)``. It generates an HTML tag to display your document.
+- ``|url`` is a shortcut for ``getViewer()->getDocumentUrlByArray($options)``. It generates an Url to reach your document.
 
 .. code-block:: html+jinja
 
@@ -183,13 +188,13 @@ Now, you can use ``DocumentViewer`` to generate HTML view for your documents no
 
     {# Always test if document exists #}
     {% if image %}
-    {{ image.viewer.documentByArray({
+    {{ image|display({
         'width':200,
         'height':200,
         'crop':"1:1",
         'quality':75,
         'embed':true
-    })|raw }}
+    }) }}
     {% endif %}
 
 HTML output options
@@ -233,6 +238,30 @@ Roadiz’s Twig environment implements some useful filters, such as:
 * ``markdown``: Convert a markdown text to HTML
 * ``inlineMarkdown``: Convert a markdown text to HTML without parsing *block* elements (useful for just italics and bolds)
 * ``centralTruncate(length, offset, ellipsis)``: Generate an ellipsis at the middle of your text (useful for filenames). You can decenter the ellipsis position using ``offset`` parameter, and even change your ellipsis character with ``ellipsis`` parameter.
+
+NodesSources filters
+^^^^^^^^^^^^^^^^^^^^
+
+These following Twig filters will only work with ``NodesSources`` entities… not ``Nodes``.
+Use them with the *pipe* syntax, eg. ``nodeSource|next``.
+
+* ``url``: shortcut for ``$source->getHandler()->getUrl()``
+* ``children``: shortcut for ``$source->getHandler()->getChildren()``
+* ``next``: shortcut for ``$source->getHandler()->getNext()``
+* ``previous``: shortcut for ``$source->getHandler()->getPrevious()``
+* ``firstSibling``: shortcut for ``$source->getHandler()->getFirstSibling()``
+* ``lastSibling``: shortcut for ``$source->getHandler()->getLastSibling()``
+* ``parent``: shortcut for ``$source->getHandler()->getParent()``
+* ``parents``: shortcut for ``$source->getHandler()->getParents()``
+
+Documents filters
+^^^^^^^^^^^^^^^^^
+
+These following Twig filters will only work with ``Documents`` entities.
+Use them with the *pipe* syntax, eg. ``document|display``.
+
+* ``url``: shortcut for ``$document->getViewer()->getDocumentUrlByArray()``
+* ``display``: shortcut for ``$document->getViewer()->getDocumentByArray()``
 
 Standard filters and extensions are also available:
 
