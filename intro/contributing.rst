@@ -24,13 +24,13 @@ For this you will need to install the testing framework, this can easily be done
 
 .. code-block:: console
 
-    composer update-dev
+    composer update
 
 The unit tests can be launched by the command:
 
 .. code-block:: console
 
-    ./vendor/bin/phpunit -v --bootstrap=tests/bootstrap.php tests/
+    bin/phpunit -v --bootstrap=tests/bootstrap.php tests/
 
 If your are writing a feature, don't forget to write a unit test for it. You can find some example in the folder ``tests``.
 
@@ -43,11 +43,11 @@ You can copy and paste the following command-lines to check easily:
 
 .. code-block:: console
 
-    ./vendor/bin/phpcs --report=full --report-file=./report.txt \
-        --extensions=php --warning-severity=0 \
-        --standard=PSR2 \
-        --ignore=*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/Tests/* \
-        -p ./
+    bin/phpcs --report=full --report-file=./report.txt \
+                --extensions=php --warning-severity=0 \
+                --standard=PSR2 \
+                --ignore=*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/* \
+                -p ./
 
 Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability.
 Your code will be checked when we’ll consider your pull requests.

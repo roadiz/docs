@@ -25,11 +25,11 @@ Use *Composer* to update dependancies
     composer update -n --no-dev;
 
 In order to avoid losing sensible node-sources data. You should
-regenerate your node-types entities files:
+regenerate your node-source entities classes files:
 
 .. code-block:: bash
 
-    bin/roadiz core:node-types --regenerateAllEntities;
+    bin/roadiz core:sources --regenerate;
 
 Then run database schema update, first review migration details
 to see if no data will be removed:

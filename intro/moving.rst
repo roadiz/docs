@@ -26,7 +26,7 @@ When you’ve edited your ``conf/config.yml`` file, regenerate your entities sou
 
 .. code-block:: bash
 
-    bin/roadiz core:node-types --regenerateAllEntities;
+    bin/roadiz core:sources --regenerate;
 
 Now you can perform a schema update without losing your nodes data
 
