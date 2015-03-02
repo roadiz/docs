@@ -238,3 +238,105 @@ Standard filters and extensions are also available:
 
 * ``{{ path('myRoute') }}``: for generating static routes Url.
 * ``truncate`` and ``wordwrap`` which are parts of the `Text Extension <http://twig.sensiolabs.org/doc/extensions/text.html>`_ .
+
+Create your own Twig filters
+----------------------------
+
+Imagine now that your are rendering some dynamic CSS stylesheets with Twig.
+Your are listing your website projects which all have a distinct color. So you’ve created a
+CSS route and a ``dynamic-colors.css.twig``.
+
+.. code-block:: html+jinja
+
+    {% for project in projects %}
+    .{{ project.node.nodeName }} h1 {
+        color: {{ project.color }};
+    }
+    {% endfor %}
+
+This code should output a CSS like that:
+
+.. code-block:: css
+
+    .my-super-project h1 {
+        color: #FF0000;
+    }
+    .my-second-project h1 {
+        color: #00FF00;
+    }
+
+Then you should see your “super project” title in red on your website. OK, that’s great.
+But what should I do if I need to use a RGBA color to control the Alpha channel value?
+For example, I want to set project color to a ``<div class="date">`` background like this:
+
+.. code-block:: css
+
+    .my-super-project .date {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+    .my-second-project .date {
+        background-color: rgba(0, 255, 0, 0.5);
+    }
+
+*Great… I already see coming guys complaining that “rgba” is only supported since IE9… We don’t give a shit!…*
+
+Hum, hum. So you need a super filter to extract decimal values from our backoffice stored hexadecimal color.
+Roadiz enables us to extend Twig environment filters thanks to *dependency injection!*
+
+You just have to extend ``setupDependencyInjection`` static method in your main
+theme class. Create it if it does not exist yet.
+
+.. code-block:: php
+
+    // In your SuperThemeApp.php
+    public static function setupDependencyInjection(\Pimple\Container $container)
+    {
+        parent::setupDependencyInjection($container);
+
+        // We extend twig setup
+        $container->extend('twig.environment', function ($twig, $c) {
+
+            // The first filter will extract red value
+            $red = new \Twig_SimpleFilter('red', function ($hex) {
+                if ($hex[0] == '#' && strlen($hex) == 7) {
+                    return hexdec(substr($hex, 1, 2));
+                } else {
+                    return 0;
+                }
+            });
+            $twig->addFilter($red);
+
+            // The second filter will extract green value
+            $green = new \Twig_SimpleFilter('green', function ($hex) {
+                if ($hex[0] == '#' && strlen($hex) == 7) {
+                    return hexdec(substr($hex, 3, 2));
+                } else {
+                    return 0;
+                }
+            });
+            $twig->addFilter($green);
+
+            // The third filter will extract blue value
+            $blue = new \Twig_SimpleFilter('blue', function ($hex) {
+                if ($hex[0] == '#' && strlen($hex) == 7) {
+                    return hexdec(substr($hex, 5, 2));
+                } else {
+                    return 0;
+                }
+            });
+            $twig->addFilter($blue);
+
+            // Then we return our extended twig environment
+            return $twig;
+        });
+    }
+
+And… Voilà! You can use ``red``, ``green`` and ``blue`` filters in your Twig template.
+
+.. code-block:: html+jinja
+
+    {% for project in projects %}
+    .{{ project.node.nodeName }} .date {
+        background-color: rgba({{ project.color|red }}, {{ project.color|green }}, {{ project.color|blue }}, 0.5);
+    }
+    {% endfor %}
