@@ -68,7 +68,7 @@ your SFTP connection or worst, an old FTP one. Don’t panic, it will take a lit
     Many shared-plan hosters offer you only one or two databases. When moving a Roadiz website, make sure
     that your database is empty and do not contain orphan tables, you must respect the rule “One app = One database”.
 
-* Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz config --generateHtaccess``.
+* Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz config --generate-htaccess``.
 * If you have at least SFTP, you should have to rights to zip/unzip on your distant server. So zip the whole Roadiz folder.
 
 .. note::
