@@ -63,9 +63,9 @@ template file:
     <h1>{{ nodeSource.title }}</h1>
     <div class="content">{{ nodeSource.content|markdown }}</div>
     <div class="images">
-        {% for document in nodeSource.images %}
+        {% for image in nodeSource.images %}
             <figure>
-                {{ document.viewer.documentByArray()|raw }}
+                {{ image|display }}
             </figure>
         {% endfor %}
     </div>
@@ -183,9 +183,9 @@ Then create each of your blocks templates files in ``blocks`` folder:
         <div class="content">{{ nodeSource.content|markdown }}</div>
 
         <div class="images">
-        {% for document in nodeSource.images %}
+        {% for image in nodeSource.images %}
             <figure>
-                {{ document.viewer.documentByArray({'width':200})|raw }}
+                {{ image|display({'width':200}) }}
             </figure>
         {% endfor %}
         </div>
