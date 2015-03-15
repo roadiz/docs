@@ -11,7 +11,7 @@ First contact
 -------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    intro/getting_started
    intro/manual_config
@@ -23,7 +23,7 @@ Node system
 -----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    nodes-system/intro
    nodes-system/node_type_fields
@@ -32,7 +32,7 @@ Tag system
 ----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    tags-system/intro
 
@@ -41,7 +41,7 @@ User system
 -----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    users/intro
 
@@ -50,7 +50,7 @@ Themes
 ------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    themes/create_theme
    themes/using_twig
@@ -60,7 +60,7 @@ Forms
 -----
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    forms/contact_forms
    forms/custom_forms
@@ -69,7 +69,7 @@ Services
 --------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    services/intro
 
@@ -77,7 +77,7 @@ Extension system
 ----------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    themes/extending_roadiz
 
