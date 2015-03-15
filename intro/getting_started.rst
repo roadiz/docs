@@ -42,6 +42,7 @@ CMS Structure
 * ``conf/`` : Your setup configuration file(s) (this folder must be writable for PHP)
 * ``files/`` : Documents and fonts files root (this folder must be writable for PHP)
 * ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
+* ``samples/`` : This folder contains useful configuration and example files for Apache or Nginx webservers
 * ``src/`` : Roadiz CMS logic and core source code
 * ``tests/`` : PHP Unit tests root
 * ``themes/`` : Contains your themes and systems themes such as *Rozier* and *Install*
@@ -65,7 +66,7 @@ and SSH with out/ingoing allowed connections.
 
 Here is a short summary of mandatory elements before installing Roadiz:
 
-* Nginx or Apache
+* Nginx or Apache, with a dedicated virtual host as described below.
 * PHP 5.4.3+
 * ``php5-gd`` extension
 * ``php5-intl`` extension
@@ -77,6 +78,12 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * Composer
 * Git
 
+For Nginx users
+^^^^^^^^^^^^^^^
+
+If you are using Nginx, you don’t have to activate any extensions.
+You only need to create your *virtual host* using our example file ``/samples/nginx.conf``.
+
 For Apache users
 ^^^^^^^^^^^^^^^^
 
@@ -86,6 +93,9 @@ If you are using *Apache* do not forget to activate these mods:
 * ``mod_expires``: to activate http cache headers on static assets.
 
 And do not use built-in ``mod_php``, prefer *PHP-FPM* ;-)
+
+Then use ``/samples/apache.conf`` template to create your *virtual host* configuration file. It shows how to set rewrite and
+secure private folders from being view from public visitors.
 
 Installation
 ------------
