@@ -77,7 +77,7 @@ You can of course call objects members within Twig using the *dot* separator.
 Handling node-sources with Twig
 -------------------------------
 
-Most of frontent work will consist in Twig templating and Twig assignations. Roadiz Core entities are already
+Most of frontend work will consist in Twig templating and Twig assignations. Roadiz Core entities are already
 linked together not to prepare your data before rendering it. Basically, you can access nodes or nodeSources data
 directly in Twig using the “dot” seperator.
 
