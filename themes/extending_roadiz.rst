@@ -31,6 +31,7 @@ Example:
     namespace Themes\MyTheme\AdminControllers;
 
     use Themes\Rozier\RozierApp;
+    use Themes\MyTheme\MyThemeApp;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -43,18 +44,19 @@ Example:
 
             $this->getService('stopwatch')->start('twigRender');
 
-            return $this->render('admin/test.html.twig', $this->assignation);
+            return $this->render('admin/test.html.twig', $this->assignation, MyThemeApp::getThemeDir());
         }
     }
 
 If you look at this exemple you can see the class extends ``RozierApp`` not your ``MyThemeApp`` class!
-This will enable you to “inject” your code into Rozier Back-stage DOM and Style.
+This will enable you to “inject” your code into Rozier Back-stage DOM and Style. But be careful to use `MyThemeApp::getThemeDir()`
+as your template namespace.
 
 Now let's have a look to your twig template file ``admin/test.html.twig``.
 
 .. code-block:: jinja
 
-    {% if not head.ajax %}{% set baseTemplate = 'base.html.twig' %}{% else %}{% set baseTemplate = 'ajaxBase.html.twig' %}{% endif %}{% extends baseTemplate %}
+    {% if not head.ajax %}{% set baseTemplate = '@Rozier/base.html.twig' %}{% else %}{% set baseTemplate = '@Rozier/ajaxBase.html.twig' %}{% endif %}{% extends baseTemplate %}
 
     {% block customStyles %}
     <style>
@@ -80,7 +82,7 @@ Now let's have a look to your twig template file ``admin/test.html.twig``.
     </section>
     {% endblock %}
 
-The first line is for inheriting from Rozier base template.
+The first line is for inheriting from Rozier base template, you can notice that we choose explicitely `@Rozier` namespace.
 
 The two next blocks are made for you to add some CSS or Javascript.
 For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ request.baseUrl ~ "/themes/MyTheme/static/css/customstyle.css" }}``,  or add directly some CSS with "<style>" tag.

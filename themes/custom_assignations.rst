@@ -47,7 +47,7 @@ create a *PageController.php* which look like this:
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
-            return $this->render('types/page.html.twig', $this->assignation);
+            return $this->render('types/page.html.twig', $this->assignation, static::getThemeDir());
         }
     }
 
@@ -56,7 +56,7 @@ template file:
 
 .. code-block:: html+jinja
 
-    {% extends 'base.html.twig' %}
+    {% extends '@MyTheme/base.html.twig' %}
 
     {% block content %}
 
@@ -151,7 +151,7 @@ Now we can update your ``types/page.html.twig`` template to use your assignated 
     <section class="page-blocks">
     {% for pageBlock in blocks %}
 
-        {% include 'blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
+        {% include '@MyTheme/blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
             'loop': loop,
             'nodeSource': pageBlock,
             'themeServices': themeServices,

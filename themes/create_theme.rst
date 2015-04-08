@@ -189,7 +189,7 @@ multilingual pages.
         $this->prepareThemeAssignation(null, $translation);
 
 
-        return $this->render('bar.html.twig', $this->assignation);
+        return $this->render('bar.html.twig', $this->assignation, static::getThemeDir());
     }
 
 .. _dynamic-routing:
@@ -228,7 +228,7 @@ render your current node.
 
         $this->getService('stopwatch')->start('twigRender');
 
-        return $this->render('types/page.html.twig', $this->assignation);
+        return $this->render('types/page.html.twig', $this->assignation, static::getThemeDir());
     }
 
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
@@ -295,7 +295,8 @@ Static home
 
 Imagine now that your home page has a totally different look than other pages. Instead of letting
 ``handle()`` method returning your Response object, you can create it directly and use a dedicated
-``home.html.twig`` template.
+``home.html.twig`` template, the third argument `static::getThemeDir()` is optional, it explicits
+the namespace to look into. It becames useful when you mix several themes with the same templates names.
 
 .. code-block:: php
 
@@ -318,7 +319,7 @@ Imagine now that your home page has a totally different look than other pages. I
         /*
          * Render Homepage manually
          */
-        return $this->render('home.html.twig', $this->assignation);
+        return $this->render('home.html.twig', $this->assignation, static::getThemeDir());
     }
 
 Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice
