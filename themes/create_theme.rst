@@ -189,7 +189,7 @@ multilingual pages.
         $this->prepareThemeAssignation(null, $translation);
 
 
-        return $this->render('bar.html.twig', $this->assignation, static::getThemeDir());
+        return $this->render('bar.html.twig', $this->assignation, null, static::getThemeDir());
     }
 
 .. _dynamic-routing:
@@ -228,10 +228,17 @@ render your current node.
 
         $this->getService('stopwatch')->start('twigRender');
 
-        return $this->render('types/page.html.twig', $this->assignation, static::getThemeDir());
+        return $this->render(
+            'types/page.html.twig',  // Twig template path
+            $this->assignation,      // Assignation array to fill template placeholders
+            null,                    // Optional Response object to use instead of creating a new one
+            static::getThemeDir()    // Optional namespace
+        );
     }
 
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
+This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_
+purpose which will generate a standard *html* response using a *Twig* template and an assignation array.
 
 Home page case
 --------------
@@ -295,7 +302,7 @@ Static home
 
 Imagine now that your home page has a totally different look than other pages. Instead of letting
 ``handle()`` method returning your Response object, you can create it directly and use a dedicated
-``home.html.twig`` template, the third argument `static::getThemeDir()` is optional, it explicits
+``home.html.twig`` template. The fourth argument `static::getThemeDir()` is optional, it explicits
 the namespace to look into. It becames useful when you mix several themes with the same templates names.
 
 .. code-block:: php
@@ -319,7 +326,7 @@ the namespace to look into. It becames useful when you mix several themes with t
         /*
          * Render Homepage manually
          */
-        return $this->render('home.html.twig', $this->assignation, static::getThemeDir());
+        return $this->render('home.html.twig', $this->assignation, null, static::getThemeDir());
     }
 
 Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice

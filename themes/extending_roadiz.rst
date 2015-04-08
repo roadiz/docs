@@ -44,7 +44,7 @@ Example:
 
             $this->getService('stopwatch')->start('twigRender');
 
-            return $this->render('admin/test.html.twig', $this->assignation, MyThemeApp::getThemeDir());
+            return $this->render('admin/test.html.twig', $this->assignation, null, MyThemeApp::getThemeDir());
         }
     }
 

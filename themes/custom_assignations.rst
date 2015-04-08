@@ -47,7 +47,7 @@ create a *PageController.php* which look like this:
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
-            return $this->render('types/page.html.twig', $this->assignation, static::getThemeDir());
+            return $this->render('types/page.html.twig', $this->assignation, null, static::getThemeDir());
         }
     }
 
