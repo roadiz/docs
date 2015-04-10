@@ -188,8 +188,7 @@ multilingual pages.
         $translation = $this->bindLocaleFromRoute($request, $_locale);
         $this->prepareThemeAssignation(null, $translation);
 
-
-        return $this->render('bar.html.twig', $this->assignation, null, static::getThemeDir());
+        return $this->render('bar.html.twig', $this->assignation);
     }
 
 .. _dynamic-routing:
@@ -286,15 +285,12 @@ special ajustments.
          * Get language from static route
          */
         $translation = $this->bindLocaleFromRoute($request, $_locale);
-        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
-                                       ->findHomeWithTranslation($translation);
-
-        $this->prepareThemeAssignation($home, $translation);
+        $home = $this->getHome($translation);
 
         /*
          * Render Homepage according to its node-type controller
          */
-        return $this->handle($request);
+        return $this->handle($request, $home, $translation);
     }
 
 Static home
@@ -318,14 +314,13 @@ the namespace to look into. It becames useful when you mix several themes with t
          * Get language from static route
          */
         $translation = $this->bindLocaleFromRoute($request, $_locale);
-        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
-                                       ->findHomeWithTranslation($translation);
-
-        $this->prepareThemeAssignation($home, $translation);
+        $home = $this->getHome($translation);
 
         /*
          * Render Homepage manually
          */
+        $this->prepareThemeAssignation($home, $translation);
+
         return $this->render('home.html.twig', $this->assignation, null, static::getThemeDir());
     }
 
