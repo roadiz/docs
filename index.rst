@@ -80,6 +80,7 @@ Extension system
    :maxdepth: 2
 
    themes/extending_roadiz
+   roadiz-events/intro
 
 
 
