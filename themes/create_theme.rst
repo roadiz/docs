@@ -107,14 +107,10 @@ syntax:
     namespace Themes\MyAwesomeTheme;
 
     use RZ\Roadiz\CMS\Controllers\FrontendController;
-    use RZ\Roadiz\Core\Kernel;
     use RZ\Roadiz\Core\Entities\Node;
     use RZ\Roadiz\Core\Entities\Translation;
-    use RZ\Roadiz\Core\Utils\StringHandler;
-
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Component\Routing\Exception\ResourceNotFoundException;
     /**
      * MyAwesomeThemeApp class
      */

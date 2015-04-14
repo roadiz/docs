@@ -33,15 +33,12 @@ Example:
     use Themes\Rozier\RozierApp;
     use Themes\MyTheme\MyThemeApp;
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\RedirectResponse;
 
     class AdminController extends RozierApp
     {
-
         public function listAction(
             Request $request
         ) {
-
             $this->getService('stopwatch')->start('twigRender');
 
             return $this->render('admin/test.html.twig', $this->assignation, null, MyThemeApp::getThemeDir());
