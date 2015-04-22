@@ -78,5 +78,5 @@ Then in your contact page Twig template
     {#
      # Display contact form
      #}
-    {% form_theme contactForm 'forms.html.twig' %}
+    {% form_theme contactForm '@MyTheme/forms.html.twig' %}
     {{ form(contactForm) }}

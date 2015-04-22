@@ -107,14 +107,10 @@ syntax:
     namespace Themes\MyAwesomeTheme;
 
     use RZ\Roadiz\CMS\Controllers\FrontendController;
-    use RZ\Roadiz\Core\Kernel;
     use RZ\Roadiz\Core\Entities\Node;
     use RZ\Roadiz\Core\Entities\Translation;
-    use RZ\Roadiz\Core\Utils\StringHandler;
-
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Component\Routing\Exception\ResourceNotFoundException;
     /**
      * MyAwesomeThemeApp class
      */
@@ -188,7 +184,6 @@ multilingual pages.
         $translation = $this->bindLocaleFromRoute($request, $_locale);
         $this->prepareThemeAssignation(null, $translation);
 
-
         return $this->render('bar.html.twig', $this->assignation);
     }
 
@@ -228,10 +223,17 @@ render your current node.
 
         $this->getService('stopwatch')->start('twigRender');
 
-        return $this->render('types/page.html.twig', $this->assignation);
+        return $this->render(
+            'types/page.html.twig',  // Twig template path
+            $this->assignation,      // Assignation array to fill template placeholders
+            null,                    // Optional Response object to use instead of creating a new one
+            static::getThemeDir()    // Optional namespace
+        );
     }
 
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
+This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_
+purpose which will generate a standard *html* response using a *Twig* template and an assignation array.
 
 Home page case
 --------------
@@ -279,15 +281,12 @@ special ajustments.
          * Get language from static route
          */
         $translation = $this->bindLocaleFromRoute($request, $_locale);
-        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
-                                       ->findHomeWithTranslation($translation);
-
-        $this->prepareThemeAssignation($home, $translation);
+        $home = $this->getHome($translation);
 
         /*
          * Render Homepage according to its node-type controller
          */
-        return $this->handle($request);
+        return $this->handle($request, $home, $translation);
     }
 
 Static home
@@ -295,7 +294,8 @@ Static home
 
 Imagine now that your home page has a totally different look than other pages. Instead of letting
 ``handle()`` method returning your Response object, you can create it directly and use a dedicated
-``home.html.twig`` template.
+``home.html.twig`` template. The fourth argument `static::getThemeDir()` is optional, it explicits
+the namespace to look into. It becames useful when you mix several themes with the same templates names.
 
 .. code-block:: php
 
@@ -310,15 +310,14 @@ Imagine now that your home page has a totally different look than other pages. I
          * Get language from static route
          */
         $translation = $this->bindLocaleFromRoute($request, $_locale);
-        $home = $this->getService('em')->getRepository('RZ\Roadiz\Core\Entities\Node')
-                                       ->findHomeWithTranslation($translation);
-
-        $this->prepareThemeAssignation($home, $translation);
+        $home = $this->getHome($translation);
 
         /*
          * Render Homepage manually
          */
-        return $this->render('home.html.twig', $this->assignation);
+        $this->prepareThemeAssignation($home, $translation);
+
+        return $this->render('home.html.twig', $this->assignation, null, static::getThemeDir());
     }
 
 Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice

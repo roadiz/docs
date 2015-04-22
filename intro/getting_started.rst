@@ -47,6 +47,7 @@ CMS Structure
 * ``tests/`` : PHP Unit tests root
 * ``themes/`` : Contains your themes and systems themes such as *Rozier* and *Install*
 * ``vendor/`` : Dependencies folder managed by *Composer*
+* ``logs/`` : *Monolog* logs folder
 
 .. _requirements:
 
