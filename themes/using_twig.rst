@@ -253,20 +253,35 @@ Use them with the *pipe* syntax, eg. ``nodeSource|next``.
 * ``lastSibling``: shortcut for ``$source->getHandler()->getLastSibling()``
 * ``parent``: shortcut for ``$source->getHandler()->getParent()``
 * ``parents``: shortcut for ``$source->getHandler()->getParents()``
+* ``tags``: shortcut for ``$source->getHandler()->getTags()``
 
 Documents filters
 ^^^^^^^^^^^^^^^^^
 
-These following Twig filters will only work with ``Documents`` entities.
+These following Twig filters will only work with ``Document`` entities.
 Use them with the *pipe* syntax, eg. ``document|display``.
 
 * ``url``: shortcut for ``$document->getViewer()->getDocumentUrlByArray()``
 * ``display``: shortcut for ``$document->getViewer()->getDocumentByArray()``
 
+Translations filters
+^^^^^^^^^^^^^^^^^^^^
+
+These following Twig filters will only work with ``Translation`` entities.
+Use them with the *pipe* syntax, eg. ``translation|menu``.
+
+* ``menu``: shortcut for ``$translation->getViewer()->getTranslationMenuAssignation()``. This
+filter returns some useful informations about current page available languages and their
+urls. See `getTranslationMenuAssignation method definition <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/TranslationViewer.html#method_getTranslationMenuAssignation>`_.
+You do not have to pass it the current request object as the filter will grab it
+for you. But you can specify if you want *absolute* urls or not.
+
+
 Standard filters and extensions are also available:
 
 * ``{{ path('myRoute') }}``: for generating static routes Url.
 * ``truncate`` and ``wordwrap`` which are parts of the `Text Extension <http://twig.sensiolabs.org/doc/extensions/text.html>`_ .
+
 
 Create your own Twig filters
 ----------------------------
