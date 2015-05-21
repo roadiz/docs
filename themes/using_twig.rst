@@ -270,8 +270,9 @@ Translations filters
 These following Twig filters will only work with ``Translation`` entities.
 Use them with the *pipe* syntax, eg. ``translation|menu``.
 
-* ``menu``: shortcut for ``$translation->getViewer()->getTranslationMenuAssignation()``. This
-filter returns some useful informations about current page available languages and their
+* ``menu``: shortcut for ``$translation->getViewer()->getTranslationMenuAssignation()``.
+
+This filter returns some useful informations about current page available languages and their
 urls. See `getTranslationMenuAssignation method definition <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/TranslationViewer.html#method_getTranslationMenuAssignation>`_.
 You do not have to pass it the current request object as the filter will grab it
 for you. But you can specify if you want *absolute* urls or not.
