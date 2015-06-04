@@ -17,7 +17,8 @@ in your themes.
 * Translator: ``$this->getService('translator')``
 * Url matcher: ``$this->getService('urlMatcher')``
 * Url generator: ``$this->getService('urlGenerator')``
-* Security context: ``$this->getService('securityContext')``
+* Authorization checker: ``$this->getService('securityAuthorizationChecker')``
+* User token storage: ``$this->getService('securityTokenStorage')``
 * Firewall: ``$this->getService('firewall')``
 * …
 
@@ -26,7 +27,7 @@ Entity APIs
 -----------
 
 All these services are Doctrine repository wrappers meant to ease querying
-entities inside your themes and according to SecurityContext.
+entities inside your themes and according to ``AuthorizationChecker``.
 
 Each of these implements ``AbstractApi`` methods ``getBy`` and ``getOneBy``
 

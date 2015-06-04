@@ -28,7 +28,8 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
     * **messages** — [array]
     * **id** — [string]
     * **user** — [object]
-* **securityContext** — [object] This object is required when you browse nodes not to display unpublished content for anonymous visitors
+* **authorizationChecker** — [object]
+* **tokenStorage** — [object]
 
 There are some more content only available from *FrontendControllers*.
 
@@ -110,7 +111,7 @@ Loop over node-source children
 ------------------------------
 
 With Roadiz you will be able to grab each node-source children using custom ``children`` Twig filter.
-This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $securityContext)``.
+This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $authorizationChecker)``.
 
 .. code-block:: html+jinja
 
@@ -122,7 +123,7 @@ This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null
     </div>
     {% endfor %}
 
-`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``SecurityContext`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *security-context* is automatically passed to ``getChildren`` method.
+`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``AuthorizationChecker`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *authorization-checker* is automatically passed to ``getChildren`` method.
 
 .. code-block:: html+jinja
 
@@ -134,7 +135,6 @@ This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null
         {'node.visible': true},
         {'title': 'ASC'}
     ) %}
-
 
 .. note::
     Calling ``getChildren()`` from a node-source *handler* or ``|children`` filter will **always** return ``NodesSources`` objects from
