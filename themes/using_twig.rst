@@ -200,28 +200,32 @@ Two Twig filters are available with ``Documents``:
 HTML output options
 ^^^^^^^^^^^^^^^^^^^
 
-* embed (true|false), display an embed as iframe instead of its thumbnail
-* identifier
-* class
-* alt: If not filled, it will get the document name, then the document filename
+* **embed** (true|false), display an embed as iframe instead of its thumbnail
+* **identifier**
+* **class**
+* **alt**: If not filled, it will get the document name, then the document filename
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* width
-* height
-* crop ({w}x{h}, for example : 100x200)
-* grayscale / greyscale (boolean)
-* quality (1-100)
-* background (hexadecimal color without #)
-* progressive (boolean)
-* noProcess (boolean) : Disable SLIR resample
+* **width**
+* **height**
+* **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
+* **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
+* **grayscale** / **greyscale** (boolean)
+* **quality** (1-100)
+* **blur** (1-100) *(can be really slow to process)*
+* **sharpen** (1-100)
+* **contrast** (1-100)
+* **background** (hexadecimal color without #)
+* **progressive** (boolean), it will interlace the image if it’s a *PNG* file.
+* **noProcess** (boolean): Disable image processing
 
 Audio / Video options
 ^^^^^^^^^^^^^^^^^^^^^
 
-* autoplay
-* controls
+* **autoplay**
+* **controls**
 
 You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/DocumentViewer.html#method_getDocumentByArray>`_.
 
