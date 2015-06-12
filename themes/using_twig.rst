@@ -28,7 +28,8 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
     * **messages** — [array]
     * **id** — [string]
     * **user** — [object]
-* **securityContext** — [object] This object is required when you browse nodes not to display unpublished content for anonymous visitors
+* **authorizationChecker** — [object]
+* **tokenStorage** — [object]
 
 There are some more content only available from *FrontendControllers*.
 
@@ -110,7 +111,7 @@ Loop over node-source children
 ------------------------------
 
 With Roadiz you will be able to grab each node-source children using custom ``children`` Twig filter.
-This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $securityContext)``.
+This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $authorizationChecker)``.
 
 .. code-block:: html+jinja
 
@@ -122,7 +123,7 @@ This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null
     </div>
     {% endfor %}
 
-`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``SecurityContext`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *security-context* is automatically passed to ``getChildren`` method.
+`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``AuthorizationChecker`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *authorization-checker* is automatically passed to ``getChildren`` method.
 
 .. code-block:: html+jinja
 
@@ -134,7 +135,6 @@ This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null
         {'node.visible': true},
         {'title': 'ASC'}
     ) %}
-
 
 .. note::
     Calling ``getChildren()`` from a node-source *handler* or ``|children`` filter will **always** return ``NodesSources`` objects from
@@ -200,28 +200,32 @@ Two Twig filters are available with ``Documents``:
 HTML output options
 ^^^^^^^^^^^^^^^^^^^
 
-* embed (true|false), display an embed as iframe instead of its thumbnail
-* identifier
-* class
-* alt: If not filled, it will get the document name, then the document filename
+* **embed** (true|false), display an embed as iframe instead of its thumbnail
+* **identifier**
+* **class**
+* **alt**: If not filled, it will get the document name, then the document filename
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* width
-* height
-* crop ({w}x{h}, for example : 100x200)
-* grayscale / greyscale (boolean)
-* quality (1-100)
-* background (hexadecimal color without #)
-* progressive (boolean)
-* noProcess (boolean) : Disable SLIR resample
+* **width**
+* **height**
+* **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
+* **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
+* **grayscale** / **greyscale** (boolean)
+* **quality** (1-100)
+* **blur** (1-100) *(can be really slow to process)*
+* **sharpen** (1-100)
+* **contrast** (1-100)
+* **background** (hexadecimal color without #)
+* **progressive** (boolean), it will interlace the image if it’s a *PNG* file.
+* **noProcess** (boolean): Disable image processing
 
 Audio / Video options
 ^^^^^^^^^^^^^^^^^^^^^
 
-* autoplay
-* controls
+* **autoplay**
+* **controls**
 
 You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/DocumentViewer.html#method_getDocumentByArray>`_.
 
@@ -253,20 +257,36 @@ Use them with the *pipe* syntax, eg. ``nodeSource|next``.
 * ``lastSibling``: shortcut for ``$source->getHandler()->getLastSibling()``
 * ``parent``: shortcut for ``$source->getHandler()->getParent()``
 * ``parents``: shortcut for ``$source->getHandler()->getParents()``
+* ``tags``: shortcut for ``$source->getHandler()->getTags()``
 
 Documents filters
 ^^^^^^^^^^^^^^^^^
 
-These following Twig filters will only work with ``Documents`` entities.
+These following Twig filters will only work with ``Document`` entities.
 Use them with the *pipe* syntax, eg. ``document|display``.
 
 * ``url``: shortcut for ``$document->getViewer()->getDocumentUrlByArray()``
 * ``display``: shortcut for ``$document->getViewer()->getDocumentByArray()``
 
+Translations filters
+^^^^^^^^^^^^^^^^^^^^
+
+These following Twig filters will only work with ``Translation`` entities.
+Use them with the *pipe* syntax, eg. ``translation|menu``.
+
+* ``menu``: shortcut for ``$translation->getViewer()->getTranslationMenuAssignation()``.
+
+This filter returns some useful informations about current page available languages and their
+urls. See `getTranslationMenuAssignation method definition <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/TranslationViewer.html#method_getTranslationMenuAssignation>`_.
+You do not have to pass it the current request object as the filter will grab it
+for you. But you can specify if you want *absolute* urls or not.
+
+
 Standard filters and extensions are also available:
 
 * ``{{ path('myRoute') }}``: for generating static routes Url.
 * ``truncate`` and ``wordwrap`` which are parts of the `Text Extension <http://twig.sensiolabs.org/doc/extensions/text.html>`_ .
+
 
 Create your own Twig filters
 ----------------------------

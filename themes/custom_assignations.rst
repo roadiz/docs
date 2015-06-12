@@ -71,6 +71,38 @@ template file:
     </div>
     {% endblock %}
 
+Use theme-wide assignation
+--------------------------
+
+Custom assignations are great but what can I do if I have to use the same
+variables in several controllers? We added a special ``extendAssignation`` method
+which is called at the end of your theme preparation process
+(``prepareThemeAssignation`` and ``prepareNodeSourceAssignation``). Just override it
+in your ``MyThemeApp`` main class, then every theme controllers and templates
+will be able to use these variables.
+
+For example, you can use this method to make ``<head>`` variables available
+for each of your website pages.
+
+.. code-block:: php
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function extendAssignation()
+    {
+        parent::extendAssignation();
+
+        $this->assignation['head']['facebookUrl'] = SettingsBag::get('facebook_url');
+        $this->assignation['head']['facebookClientId'] = SettingsBag::get('facebook_client_id');
+        $this->assignation['head']['instagramUrl'] = SettingsBag::get('instagram_url');
+        $this->assignation['head']['twitterUrl'] = SettingsBag::get('twitter_url');
+        $this->assignation['head']['googleplusUrl'] = SettingsBag::get('googleplus_url');
+        $this->assignation['head']['googleClientId'] = SettingsBag::get('google_client_id');
+        $this->assignation['head']['maps_style'] = SettingsBag::get('maps_style');
+        $this->assignation['head']['themeName'] = static::$themeName;
+        $this->assignation['head']['themeVersion'] = static::VERSION;
+    }
 
 Use *Page / Block* data pattern
 -------------------------------
@@ -130,7 +162,7 @@ Open your ``PageController.php`` file:
                 [
                     'node.position' => 'ASC'
                 ],
-                $this->getService('securityContext')
+                $this->getService('securityAuthorizationChecker')
              );
 
 
@@ -154,8 +186,7 @@ Now we can update your ``types/page.html.twig`` template to use your assignated 
         {% include '@MyTheme/blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
             'loop': loop,
             'nodeSource': pageBlock,
-            'themeServices': themeServices,
-            'securityContext': securityContext
+            'themeServices': themeServices
         } only %}
 
     {% endfor %}
@@ -195,3 +226,103 @@ Then create each of your blocks templates files in ``blocks`` folder:
 This is the simplest example to demonstrate you the power of *Page / Block*
 pattern. If you managed to reproduce this example you can now try it using
 multiple *block* node-types, combining multiple sub-templates.
+
+Use block rendering
+-------------------
+
+A few times, using *Page / Block* pattern won’t be enough to display your
+page blocks. For example, you will occasionally need to create a form inside
+a block, or you will need to process some data before using them in your Twig
+template.
+
+For this we added a ``render`` filter which basically create a sub-request to render
+your block. This new request make possible to create a dedicated ``Controller`` for
+your block.
+
+Let’s take the previous example about a page with several *basic blocks* inside.
+Imagine you have a new *contact block* to insert in your page, then how would you
+create your form? The following code shows how to “embed” a sub-request inside
+your block template.
+
+.. code-block:: html+jinja
+
+    {#
+     # This is file: blocks/contactblock.html.twig
+     #}
+    <div class="contactblock {% if loop.index0 is even %}even{% else %}odd{% endif %}">
+
+        <h3>{{ nodeSource.title }}</h3>
+        <div class="content">{{ nodeSource.content|markdown }}</div>
+
+        {#
+         # We created a display_form node-type field to enable/disable form
+         # but this is optional
+         #}
+        {% if nodeSource.displayForm %}
+            {#
+             # “render” twig filter initiate a new Roadiz request
+             # using *nodeSource* as primary content. It takes one
+             # argument to locate your block controller
+             #}
+            {{ nodeSource|render('MyTheme') }}
+        {% endif %}
+    </div>
+
+Then Roadiz will look for a ``Themes\MyTheme\Controllers\Blocks\ContactBlockController.php`` file
+and a ``blockAction`` method inside.
+
+.. code-block:: php
+
+    namespace Themes\MyTheme\Controllers\Blocks;
+
+    use RZ\Roadiz\Core\Entities\NodesSources;
+    use Symfony\Component\HttpFoundation\Request;
+    use Themes\MyTheme\MyThemeApp;
+
+    class ContactBlockController extends MyThemeApp
+    {
+        function blockAction(Request $request, NodesSources $source, $assignation)
+        {
+            $this->prepareNodeSourceAssignation($source, $source->getTranslation());
+
+            $this->assignation = array_merge($this->assignation, $assignation);
+
+            // If you assignate session messages here, do not assignate it in your
+            // MyThemeApp::extendAssignation() method before.
+            $this->assignation['session']['messages'] = $this->getService('session')->getFlashBag()->all();
+
+            /*
+             * Add your form code here, for example
+             */
+            $form = $this->createFormBuilder()->add('name', 'text')
+                                              ->add('send_name', 'submit')
+                                              ->getForm();
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                // some stuff
+                return $this->redirect($request->getUri());
+            }
+
+            $this->assignation['contactForm'] = $form->createView();
+
+            return $this->render('form-blocks/contactblock.html.twig', $this->assignation);
+        }
+    }
+
+Then create your template ``form-blocks/contactblock.html.twig``:
+
+.. code-block:: html+jinja
+
+    <div class="join-form">
+        {% for messages in session.messages %}
+            {% for message in messages %}
+                <p class="alert alert-success">{{ message }}</p>
+            {% endfor %}
+        {% endfor %}
+
+        {{ form(joinForm) }}
+    </div>
+
+
+
+
