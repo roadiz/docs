@@ -1,7 +1,7 @@
 .. _services:
 
-Using Roadiz services
-=====================
+Services
+========
 
 Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency injection container.
 Thanks to this architecture, all Core and Backoffice services are available from any controller
