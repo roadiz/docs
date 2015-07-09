@@ -3,10 +3,9 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file ``conf/config.yml`` works as you would find
-it more convenient than launching Install theme for each update.
+This section explains how main configuration file ``conf/config.yml`` works. It is way more more convenient than launching Install theme for each update.
 
-Your ``conf/config.yml`` file is built using YAML syntax. Each part match a Roadiz *service* configuration.
+Your ``conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration.
 The most important part deals with Doctrine database credentials:
 
 .. code-block:: yaml
@@ -28,21 +27,21 @@ Dev mode
 When you’ll start using Roadiz, you’ll see a *dev mode* icon under your account picture.
 Development mode is useful to build your theme or when you are setting up your
 node-types and node-tree. In this mode, *Doctrine* empties its caches every time you load
-a page and *Twig* templates are regenerated each time you update them. It’s very convenient
-when your are working on your themes but it’s a lot more slower.
+a page and *Twig* templates are regenerated each time you update them. It is very convenient
+when your are working on your themes but it is a lot slower.
 
-When you’ll switch to production mode, you must disable *devMode* so that database metadata
+When switching to production mode, you must disable *devMode* so that database metadata
 and *Twig* templates are requested from cache. It is even better if you have a *Var cache*
 like *APC* or *XCache* since useful data are kept in memory. This efficiency has a drawback:
-you’ll need to empty caches if you make a code update or a Roadiz update.
+you will need to empty caches if you make a code update or a Roadiz update.
 
 .. code-block:: yaml
 
     devMode: true
 
-Another point about devMode is that static *Routes* are compiled at each request into a plain
+Another point about devMode is that static *Routes* are compiled for each request into a plain
 PHP class (``gen-src/Compiled/…``). If you disable *devMode*, Symfony router will be a lot more efficient
-and that’s the same for *UrlGenerator*
+and that is the same for *UrlGenerator*.
 
 
 Solr endpoint
@@ -125,7 +124,7 @@ own parameters. You can use the argument ``--help`` to get more informations abo
     ./bin/roadiz install --help
 
 CLI tools are useful to handle database upgrades and to regenerate nodes-sources entities classes.
-But you also can switch *development mode* too:
+But you can also switch *development mode* :
 
 .. code-block:: console
 
@@ -142,6 +141,6 @@ You can even review every user roles:
     ./bin/roadiz users
 
 We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful
-commands which can alter your database and make you lose precious contents. Especially when you will need to update
+commands which can alter your database and make you lose precious datas. Especially when you will need to update
 your database schema after a Theme or a Core update. **Always make a database back-up before any Doctrine operation**.
 

@@ -38,7 +38,7 @@ to see if no data will be removed:
 
     bin/roadiz orm:schema-tool:update --dump-sql;
 
-Then, if migration summary is OK (no data loss), perform the changes:
+Then, if migration summary is OK (no data loss), perform the following changes:
 
 .. code-block:: bash
 
@@ -47,6 +47,6 @@ Then, if migration summary is OK (no data loss), perform the changes:
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
-    because it cannot done from a CLI interface as they are shared cache engines. As a last
+    because it can't be done from a CLI interface as they are shared cache engines. As a last
     chance try, you can restart your ``php5-fpm`` service.
 

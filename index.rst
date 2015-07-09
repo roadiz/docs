@@ -4,8 +4,8 @@
 Welcome to Roadiz's documentation!
 ==================================
 
-Roadiz is a polymorphic CMS based on a node system which can handle many types of services.
-It’s based on *Symfony* components and *Doctrine ORM* for maximum performances and security.
+Roadiz is a polymorphic CMS based on a node system that can handle many types of services.
+It is based on *Symfony* components and *Doctrine ORM* for maximum performances and security.
 
 User documentation
 ------------------

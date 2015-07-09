@@ -3,7 +3,7 @@
 Managing users
 ==============
 
-It's possible to manage users with roadiz CLI.
+It is possible to manage users with roadiz CLI.
 
 Add user
 --------

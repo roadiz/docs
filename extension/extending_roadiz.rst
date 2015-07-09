@@ -4,9 +4,9 @@
 Extending Roadiz
 ================
 
-It's time to see how to extend Roadiz!
+It is time to see how to extend Roadiz!
 As you read in Roadiz :ref:`philosophy` part, we won’t ship "plugin" or "module" like others CMS.
-But you will be able to add lots of features using the really part that matters: Themes!
+But you will be able to add of lot of features using the part that really matters: Themes!
 
 Theme powered CMS
 -----------------
@@ -79,7 +79,7 @@ Now let's have a look to your twig template file ``admin/test.html.twig``.
     </section>
     {% endblock %}
 
-The first line is for inheriting from Rozier base template, you can notice that we choose explicitely `@Rozier` namespace.
+The first line is for inheriting from Rozier base template, you can notice that we explicitely choose `@Rozier` namespace.
 
 The two next blocks are made for you to add some CSS or Javascript.
 For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ request.baseUrl ~ "/themes/MyTheme/static/css/customstyle.css" }}``,  or add directly some CSS with "<style>" tag.

@@ -7,7 +7,7 @@ Roadiz node system implements several events. So you will be able to create
 and inject your own event subscribers inside *Roadiz* dispatcher.
 
 To understand how the event dispatcher works, you should read the
-`documentation from Symfony <http://symfony.com/doc/current/components/event_dispatcher/introduction.html>`_ before.
+`Symfony documentation at <http://symfony.com/doc/current/components/event_dispatcher/introduction.html>`_ before.
 
 
 Nodes events

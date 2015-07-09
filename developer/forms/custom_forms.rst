@@ -4,13 +4,13 @@
 Building custom forms
 =====================
 
-Building a custom is look like a node building but it's a lot more simple!
-Let's have a look on structure image.
+Building a custom form looks like building a node but it is a lot simpler!
+Let's have a look at structure image.
 
 .. image:: ./img/custom-form.*
     :align: center
 
-When you create custom form you add some question. The questions are the CustomFormField type.
+After creating a custom form, you add some question. The questions are the CustomFormField type.
 
 The answer is saved in two entities:
     - in CustomFormAnswer

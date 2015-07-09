@@ -9,17 +9,17 @@ If you want to contribute to Roadiz project by reporting issues or hacking code,
 Reporting issues
 ----------------
 
-When you encounter an issue with Roadiz we’d love to hear about it.
-Because thank to you we can make the most awesome and stable CMS!
+When you encounter an issue with Roadiz we would love to hear about it.
+Because thanks to you, we can make the most awesome and stable CMS!
 If you submit a bug report please include all informations available to you, here are some things you can do:
 
 - Try to simplify the things you are doing until getting a minimal set of actions reproducing the problem.
 - Do not forget to join a screenshot or a trace of your error.
 
-Running the tests
+Running tests
 -----------------
 
-If you developed a new feature or simply want to try out an installation of Roadiz you can run the unit-tests.
+If you developed a new feature or simply want to try out an installation of Roadiz you can run unit-tests.
 For this you will need to install the testing framework, this can easily be done using:
 
 .. code-block:: console
@@ -50,4 +50,4 @@ You can copy and paste the following command-lines to check easily:
                 -p ./
 
 Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability.
-Your code will be checked when we’ll consider your pull requests.
+Your code will be checked when we will be considering your pull requests.
