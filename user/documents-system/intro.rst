@@ -3,7 +3,7 @@
 Managing documents
 ==================
 
-You can manage documents via the 'Document' icon in the toolbar. You can either upload , embed, randomize documents, and even have a look at unused documents in your website.
+You can manage documents via the *Document* icon in the toolbar. You can either upload , embed, randomly downloaded documents, and even have a look at unused documents in your website.
 
 .. image:: ./img/toolbar_document.png
     :align: center
@@ -33,7 +33,7 @@ Here is the trickiest part of the Documents section. You can have embedded docum
 Random document
 ---------------
 
-'Random' is a cool feature that allows to upload random documents to your website from Splashbase. It uses REST API and it works pretty well.
+*Random* is a cool feature that allows to download random documents to your website from Splashbase.
 
 .. image:: ./img/random_document.png
     :align: center
@@ -41,7 +41,7 @@ Random document
 Unused document
 ---------------
 
-Clicking 'Unused document' allows you to gather every unused documents on your website, so you can clean your database and get rid of useless documents.
+Clicking *Unused document* allows you to gather every unused documents on your website, so you can clean your database and get rid of useless documents.
 
 
 .. image:: ./img/unused_document.png
