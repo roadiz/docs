@@ -68,7 +68,7 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * ``php5-intl`` extension
 * ``php5-curl`` extension
 * PHP cache (APC/XCache) + Var cache (strongly recommended)
-* MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
+* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
 * Zip/Unzip
 * cUrl
 * Composer
@@ -153,7 +153,9 @@ The quick and dirty way: using a Zip archive
 This method must be used if you have to work on your own computer with softwares like MAMP, WAMP or
 if you need to setup your website on a shared hosting plan without any SSH or Git.
 
-If you downloaded Roadiz on the `Github release <https://github.com/roadiz/roadiz/releases>`_ page or `directly from our website <http://www.roadiz.io>`_, you should get a bundled Zip containing every Roadiz files and Composer dependencies. We even generated ``.htaccess`` files and a ``conf/config.yml`` file for you.
+If you downloaded Roadiz on the `Github release <https://github.com/roadiz/roadiz/releases>`_ page or
+`directly from our website <http://www.roadiz.io>`_, you should get a bundled Zip containing every
+Roadiz files and Composer dependencies. We even generated ``.htaccess`` files and a ``conf/config.yml`` file for you.
 
 If you can unzip directly on your server, that is cool. It will save you time,
 if not, just unzip it on your desktop and upload files to your server via FTP.
