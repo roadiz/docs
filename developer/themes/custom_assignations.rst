@@ -323,6 +323,77 @@ Then create your template ``form-blocks/contactblock.html.twig``:
         {{ form(joinForm) }}
     </div>
 
+Paginate entities using EntityListManager
+-----------------------------------------
 
+Roadiz implements a powerful tool to display lists and paginate them.
+Each ``Controller`` class allows developer to use ``createEntityListManager``
+method.
 
+In ``FrontendController`` inheriting classes, such as your theme ones, this method
+is overriden to automatically use the current ``authorizationChecker`` to filter entities
+by status when entities are *nodes*.
+
+``createEntityListManager`` method takes 3 arguments:
+
+- **Entity classname**, i.e. ``RZ\Roadiz\Core\Entities\Nodes`` or ``GeneratedNodeSources\NSArticle``. The great thing is that you can use it on a precise ``NodesSources`` class instead of using *Nodes* or *NodesSources* then filtering on *node-type*. Using a ``NS`` entity allows you to filter on your own custom fields too.
+- **Criteria array**, (optional)
+- **Ordering array**, (optional)
+
+*EntityListManager* will automatically grab the current page looking for your Request parameters.
+If ``?page=2`` is set or ``?search=foo``, it will use them to filter your list and choose the right page.
+
+If you want to handle pagination manually, you always can set it with ``setPage(page)`` method, which must be called **after**
+handling *EntityListManager*. It is useful to bind page parameter in your *routing* configuration.
+
+.. code-block:: yaml
+
+    projectPage:
+        path:     /articles/{page}
+        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\ArticleController::listAction, page: 1 }
+        requirements:
+            page: "[0-9]+"
+
+Then, build your ``listAction`` method.
+
+.. code-block:: php
+
+    /**
+     * {@inheritdoc}
+     */
+    public function listAction(
+        Request $request,
+        $page,
+        $_locale = 'en'
+    ) {
+        $translation = $this->bindLocaleFromRoute($request, $_locale);
+        $this->prepareThemeAssignation(null, $translation);
+
+        $listManager = $this->createEntityListManager(
+            'GeneratedNodeSources\\NSArticle',
+            ['sticky' => false], //sticky is a custom field from Article node-type
+            ['node.createdAt' => 'DESC']
+        );
+        /*
+         * First, set item per page
+         */
+        $listManager->setItemPerPage(20);
+        /*
+         * Second, handle the manager
+         */
+        $listManager->handle();
+        /*
+         * Third, set current page manually
+         * AFTER handling entityListManager
+         */
+        if ($page > 1) {
+            $listManager->setPage($page);
+        }
+
+        $this->assignation['articles'] = $listManager->getEntities();
+        $this->assignation['filters'] = $listManager->getAssignation();
+
+        $this->getService('stopwatch')->start('twigRender');
+        return $this->render('types/articles-feed.html.twig', $this->assignation);
+    }
 

@@ -67,9 +67,8 @@ So once you duplicated and renamed *DefaultTheme* with your own sweet name, do n
         methods: [GET]
 
 
-* Create your own theme ``config.yml`` file, this file is needed by Roadiz to parse correctly your theme
-when you will add it to the backoffice. If your theme does not show up, you may check this YAML file
-syntax:
+Create your own theme ``config.yml`` file, this file is needed by Roadiz to parse correctly your theme
+when you will add it to the backoffice. If your theme does not show up, you may check this YAML file syntax:
 
 .. code-block:: yaml
 
@@ -88,7 +87,7 @@ syntax:
         nodes: []
 
 
-* Edit your main class informations (``MyAwesomeThemeApp.php``)
+Edit your main class informations (``MyAwesomeThemeApp.php``)
 
 .. code-block:: php
    :linenos:

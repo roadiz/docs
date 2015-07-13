@@ -20,7 +20,7 @@ Add node-type
 Once you have landed on the Node-Types page (*https://mywebsite.com/rz-admin/node-types*), you can create node-types by clicking on *Add a node-type*.
 
 .. note ::
-    You can export and import a node-type if you have a .json file. See ``Other action* for more information.
+    You can export and import a node-type if you have a .json file. See *Other action* for more information.
 
 .. image:: ./img/create_nodetype_button.png
     :align: center
@@ -28,7 +28,7 @@ Once you have landed on the Node-Types page (*https://mywebsite.com/rz-admin/nod
 Upon filling the two mandatory settings *Name* (that developpers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type.
 
 .. warning ::
-    Be careful when you name your node-type though, ``Name* field can't be changed once the node-type is created. See *Delete node-type* section to know how to delete a node-type.
+    Be careful when you name your node-type though, *Name* field can't be changed once the node-type is created. See *Delete node-type* section to know how to delete a node-type.
 
 .. image:: ./img/add_nodetype.png
     :align: center
@@ -68,7 +68,7 @@ Fill in the form to create a new field :
 - *Type*: single choice option that will define the content (basic text, markdown text, documents, email, number, single or multiple choice, children nodes etc.)
 - *Description*, *Group name*, *Visible*, *Indexed*, *Default values*, *Min length*, *Max length* (optional)
 
-.. info ::
+.. note ::
     *Default values* is an interesting field as you can specify what kind of node-types that can be linked to this node-type. You can also use it as a filter in the explorer, and only show those default values.
 
 .. image:: ./img/add_nodetype_field.png

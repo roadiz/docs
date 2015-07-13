@@ -37,7 +37,7 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
         os.chdir(cwd)
 
     # Remove theme demo docs avoid PDF and ePub issues
-    shutil.rmtree('_themes/roadiz_rtd_theme/demo_docs', ignore_errors=True)
+    # shutil.rmtree('_themes/roadiz_rtd_theme/demo_docs', ignore_errors=True)
 
     sys.path.append(os.path.abspath('_themes/roadiz_rtd_theme'))
 

@@ -35,8 +35,7 @@ CMS Structure
 -------------
 
 * ``bin/`` : Contains the Roadiz CLI executable
-* ``cache/`` : Every cache file for *Twig* templates and
-*`Intervention Request <https://github.com/roadiz/roadiz/releases>`_* images (this folder must be writable for PHP)
+* ``cache/`` : Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
 * ``conf/`` : Your setup configuration file(s) (this folder must be writable for PHP)
 * ``files/`` : Documents and font files root (this folder must be writable for PHP)
 * ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)

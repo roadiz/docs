@@ -56,7 +56,7 @@ delete existing data since *Doctrine* won’t recognize specific tables.
 Now let's have a look on node-sources.
 
 
-.. _node-sources:
+.. _node-sources-intro:
 
 Node-sources and translations
 -----------------------------
