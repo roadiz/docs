@@ -10,6 +10,9 @@ a convenient shortcut to create this manager with ``$this->createContactFormMana
 If you want to add your own fields, you can use the manager’ form-builder with ``$contactFormManager->getFormBuilder();``.
 Then add your field using standard *Symfony* form syntax. Do not forget to use *Constraints* to handle errors.
 
+One contact-form for one action
+-------------------------------
+
 Here is an example to create your contact form in your controller action.
 
 .. code-block:: php
@@ -22,7 +25,7 @@ Here is an example to create your contact form in your controller action.
     $contactFormManager = $this->createContactFormManager()
                                ->withDefaultFields();
     /*
-     * Add custom fields…
+     * (Optional) Add custom fields…
      */
     $formBuilder = $contactFormManager->getFormBuilder();
     $formBuilder->add('callMeBack', 'checkbox', [
@@ -97,3 +100,48 @@ Then in your contact page Twig template
      #}
     {% form_theme contactForm '@MyTheme/forms.html.twig' %}
     {{ form(contactForm) }}
+
+Using contact-form in *block* controllers
+-----------------------------------------
+
+If you want to use *contact-forms* in blocks instead of a full page, you will need
+to make your redirection response **bubble** through *Twig* render. The only way to stop
+Twig is to **throw an exception** and to pass your Redirect or Json response within your
+Exception.
+
+Roadiz makes this possible with ``RZ\Roadiz\Core\Exceptions\ForceResponseException``.
+For example, in a ``Themes\MyAwesomeTheme\Controllers\Blocks\ContactBlockController``, instead of
+returning the ``contactFormManager`` response, you will have to throw a ``ForceResponseException``
+with it as an argument.
+
+.. code-block:: php
+   :linenos:
+
+    // ./themes/MyAwesomeTheme/Controllers/Blocks/ContactBlockController.php
+
+    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+
+    …
+    // Create contact-form manager and add 3 default fields.
+    $contactFormManager = $this->createContactFormManager()
+                               ->withDefaultFields();
+
+    if (null !== $response = $contactFormManager->handle()) {
+        /*
+         * Force response to bubble through Twig rendering process.
+         */
+        throw new ForceResponseException($response);
+    }
+
+    $form = $contactFormManager->getForm();
+
+    // Assignate your form view to display it in Twig.
+    $this->assignation['contactForm'] = $form->createView();
+
+    return $this->render('blocks/contactformblock.html.twig', $this->assignation);
+
+Then, in your *master* controller (i.e. ``PageController``), ``render`` method will automatically
+catch your *ForceResponseException* exception in order to extract the forced response object. Then
+it will return your response instead of your page twig rendered output.
+
+
