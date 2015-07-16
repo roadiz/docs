@@ -144,4 +144,36 @@ Then, in your *master* controller (i.e. ``PageController``), ``render`` method w
 catch your *ForceResponseException* exception in order to extract the forced response object. Then
 it will return your response instead of your page twig rendered output.
 
+Securing your form with *Google reCAPTCHA*
+------------------------------------------
+
+Roadiz can seamlessly use *Google reCAPTCHA* to secure your contact form against robots.
+All you need to do is to register on https://www.google.com/recaptcha/ to ask for a *sitekey*
+and a *secret*. Once you’ve got these two keys, add them to your Roadiz settings.
+
+.. image:: ./img/recaptcha-settings.gif
+    :align: center
+
+Then, just use ``withGoogleRecaptcha()`` method on your contact-form manager.
+
+.. code-block:: php
+
+    // Create contact-form manager, add 3 default fields and add a reCAPTCHA.
+    $contactFormManager = $this->createContactFormManager()
+                               ->withDefaultFields()
+                               ->withGoogleRecaptcha();
+
+Do not forget to add recaptcha form-template and to embed google’s javascript.
+
+.. code-block:: html
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+.. code-block:: html+jinja
+
+    {# In your theme’ forms.html.twig file #}
+    {% block recaptcha_widget -%}
+        <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
+    {%- endblock recaptcha_widget %}
+
 
