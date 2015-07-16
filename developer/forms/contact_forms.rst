@@ -4,46 +4,63 @@
 Building contact forms
 ======================
 
-With Roadiz you can easily create simple contact forms with
-`EntryPointsController::getContactFormBuilder <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/EntryPointsController.html#method_getContactFormBuilder>`_ method.
-This will create a ``FormBuilder`` object which points to the Roadiz sendmail entrypoint. You just have to add your own
-form inputs like the mandatory ``email`` input and assign it to be rendered by Twig.
+With Roadiz you can easily create simple contact forms with ``ContactFormManager`` class. Your controller has
+a convenient shortcut to create this manager with ``$this->createContactFormManager()`` method.
 
-Create your contact form in your controller action.
+If you want to add your own fields, you can use the manager’ form-builder with ``$contactFormManager->getFormBuilder();``.
+Then add your field using standard *Symfony* form syntax. Do not forget to use *Constraints* to handle errors.
+
+Here is an example to create your contact form in your controller action.
 
 .. code-block:: php
    :linenos:
 
-    use RZ\Roadiz\CMS\Controllers\EntryPointsController;
+    use Symfony\Component\Validator\Constraints\File;
 
-    ...
+    …
+    // Create contact-form manager and add 3 default fields.
+    $contactFormManager = $this->createContactFormManager()
+                               ->withDefaultFields();
+    /*
+     * Add custom fields…
+     */
+    $formBuilder = $contactFormManager->getFormBuilder();
+    $formBuilder->add('callMeBack', 'checkbox', [
+            'label' => 'call.me.back',
+            'required' => false,
+        ])
+        ->add('document', 'file', [
+            'label' => 'document',
+            'required' => false,
+            'constraints' => [
+                new File([
+                    'maxSize' => $contactFormManager->getMaxFileSize(),
+                    'mimeTypes' => $contactFormManager->getAllowedMimeTypes(),
+                ]),
+            ]
+        ])
+        ->add('send', 'submit', [
+            'label' => 'send.contact.form',
+        ]);
 
-    $formBuilder = EntryPointsController::getContactFormBuilder(
-        $request,
-        true // Force redirection after contact form submit
-    );
-    $formBuilder->add('email', 'email', array(
-                    'label'=>$this->getTranslator()->trans('your.email')
-                ))
-                ->add('name', 'text', array(
-                    'label'=>$this->getTranslator()->trans('your.name')
-                ))
-                ->add('message', 'textarea', array(
-                    'label'=>$this->getTranslator()->trans('your.message')
-                ))
-                ->add('callMeBack', 'checkbox', array(
-                    'label'=>$this->getTranslator()->trans('call.me.back'),
-                    'required' => false
-                ))
-                ->add('send', 'submit', array(
-                    'label'=>$this->getTranslator()->trans('send.contact.form')
-                ));
-    $form = $formBuilder->getForm();
+    /*
+     * This is the most important point. handle method will perform form
+     * validation and send email.
+     *
+     * Handle method should return a Response object if everything is OK.
+     */
+    if (null !== $response = $contactFormManager->handle()) {
+        return $response;
+    }
+
+    $form = $contactFormManager->getForm();
+
+    // Assignate your form view to display it in Twig.
     $this->assignation['contactForm'] = $form->createView();
 
-In this example, we used ``getContactFormBuilder`` method with *redirect* option to *true* (its second argument).
-If you need to send your contact form using *Ajax* request, just set this argument to *false* and it will
-return a ``JsonResponse`` instead of a ``RedirectResponse``.
+In this example, we used ``withDefaultFields`` method which add automatically ``email``, ``name`` and ``message``
+fields with right validation contraints. This method is optional and you can add any field you want manually, just
+keep in mind that you should always ask for an ``email``.
 
 Add session messages to your assignations:
 
