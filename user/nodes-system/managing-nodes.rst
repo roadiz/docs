@@ -30,21 +30,21 @@ in a tree-shaped way. It’s intuitive and it works the same as your computer fi
 Creating a node
 ---------------
 
-.. figure:: ./img/add-node-btn.gif
-    :align: right
+.. sidebar:: Add buttons
 
-    “Add node” button located at the top
-    of your *node-tree*.
+    .. image:: ./img/add-node-btn.gif
+        :align: center
+
+    “Add node” button located at the top of your *node-tree*.
+
+    .. image:: ./img/add-child-node-btn.gif
+        :align: center
+
+    “Add a *child* node” button, which is located at the top of each node’ contextual menu.
 
 To add a blank node to your node-tree, you will need to choose your location. In Roadiz
 you can add a content at the root of your tree or choose a “parent-node”. In both cases
 you will be asked to choose a *node-type* and a *node-name* before creating your node.
-
-.. figure:: ./img/add-child-node-btn.gif
-    :align: right
-
-    “Add a *child* node” button, which is located
-    at the top of each node’ contextual menu.
 
 
 - *Node name* is the global identifier for your node. It must be unique and won’t change from one translation to an other. It can be changed later except if your developer locked it up. *Node name* is usually used to build your pages URL.
@@ -53,3 +53,53 @@ you will be asked to choose a *node-type* and a *node-name* before creating your
 
 Edit an existing node
 ---------------------
+
+Node edition page is composed in several tabs.
+
+- Node content
+- Node parameters
+- Tags
+- SEO
+- Tree, if your node is set up as a *container*
+
+Node content
+^^^^^^^^^^^^
+
+.. image:: ./img/node-edit-page.gif
+    :align: center
+
+Contents tab is basically the main part where you will edit your node specific data,
+using node-type fields such as *text* fields, or *documents* fields, etc.
+
+*This tab will display different content over translations.*
+
+Node parameters
+^^^^^^^^^^^^^^^
+
+.. image:: ./img/node-edit-page.gif
+    :align: center
+
+Parameters are global data such as your *node name*. They are used for managing your node
+visibility according to each user role and node back-office’ settings. This section should
+not be used so often as parameters will be set once by your developer.
+
+*This tab will display the same content over translations.*
+
+Tags
+^^^^
+
+.. image:: ./img/node-edit-page.gif
+    :align: center
+
+*This tab will display the same content over translations.*
+
+SEO
+^^^
+
+.. image:: ./img/node-edit-page.gif
+    :align: center
+
+*This tab will display different content over translations.*
+
+Tree
+^^^^
