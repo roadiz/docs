@@ -1,7 +1,7 @@
-.. _managing_nodes:
+.. _managing_node_types:
 
-Managing node-types and nodes
-=============================
+Managing node-types
+===================
 
 This is a simple guide on how to create and manage nodes using Roadiz CLI, add and remove node fields, or even how to import nodes.
 
@@ -40,16 +40,16 @@ You have now created your first node-type! It now appears on the node-type page 
 .. image:: ./img/created_nodetype.png
     :align: center
 
-Delete node
------------
+Delete node-type
+----------------
 
 Made a typo when creating a node-type? No longer in need of a node-type ? You can delete it by simply clicking the trashcan icon on the Node Types page (*https://mywebsite.com/rz-admin/node-types*).
 
 .. image:: ./img/delete_nodetype.png
     :align: center
 
-Adding node field
------------------
+Adding node-type field
+----------------------
 
 To add fields to your newly-created node-type, click the *Manage node-type fields* icon.
 
@@ -74,8 +74,8 @@ Fill in the form to create a new field :
 .. image:: ./img/add_nodetype_field.png
     :align: center
 
-Other action
-------------
+Other actions
+-------------
 
 From one website to another, you can export node-types as .rzt files.
 
@@ -140,14 +140,3 @@ It can be easily done by clicking on *Import node-type* button, then selecting i
     :align: center
 
 You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing.
-
-
-
-
-
-
-
-
-
-
-
