@@ -127,3 +127,10 @@ to add your own IP address to filter who can access to your *dev* environment.
     For those who downloaded Roadiz using the Zip archive, an ``dev.php`` file should be already available
     in your website folder, just edit it to add you own IP address(es).
 
+Preview environment
+^^^^^^^^^^^^^^^^^^^
+
+The *preview* environment is not a real one as it only adds a flag to Roadiz’ Kernel to enable
+back-office users to see unpublished nodes. By default, it is available using ``preview.php``
+entry point, unless you decide to remove it.
+
