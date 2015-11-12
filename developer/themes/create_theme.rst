@@ -12,22 +12,25 @@ Each theme is a folder which must be placed in ``themes/`` folder. Roadiz comes 
 
 - *Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time.
 - *Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall.
-- *DefaultTheme* : It’s… the default theme which can be copied to start your own themes.
+- *DefaultTheme* : It’s a demo theme which is mainly used to demonstrate basic Roadiz features and to try the back-office editing capabilities.
 
 As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode
 the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands.
 
+.. note::
+    We configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder. So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates.
+
 Preparing your own frontend theme
 ---------------------------------
 
-First copy ``DefaultTheme`` folder and rename it against your new theme. Keep in mind that *DefaultTheme*
-folder will be overrode at each CMS updates, so don’t update its files or you’ll suffer of losing precious
-data. And we don’t want you to be mad at us.
+To start from a fresh and clean foundation, we encourage you to clone our `BaseTheme <https://github.com/roadiz/BaseTheme>`_  and to rename it against your new theme name.
 
-So once you duplicated and renamed *DefaultTheme* with your own sweet name, do not forget to rename every references in:
+So once you duplicated and renamed *BaseTheme* with your own sweet name, do not forget to rename every references in:
 
+* ``MyAwesomeTheme/config.yml`` theme definition file.
 * **Folder name** and **Class namespace** must be the same (Ex: “MyAwesomeTheme”) for making autoloader works with your theme.
 * **Theme entry point class**: your main theme class must be named after your folder name plus ``App`` suffix (Ex: “MyAwesomeThemeApp.php”)
+* In each twig templates: replace ``@BaseTheme`` with your own theme name with the ``@`` character before.
 * **Resources/routes.yml**: rename every route class path using your namespace:
 
 .. code-block:: yaml
