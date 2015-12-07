@@ -21,29 +21,6 @@ Roadiz uses *Doctrine ORM* to store your data. It will directly pass this JSON p
 you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 
-Dev mode
---------
-
-When you’ll start using Roadiz, you’ll see a *dev mode* icon under your account picture.
-Development mode is useful to build your theme or when you are setting up your
-node-types and node-tree. In this mode, *Doctrine* empties its caches every time you load
-a page and *Twig* templates are regenerated each time you update them. It is very convenient
-when your are working on your themes but it is a lot slower.
-
-When switching to production mode, you must disable *devMode* so that database metadata
-and *Twig* templates are requested from cache. It is even better if you have a *Var cache*
-like *APC* or *XCache* since useful data are kept in memory. This efficiency has a drawback:
-you will need to empty caches if you make a code update or a Roadiz update.
-
-.. code-block:: yaml
-
-    devMode: true
-
-Another point about devMode is that static *Routes* are compiled for each request into a plain
-PHP class (``gen-src/Compiled/…``). If you disable *devMode*, Symfony router will be a lot more efficient
-and that is the same for *UrlGenerator*.
-
-
 Solr endpoint
 -------------
 
@@ -123,22 +100,6 @@ own parameters. You can use the argument ``--help`` to get more informations abo
 
     ./bin/roadiz install --help
 
-CLI tools are useful to handle database upgrades and to regenerate nodes-sources entities classes.
-But you can also switch *development mode* :
-
-.. code-block:: console
-
-    # Enabling development mode
-    ./bin/roadiz config --enable-devmode
-
-    # Disabling development mode
-    ./bin/roadiz config --disable-devmode
-
-You can even review every user roles:
-
-.. code-block:: console
-
-    ./bin/roadiz users
 
 We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful
 commands which can alter your database and make you lose precious datas. Especially when you will need to update

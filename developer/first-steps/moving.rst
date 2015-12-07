@@ -36,6 +36,7 @@ Now you can perform a schema update without losing your nodes data
     bin/roadiz orm:schema-tool:update --force;
 
     bin/roadiz cache --clear-all
+    # You can use -a as a shortcut to --clear-all
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually

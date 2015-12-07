@@ -276,6 +276,7 @@ and a ``blockAction`` method inside.
     namespace Themes\MyTheme\Controllers\Blocks;
 
     use RZ\Roadiz\Core\Entities\NodesSources;
+    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
     use Symfony\Component\HttpFoundation\Request;
     use Themes\MyTheme\MyThemeApp;
 
@@ -300,7 +301,7 @@ and a ``blockAction`` method inside.
             $form->handleRequest($request);
             if ($form->isValid()) {
                 // some stuff
-                return $this->redirect($request->getUri());
+                throw new ForceResponseException($this->redirect($request->getUri()));
             }
 
             $this->assignation['contactForm'] = $form->createView();

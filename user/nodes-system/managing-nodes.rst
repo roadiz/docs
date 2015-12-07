@@ -40,7 +40,7 @@ Contextual menu actions
 - *Move to last position:* basically the same for the last position.
 - *Delete node:* to move current node to the trashcan. A confirmation page will be prompt before really deleting a node.
 - *Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed in Urls and your website, even if you are an administrator.
-- *Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users.
+- *Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users using ``preview.php`` entry point.
 - *Publish offspring:* Publish a node and all its children nodes recursively.
 - *Duplicate:* Copy all current node’ content and relationships into a new node.
 
@@ -120,3 +120,35 @@ SEO
 
 .. Tree
 .. ^^^^
+
+Nodes publication system
+------------------------
+
+During its lifecycle, every nodes can have a different publication status.
+When you create a new content, it will be automatically set as **Draft** by Roadiz so that
+you can edit it without bothering your visitors and sharing unfinished work.
+
+Available statuses:
+^^^^^^^^^^^^^^^^^^^
+
+- **Draft**: First status for new nodes
+- **Pending validation**: It’s a medium status for user that do not have permission to publish nodes
+- **Published**: That’s the most important status, it will set the green light to your visitor to view your content
+- **Archived**: When you don’t want to publish a node but you don’t want to delete it either
+- **Deleted**: It’s the last status for your nodes. Before emptying your node trashcan, every content will wait with this status.
+
+To improve status visibility, *draft* and *pending* nodes have a rhombus shape and *published* nodes have a circle shape.
+
+Preview unpublished nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them
+using a dedicated *entry point* called ``preview.php``, yes this is not very original. We decided to create
+a different entry point not to share the same URL with your public website as it could create confusing errors if your
+website is hosted behing a reverse proxy engine.
+
+For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead
+to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to
+``http://mywebsite.com/preview.php/my-news``. This URL will only allow authentified backend users, other people will
+be blocked.
+

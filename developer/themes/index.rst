@@ -8,3 +8,4 @@ Themes
    create_theme
    using_twig
    custom_assignations
+   theme_firewall
