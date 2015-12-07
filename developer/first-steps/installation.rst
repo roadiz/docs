@@ -40,17 +40,12 @@ When your HTTP server is ready to go, download *Roadiz* latest version using Git
     cd your/webroot/folder;
     git clone git@github.com:roadiz/roadiz.git ./;
 
-Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies and to build PHP class autolader.
+Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies and to build PHP class autolader. We even set up some post-scripts which will copy a new ``config.yml``, ``dev.php`` and ``install.php`` files for you.
 
 .. code-block:: bash
-
-    composer install -n --no-dev;
-
-Then copy `conf/config.default.yml` file to `conf/config.yml`.
-
-.. code-block:: bash
-
-    cp conf/config.default.yml conf/config.yml;
+    # Install Roadiz dependencies, prepare a fresh config file and your
+    # own dev and install entry points.
+    composer install --no-dev;
 
 When your virtual host is ready and every files have been downloaded you can go to the
 next part to enable the `install environment`_.
@@ -102,15 +97,7 @@ As every *Symfony* application do, Roadiz works using environments. By default, 
 environment which is handled by ``index.php`` entry point. At this moment, if you try to connect to
 your fresh new Roadiz website, you will get an error as we did not install its database and its essential data.
 
-To be able to use Roadiz *install interface*, you’ll need to copy ``samples/install.php.sample`` to ``install.php``. This will enable
-a new environment called *install* reachable at the Url ``http://mywebsite.com/install.php``. For security reasons, we added an IP filtering in
-this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1')``.
-This IP filtering is very important if you are working on a public server, no one except you should be able to access
-*install* entry point.
-
-.. note::
-    For those who downloaded Roadiz using the Zip archive, an ``install.php`` file should be already available
-    in your website folder, just edit it to add you own IP address(es).
+To be able to use Roadiz *install interface*, you’ll need to call the *install* environment entry point. A ``install.php`` file has been generated when you executed ``composer install`` command. This environment will be reachable at the Url ``http://mywebsite.com/install.php``. For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point.
 
 At the end of the install process, you will be invited to remove the ``install.php`` file and to connect to your
 website final URL.
@@ -120,12 +107,8 @@ Development environment
 
 Roadiz *production* environment is not made for developing your own themes and extending back-office features.
 As the same way as *install* environment, we prepared a *dev* environment to disable resources caching and enable
-debug features. Just copy ``samples/dev.php.sample`` to ``dev.php``, and like *install* entry point, you’ll need
-to add your own IP address to filter who can access to your *dev* environment.
-
-.. note::
-    For those who downloaded Roadiz using the Zip archive, an ``dev.php`` file should be already available
-    in your website folder, just edit it to add you own IP address(es).
+debug features. You’ll find a ``dev.php`` file at your website root which was generated at ``composer install`` command.
+As well as *install.php* entry point, you’ll need to add your own IP address to filter who can access to your *dev* environment.
 
 Preview environment
 ^^^^^^^^^^^^^^^^^^^
