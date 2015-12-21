@@ -43,7 +43,7 @@ Then, if migration summary is OK (no data loss), perform the following changes:
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
-    bin/roadiz cache --clear-all
+    bin/roadiz cache -a --env=prod
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
