@@ -26,7 +26,7 @@ When you have edited your ``conf/config.yml`` file, regenerate your entities sou
 
 .. code-block:: bash
 
-    bin/roadiz core:sources --regenerate;
+    bin/roadiz generate:nsentities;
 
 Now you can perform a schema update without losing your nodes data
 
@@ -35,8 +35,7 @@ Now you can perform a schema update without losing your nodes data
     bin/roadiz orm:schema-tool:update --dump-sql;
     bin/roadiz orm:schema-tool:update --force;
 
-    bin/roadiz cache --clear-all
-    # You can use -a as a shortcut to --clear-all
+    bin/roadiz cache:clear --env=prod
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
@@ -69,7 +68,7 @@ an SFTP connection or worst, an old FTP one. Don’t panic, it will take a littl
     Many shared-plan hosters offer you only one or two databases. When moving a Roadiz website, make sure
     that your database is empty and do not contain orphan tables, you must respect the rule “One app = One database”.
 
-* Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz config --generate-htaccess``.
+* Do not forget to generate ``.htaccess`` files for your prod server. Type ``bin/roadiz generate:htaccess``.
 * If you have at least SFTP, you should have to rights to zip/unzip on your distant server. So zip the whole Roadiz folder.
 
 .. note::

@@ -40,7 +40,7 @@ Add this to your `config.yml` to link your CMS to your *Solr* server:
                 username: ""
                 password: ""
 
-Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr --help`` to get
+Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr:check`` to get
 more informations.
 
 

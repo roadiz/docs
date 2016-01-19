@@ -146,6 +146,23 @@ Then you will be able to add your fresh new theme into Roadiz backoffice.
 
 *We are planning a simple command-line tool that will ease up this process.*
 
+Theme specific dependencies
+---------------------------
+
+Imagine that you need some extra *Composer* requirements for your theme. Basically, you
+need to display a social network feed with *Twitter* and some *Instagram* duck-face photos.
+You will need the `rezozero/mixedfeed <https://github.com/rezozero/mixedfeed>`_ library to be loaded with Composer but you can’t touch the
+main *Roadiz* ``composer.json``… How do we do?
+Roadiz uses the `wikimedia/composer-merge-plugin <https://github.com/wikimedia/composer-merge-plugin>`_ which do some magic stuff with multiple
+*composer.json* files. So you just have to create a new *composer.json* file inside your theme
+directory and call ``composer update`` **from the Roadiz root folder**.
+
+.. warning::
+    Do not use the ``composer`` command **inside** your Theme folders but **only at the Roadiz
+    root folder level.** If not, *Composer* will download and install specific dependencies
+    inside your theme and the main *autoloader* won’t find your new PHP classes.
+
+
 Static routing
 --------------
 

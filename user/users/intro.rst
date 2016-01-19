@@ -20,7 +20,7 @@ You can add users simply by clicking *Add an user* button.
 .. image:: ./img/add_user_button.png
     :align: center
 
-The command-line ``bin/roadiz  core:users --create loginname`` starts a new interactive user creation session.
+The command-line ``bin/roadiz core:users --create loginname`` starts a new interactive user creation session.
 You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin.
 
 Delete user
@@ -31,7 +31,7 @@ You can remove users by clicking the trashcan icon.
 .. image:: ./img/remove_user.png
     :align: center
 
-The command ``bin/roadiz  core:users --delete loginname`` delete the user "loginname".
+The command ``bin/roadiz core:users --delete loginname`` delete the user "loginname".
 
 Adding role
 -----------
@@ -45,7 +45,7 @@ If you want to add ``ROLE_SUPERADMIN`` role to "test" user, it would look like t
 
 .. code-block:: console
 
-    bin/roadiz  core:users test --add-roles ROLE_SUPERADMIN
+    bin/roadiz core:users test --add-roles ROLE_SUPERADMIN
 
 You can add multiple roles at the same time, you just need to use a comma separator without space.
 
@@ -59,4 +59,4 @@ For more informations and more actions, we invite you to use the command:
 
 .. code-block:: console
 
-    bin/roadiz  core:users --help
+    bin/roadiz core:users --help

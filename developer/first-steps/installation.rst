@@ -29,7 +29,7 @@ to Roadiz *front-controller*.
 
 .. note::
     **For shared hosting plan owners**, if you can’t modify your virtual host definition, don’t panic, Roadiz has a built-in CLI command to generate ``.htaccess`` files for you.
-    Just execute ``bin/roadiz config --generate-htaccess`` after cloning Roadiz sources and running Composer.
+    Just execute ``bin/roadiz generate:htaccess`` after cloning Roadiz sources and running Composer.
     In the other hand, if you are using *Apache* and have access to your virtual host, we strongly recommend you to use our sample configuration and disable ``.htaccess`` files: performances are at their best
     without them.
 
