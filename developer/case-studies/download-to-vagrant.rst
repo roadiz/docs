@@ -4,6 +4,18 @@
 Download a website on my computer to work with Vagrant
 ======================================================
 
+This case study is meant to get a fresh development environment from an **existing** Roadiz website and theme. Following code snippets are using
+some variables data, in theses examples I’ll use:
+
+- ``MYUSER`` as the MySQL database user.
+- ``MYPASSWORD`` as the MySQL database user password.
+- ``MYDATABASE`` as the MySQL database name.
+- ``~/Documents/Websites`` as the working directory on your own computer.
+- ``database-YYYY-mm-dd.sql`` is the mysql dump file name, replace ``YYYY-mm-dd`` with the current date.
+- ``mysuperwebsite`` is your website root folder.
+- ``git@github.com:johndoe/SuperTheme.git`` is an example *Github* repository for your theme.
+- ``SuperTheme`` is an example theme name and folder.
+
 On the production server:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -20,8 +32,7 @@ your database tables. Make sure to disable *foreign key verification* and add th
 On your computer:
 ^^^^^^^^^^^^^^^^^
 
-1. Clone Roadiz on your favorite folder, choose well between master or develop branch
-if you want the stable version or the latest features.
+1. Clone Roadiz on your favorite folder, choose well between master or develop branch if you want the stable version or the latest features.
 
 .. code-block:: bash
 
@@ -30,8 +41,7 @@ if you want the stable version or the latest features.
     git clone -b develop https://github.com/roadiz/roadiz.git mysuperwebsite;
 
 
-2. Clone your website theme in Roadiz ``themes/`` folder, choose well your branch too. If you already
-have a *develop* branch, clone with ``-b develop`` option.
+2. Clone your website theme in Roadiz ``themes/`` folder, choose well your branch too. If you already have a *develop* branch, clone with ``-b develop`` option.
 
 .. code-block:: bash
 
@@ -39,7 +49,7 @@ have a *develop* branch, clone with ``-b develop`` option.
     # My theme already has a develop branch so…
     git clone -b develop git@github.com:johndoe/SuperTheme.git SuperTheme;
 
-3. Init *git-flow* on the theme. You should always work on *develop*. *Master* branch is only for releases.
+3. **[Optional]** Initialize *git-flow* on the theme. You should always work on *develop*. *Master* branch is only for releases. If you don’t have *git-flow* on your computer, you can find some help on the `official documentation <http://danielkummer.github.io/git-flow-cheatsheet/>`_.
 
 .. code-block:: bash
 
@@ -47,7 +57,7 @@ have a *develop* branch, clone with ``-b develop`` option.
     git flow init;
     # Git flow should checkout on develop branch for you
 
-4. Install Roadiz’ *composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)
+4. Install Roadiz’ *Composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)
 
 .. code-block:: bash
 
@@ -74,8 +84,7 @@ take advantage of *Composer* and *NPM* cache between your dev websites.
     vagrant provision --provision-with roadiz,phpmyadmin,mailcatcher,solr
 
 
-6. Import your database dump. First, you’ll need to copy it into your Roadiz website to make it
-available within your Vagrant VM. Then import it in your VM using the ``mysql`` tool.
+6. Import your database dump. First, you’ll need to copy it into your Roadiz website to make it available within your Vagrant VM. Then import it in your VM using the ``mysql`` tool.
 
 .. code-block:: bash
 
@@ -117,8 +126,7 @@ available within your Vagrant VM. Then import it in your VM using the ``mysql`` 
     rsync -avcz -e "ssh -p 22" myuser@superwebsite.com:~/path/to/roadiz/files/ ./
     # do not forget ending slashes in both paths.
 
-10. If you are using a Vagrant VM you have to add your IP address to the ``dev.php`` file
-to authorize your host computer to use the development environment.
+10. If you are using a Vagrant VM you have to add your IP address to the ``dev.php`` file to authorize your host computer to use the development environment.
 
 11. Connect to ``http://localhost:8080/dev.php`` to begin. Every outgoing emails should be catched
 by *Mailcatcher*. You can see them at address ``http://localhost:1080``.
