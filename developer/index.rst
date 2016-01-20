@@ -15,3 +15,4 @@ skills.
    themes/index.rst
    forms/index.rst
    services/index.rst
+   case-studies/index.rst

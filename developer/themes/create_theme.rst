@@ -146,6 +146,8 @@ Then you will be able to add your fresh new theme into Roadiz backoffice.
 
 *We are planning a simple command-line tool that will ease up this process.*
 
+.. _theme_composer:
+
 Theme specific dependencies
 ---------------------------
 
