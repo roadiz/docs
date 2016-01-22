@@ -54,7 +54,11 @@ On your computer:
 .. code-block:: bash
 
     cd ~/Documents/Websites/mysuperwebsite/themes/SuperTheme;
+    # You must fetch every available branches before initializing git flow
+    git checkout master;
+    git checkout develop;
     git flow init;
+    # Follow instructions
     # Git flow should checkout on develop branch for you
 
 4. Install Roadiz’ *Composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)
