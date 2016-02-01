@@ -7,6 +7,7 @@ First steps
 
    getting_started
    installation
+   vagrant
    manual_config
    upgrading
    moving

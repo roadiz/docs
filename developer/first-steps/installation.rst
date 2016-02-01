@@ -4,8 +4,8 @@
 Installation
 ============
 
-Download sources
-----------------
+Get Roadiz sources
+------------------
 
 Roadiz can be downloaded in two different ways:
 
@@ -21,17 +21,20 @@ An example virtual host is provided in source-code for each server:
 * ``samples/apache.conf``
 * ``samples/nginx.conf``
 
-You just have to customize your root path and server name. *Nginx* has built-in support for *php-fpm* whereas *Apache* must be configured with *fastcgi* to do the same.
+You just have to customize your root path and server name. *Nginx* has built-in support
+for *php-fpm* whereas *Apache* must be configured with *fastcgi* to do the same.
 
 These example files will provide basic security configuration for private access folders:
-such as ``conf`` or ``files/fonts`` folders. They will also configure your server to redirect all non static requests
-to Roadiz *front-controller*.
+such as ``conf`` or ``files/fonts`` folders. They will also configure your server
+to redirect all non static requests to Roadiz *front-controller*.
 
 .. note::
-    **For shared hosting plan owners**, if you can’t modify your virtual host definition, don’t panic, Roadiz has a built-in CLI command to generate ``.htaccess`` files for you.
-    Just execute ``bin/roadiz config --generate-htaccess`` after cloning Roadiz sources and running Composer.
-    In the other hand, if you are using *Apache* and have access to your virtual host, we strongly recommend you to use our sample configuration and disable ``.htaccess`` files: performances are at their best
-    without them.
+    **For shared hosting plan owners**, if you can’t modify your virtual host definition,
+    don’t panic, Roadiz has a built-in CLI command to generate ``.htaccess`` files for you.
+    Just execute ``bin/roadiz generate:htaccess`` after cloning Roadiz sources and running Composer.
+    In the other hand, if you are using *Apache* and have access to your virtual host,
+    we strongly recommend you to use our sample configuration and disable ``.htaccess`` files:
+    performances are at their best without them.
 
 When your HTTP server is ready to go, download *Roadiz* latest version using Git:
 
@@ -40,7 +43,9 @@ When your HTTP server is ready to go, download *Roadiz* latest version using Git
     cd your/webroot/folder;
     git clone git@github.com:roadiz/roadiz.git ./;
 
-Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies and to build PHP class autolader. We even set up some post-scripts which will copy a new ``config.yml``, ``dev.php`` and ``install.php`` files for you.
+Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies
+and to build PHP class autolader. We even set up some post-scripts which will copy
+a new ``config.yml``, ``dev.php`` and ``install.php`` files for you.
 
 .. code-block:: bash
     # Install Roadiz dependencies, prepare a fresh config file and your

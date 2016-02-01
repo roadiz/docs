@@ -7,5 +7,6 @@ Themes
 
    create_theme
    using_twig
+   display_documents
    custom_assignations
    theme_firewall

@@ -29,7 +29,7 @@ regenerate your node-source entities classes files:
 
 .. code-block:: bash
 
-    bin/roadiz core:sources --regenerate;
+    bin/roadiz generate:nsentities;
 
 Then run database schema update, first review migration details
 to see if no data will be removed:
@@ -43,7 +43,7 @@ Then, if migration summary is OK (no data loss), perform the following changes:
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
-    bin/roadiz cache --clear-all
+    bin/roadiz cache:clear --env=prod
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
