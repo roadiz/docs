@@ -38,8 +38,8 @@ to be sure that ``^/`` request matcher has **the lowest priority**.
         parent::setupDependencyInjection($container);
     }
 
-Configuring a firewall map entry
---------------------------------
+Configuring a firewall map entry with FirewallEntry class
+---------------------------------------------------------
 
 Before copy and pasting the following lines, think about it a little time…
 A firewall map entry defines severals mandatory routes:
@@ -63,25 +63,13 @@ add the matching *use* statement in your file header.
 
 .. code-block:: php
 
-    use RZ\Roadiz\Core\Authentification\AuthenticationFailureHandler;
-    use RZ\Roadiz\Core\Authentification\AuthenticationSuccessHandler;
-    use Symfony\Component\HttpFoundation\RequestMatcher;
-    use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver;
-    use Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint;
-    use Symfony\Component\Security\Http\Firewall\ExceptionListener;
-    use Symfony\Component\Security\Http\Firewall\LogoutListener;
-    use Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener;
-    use Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler;
-    use Symfony\Component\Security\Http\Logout\SessionLogoutHandler;
-    use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy;
-
+    use RZ\Roadiz\Utils\Security\FirewallEntry;
 
     /**
      * {@inheritdoc}
      */
     public static function setupDependencyInjection(Container $container)
     {
-
         $firewallBasePattern = '^/press';
         $firewallBasePath = '/press';
         $firewallLogin = '/signin';
@@ -89,99 +77,32 @@ add the matching *use* statement in your file header.
         $firewallLoginCheck = '/press/login_check';
         $firewallBaseRole = 'ROLE_ACCESS_PRESS';
 
-        /*
-         * Define firewall map base path
-         */
-        $requestMatcher = new RequestMatcher($firewallBasePattern);
-        /*
-         * Enforce required ROLE for this area
-         */
-        $container['accessMap']->add($requestMatcher, [$firewallBaseRole]);
-        /*
-         * Logout listener
-         */
-        $logoutListener = new LogoutListener(
-            $container['securityTokenStorage'],
-            $container['httpUtils'],
-            new DefaultLogoutSuccessHandler(
-                $container['httpUtils'],
-                $firewallLogin
-            ),
-            [
-                'logout_path' => $firewallLogout,
-            ]
-        );
-        $logoutListener->addHandler(new SessionLogoutHandler());
-        $logoutListener->addHandler($container['cookieClearingLogoutHandler']);
-
-        $listeners = [
-            // manages the SecurityContext persistence through a session
-            $container['contextListener'],
-            // logout users
-            $logoutListener,
-            $container['rememberMeListener'],
-            // authentication via a simple form composed of a username and a password
-            new UsernamePasswordFormAuthenticationListener(
-                $container['securityTokenStorage'],
-                $container['authentificationManager'],
-                new SessionAuthenticationStrategy(SessionAuthenticationStrategy::MIGRATE),
-                $container['httpUtils'],
-                Kernel::SECURITY_DOMAIN,
-                new AuthenticationSuccessHandler(
-                    $container['httpUtils'],
-                    $container['em'],
-                    $container['tokenBasedRememberMeServices'],
-                    [
-                        'always_use_default_target_path' => false,
-                        'default_target_path' => $firewallBasePath,
-                        'login_path' => $firewallLogin,
-                        'target_path_parameter' => '_target_path',
-                        'use_referer' => true,
-                    ]
-                ),
-                new AuthenticationFailureHandler(
-                    $container['httpKernel'],
-                    $container['httpUtils'],
-                    [
-                        'failure_path' => $firewallLogin,
-                        'failure_forward' => false,
-                        'login_path' => $firewallLogin,
-                        'failure_path_parameter' => '_failure_path',
-                    ],
-                    $container['logger']
-                ),
-                [
-                    'check_path' => $firewallLoginCheck,
-                ],
-                $container['logger'],
-                $container['dispatcher'],
-                null
-            ),
-            $container['securityAccessListener'],
-            $container["switchUser"],
-        ];
-        $formEntryPoint = new FormAuthenticationEntryPoint(
-            $container['httpKernel'],
-            $container['httpUtils'],
+        $firewallEntry = new FirewallEntry(
+            $container,
+            $firewallBasePattern,
+            $firewallBasePath,
             $firewallLogin,
-            true
+            $firewallLogout,
+            $firewallLoginCheck,
+            $firewallBaseRole
+            // You can add a special AuthenticationSuccessHandler
+            // if you need to do some stuff for your theme at visitor login
+            //'Themes\YourTheme\Authentification\AuthenticationSuccessHandler'
         );
-        $exceptionListener = new ExceptionListener(
-            $container['securityTokenStorage'],
-            new AuthenticationTrustResolver('', ''),
-            $container['httpUtils'],
-            Kernel::SECURITY_DOMAIN,
-            $formEntryPoint,
-            null,
-            null,
-            $container['logger']
-        );
+        // Allow anonymous authentification
+        $firewallEntry->withAnonymousAuthenticationListener();
+        // Allow switch user feature
+        $firewallEntry->withSwitchUserListener();
 
         /*
-         * Finally add this long long configuration to the Roadiz
+         * Finally add this entry to the Roadiz
          * firewall map.
          */
-        $container['firewallMap']->add($requestMatcher, $listeners, $exceptionListener);
+        $container['firewallMap']->add(
+            $firewallEntry->getRequestMatcher(),
+            $firewallEntry->getListeners(),
+            $firewallEntry->getExceptionListener()
+        );
 
         /*
          * Always setup general setupDependencyInjection AFTER
