@@ -25,27 +25,26 @@ CMS Structure
 Requirements
 ------------
 
-Roadiz is a web application running with PHP. It requires an HTTP server for static assets and SSH with out/ingoing allowed connections.
+Roadiz is a web application running with PHP. It requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections.
+Here is a short summary of mandatory elements before installing Roadiz:
+
+* Nginx or Apache, with a dedicated virtual host as described below.
+* PHP 5.4.3+, PHP 5.6 or 7+ recommended
+* ``php5-gd`` extension
+* ``php5-intl`` extension
+* ``php5-curl`` extension
+* PHP cache (APC/OPCache) + Var cache (strongly recommended)
+* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
+* Zip/Unzip
+* cUrl
+* Composer
+* Git
 
 .. note::
     If you are using a *shared hosting plan*, make sure that your server’s SSH connection allows external connections. You can verify with a simple ``ping google.com``.
     If you get request timeouts, your hosting provider might be blocking your SSH connectivity.
     You should consider using at least a VPS-like hosting.
     If you really need to setup Roadiz on a simple shared-hosting plan, we encourage you to install it on your own computer and send it with SFTP/FTP (it might take a long time) or *rsync* it.
-
-Here is a short summary of mandatory elements before installing Roadiz:
-
-* Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 5.4.3+
-* ``php5-gd`` extension
-* ``php5-intl`` extension
-* ``php5-curl`` extension
-* PHP cache (APC/XCache) + Var cache (strongly recommended)
-* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
-* Zip/Unzip
-* cUrl
-* Composer
-* Git
 
 For Nginx users
 ^^^^^^^^^^^^^^^

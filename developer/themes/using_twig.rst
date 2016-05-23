@@ -277,8 +277,8 @@ theme class. Create it if it does not exist yet.
     {
         parent::setupDependencyInjection($container);
 
-        // We extend twig setup
-        $container->extend('twig.environment', function ($twig, $c) {
+        // We extend twig filters
+        $container->extend('twig.filters', function ($filters, $c) {
 
             // The first filter will extract red value
             $red = new \Twig_SimpleFilter('red', function ($hex) {
@@ -288,7 +288,7 @@ theme class. Create it if it does not exist yet.
                     return 0;
                 }
             });
-            $twig->addFilter($red);
+            $filters->add($red);
 
             // The second filter will extract green value
             $green = new \Twig_SimpleFilter('green', function ($hex) {
@@ -298,7 +298,7 @@ theme class. Create it if it does not exist yet.
                     return 0;
                 }
             });
-            $twig->addFilter($green);
+            $filters->add($green);
 
             // The third filter will extract blue value
             $blue = new \Twig_SimpleFilter('blue', function ($hex) {
@@ -308,10 +308,10 @@ theme class. Create it if it does not exist yet.
                     return 0;
                 }
             });
-            $twig->addFilter($blue);
+            $filters->add($blue);
 
-            // Then we return our extended twig environment
-            return $twig;
+            // Then we return our extended filters collection
+            return $filters;
         });
     }
 

@@ -86,10 +86,7 @@ Then in your contact page Twig template
     {% if session.messages|length %}
         {% for type, msgs in session.messages %}
             {% for msg in msgs %}
-                <div data-uk-alert class="uk-alert
-                     uk-alert-{% if type == "confirm" %}success
-                     {% elseif type == "warning" %}warning{% else %}danger{% endif %}">
-                    <a href="" class="uk-alert-close uk-close"></a>
+                <div class="alert alert-{% if type == "confirm" %}success{% elseif type == "warning" %}warning{% else %}danger{% endif %}">
                     <p>{{ msg }}</p>
                 </div>
             {% endfor %}
