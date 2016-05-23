@@ -19,6 +19,42 @@ You can add new entities. If so, don't forget to add your ``Entities`` namespace
 With theses additional entities, you maybe will need to create a back-office entry to manage them. It's easy!
 Let's see how to.
 
+Create your own database entities
+---------------------------------
+
+You can create a theme with your own entities. Just add your *Entities* folder
+to the global configuration file (``conf/config.yml``).
+
+.. code-block:: yaml
+
+    entities:
+        - src/Roadiz/Core/Entities
+        - src/Roadiz/Core/AbstractEntities
+        - gen-src/GeneratedNodeSources
+        - themes/MyTheme/Entities
+
+Verify if everything is OK by checking migrations:
+
+.. code-block:: bash
+
+    bin/roadiz orm:schema-tool:update --dump-sql;
+
+If you see your entities being created and no system database erased, just apply your migration with ``--force``.
+If Doctrine send some error, you probably need to clear metadata cache:
+
+.. code-block:: bash
+
+    bin/roadiz cache:clear -e prod;
+
+Clearing cache from command line **will not empty op-code cache**. Be sure to call ``clear_cache.php`` entry
+point to actually clear *PHP-FPM* related caches. You can use an ``curl`` command if your website is accessible from
+*localhost*:
+
+.. code-block:: bash
+
+    curl http://localhost/clear_cache.php;
+
+
 Add back-office entry
 ---------------------
 

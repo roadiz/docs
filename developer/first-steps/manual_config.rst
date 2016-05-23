@@ -3,7 +3,8 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file ``conf/config.yml`` works. It is way more more convenient than launching Install theme for each update.
+This section explains how main configuration file ``conf/config.yml`` works.
+It is way more more convenient than launching Install theme for each update.
 
 Your ``conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration.
 The most important part deals with Doctrine database credentials:
@@ -58,8 +59,8 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
         - "gen-src/GeneratedNodeSources"
 
 
-Swift Mailer
-------------
+Configure mailer
+----------------
 
 Roadiz uses *Swift Mailer* to send emails. This awesome librairy is built to enable different
 kinds of mail transports or protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
@@ -76,6 +77,25 @@ You can use *SSL*, *TLS* or no encryption at all.
         encryption: false
         username: ""
         password: ""
+
+Images processing
+-----------------
+
+Roadiz use `Image Intervention <http://image.intervention.io/>`_ library to automatically create a lower quality
+version of your image if they are too big. You can define this threshold value
+in the `assetsProcessing` section. `driver` and `defaultQuality` will be also
+use for the on-the-fly image processing with `Intervention Request <https://github.com/ambroisemaupate/intervention-request>`_ library.
+
+.. code-block:: yaml
+
+    assetsProcessing:
+        # gd or imagick (gd does not support TIFF and PSD formats)
+        driver: gd
+        defaultQuality: 90
+        # pixel size limit () after roadiz
+        # should create a smaller copy.
+        maxPixelSize: 1280
+
 
 Console command
 ---------------

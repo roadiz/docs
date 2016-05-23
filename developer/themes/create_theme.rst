@@ -97,7 +97,7 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
    :emphasize-lines: 11,25,30,34,38,42
 
     /*
-     * Copyright REZO ZERO 2014
+     * Copyright REZO ZERO 2016
      *
      * Description
      *
@@ -105,7 +105,6 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
      * @copyright REZO ZERO 2014
      * @author Ambroise Maupate
      */
-
     namespace Themes\MyAwesomeTheme;
 
     use RZ\Roadiz\CMS\Controllers\FrontendController;
@@ -113,30 +112,17 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
     use RZ\Roadiz\Core\Entities\Translation;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
+
     /**
      * MyAwesomeThemeApp class
      */
     class MyAwesomeThemeApp extends FrontendController
     {
-        /**
-         * {@inheritdoc}
-         */
+
         protected static $themeName =      'My awesome theme';
-        /**
-         * {@inheritdoc}
-         */
         protected static $themeAuthor =    'Ambroise Maupate';
-        /**
-         * {@inheritdoc}
-         */
         protected static $themeCopyright = 'REZO ZERO';
-        /**
-         * {@inheritdoc}
-         */
         protected static $themeDir =       'MyAwesomeTheme';
-        /**
-         * {@inheritdoc}
-         */
         protected static $backendTheme =    false;
 
         …

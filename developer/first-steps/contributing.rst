@@ -24,7 +24,7 @@ For this you will need to install the testing framework, this can easily be done
 
 .. code-block:: console
 
-    composer update
+    composer update --dev
 
 The unit tests can be launched by the command:
 
@@ -38,7 +38,7 @@ Coding style
 ------------
 
 The code you contributed to the project should respect the guidelines defined in PHP *PSR2* standard.
-If you install the requirements for devs by the command ``composer update-dev``, you can use *phpcs* to check your code.
+If you install the requirements for devs by the command ``composer update --dev``, you can use *phpcs* to check your code.
 You can copy and paste the following command-lines to check easily:
 
 .. code-block:: console
@@ -47,6 +47,16 @@ You can copy and paste the following command-lines to check easily:
                 --extensions=php --warning-severity=0 \
                 --standard=PSR2 \
                 --ignore=*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/* \
+                -p ./
+
+Or you can use *phpcbf* to automatically fix code style issues.
+
+.. code-block:: console
+
+    bin/phpcbf --report=full --report-file=./report.txt \
+                --extensions=php --warning-severity=0 \
+                --standard=PSR2 \
+                --ignore="*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/*" \
                 -p ./
 
 Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability.

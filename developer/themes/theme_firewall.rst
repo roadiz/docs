@@ -137,9 +137,11 @@ feedback on your login form:
      * {@inheritdoc}
      */
     public function loginAction(
-        Request $request
+        Request $request,
+        $_locale = 'en'
     ) {
-        $this->prepareThemeAssignation(null, null);
+        $translation = $this->bindLocaleFromRoute($request, $_locale);
+        $this->prepareThemeAssignation(null, $translation);
         $helper = $this->getService('securityAuthenticationUtils');
         $this->assignation['last_username'] = $helper->getLastUsername();
         $this->assignation['error'] = $helper->getLastAuthenticationError();
