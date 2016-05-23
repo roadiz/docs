@@ -55,7 +55,7 @@ When you use default `vagrant up` command, it’s the same as using:
 
     # Default vagrant up provisioners
     vagrant up --no-provision
-    vagrant provision --provision-with roadiz,phpmyadmin,mailcatcher,solr,devtools
+    vagrant provision --provision-with=roadiz,phpmyadmin,mailcatcher,solr,devtools
 
 .. note::
     Pay attention that *mailcatcher* and *solr* provision scripts may take several
