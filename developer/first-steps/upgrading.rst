@@ -8,7 +8,7 @@ Upgrading
     **Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools
     to quickly export your database as a file.
 
-    * With a MySQL server: ``mysqldump -u [user] -p[user_password] [database_name] > dumpfilename.sql``
+    * With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``
     * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 
 Download latest version using *Git*
@@ -43,7 +43,7 @@ Then, if migration summary is OK (no data loss), perform the following changes:
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
-    bin/roadiz cache:clear --env=prod
+    bin/roadiz cache:clear -e prod
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
