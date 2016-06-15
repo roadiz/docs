@@ -34,20 +34,20 @@ if you have lots of Roadiz instances.
 
     # Just LEMP stack, no Solr, no phpMyAdmin, no Mailcatcher, no Composer, no NPM, no grunt, no bower
     vagrant up --no-provision
-    vagrant provision --provision-with roadiz
+    vagrant provision --provision-with=roadiz
 
     # Just LEMP stack, no Solr, no Composer, no Mailcatcher, no NPM, no grunt, no bower
     vagrant up --no-provision
-    vagrant provision --provision-with roadiz,phpmyadmin
+    vagrant provision --provision-with=roadiz,phpmyadmin
 
     # If you need Solr
     # do not use space after comma
     vagrant up --no-provision
-    vagrant provision --provision-with roadiz,solr
+    vagrant provision --provision-with=roadiz,solr
 
     # If you need dev tools
     vagrant up --no-provision
-    vagrant provision --provision-with roadiz,devtools
+    vagrant provision --provision-with=roadiz,devtools
 
 When you use default `vagrant up` command, it’s the same as using:
 
@@ -68,7 +68,7 @@ be lost in your Vagrant box unless you ``destroy`` it.
 Developing with PHP 7
 ---------------------
 
-Roadiz Vagrant uses **PHP7** with its latest version published on *ppa:ondrej/php-7.0* repository.
+Roadiz Vagrant uses **PHP7** with its latest version published on *ppa:ondrej/php* repository.
 If you do not want to use it and you prefer using PHP 5.6, you can comment out provisioner scripts in
 ``Vagrantfile``. This changes can’t be done once you’ve provisioned your Vagrant VM. This is applicable only for
 ``roadiz`` and ``mailcatcher`` scripts, others can be provisioned with both PHP versions.

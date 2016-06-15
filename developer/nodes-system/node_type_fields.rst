@@ -61,3 +61,15 @@ display available default choices for “select-box” types:
 *Children node* field type is a special virtual field that will display a custom
 node-tree inside your editing page. You can add *quick-create* buttons by listing
 your node-types names in *default values* input, comma separated.
+
+Universal fields
+^^^^^^^^^^^^^^^^
+
+If you need a field to hold exactly the same data for all translations, you can
+set it as *universal*. For example for documents, numeric and boolean data that
+do not change from one language to another.
+
+It will duplicate data at each save time from default translation
+to others. It will also hide the edit field from non-default translation to avoid
+confusion.
+

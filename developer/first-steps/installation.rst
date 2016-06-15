@@ -9,8 +9,8 @@ Get Roadiz sources
 
 Roadiz can be downloaded in two different ways:
 
-* *The Good one*: using **Git** and **Composer** (needs an SSH connnexion to your server)
-* *The Easy one*: using a bundled Zip archive with composer dependencies.
+* *The Good one* — using **Git** and **Composer** (needs an *SSH* connection to your server and *Git*)
+* *The Easy one* — using a bundled *Zip* archive with composer dependencies.
 
 Using Git (recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -45,19 +45,16 @@ When your HTTP server is ready to go, download *Roadiz* latest version using Git
 
 Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to download Roadiz dependencies
 and to build PHP class autolader. We even set up some post-scripts which will copy
-a new ``config.yml``, ``dev.php`` and ``install.php`` files for you.
+a new ``config.yml``, ``dev.php``, ``clear_cache.php`` and ``install.php`` files for you.
 
 .. code-block:: bash
     # Install Roadiz dependencies, prepare a fresh config file and your
     # own dev and install entry points.
-    composer install --no-dev;
+    composer install --no-dev -o;
 
 When your virtual host is ready and every files have been downloaded you can go to the
-next part to enable the `install environment`_.
+next part to access the `install environment`_.
 
-.. note::
-    Once your website will be ready to be pushed to production you will be able to
-    optimize *Composer* autoload process: ``composer dumpautoload -o``
 
 The quick and dirty way: using a Zip archive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,18 +95,19 @@ Installation environment
 Once you’ve succedded to download Roadiz sources and dependencies. You’ll have to setup its database
 and every informations needed to begin your website.
 
-As every *Symfony* application do, Roadiz works using environments. By default, there is a *production*
+As every *Symfony* applications do, Roadiz works using environments. By default, there is a *production*
 environment which is handled by ``index.php`` entry point. At this moment, if you try to connect to
 your fresh new Roadiz website, you will get an error as we did not install its database and its essential data.
 
-To be able to use Roadiz *install interface*, you’ll need to call the *install* environment entry point. A ``install.php`` file has been generated when you executed ``composer install`` command. This environment will be reachable at the Url ``http://mywebsite.com/install.php``. For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point.
+To be able to use Roadiz *install interface*, you’ll need to call the *install* entry point. An ``install.php`` file has been generated when you executed ``composer install`` command. This environment will be reachable at the Url ``http://mywebsite.com/install.php``.
+
+For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point.
 
 At the end of the install process, you will be invited to remove the ``install.php`` file and to connect to your
 website final URL.
 
 Development environment
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 Roadiz *production* environment is not made for developing your own themes and extending back-office features.
 As the same way as *install* environment, we prepared a *dev* environment to disable resources caching and enable
 debug features. You’ll find a ``dev.php`` file at your website root which was generated at ``composer install`` command.
@@ -117,8 +115,23 @@ As well as *install.php* entry point, you’ll need to add your own IP address t
 
 Preview environment
 ^^^^^^^^^^^^^^^^^^^
-
 The *preview* environment is not a real one as it only adds a flag to Roadiz’ Kernel to enable
 back-office users to see unpublished nodes. By default, it is available using ``preview.php``
 entry point, unless you decide to remove it.
+
+Production environment
+^^^^^^^^^^^^^^^^^^^^^^
+This is the default ``index.php`` entry point which will be called by all your visitors.
+There is no restriction on it and it will wake up Roadiz application using the strongest
+caching policies. So it’s not recommended for development usage (you would have to flush caches
+each time your change something in the code).
+
+Clear cache environment
+^^^^^^^^^^^^^^^^^^^^^^^
+The *clear_cache* environment is only meant to empty Roadiz cache without waking up
+the whole application. It can be useful if you are using a op-code cache like *APC* or
+native PHP *OPcache*. These special caches can’t be purged from command line utilities,
+so you need to call a PHP script from your browser or via ``curl`` to empty them.
+Like *install* and *dev* environment, ``clear_cache.php`` is IP-restricted not to
+allow everyone to flush your dear caches. You’ll need to add your own IP address to filter who can access it.
 

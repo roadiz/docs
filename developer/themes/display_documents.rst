@@ -91,6 +91,10 @@ Roadiz can generate a ``srcset`` attribute to create a responsive image tag like
                 'rule': '1200w',
             }
         ],
+        'sizes': [
+            '(max-width: 780px) 200px',
+            '(max-width: 1200px) 600px',
+        ],
     }) }}
     {% endif %}
 
@@ -100,6 +104,7 @@ This will output an ``img`` tag like the following one:
 
     <img src="/assets/f600x600-q75/image.jpg"
          srcset="/assets/f600x600-q75/image.jpg 1200w, /assets/f200x200-q90/image.jpg 780w"
+         sizes="(max-width: 780px) 200px, (max-width: 1200px) 600px"
          alt="A responsive image">
 
 More document details

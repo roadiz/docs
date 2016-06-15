@@ -60,7 +60,13 @@ If you are using *Apache* do not forget to enable these mods:
 * ``mod_rewrite``: enabling Roadiz front-controller system.
 * ``mod_expires``: enabling http cache headers on static assets.
 
-And do not use built-in ``mod_php``, prefer *PHP-FPM* ;-)
+And do not use built-in ``mod_php``, prefer *PHP-FPM* 😉!
 
 Then use ``/samples/apache.conf`` template to create your *virtual host* configuration file. It shows how to set rewrite and
 secure private folders from being viewed from public visitors.
+
+If you do not have access to your Apache virtual host configuration, you can use the built-in *htaccess* generator:
+
+``bin/roadiz generate:htaccess``
+
+This command will generate ``.htaccess`` files in each critical folder to enable PHP scripts or deny public access to forbidden folders.
