@@ -159,18 +159,22 @@ And do not forget to set your form *action* to ``{{ path('themeLoginCheck') }}``
 .. code-block:: html+jinja
 
     {% if error %}
-        <div data-uk-alert class="uk-alert uk-alert-danger">{{ error.message|trans }}</div>
+        <div class="alert alert-danger"><i class="fa fa-warning"></i> {{ error.message|trans }}</div>
     {% endif %}
-    <form id="login-form" class="uk-form uk-form-stacked {% if error %}uk-animation-shake{% endif %}" action="{{ path('themeLoginCheck') }}" method="post">
-        <div class="uk-form-row">
-            <label class="uk-form-label" for="_username">{% trans %}username{% endtrans %}</label>
-            <input type="text" name="_username" id="_username" placeholder="{% trans %}username{% endtrans %}" value="" />
+    <form id="login-form" class="form" action="{{ path('themeLoginCheck') }}" method="post">
+        <div class="form-group">
+            <label class="control-label" for="_username">{% trans %}username{% endtrans %}</label>
+            <input class="form-control" type="text" name="_username" id="_username" placeholder="{% trans %}username{% endtrans %}" value="" />
         </div>
-        <div class="uk-form-row">
-            <label class="uk-form-label" for="_password">{% trans %}password{% endtrans %}</label>
-            <input type="password" name="_password" id="_password" placeholder="{% trans %}password{% endtrans %}" value="" />
+        <div class="form-group">
+            <label class="control-label" for="_password">{% trans %}password{% endtrans %}</label>
+            <input class="form-control" type="password" name="_password" id="_password" placeholder="{% trans %}password{% endtrans %}" value="" />
         </div>
-        <div class="uk-form-row">
-        <button class="uk-button" type="submit"><i class="uk-icon-sign-in"></i> {% trans %}login{% endtrans %}</button>
+        <div class="form-group">
+            <label class="control-label" for="_remember_me">{% trans %}keep_me_logged_in{% endtrans %}</label>
+            <input class="form-control" type="checkbox" name="_remember_me" id="_remember_me" value="1" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-signin"></i> {% trans %}login{% endtrans %}</button>
         </div>
     </form>
