@@ -11,4 +11,3 @@ First steps
    manual_config
    upgrading
    moving
-   contributing

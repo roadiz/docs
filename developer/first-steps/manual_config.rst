@@ -4,10 +4,19 @@ Manual configuration
 ====================
 
 This section explains how main configuration file ``conf/config.yml`` works.
-It is way more more convenient than launching Install theme for each update.
+It is way more more convenient than launching Install theme for each configuration update.
 
 Your ``conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration.
-The most important part deals with Doctrine database credentials:
+
+.. note::
+    By default, every Roadiz environment read ``conf/config.yml`` configuration file. But you can specify different
+    files for ``dev`` and ``test`` environments. Just create a ``conf/config_dev.yml`` or ``conf/config_test.yml`` file
+    to override default parameters. You will be able to use a different database, mailer or *Solr* instance not to pollute your production environment.
+
+Doctrine
+--------
+
+The most important configuration section deals with database connection which is handled by *Doctrine*:
 
 .. code-block:: yaml
 
@@ -18,9 +27,35 @@ The most important part deals with Doctrine database credentials:
         password: ""
         dbname: ""
 
-Roadiz uses *Doctrine ORM* to store your data. It will directly pass this JSON part to *Doctrine* so
+Roadiz uses *Doctrine ORM* to store your data. It will directly pass this YAML configuration to *Doctrine* so
 you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
+
+Cache drivers
+-------------
+
+When set as *null*, cache drivers will be automatically chosen by Roadiz according to
+your PHP setup and available extensions.
+
+Sometimes, if a cache extension is available but you don’t want to use it, you’ll
+have to specify a cache driver type (use ``array`` to disable caches). This is a known case
+when using *OVH* shared hosting plans which provide *memcached* PHP extension but does not let you log in.
+
+.. code-block:: yaml
+
+    cacheDriver:
+        type: null
+        host: null
+        port: null
+
+Available cache types are:
+
+- *apc*
+- *xcache*
+- *memcache* (requires ``host`` and ``port`` configuration)
+- *memcached* (requires ``host`` and ``port`` configuration)
+- *redis* (requires ``host`` and ``port`` configuration)
+- *array*
 
 Solr endpoint
 -------------
@@ -62,9 +97,9 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
 Configure mailer
 ----------------
 
-Roadiz uses *Swift Mailer* to send emails. This awesome librairy is built to enable different
-kinds of mail transports or protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
-but you can tell it to use another transport (such as SMTP) in your ``conf/config.yml`` file.
+Roadiz uses *Swift Mailer* to send emails. This awesome library is built to enable different
+kinds of mail transports and protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
+but you can tell it to use another transport (such as an external SMTP server) in your ``conf/config.yml`` file.
 
 You can use *SSL*, *TLS* or no encryption at all.
 
@@ -77,6 +112,12 @@ You can use *SSL*, *TLS* or no encryption at all.
         encryption: false
         username: ""
         password: ""
+
+.. note::
+    Pay attention that many external SMTP services (*Mandrill*, *Mailjet*…) only accept email from validated domains.
+    So make sure that your application uses a known ``From:`` email sender not to be blacklisted or blocked
+    by these services.
+    If you need your emails to be replied to an anonymous address, use ``ReplyTo:`` header instead.
 
 Images processing
 -----------------
@@ -95,7 +136,10 @@ use for the on-the-fly image processing with `Intervention Request <https://gith
         # pixel size limit () after roadiz
         # should create a smaller copy.
         maxPixelSize: 1280
-
+        # Path to jpegoptim binary to enable jpeg optimization
+        jpegoptimPath: ~
+        # Path to pngquant binary to enable png optimization (3x less space)
+        pngquantPath: ~
 
 Console command
 ---------------
@@ -122,6 +166,17 @@ own parameters. You can use the argument ``--help`` to get more informations abo
 
 
 We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful
-commands which can alter your database and make you lose precious datas. Especially when you will need to update
+commands which can alter your database and make you lose precious data. Especially when you will need to update
 your database schema after a Theme or a Core update. **Always make a database back-up before any Doctrine operation**.
 
+Additional commands
+-------------------
+
+If you are developing your own theme, you might need to create some custom CLI commands. Roadiz can handle
+additional commands if you add them in your ``conf/config.yml`` as you would do for any additional *entities*.
+Make sure that every additional commands extend ``Symfony\Component\Console\Command\Command`` class.
+
+.. code-block:: yaml
+
+    additionalCommands:
+        - \Themes\DefaultTheme\Commands\DefaultThemeCommand
