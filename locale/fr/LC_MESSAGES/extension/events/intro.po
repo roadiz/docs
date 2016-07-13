@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../extension/events/intro.rst:4
+msgid "Events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:6
+msgid ""
+"Roadiz node system implements several events. So you will be able to "
+"create and inject your own event subscribers inside *Roadiz* dispatcher."
+msgstr ""
+
+#: ../../extension/events/intro.rst:9
+msgid ""
+"To understand how the event dispatcher works, you should read the "
+"`Symfony documentation at "
+"<http://symfony.com/doc/current/components/event_dispatcher/introduction.html>`_"
+" before."
+msgstr ""
+
+#: ../../extension/events/intro.rst:14
+msgid "Nodes events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:16
+msgid "``RZ\\Roadiz\\Core\\Events\\NodeEvents``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:18
+msgid "*node.created:* ``NodeEvents::NODE_CREATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:19
+msgid "*node.updated:* ``NodeEvents::NODE_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:20
+msgid "*node.deleted:* ``NodeEvents::NODE_DELETED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:21
+msgid "*node.undeleted:* ``NodeEvents::NODE_UNDELETED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:22
+msgid ""
+"*node.tagged:* ``NodeEvents::NODE_TAGGED`` This event is triggered for "
+"tag and un-tag action."
+msgstr ""
+
+#: ../../extension/events/intro.rst:23
+msgid ""
+"*node.visibilityChanged:* ``NodeEvents::NODE_VISIBILITY_CHANGED`` This "
+"event is triggered each time a node becomes visible or unvisible."
+msgstr ""
+
+#: ../../extension/events/intro.rst:24
+msgid ""
+"*node.statusChanged:* ``NodeEvents::NODE_STATUS_CHANGED`` This event is "
+"triggered each time a node status changes."
+msgstr ""
+
+#: ../../extension/events/intro.rst:26
+msgid ""
+"Every node events methods will accept a "
+"``RZ\\Roadiz\\Core\\Events\\FilterNodeEvent`` object as argument. This "
+"object contains the current ``Node`` entity. You will get it using "
+"``$event->getNode()``."
+msgstr ""
+
+#: ../../extension/events/intro.rst:30
+msgid "NodesSources events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:32
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSourcesEvents``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:34
+msgid "*nodeSource.created:* ``NodesSourcesEvents::NODE_SOURCE_CREATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:35
+msgid "*nodeSource.updated:* ``NodesSourcesEvents::NODE_SOURCE_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:36
+msgid "*nodeSource.deleted:* ``NodesSourcesEvents::NODE_SOURCE_DELETED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:38
+msgid ""
+"Every node-source events methods will accept a "
+"``RZ\\Roadiz\\Core\\Events\\FilterNodesSourcesEvent`` object as argument."
+" This object contains the current ``NodesSources`` entity. You will get "
+"it using ``$event->getNodeSource()``."
+msgstr ""
+
+#: ../../extension/events/intro.rst:42
+msgid ""
+"You will find a simple subscriber example in Roadiz back-office theme "
+"which is called ``Themes\\Rozier\\Events\\SolariumSubscriber``. This "
+"subscriber is useful to update or delete your *Solr* index documents "
+"against your node-source database."
+msgstr ""
+
+#: ../../extension/events/intro.rst:46
+msgid "Tags events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:48
+msgid "``RZ\\Roadiz\\Core\\Events\\TagEvents``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:50
+msgid "*tag.created:* ``TagEvents::TAG_CREATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:51
+msgid "*tag.updated:* ``TagEvents::TAG_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:52
+msgid "*tag.deleted:* ``TagEvents::TAG_DELETED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:54
+msgid ""
+"Every tag events methods will accept a "
+"``RZ\\Roadiz\\Core\\Events\\FilterTagEvent`` object as argument. This "
+"object contains the current ``Tag`` entity. You will get it using "
+"``$event->getTag()``."
+msgstr ""
+
+#: ../../extension/events/intro.rst:58
+msgid "Translations events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:60
+msgid "``RZ\\Roadiz\\Core\\Events\\TranslationEvents``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:62
+msgid "*translation.created:* ``TranslationEvents::TRANSLATION_CREATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:63
+msgid "*translation.updated:* ``TranslationEvents::TRANSLATION_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:64
+msgid "*translation.deleted:* ``TranslationEvents::TRANSLATION_DELETED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:66
+msgid ""
+"Every tag events methods will accept a "
+"``RZ\\Roadiz\\Core\\Events\\FilterTranslationEvent`` object as argument. "
+"This object contains the current ``Translation`` entity. You will get it "
+"using ``$event->getTranslation()``."
+msgstr ""
+
+#: ../../extension/events/intro.rst:70
+msgid "UrlAlias events"
+msgstr ""
+
+#: ../../extension/events/intro.rst:72
+msgid "``RZ\\Roadiz\\Core\\Events\\UrlAliasEvents``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:74
+msgid "*urlAlias.created:* ``UrlAliasEvents::URL_ALIAS_CREATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:75
+msgid "*urlAlias.updated:* ``UrlAliasEvents::URL_ALIAS_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:76
+msgid "*urlAlias.deleted:* ``UrlAliasEvents::URL_ALIAS_UPDATED``"
+msgstr ""
+
+#: ../../extension/events/intro.rst:78
+msgid ""
+"Every tag events methods will accept a "
+"``RZ\\Roadiz\\Core\\Events\\FilterUrlAliasEvent`` object as argument. "
+"This object contains the current ``UrlAlias`` entity. You will get it "
+"using ``$event->getUrlAlias()``."
+msgstr ""
+

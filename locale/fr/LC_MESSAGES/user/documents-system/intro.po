@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../user/documents-system/intro.rst:4
+msgid "Managing documents"
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:6
+msgid ""
+"You can manage documents via the *Document* icon in the toolbar. You can "
+"either upload , embed, randomly downloaded documents, and even have a "
+"look at unused documents in your website."
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:12
+msgid "Upload document"
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:14
+msgid ""
+"Uploading a document has never been this easy : just drag and drop the "
+"document in the designated area."
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:21
+msgid "Embed document"
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:23
+msgid ""
+"Here is the trickiest part of the Documents section. You can have "
+"embedded documents from Youtube, SoundCloud, Vimeo and Dailymotion."
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:29
+msgid ""
+"You may need to have a look at `Youtube "
+"<https://developers.google.com/youtube/v3/>`_'s and `SoundCloud "
+"<https://developers.soundcloud.com/docs>`_'s documentation, as you need "
+"an access token to have embedded documents from both of them."
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:34
+msgid "Random document"
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:36
+msgid ""
+"*Random* is a cool feature that allows to download random documents to "
+"your website from Splashbase."
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:42
+msgid "Unused document"
+msgstr ""
+
+#: ../../user/documents-system/intro.rst:44
+msgid ""
+"Clicking *Unused document* allows you to gather every unused documents on"
+" your website, so you can clean your database and get rid of useless "
+"documents."
+msgstr ""
+

@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../developer/first-steps/getting_started.rst:5
+msgid "Getting started"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:9
+msgid "CMS Structure"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:11
+msgid "``bin/`` : Contains the Roadiz CLI executable"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:12
+msgid ""
+"``cache/`` : Every cache file for *Twig* templates and `Intervention "
+"Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder"
+" must be writable for PHP)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:13
+msgid ""
+"``conf/`` : Your setup configuration file(s) (this folder must be "
+"writable for PHP)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:14
+msgid ""
+"``files/`` : Documents and font files root (this folder must be writable "
+"for PHP)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:15
+msgid ""
+"``gen-src/`` : Generated PHP code for Doctrine and your Node-types "
+"entities (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:16
+msgid ""
+"``samples/`` : This folder contains useful configuration and example "
+"files for Apache or Nginx webservers"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:17
+msgid "``src/`` : Roadiz CMS logic and core source code"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:18
+msgid "``tests/`` : PHP Unit tests root"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:19
+msgid ""
+"``themes/`` : Contains your themes and system themes such as *Rozier* and"
+" *Install*"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:20
+msgid "``vendor/`` : Dependencies folder managed by *Composer*"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:21
+msgid "``logs/`` : *Monolog* logs folder"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:26
+msgid "Requirements"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:28
+msgid ""
+"Roadiz is a web application running with PHP. It requires an HTTP server "
+"for static assets and **SSH access** with out/ingoing allowed "
+"connections. Here is a short summary of mandatory elements before "
+"installing Roadiz:"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:31
+msgid "Nginx or Apache, with a dedicated virtual host as described below."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:32
+msgid "PHP 5.4.3+, PHP 5.6 or 7+ recommended"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:33
+msgid "``php5-gd`` extension"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:34
+msgid "``php5-intl`` extension"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:35
+msgid "``php5-curl`` extension"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:36
+msgid "PHP cache (APC/OPCache) + Var cache (strongly recommended)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:37
+msgid ""
+"MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install "
+"``php5-xxxsql`` extension according to your database driver flavor)"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:38
+msgid "Zip/Unzip"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:39
+msgid "cUrl"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:40
+msgid "Composer"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:41
+msgid "Git"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:44
+msgid ""
+"If you are using a *shared hosting plan*, make sure that your server’s "
+"SSH connection allows external connections. You can verify with a simple "
+"``ping google.com``. If you get request timeouts, your hosting provider "
+"might be blocking your SSH connectivity. You should consider using at "
+"least a VPS-like hosting. If you really need to setup Roadiz on a simple "
+"shared-hosting plan, we encourage you to install it on your own computer "
+"and send it with SFTP/FTP (it might take a long time) or *rsync* it."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:50
+msgid "For Nginx users"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:52
+msgid ""
+"If you are using Nginx, you don’t have to enable any extensions. You only"
+" need to create your *virtual host* using our example file "
+"``/samples/nginx.conf``."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:56
+msgid "For Apache users"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:58
+msgid "If you are using *Apache* do not forget to enable these mods:"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:60
+msgid "``mod_rewrite``: enabling Roadiz front-controller system."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:61
+msgid "``mod_expires``: enabling http cache headers on static assets."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:63
+msgid "And do not use built-in ``mod_php``, prefer *PHP-FPM* 😉!"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:65
+msgid ""
+"Then use ``/samples/apache.conf`` template to create your *virtual host* "
+"configuration file. It shows how to set rewrite and secure private "
+"folders from being viewed from public visitors."
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:68
+msgid ""
+"If you do not have access to your Apache virtual host configuration, you "
+"can use the built-in *htaccess* generator:"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:70
+msgid "``bin/roadiz generate:htaccess``"
+msgstr ""
+
+#: ../../developer/first-steps/getting_started.rst:72
+msgid ""
+"This command will generate ``.htaccess`` files in each critical folder to"
+" enable PHP scripts or deny public access to forbidden folders."
+msgstr ""
+

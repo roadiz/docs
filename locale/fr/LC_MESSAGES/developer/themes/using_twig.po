@@ -1,0 +1,466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../developer/themes/using_twig.rst:5
+msgid "Using Twig"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:9
+msgid ""
+"Twig is the default rendering engine for *Roadiz* CMS. You’ll find its "
+"documentation at http://twig.sensiolabs.org/doc/templates.html"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:11
+msgid ""
+"When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, "
+"Roadiz will automatically assign some variables for you."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:13
+msgid ""
+"**request** — [object] Symfony request object which contains useful data "
+"such as current URI or GET parameters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:25
+msgid "**head**"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:15
+msgid "**ajax** — [boolean] Tells if current request is an Ajax one"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:16
+msgid "**cmsVersion** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:17
+msgid "cmsVersionNumber"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:18
+msgid "**cmsBuild** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:19
+msgid "**devMode** — [boolean]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:20
+msgid ""
+"**baseUrl** — [string] Server base Url. Basically your domain name, port "
+"and folder if you didn’t setup Roadiz at you server root"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:21
+msgid "**filesUrl** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:22
+msgid ""
+"**resourcesUrl** — [string] Your theme ``Resources`` url. Useful to reach"
+" your assets."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:23
+msgid "**ajaxToken** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:24
+msgid "**universalAnalyticsId** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:25
+msgid "**useCdn** - [boolean]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:26
+msgid "**fontToken** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:29
+msgid "**session**"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:28
+msgid "**messages** — [array]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:29
+msgid "**id** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:30
+msgid "**user** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:31
+msgid "**authorizationChecker** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:32
+msgid "**tokenStorage** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:34
+msgid "There are some more content only available from *FrontendControllers*."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:36
+msgid "**_default_locale** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:40
+msgid "**meta**"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:38
+msgid "**siteName** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:39
+msgid "**siteCopyright** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:40
+msgid "**siteDescription** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:42
+msgid ""
+"Then, in each dynamic routing *actions* you will need this line "
+"``$this->storeNodeAndTranslation($node, $translation);`` in order to make"
+" page content available from your Twig template."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:45
+msgid "**node** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:46
+msgid "**nodeSource** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:47
+msgid "**translation** — [object]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:51
+msgid "**pageMeta**"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:49
+msgid "**title** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:50
+msgid "**description** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:51
+msgid "**keywords** — [string]"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:53
+msgid ""
+"All these data will be available in your Twig template using ``{{ }}`` "
+"syntax. For example use ``{{ pageMeta.title }}`` inside your head’s "
+"``<title>`` tag. You can of course call objects members within Twig using"
+" the *dot* separator."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:78
+msgid "Handling node-sources with Twig"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:80
+msgid ""
+"Most of frontend work will consist in Twig templating and Twig "
+"assignations. Roadiz Core entities are already linked together not to "
+"prepare your data before rendering it. Basically, you can access nodes or"
+" nodeSources data directly in Twig using the “dot” seperator."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:84
+msgid ""
+"There is even some magic about Twig when accessing private or protected "
+"fields: just write the fieldname and it will use the field getter: ``{{ "
+"nodeSource.content|markdown }}`` will be interpreted as ``{{ "
+"nodeSource.getContent|markdown }}`` by Twig. It can be a time and space "
+"saver to just use fieldnames."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:89
+msgid ""
+"Roadiz will camelize your node-type fields names to create getters and "
+"setters into you NS class. So if you created a ``header_image`` field, "
+"getter will be named ``getHeaderImage()``. However, if you called it "
+"``headerimage``, getter will be ``getHeaderimage()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:93
+msgid ""
+"You can access methods too! You will certainly need to get a nodeSources "
+"documents to display them. Instead of assigning each document in your PHP"
+" Controller before, you can directly use them in Twig:"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:108
+msgid "Loop over node-source children"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:110
+msgid ""
+"With Roadiz you will be able to grab each node-source children using "
+"custom ``children`` Twig filter. This filter is a shortcut for "
+"``childBlock->getHandler()->getChildren(null, null, "
+"$authorizationChecker)``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:123
+msgid ""
+"`getChildren method "
+"<http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_"
+" must be called with a valid ``AuthorizationChecker`` instance if you "
+"**don’t want anonymous visitors to see unpublished contents**. Its first "
+"parameters can be set to filter over children and override default "
+"ordering. If your are using ``|children`` filter, *authorization-checker*"
+" is automatically passed to ``getChildren`` method."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:137
+msgid ""
+"Calling ``getChildren()`` from a node-source *handler* or ``|children`` "
+"filter will **always** return ``NodesSources`` objects from the same "
+"translation as their parent."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:141
+msgid "Add previous and next links"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:143
+msgid ""
+"In this example, we want to create links to jump to *next* and *previous*"
+" pages. We will use node-source handler methods ``getPrevious()`` and "
+"``getNext()`` which work the same as ``getChildren()`` method. "
+"``|previous`` and ``|next`` Twig filters are also available."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:164
+msgid ""
+"Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will"
+" **always** return ``NodesSources`` objects from the same translation as "
+"their sibling."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:169
+msgid "Additional filters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:171
+msgid "Roadiz’s Twig environment implements some useful filters, such as:"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:173
+msgid "``markdown``: Convert a markdown text to HTML"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:174
+msgid ""
+"``inlineMarkdown``: Convert a markdown text to HTML without parsing "
+"*block* elements (useful for just italics and bolds)"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:175
+msgid ""
+"``centralTruncate(length, offset, ellipsis)``: Generate an ellipsis at "
+"the middle of your text (useful for filenames). You can decenter the "
+"ellipsis position using ``offset`` parameter, and even change your "
+"ellipsis character with ``ellipsis`` parameter."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:178
+msgid "NodesSources filters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:180
+msgid ""
+"These following Twig filters will only work with ``NodesSources`` "
+"entities… not ``Nodes``. Use them with the *pipe* syntax, eg. "
+"``nodeSource|next``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:183
+msgid "``url``: shortcut for ``$source->getHandler()->getUrl()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:184
+msgid "``children``: shortcut for ``$source->getHandler()->getChildren()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:185
+msgid "``next``: shortcut for ``$source->getHandler()->getNext()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:186
+msgid "``previous``: shortcut for ``$source->getHandler()->getPrevious()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:187
+msgid ""
+"``firstSibling``: shortcut for "
+"``$source->getHandler()->getFirstSibling()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:188
+msgid "``lastSibling``: shortcut for ``$source->getHandler()->getLastSibling()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:189
+msgid "``parent``: shortcut for ``$source->getHandler()->getParent()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:190
+msgid "``parents``: shortcut for ``$source->getHandler()->getParents()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:191
+msgid "``tags``: shortcut for ``$source->getHandler()->getTags()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:194
+msgid "Documents filters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:196
+msgid ""
+"These following Twig filters will only work with ``Document`` entities. "
+"Use them with the *pipe* syntax, eg. ``document|display``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:199
+msgid "``url``: shortcut for ``$document->getViewer()->getDocumentUrlByArray()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:200
+msgid "``display``: shortcut for ``$document->getViewer()->getDocumentByArray()``"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:203
+msgid "Translations filters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:205
+msgid ""
+"These following Twig filters will only work with ``Translation`` "
+"entities. Use them with the *pipe* syntax, eg. ``translation|menu``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:208
+msgid ""
+"``menu``: shortcut for "
+"``$translation->getViewer()->getTranslationMenuAssignation()``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:210
+msgid ""
+"This filter returns some useful informations about current page available"
+" languages and their urls. See `getTranslationMenuAssignation method "
+"definition "
+"<http://api.roadiz.io/RZ/Roadiz/Core/Viewers/TranslationViewer.html#method_getTranslationMenuAssignation>`_."
+" You do not have to pass it the current request object as the filter will"
+" grab it for you. But you can specify if you want *absolute* urls or not."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:216
+msgid "Standard filters and extensions are also available:"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:218
+msgid "``{{ path('myRoute') }}``: for generating static routes Url."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:219
+msgid ""
+"``truncate`` and ``wordwrap`` which are parts of the `Text Extension "
+"<http://twig.sensiolabs.org/doc/extensions/text.html>`_ ."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:223
+msgid "Create your own Twig filters"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:225
+msgid ""
+"Imagine now that your are rendering some dynamic CSS stylesheets with "
+"Twig. Your are listing your website projects which all have a distinct "
+"color. So you’ve created a CSS route and a ``dynamic-colors.css.twig``."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:237
+msgid "This code should output a CSS like that:"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:248
+msgid ""
+"Then you should see your “super project” title in red on your website. "
+"OK, that’s great. But what should I do if I need to use a RGBA color to "
+"control the Alpha channel value? For example, I want to set project color"
+" to a ``<div class=\"date\">`` background like this:"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:261
+msgid ""
+"*Great… I already see coming guys complaining that “rgba” is only "
+"supported since IE9… We don’t give a shit!…*"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:263
+msgid ""
+"Hum, hum. So you need a super filter to extract decimal values from our "
+"backoffice stored hexadecimal color. Roadiz enables us to extend Twig "
+"environment filters thanks to *dependency injection!*"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:266
+msgid ""
+"You just have to extend ``setupDependencyInjection`` static method in "
+"your main theme class. Create it if it does not exist yet."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:314
+msgid ""
+"And… Voilà! You can use ``red``, ``green`` and ``blue`` filters in your "
+"Twig template."
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:325
+msgid "Use custom Twig extensions"
+msgstr ""
+
+#: ../../developer/themes/using_twig.rst:327
+msgid ""
+"Just like you did to add your own *Twig* filters, you can add your own "
+"*Twig* extensions. Instead of extending ``twig.filters`` service, just "
+"extend ``twig.extensions`` service."
+msgstr ""
+

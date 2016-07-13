@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../user/index.rst:3
+msgid "User documentation"
+msgstr ""
+
+#: ../../user/index.rst:6
+msgid ""
+"**User documentation is on the way.** We invite you to send us questions "
+"on our `Gitter account <https://gitter.im/roadiz/roadiz>`_ or to leave "
+"some documentation suggestions on our `Github repository "
+"<https://github.com/roadiz/docs/issues>`_."
+msgstr ""
+
+#: ../../user/index.rst:10
+msgid ""
+"First of all, you will need to connect to Roadiz’ backoffice in order to "
+"make changes to your website contents. To connect, you just have to write"
+" ``/rz-admin`` after your website domain name, in your browser address "
+"bar. Then you will be able to enter your username and password that you "
+"chose during Roadiz installation or that you received by email."
+msgstr ""
+
+#: ../../user/index.rst:18
+msgid ""
+"Here you can choose to keep your connection active for a couple of days, "
+"if your browser accepts cookies."
+msgstr ""
+
+#: ../../user/index.rst:20
+msgid ""
+"If you forgot your credentials, the *Forgot password?* section will ask "
+"you an email to send you a password reset link."
+msgstr ""
+
+#: ../../user/index.rst:24
+msgid "Table of contents"
+msgstr ""
+
