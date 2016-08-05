@@ -16,4 +16,5 @@ skills.
    forms/index.rst
    services/index.rst
    case-studies/index.rst
+   contributing.rst
    troubleshooting.rst

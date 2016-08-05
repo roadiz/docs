@@ -66,10 +66,9 @@ You can of course call objects members within Twig using the *dot* separator.
         {% set images = nodeSource.images %}
 
         {% for image in images %}
-
             {% set imageMetas = image.documentTranslations.first %}
             <figure>
-                {{ image|display({ 'width':200 }) }}
+                {{ image|display({'width':200 }) }}
                 <figcaption>{{ imageMetas.name }} — {{ imageMetas.copyright }}</figcaption>
             </figure>
         {% endfor %}
@@ -97,9 +96,7 @@ in your PHP Controller before, you can directly use them in Twig:
 .. code-block:: html+jinja
 
     {% set images = nodeSource.images %}
-
     {% for image in images %}
-
         {% set imageMetas = image.documentTranslations.first %}
         <figure>
             {{ image|display({ 'width':200 }) }}
@@ -137,8 +134,7 @@ This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null
     ) %}
 
 .. note::
-    Calling ``getChildren()`` from a node-source *handler* or ``|children`` filter will **always** return ``NodesSources`` objects from
-    the same translation as their parent.
+    Calling ``getChildren()`` from a node-source *handler* or ``|children`` filter will **always** return ``NodesSources`` objects from the same translation as their parent.
 
 
 Add previous and next links
@@ -324,3 +320,23 @@ And… Voilà! You can use ``red``, ``green`` and ``blue`` filters in your Twig 
         background-color: rgba({{ project.color|red }}, {{ project.color|green }}, {{ project.color|blue }}, 0.5);
     }
     {% endfor %}
+
+Use custom Twig extensions
+--------------------------
+
+Just like you did to add your own *Twig* filters, you can add your own *Twig* extensions.
+Instead of extending ``twig.filters`` service, just extend ``twig.extensions`` service.
+
+.. code-block:: php
+
+    // In your SuperThemeApp.php
+    public static function setupDependencyInjection(\Pimple\Container $container)
+    {
+        parent::setupDependencyInjection($container);
+
+        // We extend twig extensions
+        $container->extend('twig.extensions', function ($extensions, $c) {
+            $extensions->add(new MySuperThemeTwigExtension());
+            return $extensions;
+        });
+    }
