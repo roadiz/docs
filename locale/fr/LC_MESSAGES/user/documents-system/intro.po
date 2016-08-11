@@ -4,23 +4,24 @@
 # documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-13 14:49+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-08-11 15:03+0200\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.8\n"
+"Language: fr\n"
 
 #: ../../user/documents-system/intro.rst:4
 msgid "Managing documents"
-msgstr ""
+msgstr "Gérer les documents"
 
 #: ../../user/documents-system/intro.rst:6
 msgid ""
@@ -28,53 +29,72 @@ msgid ""
 "either upload , embed, randomly downloaded documents, and even have a "
 "look at unused documents in your website."
 msgstr ""
+"Vous pouvez gérer des documents via l'icône *Document* dans la barre "
+"d'outils. Vous pouvez soit téléverser, intégrer, ou télécharger au "
+"hasard des documents, ou même vérifier la liste des documents inutilisés "
+"de votre site Web."
 
 #: ../../user/documents-system/intro.rst:12
 msgid "Upload document"
-msgstr ""
+msgstr "Téléverser un document"
 
 #: ../../user/documents-system/intro.rst:14
 msgid ""
 "Uploading a document has never been this easy : just drag and drop the "
 "document in the designated area."
 msgstr ""
+"Téléverser un document n'a jamais été aussi simple : cliquez sur le "
+"document et glissez-le dans la zone concernée."
 
 #: ../../user/documents-system/intro.rst:21
 msgid "Embed document"
-msgstr ""
+msgstr "Intégrer un document "
 
 #: ../../user/documents-system/intro.rst:23
 msgid ""
 "Here is the trickiest part of the Documents section. You can have "
 "embedded documents from Youtube, SoundCloud, Vimeo and Dailymotion."
 msgstr ""
+"Il s'agit de la manipulation la plus \"complexe\" de la documentation. "
+"Vous pouvez intégrer des sources provenant de Youtube, SoundCloud, Vimeo "
+"et Dailymotion."
 
 #: ../../user/documents-system/intro.rst:29
 msgid ""
-"You may need to have a look at `Youtube "
-"<https://developers.google.com/youtube/v3/>`_'s and `SoundCloud "
-"<https://developers.soundcloud.com/docs>`_'s documentation, as you need "
-"an access token to have embedded documents from both of them."
+"You may need to have a look at `Youtube <https://developers.google.com/"
+"youtube/v3/>`_'s and `SoundCloud <https://developers.soundcloud.com/"
+"docs>`_'s documentation, as you need an access token to have embedded "
+"documents from both of them."
 msgstr ""
+"Il sera sans doute préférable d'aller lire la documentation `Youtube "
+"<https://developers.google.com/youtube/v3/>`_'s et `SoundCloud <https://"
+"developers.soundcloud.com/docs>`_'s puisque vous aurez besoin d'un token "
+"d'accès concernant les sources de ces deux plateformes."
 
 #: ../../user/documents-system/intro.rst:34
 msgid "Random document"
-msgstr ""
+msgstr "Document aléatoire"
 
 #: ../../user/documents-system/intro.rst:36
 msgid ""
 "*Random* is a cool feature that allows to download random documents to "
 "your website from Splashbase."
 msgstr ""
+"La fonctionnalité *Aléatoire* vous permet de télécharger des sources "
+"aléatoires sur votre site depuis la plateforme photo et vidéo "
+"Splashbase. "
 
 #: ../../user/documents-system/intro.rst:42
 msgid "Unused document"
-msgstr ""
+msgstr "Document inutilisé"
 
 #: ../../user/documents-system/intro.rst:44
 msgid ""
-"Clicking *Unused document* allows you to gather every unused documents on"
-" your website, so you can clean your database and get rid of useless "
+"Clicking *Unused document* allows you to gather every unused documents "
+"on your website, so you can clean your database and get rid of useless "
 "documents."
 msgstr ""
-
+"En cliquant sur *Document inutilisé*, vous pourrez vérifier la liste de "
+"toutes les sources non-référencées sur votre site, ce qui vous permettra "
+"par la suite de nettoyer votre base de données et de supprimer ainsi des "
+"fichiers inutiles."
