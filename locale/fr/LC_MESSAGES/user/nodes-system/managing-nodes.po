@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-13 14:49+0200\n"
-"PO-Revision-Date: 2016-08-12 12:20+0200\n"
+"PO-Revision-Date: 2016-08-12 12:46+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -257,7 +257,7 @@ msgstr "SEO"
 
 #: ../../user/nodes-system/managing-nodes.rst:80
 msgid "Tree, if your node is set up as a *container*"
-msgstr ""
+msgstr "Abre, si votre nœud est configuré comme un *conteneur*"
 
 #: ../../user/nodes-system/managing-nodes.rst:88
 msgid ""
@@ -265,11 +265,15 @@ msgid ""
 "specific data, using node-type fields such as *text* fields, or "
 "*documents* fields, etc."
 msgstr ""
+"L'onglet contenu vous permettra de modifier les données spécifiques de "
+"votre nœud, en utilisant des champs-types tels que *texte* ou "
+"*documents*, etc."
 
 #: ../../user/nodes-system/managing-nodes.rst:91
 #: ../../user/nodes-system/managing-nodes.rst:119
 msgid "*This tab will display different content over translations.*"
 msgstr ""
+"*Cet onglet affichera les contenus en fonction de chaque traduction.*"
 
 #: ../../user/nodes-system/managing-nodes.rst:99
 msgid ""
@@ -278,15 +282,22 @@ msgid ""
 "office’ settings. This section should not be used so often as parameters "
 "will be set once by your developer."
 msgstr ""
+"Les paramètres sont des données globales telles que votre *nom de nœud*. "
+"Ils sont utilisés pour gérer la visibilité de votre nœud en fonction des "
+"rôles de chaque utilisateur et des paramètres de chaque nœud. Cette "
+"section ne doit pas être utilisée de façon régulière puisque les "
+"paramètres sont fixés par votre développeur en amont pour correspondre à "
+"votre besoin."
 
 #: ../../user/nodes-system/managing-nodes.rst:103
 #: ../../user/nodes-system/managing-nodes.rst:111
 msgid "*This tab will display the same content over translations.*"
 msgstr ""
+"*Cet onglet affichera le même contenu sans importance de traduction.*"
 
 #: ../../user/nodes-system/managing-nodes.rst:125
 msgid "Nodes publication system"
-msgstr ""
+msgstr "Système de publication des nœuds"
 
 #: ../../user/nodes-system/managing-nodes.rst:127
 msgid ""
@@ -295,48 +306,65 @@ msgid ""
 "**Draft** by Roadiz so that you can edit it without bothering your "
 "visitors and sharing unfinished work."
 msgstr ""
+"Pendant son cycle de vie, chaque nœud peut avoir différents statuts de "
+"publication. Lorsque vous créez un nouveau contenu, il sera "
+"automatiquement publié comme **Brouillon** par Roadiz afin de vous "
+"permettre de le modifier sans incidence sur vos visiteurs et sans rendre "
+"public un contenu en cours de réalisation."
 
 #: ../../user/nodes-system/managing-nodes.rst:132
 msgid "Available statuses:"
-msgstr ""
+msgstr "Statuts disponibles :"
 
 #: ../../user/nodes-system/managing-nodes.rst:134
 msgid "**Draft**: First status for new nodes"
-msgstr ""
+msgstr "**Brouillon** : statut initial pour chaque nouveau nœud"
 
 #: ../../user/nodes-system/managing-nodes.rst:135
 msgid ""
 "**Pending validation**: It’s a medium status for user that do not have "
 "permission to publish nodes"
 msgstr ""
+"**En attente de validation** : un statut intermédiaire disponible pour "
+"les utilisateurs n'ayant pas les droits de publication"
 
 #: ../../user/nodes-system/managing-nodes.rst:136
 msgid ""
 "**Published**: That’s the most important status, it will set the green "
 "light to your visitor to view your content"
 msgstr ""
+"**Publié** : il s'agit du statut le plus important, il rend votre "
+"contenu public aux visiteurs de votre site"
 
 #: ../../user/nodes-system/managing-nodes.rst:137
 msgid ""
 "**Archived**: When you don’t want to publish a node but you don’t want "
 "to delete it either"
 msgstr ""
+"**Archivé** : lorsque vous ne souhaitez pas publier un nœud mais ne "
+"voulez pas non plus le supprimer de votre interface"
 
 #: ../../user/nodes-system/managing-nodes.rst:138
 msgid ""
 "**Deleted**: It’s the last status for your nodes. Before emptying your "
 "node trashcan, every content will wait with this status."
 msgstr ""
+"**Supprimé** : il s'agit du dernière statut disponible pour vos nœuds. "
+"Avant de vider votre corbeille, chaque nœud sera affiché avec cette "
+"mention."
 
 #: ../../user/nodes-system/managing-nodes.rst:140
 msgid ""
 "To improve status visibility, *draft* and *pending* nodes have a rhombus "
 "shape and *published* nodes have a circle shape."
 msgstr ""
+"Pour améliorer la visibilité des statuts, les nœuds au stade de "
+"*brouillon* et *en attente de validation* sont présentés par une forme "
+"de losange alors que les nœuds *publiés* ont une forme circulaire."
 
 #: ../../user/nodes-system/managing-nodes.rst:143
 msgid "Preview unpublished nodes"
-msgstr ""
+msgstr "Prévisualiser les nœuds en attente de validation"
 
 #: ../../user/nodes-system/managing-nodes.rst:145
 msgid ""
@@ -347,6 +375,12 @@ msgid ""
 "public website as it could create confusing errors if your website is "
 "hosted behing a reverse proxy engine."
 msgstr ""
+"Puisqu'un nœud non-publié n'est pas visible par vos visiteurs anonymes, "
+"Roadiz permet aux utilisateurs du back-office de les prévisualiser en "
+"utilisant un *chemin d'accès* appelé ``preview.php``. Nous avons décidé "
+"de créer un chemin d'accès spécifique afin de bien différencier son URL "
+"de votre site public et d'éviter ainsi erreurs et confusions si votre "
+"site est hébergé par un proxy inverse."
 
 #: ../../user/nodes-system/managing-nodes.rst:150
 msgid ""
@@ -357,3 +391,10 @@ msgid ""
 "This URL will only allow authentified backend users, other people will "
 "be blocked."
 msgstr ""
+"Par exemple, si votre page ``actualités``n'est pas encore publiée, la "
+"relier à `http://mywebsite.com/actualites`` aboutira à une page d'erreur "
+"404 pour tous les visiteurs anonymes ou connectés (vous compris). "
+"Cependant, si vous souhaitez la prévisualiser, vous devrez vous "
+"connecter à ``http://mywebsite.com/preview.php/actualites``. Cette URL "
+"authorisera l'accès aux visiteurs connectés au back-office uniquement, "
+"bloquant la page aux internautes anonymes."
