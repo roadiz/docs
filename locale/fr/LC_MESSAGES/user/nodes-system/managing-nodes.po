@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-13 14:49+0200\n"
-"PO-Revision-Date: 2016-08-11 17:49+0200\n"
+"PO-Revision-Date: 2016-08-12 12:20+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,40 +92,55 @@ msgid ""
 "on the node or click on the arrow at the right when you pass your mouse "
 "over."
 msgstr ""
+"D'autres options sont disponibles à partir du menu contextuel de chaque "
+"nœud. Faites un clic droit sur le nœud ou cliquez sur la flèche droite "
+"qui apparaît au survol."
 
 #: ../../user/nodes-system/managing-nodes.rst:35
 msgid "Contextual menu actions"
-msgstr ""
+msgstr "Actions des menus contextuels"
 
 #: ../../user/nodes-system/managing-nodes.rst:37
 msgid "*Add child node:* to create a content inside the current node."
 msgstr ""
+"*Ajouter un nœud enfant* : créer une zone de contenu à l'intérieur d'un "
+"nœud existant"
 
 #: ../../user/nodes-system/managing-nodes.rst:38
 msgid "*Edit node:* links to the current node “edit content” page."
 msgstr ""
+"*Éditer* : renvoie à la page d'édition de contenu du nœud concerné."
 
 #: ../../user/nodes-system/managing-nodes.rst:39
 msgid ""
 "*Move to first position:* to move a node at the first position inside "
 "its parent node."
 msgstr ""
+"*Déplacer en première position* : déplacer un nœud à la première "
+"position au sein de l'arborescence du nœud parent."
 
 #: ../../user/nodes-system/managing-nodes.rst:40
 msgid "*Move to last position:* basically the same for the last position."
 msgstr ""
+"*Déplacer en dernière position* : déplacer en dernière position de "
+"l'arborescence du parent."
 
 #: ../../user/nodes-system/managing-nodes.rst:41
 msgid ""
 "*Delete node:* to move current node to the trashcan. A confirmation page "
 "will be prompt before really deleting a node."
 msgstr ""
+"*Supprimer* : placera le nœud actuel dans la corbeille. Une fenêtre de "
+"confirmation s'ouvrira afin de supprimer un nœud définitivement. "
 
 #: ../../user/nodes-system/managing-nodes.rst:42
 msgid ""
 "*Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed "
 "in Urls and your website, even if you are an administrator."
 msgstr ""
+"*Cacher/Afficher* : Changer la visibilité d'un nœud. Un nœud caché ne "
+"sera pas indexé dans votre site et n'aura pas d'url, même si vous êtes "
+"connecté en tant qu'administrateur."
 
 #: ../../user/nodes-system/managing-nodes.rst:43
 msgid ""
@@ -133,36 +148,47 @@ msgid ""
 "nodes aren’t visible to anonymous visitors, but visible for back-office "
 "users using ``preview.php`` entry point."
 msgstr ""
+"*Publier/Dépublier* : Modifier le statut de publication d'un nœud. Les "
+"nœuds non publiés ne sont pas visibles par les visiteurs anonymes, mais "
+"sont accessibles aux utilisateurs du back-office utilisant le chemin "
+"d'accès ``preview.php``."
 
 #: ../../user/nodes-system/managing-nodes.rst:44
 msgid ""
 "*Publish offspring:* Publish a node and all its children nodes "
 "recursively."
 msgstr ""
+"*Publier la descendance* : Publier un nœud et tous ses noeuds-enfants "
+"rattachés."
 
 #: ../../user/nodes-system/managing-nodes.rst:45
 msgid ""
 "*Duplicate:* Copy all current node’ content and relationships into a new "
 "node."
 msgstr ""
+"*Dupliquer* : Copier l'intégralité du contenu et des interactions du "
+"nœud actuel dans un nouveau nœud."
 
 #: ../../user/nodes-system/managing-nodes.rst:48
 msgid "Creating a node"
-msgstr ""
+msgstr "Création d'un nœud"
 
 #: ../../user/nodes-system/managing-nodes.rst
 msgid "Add buttons"
-msgstr ""
+msgstr "Ajouter des boutons"
 
 #: ../../user/nodes-system/managing-nodes.rst:55
 msgid "“Add node” button located at the top of your *node-tree*."
 msgstr ""
+"Le bouton *Ajouter un nœud* est situé en haut de votre *arborescence*."
 
 #: ../../user/nodes-system/managing-nodes.rst:60
 msgid ""
 "“Add a *child* node” button, which is located at the top of each node’ "
 "contextual menu."
 msgstr ""
+"Le bouton \"Ajouter un nœud *enfant*\" est situé en haut de chaque menu "
+"contextuel d'un nœud."
 
 #: ../../user/nodes-system/managing-nodes.rst:62
 msgid ""
@@ -171,6 +197,11 @@ msgid ""
 "choose a “parent-node”. In both cases you will be asked to choose a "
 "*node-type* and a *node-name* before creating your node."
 msgstr ""
+"Pour ajouter un nœud vide à votre arborescence, vous devrez choisir son "
+"emplacement. À l'intérieur de Roadiz, vous pouvez ajouter un contenu à "
+"la racine de votre arbre ou choisir un \"nœud-parent\". Dans les deux "
+"cas, vous serez invité à choisir un *type* et un *nom* avant de créer "
+"votre nœud."
 
 #: ../../user/nodes-system/managing-nodes.rst:67
 msgid ""
@@ -179,6 +210,11 @@ msgid ""
 "later except if your developer locked it up. *Node name* is usually used "
 "to build your pages URL."
 msgstr ""
+"Le *Nom du noeud* est l'identifiant global de votre nœud. Il doit être "
+"unique et ne changera pas d'une traduction à un autre. Il peut être "
+"modifié ultérieurement, sauf si votre développeur a verrouillé sa "
+"modification. Le  *Nom du nœud* est utilisé pour construire les URL de "
+"vos pages, de manière générale."
 
 #: ../../user/nodes-system/managing-nodes.rst:68
 msgid ""
@@ -186,34 +222,38 @@ msgid ""
 "Choose well as you won’t be able to change it later, you ’ll have to "
 "delete and recreate an other node."
 msgstr ""
+"Le *Type de nœud* définit les champs disponibles de votre contenu. "
+"Choisissez le bien car la modification ne sera pas possible "
+"ultérieurement, il vous faudra supprimer le nœud et en créer un nouveau "
+"en cas d'erreur."
 
 #: ../../user/nodes-system/managing-nodes.rst:72
 msgid "Edit an existing node"
-msgstr ""
+msgstr "Éditer un nœud existant"
 
 #: ../../user/nodes-system/managing-nodes.rst:74
 msgid "Node edition page is composed in several tabs."
-msgstr ""
+msgstr "La page d'édition du nœud est composée de plusieurs onglets."
 
 #: ../../user/nodes-system/managing-nodes.rst:76
 #: ../../user/nodes-system/managing-nodes.rst:83
 msgid "Node content"
-msgstr ""
+msgstr "Contenu d'un nœud"
 
 #: ../../user/nodes-system/managing-nodes.rst:77
 #: ../../user/nodes-system/managing-nodes.rst:94
 msgid "Node parameters"
-msgstr ""
+msgstr "Paramètres du nœud"
 
 #: ../../user/nodes-system/managing-nodes.rst:78
 #: ../../user/nodes-system/managing-nodes.rst:106
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: ../../user/nodes-system/managing-nodes.rst:79
 #: ../../user/nodes-system/managing-nodes.rst:114
 msgid "SEO"
-msgstr ""
+msgstr "SEO"
 
 #: ../../user/nodes-system/managing-nodes.rst:80
 msgid "Tree, if your node is set up as a *container*"
