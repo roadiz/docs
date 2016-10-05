@@ -57,6 +57,48 @@ Available cache types are:
 - *redis* (requires ``host`` and ``port`` configuration)
 - *array*
 
+Monolog handlers
+----------------
+
+By default, Roadiz writes its logs to ``logs/`` folder in a file named after your running environment (eg. ``roadiz_prod.log``).
+But you can also customize *Monolog* to use three different handlers. Pay attention that using custom log handlers will
+disable default Roadiz logging (except for *Doctrine* one) so it could be better to always use *default* handler along
+a custom one.
+
+Available handler types:
+
+- ``default``: Reproduce the Roadiz default handler which writes to ``logs/`` folder in a file named after your running environment
+- ``stream``: Defines a log file stream on your local system. **Your path must be writable!**
+- ``syslog``: Writes to system *syslog*.
+- ``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down.
+
+``type`` and ``level`` values are mandatory for each handlers.
+
+Here is an example configuration:
+
+.. code-block:: yaml
+
+    monolog:
+        handlers:
+            default:
+                type: default
+                level: INFO
+            file:
+                type: stream
+                # Be careful path must be writable by PHP
+                path: /var/log/roadiz.log
+                level: INFO
+            syslog:
+                type: syslog
+                # Use a custom identifier
+                ident: my_roadiz
+                level: WARNING
+            graylog:
+                type: gelf
+                # Gelf HTTP entry point url (with optional user:passwd authentification)
+                url: http://graylog.local:12202/gelf
+                level: WARNING
+
 Solr endpoint
 -------------
 
