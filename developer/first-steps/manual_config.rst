@@ -57,6 +57,8 @@ Available cache types are:
 - *redis* (requires ``host`` and ``port`` configuration)
 - *array*
 
+.. _monolog_handlers:
+
 Monolog handlers
 ----------------
 
@@ -98,6 +100,9 @@ Here is an example configuration:
                 # Gelf HTTP entry point url (with optional user:passwd authentification)
                 url: http://graylog.local:12202/gelf
                 level: WARNING
+
+
+.. _solr_endpoint:
 
 Solr endpoint
 -------------

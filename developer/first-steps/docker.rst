@@ -149,10 +149,118 @@ you’ll have to fill in *mailer* details in configuration.
 Logs
 ^^^^
 
+See manual configuration documentation section about :ref:`monolog_handlers`.
+
 Copy data from your local environment with the SSH container
 ------------------------------------------------------------
+
+.. note::
+
+    We assume that you won’t do a fresh install of your website with *Docker*. So
+    you won’t need to access to the ``install.php`` entry point.
+
+To copy your data from your local environment you will use your *SSH* container
+to perform some ``scp`` and ``rsync`` commands between your computer and your
+Docker container. Using a SSH container has the great advantage to start and stop
+the server whenever you need it and to completely secure your data from outside.
+Obviously, your Docker host SSH account must be securized too (*public key only* connection for root
+or ``sudo`` *only* connections).
+
+Pushing database
+^^^^^^^^^^^^^^^^
+
+#. Export a *MySQL* dump from your *Vagrant* or other local development: ``mysqldump -ulocaluser -p localdb > local/path/site_2016_10_07.sql``.
+#. Make sure your *SSH* container is started and find its public port: ``docker start site_SSH_1``.
+#. Copy from your computer to your *Docker* container: ``scp -P XXXXX local/path/site_2016_10_07.sql core@site.com:/data/secure/``.
+#. Connect to your Docker container: ``ssh -p XXXXX core@site.com``.
+#. Import your dump: ``cd /data/secure; mysql -hmariadb -uusername -p username < site_2016_10_07.sql;``.
+#. Regenerate your entities: ``cd /data/http; bin/roadiz generate:entities;``.
+
+Pushing documents and fonts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Make sure your *SSH* container is started and find its public port: ``docker start site_SSH_1``.
+#. Go to your local ``files/`` folder
+#. Synchronize your files between your computer and your Docker container: ``rsync -avcz -e "ssh -p XXXXX" ./ core@site.com:/data/http/files/``. Make sure your paths ends with ``/`` not to copy files at the same level of ``files/`` folder.
+
+Clear cache
+^^^^^^^^^^^
+
+#. Connect to your real Docker *Roadiz* container. **Not the SSH one**: ``docker exec -ti --user=core site bash``.
+#. Call the ``clear_cache.php`` entry point with ``curl`` command: ``curl http://localhost/clear_cache.php``.
 
 Use a proxy to secure your containers
 -------------------------------------
 
+For better security and *SSL support* with awesome and free *Let’s Encrypt* certificates,
+you can use `jwilder/nginx-proxy <https://github.com/jwilder/nginx-proxy>`_ and
+`JrCs/docker-letsencrypt-nginx-proxy-companion <https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion>`_ Docker images.
+Then you won’t need to publish your *Roadiz* ports anymore but to declare environment
+variables called ``VIRTUAL_HOST``, ``LETSENCRYPT_HOST`` and ``LETSENCRYPT_EMAIL`` to bind *nginx front proxy* to your container.
 
+.. code-block:: yaml
+
+    version: '2'
+    services:
+      MAIN:
+        hostname: site
+        image: ambroisemaupate/roadiz
+        environment:
+          ROADIZ_BRANCH: develop
+          # Bind nginx proxy to listen these domains
+          VIRTUAL_HOST: site.com,www.site.com
+          # Create and renew SSL cert for these domains
+          LETSENCRYPT_HOST: site.com,www.site.com
+          # Mandatory administration email for renewal notifications
+          LETSENCRYPT_EMAIL: admin@site.com
+          # …
+
+You have to understand that using a front-proxy will obfuscate your visitors IP inside
+your Roadiz container. You’ll have to trust the proxy request to get real remote IP and
+protocol. (See :ref:`reverse_proxy`)
+
+Use Solr
+--------
+
+See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_.
+
+.. code-block:: yaml
+
+    version: '2'
+    services:
+      MAIN:
+        hostname: site
+        image: ambroisemaupate/roadiz
+        environment:
+          ROADIZ_BRANCH: develop
+        ports:
+          # For production only without a proxy
+          - "80:80"
+        volumes:
+          - DATA:/data
+        links:
+          - DB:mariadb
+          - SOLR:solr
+        depends_on:
+          - DB
+          - SOLR
+        # For production only
+        restart: always
+      SOLR:
+        image: solr
+        entrypoint:
+          - docker-entrypoint.sh
+          - solr-precreate
+          - site
+        volumes:
+          - SOLRDATA:/opt/solr/server/solr/mycores
+    #
+    # …
+    #
+    volumes:
+      DATA:
+      DBDATA:
+      SOLRDATA:
+
+Then configure you Roadiz website to connect it to your Solr server (see :ref:`solr_endpoint`).
+Do not forget to use ``solr`` hostname and ``site`` core name.

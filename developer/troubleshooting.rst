@@ -33,6 +33,8 @@ purge it as Roadiz stores doctrine configuration there for better
 performances, call ``clear_cache.php`` entry point from your browser or
 ``curl http://localhost/clear_cache.php`` from your command line.
 
+.. _reverse_proxy:
+
 Running Roadiz behind a reverse proxy
 -------------------------------------
 
