@@ -109,6 +109,9 @@ before doing anything in your ``/data`` folder.
 Configure Roadiz
 ----------------
 
+To configure your Roadiz website, edit your ``/data/http/conf/config.yml`` with *nano* editor.
+If you get some *"Unknown terminal error"*, you have to edit your TERM environment variable: ``export TERM=xterm``.
+
 Database
 ^^^^^^^^
 
