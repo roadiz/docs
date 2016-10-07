@@ -32,7 +32,8 @@ with the following content:
         environment:
           ROADIZ_BRANCH: develop
         ports:
-          - "8080:80"
+          # For production only without a proxy
+          - "80:80"
         volumes:
           - DATA:/data
         links:
@@ -150,5 +151,8 @@ Logs
 
 Copy data from your local environment with the SSH container
 ------------------------------------------------------------
+
+Use a proxy to secure your containers
+-------------------------------------
 
 
