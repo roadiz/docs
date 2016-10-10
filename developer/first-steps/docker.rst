@@ -9,7 +9,7 @@ to ease up and speed up deployment.
 
 .. note::
 
-    Docker deployment require knowledge with *Docker* and some sys-admin skills. We invite you
+    Docker deployment requires knowledge with *Docker* and some sys-admin skills. We invite you
     to familiarize with this technology, there is `a plenty of documentation on the subject <https://www.docker.com/what-docker>`_.
 
 As a Roadiz website requires a database server and some SSH protocol to transfer
@@ -31,6 +31,8 @@ with the following content:
         image: ambroisemaupate/roadiz
         environment:
           ROADIZ_BRANCH: develop
+        # Only if you are using a proxy or/and backup container
+        #network_mode: "bridge"
         ports:
           # For production only without a proxy
           - "80:80"
@@ -47,6 +49,8 @@ with the following content:
         environment:
           MARIADB_USER: "username"
           MARIADB_PASS: "password"
+        # Only if you are using a proxy or/and backup container
+        #network_mode: "bridge"
         volumes:
           - DBDATA:/data
       # SSH container linked to db to
@@ -54,6 +58,8 @@ with the following content:
       # sync your files from/to your local server
       SSH:
         image: ambroisemaupate/light-ssh
+        # Only if you are using a proxy or/and backup container
+        #network_mode: "bridge"
         environment:
           PASS: "password"
         volumes:
@@ -201,6 +207,15 @@ you can use `jwilder/nginx-proxy <https://github.com/jwilder/nginx-proxy>`_ and
 Then you won’t need to publish your *Roadiz* ports anymore but to declare environment
 variables called ``VIRTUAL_HOST``, ``LETSENCRYPT_HOST`` and ``LETSENCRYPT_EMAIL`` to bind *nginx front proxy* to your container.
 
+.. note::
+
+    As *Docker Compose* encapsulates every composed services in their own network, you have to
+    explicitely set ``network_mode: "bridge"`` mode. Without this setting, your front proxy
+    container won’t be able to reach your Roadiz container. This network mode is also required if you
+    need to run temporary containers linked to your database, for example a *backup* service.
+    If you are using *Docker compose* also for your *Nging proxy* setup, do not forget to add it
+    in its ``docker-compose.yml`` too.
+
 .. code-block:: yaml
 
     version: '2'
@@ -208,6 +223,7 @@ variables called ``VIRTUAL_HOST``, ``LETSENCRYPT_HOST`` and ``LETSENCRYPT_EMAIL`
       MAIN:
         hostname: site
         image: ambroisemaupate/roadiz
+        network_mode: "bridge"
         environment:
           ROADIZ_BRANCH: develop
           # Bind nginx proxy to listen these domains
@@ -218,7 +234,7 @@ variables called ``VIRTUAL_HOST``, ``LETSENCRYPT_HOST`` and ``LETSENCRYPT_EMAIL`
           LETSENCRYPT_EMAIL: admin@site.com
           # …
 
-You have to understand that using a front-proxy will obfuscate your visitors IP inside
+You have to understand that using a *front-proxy* will obfuscate your visitors IP inside
 your Roadiz container. You’ll have to trust the proxy request to get real remote IP and
 protocol. (See :ref:`reverse_proxy`)
 
@@ -236,6 +252,8 @@ See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_.
         image: ambroisemaupate/roadiz
         environment:
           ROADIZ_BRANCH: develop
+        # Only if you are using a proxy or/and backup container
+        #network_mode: "bridge"
         ports:
           # For production only without a proxy
           - "80:80"
@@ -251,6 +269,8 @@ See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_.
         restart: always
       SOLR:
         image: solr
+        # Only if you are using a proxy or/and backup container
+        #network_mode: "bridge"
         entrypoint:
           - docker-entrypoint.sh
           - solr-precreate
