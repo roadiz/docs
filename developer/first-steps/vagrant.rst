@@ -19,9 +19,10 @@ Once vagrant VM has provisioned you will be able to use:
 * ``http://192.168.33.10:1080`` for your *Mailcatcher* tool.
 
 Do not hesitate to add an entry in your ``/etc/hosts`` file to use a local *domain name*
-instead of using the private IP address. And for each Vagrant website, **do not forget to increment your private IP**.
+instead of using the private IP address (eg. http://site1.dev). And for each Vagrant website, **do not forget to increment your private IP**.
 
 .. code-block:: bash
+
     # /etc/hosts
     # Vagrant hosts
     192.168.33.10    site1.dev
