@@ -359,9 +359,6 @@ Then, build your ``listAction`` method.
 
 .. code-block:: php
 
-    /**
-     * {@inheritdoc}
-     */
     public function listAction(
         Request $request,
         $page,
@@ -394,7 +391,36 @@ Then, build your ``listAction`` method.
         $this->assignation['articles'] = $listManager->getEntities();
         $this->assignation['filters'] = $listManager->getAssignation();
 
-        $this->getService('stopwatch')->start('twigRender');
         return $this->render('types/articles-feed.html.twig', $this->assignation);
     }
 
+Then create your ``articles-feed.html.twig`` template to display each entity paginated.
+
+.. code-block:: html+jinja
+
+    {# Listing #}
+    <ul class="article-list">
+        {% for article in articles %}
+            <li class="article-item">
+                <a class="article-link" href="{{ article|url }}">
+                    <h2>{{ article.title }}</h2>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {# Pagination #}
+    {% if filters.pageCount > 1 %}
+        <nav class="pagination">
+            {% if filters.currentPage > 1 %}
+                <a class="prev-link" href="{{ path('projectPage', {page: filters.currentPage - 1}) }}">
+                    {% trans %}prev.page{% endtrans %}
+                </a>
+            {% endif %}
+            {% if filters.currentPage < filters.pageCount %}
+                <a class="next-link" href="{{ path('projectPage', {page: filters.currentPage + 1}) }}">
+                    {% trans %}next.page{% endtrans %}
+                </a>
+            {% endif %}
+        </nav>
+    {% endif %}
