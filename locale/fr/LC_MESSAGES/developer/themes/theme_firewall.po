@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../developer/themes/theme_firewall.rst:5
+msgid "Add a firewall in your theme"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:7
+msgid ""
+"You may need to add a secured area in your website or application, even "
+"for none-backend users. Roadiz uses *Symfony* security components to "
+"handle firewalled requests. You will be able to extend the *firewall map*"
+" in your Theme ``setupDependencyInjection`` method."
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:11
+msgid ""
+"Before create your firewall map entry, you must understand that Roadiz "
+"already has 2 firewall areas:"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:13
+msgid "``^/rz-admin`` area, which naturally matches every back-office sections"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:14
+msgid ""
+"``^/`` area which is required for previewing unpublished node and get "
+"user informations across the whole website"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:16
+msgid ""
+"The last firewall request matcher can be tricky to deal with, especially "
+"if you want to add another secured area as it *listen* to every requests."
+" When you’ll add your new firewall map entry, always call "
+"``parent::setupDependencyInjection($container);`` **after** your custom "
+"configuration to be sure that ``^/`` request matcher has **the lowest "
+"priority**."
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:42
+msgid "Configuring a firewall map entry with FirewallEntry class"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:44
+msgid ""
+"Before copy and pasting the following lines, think about it a little "
+"time… A firewall map entry defines severals mandatory routes:"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:47
+msgid "A *base path* for your firewall to be triggered"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:48
+msgid "A *login* path, which **must** be **outside** of your firewall map"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:49
+msgid "A *login_check* path, which **must** be **inside** of your firewall map"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:50
+msgid "A *logout* path, which **must** be **inside** of your firewall map"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:51
+msgid ""
+"A new role describing your secured area purpose (i.e. *ROLE_ACCESS_PRESS*"
+" for a private press kit area), you should create this role in Roadiz "
+"backoffice before."
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:53
+msgid "If this example I will use:"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:55
+msgid "``/press`` as my base path for secured area"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:56
+msgid "``/signin`` for my login page, notice that it’s not in my firewall"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:57
+msgid "``/press/login_check``"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:58
+msgid "``/press/logout``"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:59
+msgid "*ROLE_ACCESS_PRESS*"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:61
+msgid ""
+"Here is the code to add in your theme’ setupDependencyInjection method. "
+"Do not forget to add the matching *use* statement in your file header."
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:115
+msgid "Add login routes"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:117
+msgid ""
+"After configuring your Firewall, you’ll need to add your routes to your "
+"theme ``routes.yml`` file. *Logout* and *login_check* won’t need any "
+"controller setup as they will be handled directly by Roadiz firewall "
+"event dispatcher. The only one you need to handle is the *login* page."
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:131
+msgid ""
+"In your ``LoginController``, just add error handling from the "
+"``securityAuthenticationUtils`` service to display a feedback on your "
+"login form:"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:152
+msgid ""
+"Then, you can create your *login* form as you want. Just use the required"
+" fields:"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:154
+msgid "``_username``"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:155
+msgid "``_password``"
+msgstr ""
+
+#: ../../developer/themes/theme_firewall.rst:157
+msgid ""
+"And do not forget to set your form *action* to ``{{ "
+"path('themeLoginCheck') }}`` and to use *POST* method."
+msgstr ""
+

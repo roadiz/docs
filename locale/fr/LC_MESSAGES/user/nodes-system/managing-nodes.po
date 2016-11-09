@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: 2016-08-12 12:46+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"X-Generator: Poedit 1.8.8\n"
+
+#: ../../user/nodes-system/managing-nodes.rst:4
+msgid "Managing nodes"
+msgstr "Gérer les nœuds"
+
+#: ../../user/nodes-system/managing-nodes.rst:6
+msgid ""
+"Nodes are the most important part of Roadiz CMS. They are your content "
+"which can be shaped as you want according to your node-types "
+"definitions. A node can be a blog-post, a content page, a photo gallery, "
+"even a shop product. This is why we called it “Node”, it’s an abstract "
+"data container interconnected with other node in a tree."
+msgstr ""
+"Les nœuds sont l'élément le plus important du CMS Roadiz. Ils permettent "
+"la mise en forme de votre contenu telle que vous le souhaitez en "
+"fonction de la définition de vos types nœuds. Un nœud peut être un post "
+"de blog, une page de contenu, une galerie photo, ou même un produit de "
+"l'e-boutique. Voilà pourquoi nous l'avons appelé \"Nœud\", c'est un "
+"conteneur de données abstrait interconnecté avec un autre nœud, au sein "
+"d'une arborescence. "
+
+#: ../../user/nodes-system/managing-nodes.rst:13
+msgid "Node-tree navigation"
+msgstr "Navigation dans l'arborescence"
+
+#: ../../user/nodes-system/managing-nodes.rst
+msgid "Node tree"
+msgstr "L'arborescence"
+
+#: ../../user/nodes-system/managing-nodes.rst:17
+msgid "Simple node-tree after installing Roadiz with *Default theme*."
+msgstr ""
+"Arborescence simple après installation de Roadiz avec un *Thème par "
+"défaut*"
+
+#: ../../user/nodes-system/managing-nodes.rst:22
+msgid "Contextual menu for *home* node."
+msgstr "Menu contextuel pour un nœud *Accueil*"
+
+#: ../../user/nodes-system/managing-nodes.rst:27
+msgid ""
+"Each node has a place in your website, that’s why we chose to arrange "
+"your content in a tree-shaped way. It’s intuitive and it works the same "
+"as your computer files."
+msgstr ""
+"Chaque nœud a sa place dans votre site et c'est pourquoi nous avons "
+"choisi d'organiser votre contenu à travers une arborescence. C'est "
+"intuitif et cela fonctionne de la même manière que la gestion de vos "
+"fichiers d'ordinateur."
+
+#: ../../user/nodes-system/managing-nodes.rst:30
+msgid "To edit a node’ content, simply click on it."
+msgstr "Pour éditer le contenu nœud, cliquez simplement dessus."
+
+#: ../../user/nodes-system/managing-nodes.rst:31
+msgid ""
+"To move a node across your tree, drag & drop using its handle (round or "
+"rombus shape). You can drop a node after or before an other one. You can "
+"also drop inside just by moving your mouse a bit on the right, you "
+"should see the node shadow to shift right."
+msgstr ""
+"Pour déplacer un nœud dans votre arborescence, réalisez un \"cliquer-"
+"déposer\" grâce à la poignée (en forme de rond ou de losange). Vous "
+"pouvez déposer un nœud avant ou après un autre élément. Vous pouvez "
+"également le déposer à l'intérieur d'un autre nœud, en plaçant votre "
+"souris sur le coin droit de ce dernier pour déplacer l'ombre du nœud "
+"concerné vers la droite."
+
+#: ../../user/nodes-system/managing-nodes.rst:32
+msgid ""
+"Other actions are available from each node’ contextual menu. Right click "
+"on the node or click on the arrow at the right when you pass your mouse "
+"over."
+msgstr ""
+"D'autres options sont disponibles à partir du menu contextuel de chaque "
+"nœud. Faites un clic droit sur le nœud ou cliquez sur la flèche droite "
+"qui apparaît au survol."
+
+#: ../../user/nodes-system/managing-nodes.rst:35
+msgid "Contextual menu actions"
+msgstr "Actions des menus contextuels"
+
+#: ../../user/nodes-system/managing-nodes.rst:37
+msgid "*Add child node:* to create a content inside the current node."
+msgstr ""
+"*Ajouter un nœud enfant* : créer une zone de contenu à l'intérieur d'un "
+"nœud existant"
+
+#: ../../user/nodes-system/managing-nodes.rst:38
+msgid "*Edit node:* links to the current node “edit content” page."
+msgstr ""
+"*Éditer* : renvoie à la page d'édition de contenu du nœud concerné."
+
+#: ../../user/nodes-system/managing-nodes.rst:39
+msgid ""
+"*Move to first position:* to move a node at the first position inside "
+"its parent node."
+msgstr ""
+"*Déplacer en première position* : déplacer un nœud à la première "
+"position au sein de l'arborescence du nœud parent."
+
+#: ../../user/nodes-system/managing-nodes.rst:40
+msgid "*Move to last position:* basically the same for the last position."
+msgstr ""
+"*Déplacer en dernière position* : déplacer en dernière position de "
+"l'arborescence du parent."
+
+#: ../../user/nodes-system/managing-nodes.rst:41
+msgid ""
+"*Delete node:* to move current node to the trashcan. A confirmation page "
+"will be prompt before really deleting a node."
+msgstr ""
+"*Supprimer* : placera le nœud actuel dans la corbeille. Une fenêtre de "
+"confirmation s'ouvrira afin de supprimer un nœud définitivement. "
+
+#: ../../user/nodes-system/managing-nodes.rst:42
+msgid ""
+"*Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed "
+"in Urls and your website, even if you are an administrator."
+msgstr ""
+"*Cacher/Afficher* : Changer la visibilité d'un nœud. Un nœud caché ne "
+"sera pas indexé dans votre site et n'aura pas d'url, même si vous êtes "
+"connecté en tant qu'administrateur."
+
+#: ../../user/nodes-system/managing-nodes.rst:43
+msgid ""
+"*Publish/Unpublish:* Change a node’ publication status. Unpublished "
+"nodes aren’t visible to anonymous visitors, but visible for back-office "
+"users using ``preview.php`` entry point."
+msgstr ""
+"*Publier/Dépublier* : Modifier le statut de publication d'un nœud. Les "
+"nœuds non publiés ne sont pas visibles par les visiteurs anonymes, mais "
+"sont accessibles aux utilisateurs du back-office utilisant le chemin "
+"d'accès ``preview.php``."
+
+#: ../../user/nodes-system/managing-nodes.rst:44
+msgid ""
+"*Publish offspring:* Publish a node and all its children nodes "
+"recursively."
+msgstr ""
+"*Publier la descendance* : Publier un nœud et tous ses noeuds-enfants "
+"rattachés."
+
+#: ../../user/nodes-system/managing-nodes.rst:45
+msgid ""
+"*Duplicate:* Copy all current node’ content and relationships into a new "
+"node."
+msgstr ""
+"*Dupliquer* : Copier l'intégralité du contenu et des interactions du "
+"nœud actuel dans un nouveau nœud."
+
+#: ../../user/nodes-system/managing-nodes.rst:48
+msgid "Creating a node"
+msgstr "Création d'un nœud"
+
+#: ../../user/nodes-system/managing-nodes.rst
+msgid "Add buttons"
+msgstr "Ajouter des boutons"
+
+#: ../../user/nodes-system/managing-nodes.rst:55
+msgid "“Add node” button located at the top of your *node-tree*."
+msgstr ""
+"Le bouton *Ajouter un nœud* est situé en haut de votre *arborescence*."
+
+#: ../../user/nodes-system/managing-nodes.rst:60
+msgid ""
+"“Add a *child* node” button, which is located at the top of each node’ "
+"contextual menu."
+msgstr ""
+"Le bouton \"Ajouter un nœud *enfant*\" est situé en haut de chaque menu "
+"contextuel d'un nœud."
+
+#: ../../user/nodes-system/managing-nodes.rst:62
+msgid ""
+"To add a blank node to your node-tree, you will need to choose your "
+"location. In Roadiz you can add a content at the root of your tree or "
+"choose a “parent-node”. In both cases you will be asked to choose a "
+"*node-type* and a *node-name* before creating your node."
+msgstr ""
+"Pour ajouter un nœud vide à votre arborescence, vous devrez choisir son "
+"emplacement. À l'intérieur de Roadiz, vous pouvez ajouter un contenu à "
+"la racine de votre arbre ou choisir un \"nœud-parent\". Dans les deux "
+"cas, vous serez invité à choisir un *type* et un *nom* avant de créer "
+"votre nœud."
+
+#: ../../user/nodes-system/managing-nodes.rst:67
+msgid ""
+"*Node name* is the global identifier for your node. It must be unique "
+"and won’t change from one translation to an other. It can be changed "
+"later except if your developer locked it up. *Node name* is usually used "
+"to build your pages URL."
+msgstr ""
+"Le *Nom du noeud* est l'identifiant global de votre nœud. Il doit être "
+"unique et ne changera pas d'une traduction à un autre. Il peut être "
+"modifié ultérieurement, sauf si votre développeur a verrouillé sa "
+"modification. Le  *Nom du nœud* est utilisé pour construire les URL de "
+"vos pages, de manière générale."
+
+#: ../../user/nodes-system/managing-nodes.rst:68
+msgid ""
+"*Node-type* defines what fields will be available in your content. "
+"Choose well as you won’t be able to change it later, you ’ll have to "
+"delete and recreate an other node."
+msgstr ""
+"Le *Type de nœud* définit les champs disponibles de votre contenu. "
+"Choisissez le bien car la modification ne sera pas possible "
+"ultérieurement, il vous faudra supprimer le nœud et en créer un nouveau "
+"en cas d'erreur."
+
+#: ../../user/nodes-system/managing-nodes.rst:72
+msgid "Edit an existing node"
+msgstr "Éditer un nœud existant"
+
+#: ../../user/nodes-system/managing-nodes.rst:74
+msgid "Node edition page is composed in several tabs."
+msgstr "La page d'édition du nœud est composée de plusieurs onglets."
+
+#: ../../user/nodes-system/managing-nodes.rst:76
+#: ../../user/nodes-system/managing-nodes.rst:83
+msgid "Node content"
+msgstr "Contenu d'un nœud"
+
+#: ../../user/nodes-system/managing-nodes.rst:77
+#: ../../user/nodes-system/managing-nodes.rst:94
+msgid "Node parameters"
+msgstr "Paramètres du nœud"
+
+#: ../../user/nodes-system/managing-nodes.rst:78
+#: ../../user/nodes-system/managing-nodes.rst:106
+msgid "Tags"
+msgstr "Tags"
+
+#: ../../user/nodes-system/managing-nodes.rst:79
+#: ../../user/nodes-system/managing-nodes.rst:114
+msgid "SEO"
+msgstr "SEO"
+
+#: ../../user/nodes-system/managing-nodes.rst:80
+msgid "Tree, if your node is set up as a *container*"
+msgstr "Abre, si votre nœud est configuré comme un *conteneur*"
+
+#: ../../user/nodes-system/managing-nodes.rst:88
+msgid ""
+"Contents tab is basically the main part where you will edit your node "
+"specific data, using node-type fields such as *text* fields, or "
+"*documents* fields, etc."
+msgstr ""
+"L'onglet contenu vous permettra de modifier les données spécifiques de "
+"votre nœud, en utilisant des champs-types tels que *texte* ou "
+"*documents*, etc."
+
+#: ../../user/nodes-system/managing-nodes.rst:91
+#: ../../user/nodes-system/managing-nodes.rst:119
+msgid "*This tab will display different content over translations.*"
+msgstr ""
+"*Cet onglet affichera les contenus en fonction de chaque traduction.*"
+
+#: ../../user/nodes-system/managing-nodes.rst:99
+msgid ""
+"Parameters are global data such as your *node name*. They are used for "
+"managing your node visibility according to each user role and node back-"
+"office’ settings. This section should not be used so often as parameters "
+"will be set once by your developer."
+msgstr ""
+"Les paramètres sont des données globales telles que votre *nom de nœud*. "
+"Ils sont utilisés pour gérer la visibilité de votre nœud en fonction des "
+"rôles de chaque utilisateur et des paramètres de chaque nœud. Cette "
+"section ne doit pas être utilisée de façon régulière puisque les "
+"paramètres sont fixés par votre développeur en amont pour correspondre à "
+"votre besoin."
+
+#: ../../user/nodes-system/managing-nodes.rst:103
+#: ../../user/nodes-system/managing-nodes.rst:111
+msgid "*This tab will display the same content over translations.*"
+msgstr ""
+"*Cet onglet affichera le même contenu sans importance de traduction.*"
+
+#: ../../user/nodes-system/managing-nodes.rst:125
+msgid "Nodes publication system"
+msgstr "Système de publication des nœuds"
+
+#: ../../user/nodes-system/managing-nodes.rst:127
+msgid ""
+"During its lifecycle, every nodes can have a different publication "
+"status. When you create a new content, it will be automatically set as "
+"**Draft** by Roadiz so that you can edit it without bothering your "
+"visitors and sharing unfinished work."
+msgstr ""
+"Pendant son cycle de vie, chaque nœud peut avoir différents statuts de "
+"publication. Lorsque vous créez un nouveau contenu, il sera "
+"automatiquement publié comme **Brouillon** par Roadiz afin de vous "
+"permettre de le modifier sans incidence sur vos visiteurs et sans rendre "
+"public un contenu en cours de réalisation."
+
+#: ../../user/nodes-system/managing-nodes.rst:132
+msgid "Available statuses:"
+msgstr "Statuts disponibles :"
+
+#: ../../user/nodes-system/managing-nodes.rst:134
+msgid "**Draft**: First status for new nodes"
+msgstr "**Brouillon** : statut initial pour chaque nouveau nœud"
+
+#: ../../user/nodes-system/managing-nodes.rst:135
+msgid ""
+"**Pending validation**: It’s a medium status for user that do not have "
+"permission to publish nodes"
+msgstr ""
+"**En attente de validation** : un statut intermédiaire disponible pour "
+"les utilisateurs n'ayant pas les droits de publication"
+
+#: ../../user/nodes-system/managing-nodes.rst:136
+msgid ""
+"**Published**: That’s the most important status, it will set the green "
+"light to your visitor to view your content"
+msgstr ""
+"**Publié** : il s'agit du statut le plus important, il rend votre "
+"contenu public aux visiteurs de votre site"
+
+#: ../../user/nodes-system/managing-nodes.rst:137
+msgid ""
+"**Archived**: When you don’t want to publish a node but you don’t want "
+"to delete it either"
+msgstr ""
+"**Archivé** : lorsque vous ne souhaitez pas publier un nœud mais ne "
+"voulez pas non plus le supprimer de votre interface"
+
+#: ../../user/nodes-system/managing-nodes.rst:138
+msgid ""
+"**Deleted**: It’s the last status for your nodes. Before emptying your "
+"node trashcan, every content will wait with this status."
+msgstr ""
+"**Supprimé** : il s'agit du dernière statut disponible pour vos nœuds. "
+"Avant de vider votre corbeille, chaque nœud sera affiché avec cette "
+"mention."
+
+#: ../../user/nodes-system/managing-nodes.rst:140
+msgid ""
+"To improve status visibility, *draft* and *pending* nodes have a rhombus "
+"shape and *published* nodes have a circle shape."
+msgstr ""
+"Pour améliorer la visibilité des statuts, les nœuds au stade de "
+"*brouillon* et *en attente de validation* sont présentés par une forme "
+"de losange alors que les nœuds *publiés* ont une forme circulaire."
+
+#: ../../user/nodes-system/managing-nodes.rst:143
+msgid "Preview unpublished nodes"
+msgstr "Prévisualiser les nœuds en attente de validation"
+
+#: ../../user/nodes-system/managing-nodes.rst:145
+msgid ""
+"As unpublished nodes are not viewable for anonymous visitors, Roadiz "
+"allows backend users to preview them using a dedicated *entry point* "
+"called ``preview.php``, yes this is not very original. We decided to "
+"create a different entry point not to share the same URL with your "
+"public website as it could create confusing errors if your website is "
+"hosted behing a reverse proxy engine."
+msgstr ""
+"Puisqu'un nœud non-publié n'est pas visible par vos visiteurs anonymes, "
+"Roadiz permet aux utilisateurs du back-office de les prévisualiser en "
+"utilisant un *chemin d'accès* appelé ``preview.php``. Nous avons décidé "
+"de créer un chemin d'accès spécifique afin de bien différencier son URL "
+"de votre site public et d'éviter ainsi erreurs et confusions si votre "
+"site est hébergé par un proxy inverse."
+
+#: ../../user/nodes-system/managing-nodes.rst:150
+msgid ""
+"For example, if your ``my-news`` page is not published yet, connecting "
+"to ``http://mywebsite.com/my-news`` will lead to a 404 page for your "
+"anonymous visitors, as well as you too. If you want to preview it, "
+"you’ll have to connect to ``http://mywebsite.com/preview.php/my-news``. "
+"This URL will only allow authentified backend users, other people will "
+"be blocked."
+msgstr ""
+"Par exemple, si votre page ``actualités``n'est pas encore publiée, la "
+"relier à `http://mywebsite.com/actualites`` aboutira à une page d'erreur "
+"404 pour tous les visiteurs anonymes ou connectés (vous compris). "
+"Cependant, si vous souhaitez la prévisualiser, vous devrez vous "
+"connecter à ``http://mywebsite.com/preview.php/actualites``. Cette URL "
+"authorisera l'accès aux visiteurs connectés au back-office uniquement, "
+"bloquant la page aux internautes anonymes."

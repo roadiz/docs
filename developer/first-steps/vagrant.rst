@@ -5,21 +5,33 @@ Using Vagrant for development
 
 Roadiz comes with a dedicated ``Vagrantfile`` which is configured to run a *LEMP* stack
 (Nginx + PHP7.0-FPM + MariaDB), a *phpMyAdmin*, a *Mailcatcher* and an *Apache Solr server*. This will be useful
-to develop your website on your local computer. Once you’ve cloned Roadiz’ sources
-just do a ``vagrant up`` in Roadiz’ folder. Then `Vagrant <https://www.vagrantup.com/>`_ will run your code in ``/var/www``
-and you will be able to completely use ``bin/roadiz`` commands without bloating your
-computer with lots of binaries.
+to develop your website on your local computer.
+
+Once you’ve cloned Roadiz’ sources, copy the ``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your website root.
+Then do a ``vagrant up`` in Roadiz’ folder. Then `Vagrant <https://www.vagrantup.com/>`_ will run your code in ``/var/www``
+and you will be able to completely use ``bin/roadiz`` commands without bloating your computer with lots of binaries.
 
 Once vagrant VM has provisioned you will be able to use:
 
-* ``http://localhost:8080/install.php`` to proceed to install.
-* ``http://localhost:8983/solr`` to use *Apache Solr* admin.
-* ``http://localhost:8080/phpmyadmin`` for your *MySQL* db admin.
-* ``http://localhost:1080`` for your *Mailcatcher* tool.
+* ``http://192.168.33.10/install.php`` to proceed to install.
+* ``http://192.168.33.10:8983/solr`` to use *Apache Solr* admin.
+* ``http://192.168.33.10/phpmyadmin`` for your *MySQL* db admin.
+* ``http://192.168.33.10:1080`` for your *Mailcatcher* tool.
+
+Do not hesitate to add an entry in your ``/etc/hosts`` file to use a local *domain name*
+instead of using the private IP address (eg. http://site1.dev). And for each Vagrant website, **do not forget to increment your private IP**.
+
+.. code-block:: bash
+
+    # /etc/hosts
+    # Vagrant hosts
+    192.168.33.10    site1.dev
+    192.168.33.11    site2.dev
+    # …
 
 .. note::
     Be careful, **Windows users**, this ``Vagrantfile`` is configured to use a *NFS* fileshare.
-    Do not hesitate to disable it if you did not setup a *NFS* emulator. For *OS X* and *Linux* user
+    Disable it if you did not setup a *NFS* emulator. For *OS X* and *Linux* user
     this is built-in your system, so have fun!
 
 Provisioners
@@ -65,19 +77,19 @@ If you already provisioned your Vagrant and you just want to add *mailcatcher* f
 you can type ``vagrant provision --provision-with mailcatcher``. No data will
 be lost in your Vagrant box unless you ``destroy`` it.
 
-Developing with PHP 7
----------------------
+Access entry-points
+-------------------
 
-Roadiz Vagrant uses **PHP7** with its latest version published on *ppa:ondrej/php* repository.
-If you do not want to use it and you prefer using PHP 5.6, you can comment out provisioner scripts in
-``Vagrantfile``. This changes can’t be done once you’ve provisioned your Vagrant VM. This is applicable only for
-``roadiz`` and ``mailcatcher`` scripts, others can be provisioned with both PHP versions.
+``install.php`` and ``dev.php`` entry points are IP restricted to *localhost*. To be able to use them
+with a *Vagrant* setup, you’ll need to add your host machine IP to the ``$allowedIp`` array. We already
+set two IP for you that should work for *forwarded* and *private* requests. Just uncomment the following lines
+in these files and edit them if necessary.
 
-.. code-block:: ruby
+.. code-block:: php
 
-    # In Vagrantfile
-    config.vm.provision "roadiz",       type: :shell, path: "samples/vagrant-php7-provisioning.sh"              # For PHP7
-    #config.vm.provision "roadiz",      type: :shell, path: "samples/vagrant-provisioning.sh"                   # For PHP5
-    config.vm.provision "mailcatcher",   type: :shell, path: "samples/vagrant-php7-mailcatcher-provisioning.sh" # For PHP7
-    #config.vm.provision "mailcatcher", type: :shell, path: "samples/vagrant-mailcatcher-provisioning.sh"       # For PHP5
+    $allowedIp = [
+        '10.0.2.2',     // vagrant host (forwarded)
+        '192.168.33.1', // vagrant host (private)
+        '127.0.0.1', 'fe80::1', '::1' // localhost
+    ];
 

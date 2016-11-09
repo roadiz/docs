@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ../../developer/services/index.rst:4
+msgid "Services"
+msgstr ""
+
+#: ../../developer/services/index.rst:6
+msgid ""
+"Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency "
+"injection container. Thanks to this architecture, all Core and Backoffice"
+" services are available from any controller in your themes."
+msgstr ""
+
+#: ../../developer/services/index.rst:15
+msgid "Doctrine entity manager: ``$this->getService('em')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:16
+msgid "Twig rendering environment: ``$this->getService('twig.environment')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:17
+msgid "Translator: ``$this->getService('translator')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:18
+msgid "Url matcher: ``$this->getService('urlMatcher')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:19
+msgid "Url generator: ``$this->getService('urlGenerator')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:20
+msgid ""
+"Authorization checker: "
+"``$this->getService('securityAuthorizationChecker')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:21
+msgid "User token storage: ``$this->getService('securityTokenStorage')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:22
+msgid "Firewall: ``$this->getService('firewall')``"
+msgstr ""
+
+#: ../../developer/services/index.rst:23
+msgid "…"
+msgstr ""
+
+#: ../../developer/services/index.rst:26
+msgid "Entity APIs"
+msgstr ""
+
+#: ../../developer/services/index.rst:28
+msgid ""
+"All these services are Doctrine repository wrappers meant to ease "
+"querying entities inside your themes and according to "
+"``AuthorizationChecker``. This will implicitely check if nodes or node-"
+"sources are published when you request them without bothering to insert "
+"the right criteria in your *findBy* calls."
+msgstr ""
+
+#: ../../developer/services/index.rst:33
+msgid ""
+"Each of these implements ``AbstractApi`` methods ``getBy`` and "
+"``getOneBy``"
+msgstr ""
+
+#: ../../developer/services/index.rst:35
+msgid "`nodeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeApi.html>`_"
+msgstr ""
+
+#: ../../developer/services/index.rst:36
+msgid "`nodeTypeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeTypeApi.html>`_"
+msgstr ""
+
+#: ../../developer/services/index.rst:37
+msgid ""
+"`nodeSourceApi "
+"<http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeSourceApi.html>`_"
+msgstr ""
+
+#: ../../developer/services/index.rst:38
+msgid "`tagApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/TagApi.html>`_"
+msgstr ""
+
+#: ../../developer/services/index.rst:41
+msgid "Using Solr API"
+msgstr ""
+
+#: ../../developer/services/index.rst:43
+msgid ""
+"Solr is a really powerful tool to search over your node database with a "
+"clever plain-text search engine and the ability to highlight your "
+"criteria in the search results. Before going further, make sure that a "
+"Solr server is available and that it is well configured in your "
+"``config.yml``. You can use the ``bin/roadiz solr:check`` command to "
+"verify and then ``bin/roadiz solr:reindex`` command to force "
+"synchronizing your node database with Solr index."
+msgstr ""
+
+#: ../../developer/services/index.rst:50
+msgid ""
+"You can use the ``solr.search.nodeSource`` service and its two methods to"
+" get node-sources from a search query."
+msgstr ""
+
+#: ../../developer/services/index.rst:54
+msgid "Simple search results"
+msgstr ""
+
+#: ../../developer/services/index.rst:56
+msgid ""
+"``$this->getService('solr.search.nodeSource')->search()`` method will "
+"return an array of ``NodesSources``"
+msgstr ""
+
+#: ../../developer/services/index.rst:75
+msgid "Search results with hightlighting"
+msgstr ""
+
+#: ../../developer/services/index.rst:77
+msgid ""
+"``$this->getService('solr.search.nodeSource')->searchWithHighlight()`` "
+"method will return an array of array with a simple structure: "
+"``nodeSource`` for the NodesSources object and ``highlighting`` for the "
+"*html* data with highlighted text wrapped in ``span.solr-highlight`` html"
+" tag."
+msgstr ""
+
