@@ -48,6 +48,7 @@ and to build PHP class autolader. We even set up some post-scripts which will co
 a new ``config.yml``, ``dev.php``, ``clear_cache.php`` and ``install.php`` files for you.
 
 .. code-block:: bash
+
     # Install Roadiz dependencies, prepare a fresh config file and your
     # own dev and install entry points.
     composer install --no-dev -o;
