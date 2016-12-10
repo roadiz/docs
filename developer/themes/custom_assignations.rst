@@ -314,14 +314,14 @@ Then create your template ``form-blocks/contactblock.html.twig``:
 
 .. code-block:: html+jinja
 
-    <div class="join-form">
+    <div class="contact-form">
         {% for messages in session.messages %}
             {% for message in messages %}
                 <p class="alert alert-success">{{ message }}</p>
             {% endfor %}
         {% endfor %}
 
-        {{ form(joinForm) }}
+        {{ form(contactForm) }}
     </div>
 
 Paginate entities using EntityListManager
