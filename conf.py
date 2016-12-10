@@ -90,7 +90,7 @@ copyright = u'2016, Ambroise Maupate & Julien Blanchet'
 # built documents.
 #
 # The short X.Y version.
-version = '0.16.0'
+version = '0.16.1'
 # The full version, including alpha/beta/rc tags.
 release = 'alpha 0.16.0'
 
