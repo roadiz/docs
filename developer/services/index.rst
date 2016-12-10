@@ -71,8 +71,8 @@ Simple search results
         echo $nodeSource->getTitle();
     }
 
-Search results with hightlighting
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Search results with highlighting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``$this->getService('solr.search.nodeSource')->searchWithHighlight()`` method will return an array of array with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag.
 

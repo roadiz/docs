@@ -29,12 +29,24 @@ Roadiz is a web application running with PHP. It requires an HTTP server for sta
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 5.4.3+, PHP 5.6 or 7+ recommended
-* ``php5-gd`` extension
-* ``php5-intl`` extension
-* ``php5-curl`` extension
-* PHP cache (APC/OPCache) + Var cache (strongly recommended)
-* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php5-xxxsql`` extension according to your database driver flavor)
+* PHP 5.4.3+ **required**, PHP 7+ *recommended*
+* ``php-gd`` extension
+* ``php-intl`` extension
+* ``php-xml`` extension
+* ``php-curl`` extension
+* JSON needs to be enabled
+* ctype needs to be enabled
+* Your php.ini needs to have the ``date.timezone`` setting
+* You need to have at least version 2.6.21 of libxml
+* PHP tokenizer needs to be enabled
+* mbstring functions need to be enabled
+* PHP OPcache + APCu (APC 3.0.17+ or another opcode cache needs to be installed)
+* php.ini recommended settings
+    * ``short_open_tag = Off``
+    * ``magic_quotes_gpc = Off``
+    * ``register_globals = Off``
+    * ``session.auto_start = Off``
+* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php-xxxsql`` extension according to your database driver flavor)
 * Zip/Unzip
 * cUrl
 * Composer
