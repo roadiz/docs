@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2016-12-29 13:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
+# af2c7390cd4943f8aa76fae451e0482b
 #: ../../developer/themes/custom_assignations.rst:5
 msgid "Extending your Twig assignation"
 msgstr ""
 
+# f552ec475a5f4c9ea6b3a20a90d68bbb
 #: ../../developer/themes/custom_assignations.rst:7
 msgid ""
 "For a simple website theme, base assignation will work for almost every "
@@ -29,6 +31,7 @@ msgid ""
 " will be able to render all your page fields."
 msgstr ""
 
+# df39434adb1445399c96d7f4109d281d
 #: ../../developer/themes/custom_assignations.rst:11
 msgid ""
 "Now imagine you need to load data from another node than the one being "
@@ -37,6 +40,7 @@ msgid ""
 "assignated variables."
 msgstr ""
 
+# 5f632e83bf9b4be0bde7eeb7f4fc16d2
 #: ../../developer/themes/custom_assignations.rst:15
 msgid ""
 "For example, create a simple node-type called *Page*. Add several basic "
@@ -45,16 +49,19 @@ msgid ""
 "*PageController.php* which look like this:"
 msgstr ""
 
+# 2622c6e59af245199eac1d3dc2be9b49
 #: ../../developer/themes/custom_assignations.rst:54
 msgid ""
 "You will be able to render your page using "
 "``themes/MyTheme/Resources/views/types/page.html.twig`` template file:"
 msgstr ""
 
+# c76be343e67b44299adbb8c0c13250b0
 #: ../../developer/themes/custom_assignations.rst:75
 msgid "Use theme-wide assignation"
 msgstr ""
 
+# 561054eb3eba4b1fbdf5b31bd09d2dce
 #: ../../developer/themes/custom_assignations.rst:77
 msgid ""
 "Custom assignations are great but what can I do if I have to use the same"
@@ -66,16 +73,19 @@ msgid ""
 "will be able to use these variables."
 msgstr ""
 
+# 754eda6ba047417b8bdf289f8ce1aa6e
 #: ../../developer/themes/custom_assignations.rst:84
 msgid ""
 "For example, you can use this method to make ``<head>`` variables "
 "available for each of your website pages."
 msgstr ""
 
+# 4108e8cb6254461989171e3873c3eb7a
 #: ../../developer/themes/custom_assignations.rst:108
 msgid "Use *Page / Block* data pattern"
 msgstr ""
 
+# e3e699947b0d42e997313dbbfd4bebf7
 #: ../../developer/themes/custom_assignations.rst:110
 msgid ""
 "At REZO ZERO, we often use complex page design which need removable and "
@@ -85,6 +95,7 @@ msgid ""
 " sexy."
 msgstr ""
 
+# 5eaef69a302f4cb8aa693b1cbd796a84
 #: ../../developer/themes/custom_assignations.rst:115
 msgid ""
 "So we thought about a modulable way to build pages. We decided to use one"
@@ -92,6 +103,7 @@ msgid ""
 "type. Here is what we call **Page/Block pattern**."
 msgstr ""
 
+# 3b1cb2c0efe649c0baaa2715ffa0b7bf
 #: ../../developer/themes/custom_assignations.rst:118
 msgid ""
 "This pattern takes advantage of Roadiz node hierarchy. We create a very "
@@ -100,6 +112,7 @@ msgid ""
 "node-type will have a *content* and *image* fields."
 msgstr ""
 
+# a9de881ca2764a8cbac497ca04a3645c
 #: ../../developer/themes/custom_assignations.rst:122
 msgid ""
 "The magic comes when we add a last field into *Page* master node-type "
@@ -109,6 +122,7 @@ msgid ""
 "contain *BasicBlock* nodes."
 msgstr ""
 
+# 042a760bab5542baadf68f4cf867dfca
 #: ../../developer/themes/custom_assignations.rst:126
 msgid ""
 "So you understood that all your page data will be allocated in several "
@@ -119,10 +133,12 @@ msgid ""
 "Markdown text as you would do in a Wordpress article."
 msgstr ""
 
+# 53a80c6f233e42a6bacf3edfa70d9c19
 #: ../../developer/themes/custom_assignations.rst:132
 msgid "How to template *Page / Block* pattern"
 msgstr ""
 
+# e188a0ade5144deca6c91772223b00ea
 #: ../../developer/themes/custom_assignations.rst:134
 msgid ""
 "Now that you’ve structured your data with a *Page* node-type and a "
@@ -130,10 +146,12 @@ msgid ""
 "request? We will use custom assignations!"
 msgstr ""
 
+# 2491c845c7274b3190321fefabc42302
 #: ../../developer/themes/custom_assignations.rst:137
 msgid "Open your ``PageController.php`` file:"
 msgstr ""
 
+# 14c4579a32bd42539afa922527ea8ad7
 #: ../../developer/themes/custom_assignations.rst:170
 msgid ""
 "You can use different *block* types in the same *page*. Just create as "
@@ -145,12 +163,14 @@ msgid ""
 "with the same template (basic blocks, gallery blocks, etc)."
 msgstr ""
 
+# ddbe1743770e4b1588459b1280e9ac18
 #: ../../developer/themes/custom_assignations.rst:177
 msgid ""
 "Now we can update your ``types/page.html.twig`` template to use your "
 "assignated blocks."
 msgstr ""
 
+# 8327d385ebdf4869bd5b651251fa21af
 #: ../../developer/themes/custom_assignations.rst:196
 msgid ""
 "*Whaaat? What is that include?* This trick will save you a lot of time! "
@@ -161,10 +181,12 @@ msgid ""
 " right template to render each part of your page."
 msgstr ""
 
+# 5bab8ceb50e64633861875af8f11ab73
 #: ../../developer/themes/custom_assignations.rst:202
 msgid "Then create each of your blocks templates files in ``blocks`` folder:"
 msgstr ""
 
+# b05767fd7d074e98b7729d7b9a748af4
 #: ../../developer/themes/custom_assignations.rst:225
 msgid ""
 "*Voilà!* This is the simplest example to demonstrate you the power of "
@@ -173,10 +195,12 @@ msgid ""
 "templates."
 msgstr ""
 
+# 3a25dcdbfcd441608fb5c2d035921100
 #: ../../developer/themes/custom_assignations.rst:231
 msgid "Use block rendering"
 msgstr ""
 
+# 90ece4565b4849f39331ea8b12ab1db4
 #: ../../developer/themes/custom_assignations.rst:233
 msgid ""
 "A few times, using *Page / Block* pattern won’t be enough to display your"
@@ -185,6 +209,7 @@ msgid ""
 "in your Twig template."
 msgstr ""
 
+# 5f989f8789fe44db925221fc1f446419
 #: ../../developer/themes/custom_assignations.rst:238
 msgid ""
 "For this we added a ``render`` filter which basically create a sub-"
@@ -192,6 +217,7 @@ msgid ""
 "dedicated ``Controller`` for your block."
 msgstr ""
 
+# 67225e01399c41b5b960e46d129e6927
 #: ../../developer/themes/custom_assignations.rst:242
 msgid ""
 "Let’s take the previous example about a page with several *basic blocks* "
@@ -200,6 +226,7 @@ msgid ""
 "“embed” a sub-request inside your block template."
 msgstr ""
 
+# 96cf75d059854b3eb7d0038fa144004b
 #: ../../developer/themes/custom_assignations.rst:271
 msgid ""
 "Then Roadiz will look for a "
@@ -207,14 +234,17 @@ msgid ""
 " and a ``blockAction`` method inside."
 msgstr ""
 
+# 5121785a4df04a249f16f6abe8cc944b
 #: ../../developer/themes/custom_assignations.rst:313
 msgid "Then create your template ``form-blocks/contactblock.html.twig``:"
 msgstr ""
 
+# a5217439f31b4b80a8fbfa8a45b47355
 #: ../../developer/themes/custom_assignations.rst:328
 msgid "Paginate entities using EntityListManager"
 msgstr ""
 
+# cef05085269744c1bbea1f1c918a7384
 #: ../../developer/themes/custom_assignations.rst:330
 msgid ""
 "Roadiz implements a powerful tool to display lists and paginate them. "
@@ -222,6 +252,7 @@ msgid ""
 "``createEntityListManager`` method."
 msgstr ""
 
+# 04da57f893dc48c49435cb1f6d29bafb
 #: ../../developer/themes/custom_assignations.rst:334
 msgid ""
 "In ``FrontendController`` inheriting classes, such as your theme ones, "
@@ -230,10 +261,12 @@ msgid ""
 "*nodes*."
 msgstr ""
 
+# 279d95107f344aa7a34ffc399ce86af5
 #: ../../developer/themes/custom_assignations.rst:338
 msgid "``createEntityListManager`` method takes 3 arguments:"
 msgstr ""
 
+# 0c6178782921418f8c6d870d0f403100
 #: ../../developer/themes/custom_assignations.rst:340
 msgid ""
 "**Entity classname**, i.e. ``RZ\\Roadiz\\Core\\Entities\\Nodes`` or "
@@ -243,14 +276,17 @@ msgid ""
 "allows you to filter on your own custom fields too."
 msgstr ""
 
+# 21f97217c237465eaf56e16a3647cca3
 #: ../../developer/themes/custom_assignations.rst:341
 msgid "**Criteria array**, (optional)"
 msgstr ""
 
+# e3846bb20ee4483ba76db4a6f4532f09
 #: ../../developer/themes/custom_assignations.rst:342
 msgid "**Ordering array**, (optional)"
 msgstr ""
 
+# 3f7dceb098064fa68420ed325511f79e
 #: ../../developer/themes/custom_assignations.rst:344
 msgid ""
 "*EntityListManager* will automatically grab the current page looking for "
@@ -258,6 +294,7 @@ msgid ""
 "will use them to filter your list and choose the right page."
 msgstr ""
 
+# b0c89f12ea2d4bff8db0c2f41f29aef6
 #: ../../developer/themes/custom_assignations.rst:347
 msgid ""
 "If you want to handle pagination manually, you always can set it with "
@@ -266,7 +303,15 @@ msgid ""
 "*routing* configuration."
 msgstr ""
 
+# 42151b5982b2469b8cfcf95f6bd1b53a
 #: ../../developer/themes/custom_assignations.rst:358
 msgid "Then, build your ``listAction`` method."
+msgstr ""
+
+# 5090ea99079d4f13b2aef7dfcbc35f70
+#: ../../developer/themes/custom_assignations.rst:397
+msgid ""
+"Then create your ``articles-feed.html.twig`` template to display each "
+"entity paginated."
 msgstr ""
 

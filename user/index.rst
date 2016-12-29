@@ -25,6 +25,7 @@ password reset link.
 .. toctree::
    :maxdepth: 2
 
+   write-in-markdown/index
    users/intro
    nodes-system/managing-nodes
    nodes-system/managing-node-types
