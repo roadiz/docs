@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2016-12-29 13:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
+# 9d1258567280478a8d277a352604e936
 #: ../../developer/first-steps/getting_started.rst:5
 msgid "Getting started"
 msgstr ""
 
+# 12a96f11d6104ba691eac70f22bc889d
 #: ../../developer/first-steps/getting_started.rst:9
 msgid "CMS Structure"
 msgstr ""
 
+# afd1374fd0754115a90fcbebf4712e0a
 #: ../../developer/first-steps/getting_started.rst:11
 msgid "``bin/`` : Contains the Roadiz CLI executable"
 msgstr ""
 
+# 22027c628ac64215b36c29c54ec751e6
 #: ../../developer/first-steps/getting_started.rst:12
 msgid ""
 "``cache/`` : Every cache file for *Twig* templates and `Intervention "
@@ -37,56 +41,67 @@ msgid ""
 " must be writable for PHP)"
 msgstr ""
 
+# 79962167dd4343ae9c6a9cd038e146ee
 #: ../../developer/first-steps/getting_started.rst:13
 msgid ""
 "``conf/`` : Your setup configuration file(s) (this folder must be "
 "writable for PHP)"
 msgstr ""
 
+# 9a0e944a6780496a8856e4208d5d88fe
 #: ../../developer/first-steps/getting_started.rst:14
 msgid ""
 "``files/`` : Documents and font files root (this folder must be writable "
 "for PHP)"
 msgstr ""
 
+# 001b8eea26f3411a977098a98c97fad7
 #: ../../developer/first-steps/getting_started.rst:15
 msgid ""
 "``gen-src/`` : Generated PHP code for Doctrine and your Node-types "
 "entities (this folder must be writable for PHP)"
 msgstr ""
 
+# 6bb41f58d2d547c7ae845ff0cf9175d7
 #: ../../developer/first-steps/getting_started.rst:16
 msgid ""
 "``samples/`` : This folder contains useful configuration and example "
 "files for Apache or Nginx webservers"
 msgstr ""
 
+# 20418c8e1cac4b17ac47a66ad01f2ea4
 #: ../../developer/first-steps/getting_started.rst:17
 msgid "``src/`` : Roadiz CMS logic and core source code"
 msgstr ""
 
+# ad74ed895f444cbeb4623f8fc3fad9f7
 #: ../../developer/first-steps/getting_started.rst:18
 msgid "``tests/`` : PHP Unit tests root"
 msgstr ""
 
+# 3083fb99d44e4044b051df75bf554384
 #: ../../developer/first-steps/getting_started.rst:19
 msgid ""
 "``themes/`` : Contains your themes and system themes such as *Rozier* and"
 " *Install*"
 msgstr ""
 
+# 08e658fa33d442528462763ac1f0b3ab
 #: ../../developer/first-steps/getting_started.rst:20
 msgid "``vendor/`` : Dependencies folder managed by *Composer*"
 msgstr ""
 
+# bb4b219a225e48cf939f9c6a68ac949a
 #: ../../developer/first-steps/getting_started.rst:21
 msgid "``logs/`` : *Monolog* logs folder"
 msgstr ""
 
+# 168e2384e75a4a24b4f28c3747ec714c
 #: ../../developer/first-steps/getting_started.rst:26
 msgid "Requirements"
 msgstr ""
 
+# d468e9f51e9640fdab7e867a77445a33
 #: ../../developer/first-steps/getting_started.rst:28
 msgid ""
 "Roadiz is a web application running with PHP. It requires an HTTP server "
@@ -95,53 +110,127 @@ msgid ""
 "installing Roadiz:"
 msgstr ""
 
+# bda891f97ef6485cabe3399a90e3070e
 #: ../../developer/first-steps/getting_started.rst:31
 msgid "Nginx or Apache, with a dedicated virtual host as described below."
 msgstr ""
 
+# 6226bb449eb64ff69b974a70a83d3e8b
 #: ../../developer/first-steps/getting_started.rst:32
-msgid "PHP 5.4.3+, PHP 5.6 or 7+ recommended"
+msgid "PHP 5.4.3+ **required**, PHP 7+ *recommended*"
 msgstr ""
 
+# ebe63c53f379475890e1b2c98abf697b
 #: ../../developer/first-steps/getting_started.rst:33
-msgid "``php5-gd`` extension"
+msgid "``php-gd`` extension"
 msgstr ""
 
+# 9ce742781e8f41188011c1b5b357f478
 #: ../../developer/first-steps/getting_started.rst:34
-msgid "``php5-intl`` extension"
+msgid "``php-intl`` extension"
 msgstr ""
 
+# 357be4724b8c4a29abed2a6ac2b320ba
 #: ../../developer/first-steps/getting_started.rst:35
-msgid "``php5-curl`` extension"
+msgid "``php-xml`` extension"
 msgstr ""
 
+# a7cf08ab99534856a6f2ea22502d2011
 #: ../../developer/first-steps/getting_started.rst:36
-msgid "PHP cache (APC/OPCache) + Var cache (strongly recommended)"
+msgid "``php-curl`` extension"
 msgstr ""
 
+# 5b41896e39064f0ba8a30ff14e7c0740
 #: ../../developer/first-steps/getting_started.rst:37
+msgid "JSON needs to be enabled"
+msgstr ""
+
+# a44f1660956b4550b6755f14d3fed5a3
+#: ../../developer/first-steps/getting_started.rst:38
+msgid "ctype needs to be enabled"
+msgstr ""
+
+# f61720963c0e4a8dabea8b86b182f957
+#: ../../developer/first-steps/getting_started.rst:39
+msgid "Your php.ini needs to have the ``date.timezone`` setting"
+msgstr ""
+
+# 1912aeb15a3047dc9907a372dbc20347
+#: ../../developer/first-steps/getting_started.rst:40
+msgid "You need to have at least version 2.6.21 of libxml"
+msgstr ""
+
+# 8b3ab203c9e94742aab110a499e18f58
+#: ../../developer/first-steps/getting_started.rst:41
+msgid "PHP tokenizer needs to be enabled"
+msgstr ""
+
+# a15b47898d53416799926a712a6a9871
+#: ../../developer/first-steps/getting_started.rst:42
+msgid "mbstring functions need to be enabled"
+msgstr ""
+
+# de060410e68f4402b03971ab0ccc596b
+#: ../../developer/first-steps/getting_started.rst:43
+msgid ""
+"PHP OPcache + APCu (APC 3.0.17+ or another opcode cache needs to be "
+"installed)"
+msgstr ""
+
+# 97f469a93ee14c699dd0f4cf2cf8b079
+#: ../../developer/first-steps/getting_started.rst:47
+msgid "php.ini recommended settings"
+msgstr ""
+
+# e3df67a5f48b4096a5d127ca86d11dd3
+#: ../../developer/first-steps/getting_started.rst:45
+msgid "``short_open_tag = Off``"
+msgstr ""
+
+# 54776a6d332c4e43bfdd4c1aa6078f32
+#: ../../developer/first-steps/getting_started.rst:46
+msgid "``magic_quotes_gpc = Off``"
+msgstr ""
+
+# 67f4c5637af247d6913b8dd5fed19c4a
+#: ../../developer/first-steps/getting_started.rst:47
+msgid "``register_globals = Off``"
+msgstr ""
+
+# 2e69f42c983c4db788722a8504079309
+#: ../../developer/first-steps/getting_started.rst:48
+msgid "``session.auto_start = Off``"
+msgstr ""
+
+# b25911421aa24507ae3f4f8acf73fef4
+#: ../../developer/first-steps/getting_started.rst:49
 msgid ""
 "MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install "
-"``php5-xxxsql`` extension according to your database driver flavor)"
+"``php-xxxsql`` extension according to your database driver flavor)"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:38
+# e8c7298868bb47ae92b6eb751bb37b27
+#: ../../developer/first-steps/getting_started.rst:50
 msgid "Zip/Unzip"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:39
+# 17ddeb26232347eda89a6b9646da6ef7
+#: ../../developer/first-steps/getting_started.rst:51
 msgid "cUrl"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:40
+# 7006f7cbdef14865aba96f30f66d8d51
+#: ../../developer/first-steps/getting_started.rst:52
 msgid "Composer"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:41
+# de5c427f3ec74e20988203577f64d036
+#: ../../developer/first-steps/getting_started.rst:53
 msgid "Git"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:44
+# cbf1db31055b44a4b34e68434f724c85
+#: ../../developer/first-steps/getting_started.rst:56
 msgid ""
 "If you are using a *shared hosting plan*, make sure that your server’s "
 "SSH connection allows external connections. You can verify with a simple "
@@ -152,57 +241,90 @@ msgid ""
 "and send it with SFTP/FTP (it might take a long time) or *rsync* it."
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:50
+# 7698f86cf9814f77b8cd15ede438dfcd
+#: ../../developer/first-steps/getting_started.rst:62
 msgid "For Nginx users"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:52
+# b0eeecf514c24d99be8d00100635f969
+#: ../../developer/first-steps/getting_started.rst:64
 msgid ""
 "If you are using Nginx, you don’t have to enable any extensions. You only"
 " need to create your *virtual host* using our example file "
 "``/samples/nginx.conf``."
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:56
+# 8fa05610590d4d35a4dd48565ec915bc
+#: ../../developer/first-steps/getting_started.rst:68
 msgid "For Apache users"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:58
+# aad458222bf24d35b7fcaf5ad975417b
+#: ../../developer/first-steps/getting_started.rst:70
 msgid "If you are using *Apache* do not forget to enable these mods:"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:60
+# 219c2d74f6e049608f97fb3f413c0a63
+#: ../../developer/first-steps/getting_started.rst:72
 msgid "``mod_rewrite``: enabling Roadiz front-controller system."
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:61
+# ab9090dc6cb340208a0354f2e7a603fb
+#: ../../developer/first-steps/getting_started.rst:73
 msgid "``mod_expires``: enabling http cache headers on static assets."
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:63
+# 6595dc7e837d465f8363bbc149e4e95e
+#: ../../developer/first-steps/getting_started.rst:75
 msgid "And do not use built-in ``mod_php``, prefer *PHP-FPM* 😉!"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:65
+# 203b6d60e39245fa8579503289d7ada1
+#: ../../developer/first-steps/getting_started.rst:77
 msgid ""
 "Then use ``/samples/apache.conf`` template to create your *virtual host* "
 "configuration file. It shows how to set rewrite and secure private "
 "folders from being viewed from public visitors."
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:68
+# a538889d515e44a0b809286dc6d2184d
+#: ../../developer/first-steps/getting_started.rst:80
 msgid ""
 "If you do not have access to your Apache virtual host configuration, you "
 "can use the built-in *htaccess* generator:"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:70
+# d353b4c1b28c474bbb85ca0fba6e8469
+#: ../../developer/first-steps/getting_started.rst:82
 msgid "``bin/roadiz generate:htaccess``"
 msgstr ""
 
-#: ../../developer/first-steps/getting_started.rst:72
+# ad21c69736704a1ca6a5fb4b34bb80ec
+#: ../../developer/first-steps/getting_started.rst:84
 msgid ""
 "This command will generate ``.htaccess`` files in each critical folder to"
 " enable PHP scripts or deny public access to forbidden folders."
 msgstr ""
+
+#~ msgid "PHP 5.4.3+, PHP 5.6 or 7+ recommended"
+#~ msgstr ""
+
+#~ msgid "``php5-gd`` extension"
+#~ msgstr ""
+
+#~ msgid "``php5-intl`` extension"
+#~ msgstr ""
+
+#~ msgid "``php5-curl`` extension"
+#~ msgstr ""
+
+#~ msgid "PHP cache (APC/OPCache) + Var cache (strongly recommended)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "MariaDB/MySQL/PostgreSQL or SQLite database "
+#~ "(do not forget to install "
+#~ "``php5-xxxsql`` extension according to your"
+#~ " database driver flavor)"
+#~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2016-12-29 13:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
+# 16e52a90378c40079245968f3f9496d0
 #: ../../developer/services/index.rst:4
 msgid "Services"
 msgstr ""
 
+# e942503306a142ccb692e89687f92258
 #: ../../developer/services/index.rst:6
 msgid ""
 "Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency "
@@ -29,48 +31,59 @@ msgid ""
 " services are available from any controller in your themes."
 msgstr ""
 
+# ada16d11034b4b768e4a00ee0facd07e
 #: ../../developer/services/index.rst:15
 msgid "Doctrine entity manager: ``$this->getService('em')``"
 msgstr ""
 
+# db44c4baedcd411fb55c2b852fca92df
 #: ../../developer/services/index.rst:16
 msgid "Twig rendering environment: ``$this->getService('twig.environment')``"
 msgstr ""
 
+# 19ae332e0a8b465fac14d1e044437a91
 #: ../../developer/services/index.rst:17
 msgid "Translator: ``$this->getService('translator')``"
 msgstr ""
 
+# 78575fca641b4ad38a01ee77578550a0
 #: ../../developer/services/index.rst:18
 msgid "Url matcher: ``$this->getService('urlMatcher')``"
 msgstr ""
 
+# a13a54f9928a4ad480285315f6a100cc
 #: ../../developer/services/index.rst:19
 msgid "Url generator: ``$this->getService('urlGenerator')``"
 msgstr ""
 
+# 74807c2417644187a31a606b258c519c
 #: ../../developer/services/index.rst:20
 msgid ""
 "Authorization checker: "
 "``$this->getService('securityAuthorizationChecker')``"
 msgstr ""
 
+# 9f5ce3f89ec34c6882e3c83f9239e934
 #: ../../developer/services/index.rst:21
 msgid "User token storage: ``$this->getService('securityTokenStorage')``"
 msgstr ""
 
+# 608598fe268843b387afe83ab905bef7
 #: ../../developer/services/index.rst:22
 msgid "Firewall: ``$this->getService('firewall')``"
 msgstr ""
 
+# 0ebd3b86dff842d7af620378c9032041
 #: ../../developer/services/index.rst:23
 msgid "…"
 msgstr ""
 
+# 368e29dcdf1d45549755ff1ec142ad4b
 #: ../../developer/services/index.rst:26
 msgid "Entity APIs"
 msgstr ""
 
+# 8d87a361d5e544ec92b10a0fb7c3c75e
 #: ../../developer/services/index.rst:28
 msgid ""
 "All these services are Doctrine repository wrappers meant to ease "
@@ -80,34 +93,41 @@ msgid ""
 "the right criteria in your *findBy* calls."
 msgstr ""
 
+# 36ff65864d7644a897315824678404a7
 #: ../../developer/services/index.rst:33
 msgid ""
 "Each of these implements ``AbstractApi`` methods ``getBy`` and "
 "``getOneBy``"
 msgstr ""
 
+# 00d98a112a2f4f8ea07cb8a100c3e6dc
 #: ../../developer/services/index.rst:35
 msgid "`nodeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeApi.html>`_"
 msgstr ""
 
+# 67da91eb15734ee7903cacdb31b479c3
 #: ../../developer/services/index.rst:36
 msgid "`nodeTypeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeTypeApi.html>`_"
 msgstr ""
 
+# b0510c895091428aad7c79644c844250
 #: ../../developer/services/index.rst:37
 msgid ""
 "`nodeSourceApi "
 "<http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeSourceApi.html>`_"
 msgstr ""
 
+# 8cb315224f4342b2bc38364175b9d7f8
 #: ../../developer/services/index.rst:38
 msgid "`tagApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/TagApi.html>`_"
 msgstr ""
 
+# 11ccfc80eb4c4a41aec044e327654734
 #: ../../developer/services/index.rst:41
 msgid "Using Solr API"
 msgstr ""
 
+# a5491af65e8d45d1a84d9e6bba92b53a
 #: ../../developer/services/index.rst:43
 msgid ""
 "Solr is a really powerful tool to search over your node database with a "
@@ -119,26 +139,31 @@ msgid ""
 "synchronizing your node database with Solr index."
 msgstr ""
 
+# 90ba944cdeba45c5800f49fff2dd0380
 #: ../../developer/services/index.rst:50
 msgid ""
 "You can use the ``solr.search.nodeSource`` service and its two methods to"
 " get node-sources from a search query."
 msgstr ""
 
+# b27176c7184448d2a61ec8da58be50da
 #: ../../developer/services/index.rst:54
 msgid "Simple search results"
 msgstr ""
 
+# 75d11325aee84dc89391a04eb295cccc
 #: ../../developer/services/index.rst:56
 msgid ""
 "``$this->getService('solr.search.nodeSource')->search()`` method will "
 "return an array of ``NodesSources``"
 msgstr ""
 
+# 0398847ec45c4103a514e905bee42801
 #: ../../developer/services/index.rst:75
-msgid "Search results with hightlighting"
+msgid "Search results with highlighting"
 msgstr ""
 
+# c7c97588d1b5479ba25654fb07e5e8a5
 #: ../../developer/services/index.rst:77
 msgid ""
 "``$this->getService('solr.search.nodeSource')->searchWithHighlight()`` "
@@ -147,4 +172,7 @@ msgid ""
 "*html* data with highlighted text wrapped in ``span.solr-highlight`` html"
 " tag."
 msgstr ""
+
+#~ msgid "Search results with hightlighting"
+#~ msgstr ""
 
