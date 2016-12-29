@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2016-12-29 13:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
+# e0e7609edf554e729d7aa81c1d9f8aa6
 #: ../../developer/forms/index.rst:3
 msgid "Forms"
+msgstr ""
+
+# 98fbc84b3f6a430fad6f3c9ee8219bb8
+#: ../../developer/forms/index.rst:5
+msgid ""
+"Roadiz uses *Symfony* forms logic and API. However, we made ready-made "
+"contact and custom forms builders to ease up your development and even "
+"make form-building available for your website editors."
 msgstr ""
 

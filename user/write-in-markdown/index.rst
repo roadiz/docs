@@ -11,7 +11,7 @@ Titles
 ------
 
 **Add two hashtag** ``#`` **or more according to your title importance level.**
-Backoffice shortcut buttons allow to directly insert your titles marks before your selected text. Make sure to leave a blank line before the first title your write.
+Backoffice shortcut buttons allow to directly insert your titles marks before your selected text. Make sure to leave a blank line before each new title you write.
 ::
     ## Architecture
     ### Modern architecture
