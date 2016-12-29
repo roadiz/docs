@@ -235,13 +235,14 @@ htmlhelp_basename = 'Roadizdoc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
+'preamble': '\setcounter{tocdepth}{3}'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -359,7 +360,7 @@ epub_copyright = u'2016, Ambroise Maupate & Julien Blanchet'
 epub_exclude_files = ['search.html']
 
 # The depth of the table of contents in toc.ncx.
-#epub_tocdepth = 3
+epub_tocdepth = 3
 
 # Allow duplicate toc entries.
 #epub_tocdup = True

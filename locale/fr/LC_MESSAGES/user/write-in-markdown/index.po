@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Roadiz documentation 0.16.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-29 14:00+0100\n"
-"PO-Revision-Date: 2016-12-29 16:32+0100\n"
+"PO-Revision-Date: 2016-12-29 17:46+0100\n"
 "Last-Translator: Ambroise Maupate <ambroise@rezo-zero.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -352,7 +352,7 @@ msgstr ""
 "Les notes de bas de page ne sont pas prises en charge par la version "
 "basique de Markdown mais par la version *MarkdownExtra*. Ainsi, "
 "**vérifiez que votre webdesigner a bien utilisé le bon formateur "
-"Markdown dans votre thème"
+"Markdown dans votre thème.** ::"
 
 # 89b81f6bb3374806ace180d930824126
 #: ../../user/write-in-markdown/index.rst:177

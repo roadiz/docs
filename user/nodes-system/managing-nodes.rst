@@ -16,12 +16,12 @@ Node-tree navigation
 
     Simple node-tree after installing Roadiz with *Default theme*.
 
-    .. image:: ./img/node-tree.gif
+    .. image:: ./img/node-tree.png
         :align: center
 
     Contextual menu for *home* node.
 
-    .. image:: ./img/node-tree-contextual.gif
+    .. image:: ./img/node-tree-contextual.png
         :align: center
 
 Each node has a place in your website, that’s why we chose to arrange your content
@@ -49,12 +49,12 @@ Creating a node
 
 .. sidebar:: Add buttons
 
-    .. image:: ./img/add-node-btn.gif
+    .. image:: ./img/add-node-btn.png
         :align: center
 
     “Add node” button located at the top of your *node-tree*.
 
-    .. image:: ./img/add-child-node-btn.gif
+    .. image:: ./img/add-child-node-btn.png
         :align: center
 
     “Add a *child* node” button, which is located at the top of each node’ contextual menu.
@@ -82,7 +82,7 @@ Node edition page is composed in several tabs.
 Node content
 ^^^^^^^^^^^^
 
-.. image:: ./img/node-edit-page.gif
+.. image:: ./img/node-edit-page.png
     :align: center
 
 Contents tab is basically the main part where you will edit your node specific data,
@@ -93,7 +93,7 @@ using node-type fields such as *text* fields, or *documents* fields, etc.
 Node parameters
 ^^^^^^^^^^^^^^^
 
-.. image:: ./img/node-parameters-page.gif
+.. image:: ./img/node-parameters-page.png
     :align: center
 
 Parameters are global data such as your *node name*. They are used for managing your node
@@ -105,7 +105,7 @@ not be used so often as parameters will be set once by your developer.
 Tags
 ^^^^
 
-.. image:: ./img/node-tags-page.gif
+.. image:: ./img/node-tags-page.png
     :align: center
 
 *This tab will display the same content over translations.*
@@ -113,7 +113,7 @@ Tags
 SEO
 ^^^
 
-.. image:: ./img/node-seo-page.gif
+.. image:: ./img/node-seo-page.png
     :align: center
 
 *This tab will display different content over translations.*

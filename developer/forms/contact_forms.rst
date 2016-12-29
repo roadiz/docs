@@ -148,7 +148,7 @@ Roadiz can seamlessly use *Google reCAPTCHA* to secure your contact form against
 All you need to do is to register on https://www.google.com/recaptcha/ to ask for a *sitekey*
 and a *secret*. Once you’ve got these two keys, add them to your Roadiz settings.
 
-.. image:: ./img/recaptcha-settings.gif
+.. image:: ./img/recaptcha-settings.png
     :align: center
 
 Then, just use ``withGoogleRecaptcha()`` method on your contact-form manager.
