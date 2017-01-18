@@ -144,7 +144,7 @@ Open your ``PageController.php`` file:
 
     // Get BasicBlock node-type entity to filter
     // over current node children
-    $basicBlockType = $this->getService('nodeTypeApi')
+    $basicBlockType = $this->get('nodeTypeApi')
                            ->getOneBy(['name' => 'BasicBlock']);
 
     // Assign blocks using current nodeSource children
@@ -153,16 +153,18 @@ Open your ``PageController.php`` file:
     //
     // http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren
     $this->assignation['blocks'] =
-        $this->assignation['nodeSource']
+        $this->nodeSource
              ->getHandler()
              ->getChildren(
                 [
-                    'node.nodeType' => $basicBlockType
+                    'node.nodeType' => $basicBlockType,
+                    'translation' => $translation,
                 ],
                 [
                     'node.position' => 'ASC'
                 ],
-                $this->getService('securityAuthorizationChecker')
+                $this->get('securityAuthorizationChecker'),
+                $this->get('kernel')->isPreview()
              );
 
 
@@ -290,7 +292,7 @@ and a ``blockAction`` method inside.
 
             // If you assignate session messages here, do not assignate it in your
             // MyThemeApp::extendAssignation() method before.
-            $this->assignation['session']['messages'] = $this->getService('session')->getFlashBag()->all();
+            $this->assignation['session']['messages'] = $this->get('session')->getFlashBag()->all();
 
             /*
              * Add your form code here, for example

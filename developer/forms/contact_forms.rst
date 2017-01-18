@@ -70,7 +70,7 @@ Add session messages to your assignations:
 .. code-block:: php
 
     // Get session messages
-    $this->assignation['session']['messages'] = $this->getService('session')
+    $this->assignation['session']['messages'] = $this->get('session')
                                                      ->getFlashBag()
                                                      ->all();
 

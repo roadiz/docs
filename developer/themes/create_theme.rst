@@ -228,7 +228,7 @@ render your current node.
     ) {
         $this->prepareThemeAssignation($node, $translation);
 
-        $this->getService('stopwatch')->start('twigRender');
+        $this->get('stopwatch')->start('twigRender');
 
         return $this->render(
             'types/page.html.twig',  // Twig template path
