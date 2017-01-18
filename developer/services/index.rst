@@ -9,17 +9,17 @@ in your themes.
 
 .. code-block:: php
 
-    $this->getService('nameOfService');
+    $this->get('nameOfService');
 
 
-* Doctrine entity manager: ``$this->getService('em')``
-* Twig rendering environment: ``$this->getService('twig.environment')``
-* Translator: ``$this->getService('translator')``
-* Url matcher: ``$this->getService('urlMatcher')``
-* Url generator: ``$this->getService('urlGenerator')``
-* Authorization checker: ``$this->getService('securityAuthorizationChecker')``
-* User token storage: ``$this->getService('securityTokenStorage')``
-* Firewall: ``$this->getService('firewall')``
+* Doctrine entity manager: ``$this->get('em')``
+* Twig rendering environment: ``$this->get('twig.environment')``
+* Translator: ``$this->get('translator')``
+* Url matcher: ``$this->get('urlMatcher')``
+* Url generator: ``$this->get('urlGenerator')``
+* Authorization checker: ``$this->get('securityAuthorizationChecker')``
+* User token storage: ``$this->get('securityTokenStorage')``
+* Firewall: ``$this->get('firewall')``
 * …
 
 Entity APIs
@@ -53,12 +53,12 @@ get node-sources from a search query.
 Simple search results
 ^^^^^^^^^^^^^^^^^^^^^
 
-``$this->getService('solr.search.nodeSource')->search()`` method will return an array of ``NodesSources``
+``$this->get('solr.search.nodeSource')->search()`` method will return an array of ``NodesSources``
 
 .. code-block:: php
 
     $criteria = [];
-    $results = $this->getService('solr.search.nodeSource')
+    $results = $this->get('solr.search.nodeSource')
                     ->search(
                         $request->get('q'), # Use ?q query parameter to search with
                         $criteria, # a simple criteria array to filter search results
@@ -74,12 +74,12 @@ Simple search results
 Search results with highlighting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``$this->getService('solr.search.nodeSource')->searchWithHighlight()`` method will return an array of array with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag.
+``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return an array of array with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag.
 
 .. code-block:: php
 
     $criteria = [];
-    $results = $this->getService('solr.search.nodeSource')
+    $results = $this->get('solr.search.nodeSource')
                     ->searchWithHighlight(
                         $request->get('q'), # Use ?q query parameter to search with
                         $criteria, # a simple criteria array to filter search results

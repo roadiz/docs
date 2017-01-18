@@ -142,7 +142,7 @@ feedback on your login form:
     ) {
         $translation = $this->bindLocaleFromRoute($request, $_locale);
         $this->prepareThemeAssignation(null, $translation);
-        $helper = $this->getService('securityAuthenticationUtils');
+        $helper = $this->get('securityAuthenticationUtils');
         $this->assignation['last_username'] = $helper->getLastUsername();
         $this->assignation['error'] = $helper->getLastAuthenticationError();
 

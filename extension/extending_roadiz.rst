@@ -75,8 +75,6 @@ Example:
         public function listAction(
             Request $request
         ) {
-            $this->getService('stopwatch')->start('twigRender');
-
             return $this->render('admin/test.html.twig', $this->assignation, null, MyThemeApp::getThemeDir());
         }
     }
