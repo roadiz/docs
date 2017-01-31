@@ -198,8 +198,13 @@ Documents filters
 These following Twig filters will only work with ``Document`` entities.
 Use them with the *pipe* syntax, eg. ``document|display``.
 
-* ``url``: shortcut for ``$document->getViewer()->getDocumentUrlByArray()``
-* ``display``: shortcut for ``$document->getViewer()->getDocumentByArray()``
+* ``url``: returns document public URL as *string*. See :ref:`document URL options <display-documents>`.
+* ``display``: generates an HTML tag to display your document. See :ref:`document display options <display-documents>`.
+* ``imageRatio``: return image size ratio as *float*.
+* ``imageSize``: returns image size as *array* with ``width`` and ``height``.
+* ``imageOrientation``: get image orientation as *string*, returns ``landscape`` or ``portrait``.
+* ``path``: shortcut for document real path on server.
+* ``exists``: shortcut to test if document file exists on server. Returns ``boolean``.
 
 Translations filters
 ^^^^^^^^^^^^^^^^^^^^

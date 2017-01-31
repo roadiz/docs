@@ -47,7 +47,7 @@ create a *PageController.php* which look like this:
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
-            return $this->render('types/page.html.twig', $this->assignation, null, static::getThemeDir());
+            return $this->render('types/page.html.twig', $this->assignation);
         }
     }
 
@@ -134,45 +134,36 @@ How to template *Page / Block* pattern
 Now that you’ve structured your data with a *Page* node-type and a *BasicBlock*, how do render your data
 in only one page and only one URL request? We will use custom assignations!
 
-Open your ``PageController.php`` file:
+Open your ``PageController.php`` file to assign the *node-type* you need to
+filter children nodes:
 
 .. code-block:: php
 
-    …
     $this->prepareThemeAssignation($node, $translation);
-    // Add your additional assignations after this method.
 
     // Get BasicBlock node-type entity to filter
     // over current node children
-    $basicBlockType = $this->get('nodeTypeApi')
+    $this->assignation['basicBlockType'] = $this->get('nodeTypeApi')
                            ->getOneBy(['name' => 'BasicBlock']);
 
-    // Assign blocks using current nodeSource children
-    // filtering them by node-type (only BasicBlock nodes
-    // will be queried)
-    //
-    // http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren
-    $this->assignation['blocks'] =
-        $this->nodeSource
-             ->getHandler()
-             ->getChildren(
-                [
-                    'node.nodeType' => $basicBlockType,
-                    'translation' => $translation,
-                ],
-                [
-                    'node.position' => 'ASC'
-                ],
-                $this->get('securityAuthorizationChecker'),
-                $this->get('kernel')->isPreview()
-             );
+.. note::
+    If you reuse any node-type entity more than once in several controllers, it’s better
+    to publish your *basicBlockType* as a *service* in your theme, instead of duplicating
+    your code.
 
+You can directly assign your children blocks at the beginning of your *Twig* template.
+
+.. code-block:: html+jinja
+
+    {% set blocks = nodeSource|children({
+        node.nodeType : basicBlockType,
+    }) %}
 
 .. note::
     You can use different *block* types in the same *page*. Just create as many
     node-types as you need and add their name to your *Page* ``children_node`` default values.
-    Then add each node-type into ``getChildren`` criteria using an array instead of
-    a single value: ``'node.nodeType' => array($basicBlockType, $anotherBlockType)``. That way, you
+    Then add each node-type into ``children`` criteria using an array instead of
+    a single value: ``node.nodeType : [basicBlockType, anotherBlockType]``. That way, you
     will be able to create awesome pages with different looks but with the same template
     (basic blocks, gallery blocks, etc).
 
@@ -180,17 +171,19 @@ Now we can update your ``types/page.html.twig`` template to use your assignated 
 
 .. code-block:: html+jinja
 
-    …
     {% if blocks %}
     <section class="page-blocks">
     {% for pageBlock in blocks %}
-
         {% include '@MyTheme/blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
-            'loop': loop,
             'nodeSource': pageBlock,
-            'themeServices': themeServices
+            'parentNodeSource': nodeSource,
+            'themeServices': themeServices,
+            'head': head,
+            'node': pageBlock.node,
+            'nodeType': pageBlock.node.nodeType,
+            'loop': loop,
+            'blocksLength':blocks|length
         } only %}
-
     {% endfor %}
     </section>
     {% endif %}
