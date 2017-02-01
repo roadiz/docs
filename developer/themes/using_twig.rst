@@ -77,21 +77,21 @@ You can of course call objects members within Twig using the *dot* separator.
 Handling node-sources with Twig
 -------------------------------
 
-Most of frontend work will consist in Twig templating and Twig assignations. Roadiz Core entities are already
-linked together not to prepare your data before rendering it. Basically, you can access nodes or nodeSources data
-directly in Twig using the “dot” seperator.
+Most of yout front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already
+linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data
+directly in *Twig* using the “dot” seperator.
 
-There is even some magic about Twig when accessing private or protected fields:
-just write the fieldname and it will use the field getter: ``{{ nodeSource.content|markdown }}`` will be interpreted as
-``{{ nodeSource.getContent|markdown }}`` by Twig. It can be a time and space saver to just use fieldnames.
+There is even some magic about *Twig* when accessing private or protected fields:
+just write the fieldname and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as
+``{{ nodeSource.getContent|markdown }}`` by *Twig*.
 
 .. note::
-    Roadiz will camelize your node-type fields names to create getters and setters into you NS class.
+    Roadiz will transform your node-type fields names to *camel-case* to create getters and setters into you NS class.
     So if you created a ``header_image`` field, getter will be named ``getHeaderImage()``.
     However, if you called it ``headerimage``, getter will be ``getHeaderimage()``
 
-You can access methods too! You will certainly need to get a nodeSources documents to display them. Instead of assigning each document
-in your PHP Controller before, you can directly use them in Twig:
+You can access methods too! You will certainly need to get node-sources’ documents to display them. Instead of declaring each document
+in your PHP controller before, you can directly use them in *Twig*:
 
 .. code-block:: html+jinja
 
