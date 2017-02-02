@@ -33,6 +33,7 @@ Two *Twig* filters are available with ``Documents``:
 HTML output options
 -------------------
 
+* **absolute** (true|false), generates an *absolute* URL with protocol, domain-name and base-url. This must be used for social network images.
 * **embed** (true|false), display an embed as iframe instead of its thumbnail
 * **identifier**
 * **class**

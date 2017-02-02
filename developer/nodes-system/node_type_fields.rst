@@ -26,6 +26,8 @@ This following fields stores simple data in your custom node-source database tab
 - Email
 - Color
 - Single geographic coordinates
+- JSON
+- YAML
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -72,4 +74,13 @@ do not change from one language to another.
 It will duplicate data at each save time from default translation
 to others. It will also hide the edit field from non-default translation to avoid
 confusion.
+
+YAML field
+^^^^^^^^^^
+
+When you use YAML field type, you get an additional method to return your code already parsed.
+If your field is named ``data``, your methods will be generated in your *NSEntity* as ``getData()`` and ``getDataAsObject()``.
+
+- ``getData()`` method will return your YAML code as *string*.
+- ``getDataAsObject()`` will return a mixed data,array or ``stdObject`` according to your code formatting. This method will throw a ``\Symfony\Component\Yaml\Exception\ParseException`` if your YAML code is not valid.
 

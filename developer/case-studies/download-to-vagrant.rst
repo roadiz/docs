@@ -1,4 +1,4 @@
-.. _download_to_vagrant:
+.. _download-to-vagrant:
 
 ======================================================
 Download a website on my computer to work with Vagrant

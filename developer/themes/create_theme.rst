@@ -125,7 +125,7 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
         protected static $themeDir =       'MyAwesomeTheme';
         protected static $backendTheme =    false;
 
-        …
+        //…
     }
 
 Then you will be able to add your fresh new theme into Roadiz backoffice.
@@ -228,13 +228,9 @@ render your current node.
     ) {
         $this->prepareThemeAssignation($node, $translation);
 
-        $this->get('stopwatch')->start('twigRender');
-
         return $this->render(
             'types/page.html.twig',  // Twig template path
-            $this->assignation,      // Assignation array to fill template placeholders
-            null,                    // Optional Response object to use instead of creating a new one
-            static::getThemeDir()    // Optional namespace
+            $this->assignation      // Assignation array to fill template placeholders
         );
     }
 
