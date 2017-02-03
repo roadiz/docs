@@ -11,14 +11,14 @@ Upgrading
     * With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``
     * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 
-Download latest version using *Git*
+If you are using *Roadiz Source edition*: download latest version using *Git*
 
 .. code-block:: bash
 
     cd your/webroot/folder;
     git pull origin master;
 
-Use *Composer* to update dependancies
+Use *Composer* to update dependencies or Roadiz itself with *Standard edition*
 
 .. code-block:: bash
 
@@ -43,7 +43,10 @@ Then, if migration summary is OK (no data loss), perform the following changes:
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
+    # Clear cache for each environment
+    bin/roadiz cache:clear -e dev
     bin/roadiz cache:clear -e prod
+    bin/roadiz cache:clear -e prod --preview
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually

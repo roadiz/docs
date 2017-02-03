@@ -47,7 +47,7 @@ Images resampling options
 * **height**
 * **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
 * **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
-* **grayscale** / **greyscale** (boolean)
+* **grayscale** (boolean)
 * **quality** (1-100)
 * **blur** (1-100) *(can be really slow to process)*
 * **sharpen** (1-100)

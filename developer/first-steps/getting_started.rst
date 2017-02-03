@@ -8,17 +8,37 @@ Getting started
 CMS Structure
 -------------
 
-* ``bin/`` : Contains the Roadiz CLI executable
-* ``cache/`` : Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
-* ``conf/`` : Your setup configuration file(s) (this folder must be writable for PHP)
-* ``files/`` : Documents and font files root (this folder must be writable for PHP)
-* ``gen-src/`` : Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
-* ``samples/`` : This folder contains useful configuration and example files for Apache or Nginx webservers
-* ``src/`` : Roadiz CMS logic and core source code
-* ``tests/`` : PHP Unit tests root
-* ``themes/`` : Contains your themes and system themes such as *Rozier* and *Install*
-* ``vendor/`` : Dependencies folder managed by *Composer*
-* ``logs/`` : *Monolog* logs folder
+Source edition
+^^^^^^^^^^^^^^
+
+* ``bin/``: Contains the Roadiz CLI executable
+* ``cache/``: Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
+* ``conf/``: Your setup configuration file(s) (this folder must be writable for PHP)
+* ``files/``: Documents and font files root (this folder must be writable for PHP)
+* ``gen-src/``: Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
+* ``samples/``: This folder contains useful configuration and example files for Apache or Nginx webservers
+* ``src/``: Roadiz CMS logic and core source code
+* ``tests/``: PHP Unit tests root
+* ``themes/``: Contains your themes and system themes such as *Rozier* and *Install*
+* ``vendor/``: Dependencies folder managed by *Composer*
+* ``logs/``: *Monolog* logs folder
+
+Standard edition
+^^^^^^^^^^^^^^^^
+
+* ``bin/``: Contains the Roadiz CLI executable
+* ``app/``: Contains every runtime resources from configuration to app cache and nodes-sources entities
+    * ``cache/``: Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
+    * ``conf/``: Your setup configuration file(s) (this folder must be writable for PHP)
+    * ``gen-src/``: Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
+    * ``logs/``: *Monolog* logs folder
+    * ``files/``: Private documents and font files root (this folder must be writable for PHP)
+* ``samples/``: This folder contains useful configuration and example files for Apache or Nginx webservers
+* ``web/``: Your website root, it contains your application entry-points and your public assets
+    * ``files/``: Public documents (this folder must be writable for PHP)
+    * ``themes/``: public assets mirror for each theme, this folder contains symlinks to your ``themes/YourTheme/static`` folder
+* ``themes/``: Contains your themes and system themes such as *Rozier* and *Install*
+* ``vendor/``: Dependencies folder managed by *Composer*
 
 .. _requirements:
 
@@ -82,3 +102,8 @@ If you do not have access to your Apache virtual host configuration, you can use
 ``bin/roadiz generate:htaccess``
 
 This command will generate ``.htaccess`` files in each critical folder to enable PHP scripts or deny public access to forbidden folders.
+
+.. note::
+    ``bin/roadiz generate:htaccess`` is not needed anymore with *Roadiz Standard edition* as you will
+    configure your *Apache/Nginx* root to ``web/`` folder only. No source or configuration files will be
+    exposed anymore.

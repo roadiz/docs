@@ -13,6 +13,8 @@ Your ``conf/config.yml`` file is built using YAML syntax. Each part matches a Ro
     files for ``dev`` and ``test`` environments. Just create a ``conf/config_dev.yml`` or ``conf/config_test.yml`` file
     to override default parameters. You will be able to use a different database, mailer or *Solr* instance not to pollute your production environment.
 
+Configuration file is located in ``conf/`` folder on *Roadiz Source edition* and in ``app/conf/`` in *Roadiz Standard edition*.
+
 Doctrine
 --------
 

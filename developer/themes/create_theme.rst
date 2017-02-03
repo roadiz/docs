@@ -23,9 +23,34 @@ the next time you update Roadiz via Git or direct download. If you want to creat
 Preparing your own frontend theme
 ---------------------------------
 
-To start from a fresh and clean foundation, we encourage you to clone our `BaseTheme <https://github.com/roadiz/BaseTheme>`_  and to rename it against your new theme name.
+To start from a fresh and clean foundation, we encourage you to clone our `BaseTheme <https://github.com/roadiz/BaseTheme>`_
+and to rename it against your new theme name. Here is a simple *bash* script to execute with your own theme name (``MyAwesomeTheme``) to
+automatically rename files and *find & replace* « BaseTheme » occurences.
 
-So once you duplicated and renamed *BaseTheme* with your own sweet name, do not forget to rename every references in:
+.. code-block:: bash
+
+    # Variabilize your Theme prefix
+    # Modify this according to your own name
+    export THEME_PREFIX='MyAwesome';
+    # Go to Roadiz themes folder
+    cd ~/path/to/themes;
+    # Rename theme folder
+    mv BaseTheme ${THEME_PREFIX}Theme;
+    # Go to your theme folder
+    cd ${THEME_PREFIX}Theme;
+    # Delete existing Git history.
+    rm -rf ./.git;
+    # Rename theme files against you theme name.
+    mv BaseThemeApp.php ${THEME_PREFIX}ThemeApp.php;
+    # Rename every occurrences of BaseTheme in your theme.
+    LC_ALL=C find ./ -type f -exec sed -i.bak -e "s/BaseTheme/${THEME_PREFIX}Theme/g" {} \;
+    LC_ALL=C find ./ -type f -exec sed -i.bak -e "s/Base theme/${THEME_PREFIX} theme/g" {} \;
+    LC_ALL=C find ./static -type f -exec sed -i.bak -e "s/Base/${THEME_PREFIX}/g" {} \;
+    LC_ALL=C find ./ -type f -name '*.bak' -exec rm -f {} \;
+    # Initialize your fresh Git repository
+    git init;
+
+This script will rename every references in:
 
 * ``MyAwesomeTheme/config.yml`` theme definition file.
 * **Folder name** and **Class namespace** must be the same (Ex: “MyAwesomeTheme”) for making autoloader works with your theme.

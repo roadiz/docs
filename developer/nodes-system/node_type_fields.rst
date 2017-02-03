@@ -17,6 +17,7 @@ Simple data
 This following fields stores simple data in your custom node-source database table.
 
 - Single-line text
+- Date
 - Date and time
 - Basic text
 - Markdown text
@@ -26,8 +27,10 @@ This following fields stores simple data in your custom node-source database tab
 - Email
 - Color
 - Single geographic coordinates
-- JSON
-- YAML
+- JSON code
+- CSS code
+- Country code (ISO 3166-1 alpha-2)
+- YAML code
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -38,6 +41,10 @@ This following fields stores simple data in your custom node-source database tab
     Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings
     to enable *geographic* node-type fields. If you didn’t do it, a simple text input will
     be display instead of *Roadiz Map Widget*.
+
+
+.. image:: ./img/field-types.*
+   :align: center
 
 Virtual data
 ^^^^^^^^^^^^
