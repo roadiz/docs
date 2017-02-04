@@ -4,7 +4,7 @@
 Creating a theme
 ================
 
-Roadiz themes are one of the main parts of the CMS. They allow you to create your really personnal website.
+Roadiz themes are one of the main parts of the CMS. They allow you to create your really personal website.
 You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build
 your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it.
 
