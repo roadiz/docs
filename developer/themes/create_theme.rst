@@ -17,103 +17,29 @@ Each theme is a folder which must be placed in ``themes/`` folder. Roadiz comes 
 As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode
 the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands.
 
-.. note::
-    We configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder. So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates.
+.. topic:: Source Edition
+
+    If you are using Roadiz *Source edition*, we configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder.
+    So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates.
 
 Preparing your own frontend theme
 ---------------------------------
 
-To start from a fresh and clean foundation, we encourage you to clone our `BaseTheme <https://github.com/roadiz/BaseTheme>`_
-and to rename it against your new theme name. Here is a simple *bash* script to execute with your own theme name (``MyAwesomeTheme``) to
-automatically rename files and *find & replace* « BaseTheme » occurences.
+To start from a fresh and clean foundation, we built a `BaseTheme <https://github.com/roadiz/BaseTheme>`_ to
+fit our needs with many starter node-types and a front-end framework using *ES6* and *Webpack*.
 
 .. code-block:: bash
 
-    # Variabilize your Theme prefix
-    # Modify this according to your own name
-    export THEME_PREFIX='MyAwesome';
-    # Go to Roadiz themes folder
-    cd ~/path/to/themes;
-    # Rename theme folder
-    mv BaseTheme ${THEME_PREFIX}Theme;
-    # Go to your theme folder
-    cd ${THEME_PREFIX}Theme;
-    # Delete existing Git history.
-    rm -rf ./.git;
-    # Rename theme files against you theme name.
-    mv BaseThemeApp.php ${THEME_PREFIX}ThemeApp.php;
-    # Rename every occurrences of BaseTheme in your theme.
-    LC_ALL=C find ./ -type f -exec sed -i.bak -e "s/BaseTheme/${THEME_PREFIX}Theme/g" {} \;
-    LC_ALL=C find ./ -type f -exec sed -i.bak -e "s/Base theme/${THEME_PREFIX} theme/g" {} \;
-    LC_ALL=C find ./static -type f -exec sed -i.bak -e "s/Base/${THEME_PREFIX}/g" {} \;
-    LC_ALL=C find ./ -type f -name '*.bak' -exec rm -f {} \;
-    # Initialize your fresh Git repository
-    git init;
+    # Use Roadiz command to pull and rename BaseTheme after your own project
+    bin/roadiz themes:generate MyAwesome
 
-This script will rename every references in:
+Your theme will be generated as ``/themes/MyAwesomeTheme`` with ``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php``
+class.
 
-* ``MyAwesomeTheme/config.yml`` theme definition file.
-* **Folder name** and **Class namespace** must be the same (Ex: “MyAwesomeTheme”) for making autoloader works with your theme.
-* **Theme entry point class**: your main theme class must be named after your folder name plus ``App`` suffix (Ex: “MyAwesomeThemeApp.php”)
-* In each twig templates: replace ``@BaseTheme`` with your own theme name with the ``@`` character before.
-* **Resources/routes.yml**: rename every route class path using your namespace:
+.. topic:: Standard Edition
 
-.. code-block:: yaml
-
-    # This route is required!
-    homePage:
-        path:     /
-        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
-    homePageLocale:
-        path:     /{_locale}
-        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
-        requirements:
-            # Use every 2 letter codes
-            _locale: "[a-z]{2}"
-
-    contactPage:
-        path:     /contact
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\ContactController::indexAction }
-    contactPageLocale:
-        path:     /{_locale}/contact
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\ContactController::indexAction }
-        requirements:
-            # Use every 2 letter codes
-            _locale: "[a-z]{2}"
-
-    feedRSS:
-        path:     /feed
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\FeedController::indexAction }
-    sitemap:
-        path:     /sitemap.xml
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\SitemapController::indexAction }
-    defaultRemoveTrailingSlash:
-        path: /{url}
-        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::removeTrailingSlashAction }
-        requirements:
-            url: .*/$
-        methods: [GET]
-
-
-Create your own theme ``config.yml`` file, this file is needed by Roadiz to parse correctly your theme
-when you will add it to the backoffice. If your theme does not show up, you may check this YAML file syntax:
-
-.. code-block:: yaml
-
-    name: "My awesome theme"
-    author: "Ambroise Maupate"
-    copyright: "REZO ZERO"
-    themeDir: "MyAwesomeTheme"
-    supportedLocale: ["en"]
-    versionRequire: "1.0.0"
-    importFiles:
-        roles: []
-        groups: []
-        settings: []
-        nodetypes: []
-        tags: []
-        nodes: []
-
+    Roadiz *Standard edition* will create a symbolic link into ``web/`` folder to publish your new theme
+    public assets as ``/web/themes/MyAwesomeTheme/static``. Make sure that your system supports *symbolic links*.
 
 Edit your main class informations (``MyAwesomeThemeApp.php``)
 
@@ -153,9 +79,7 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
         //…
     }
 
-Then you will be able to add your fresh new theme into Roadiz backoffice.
-
-*We are planning a simple command-line tool that will ease up this process.*
+Then you will be able to add your fresh new theme into Roadiz backoffice or through Roadiz install.
 
 .. _theme_composer:
 

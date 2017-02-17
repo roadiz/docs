@@ -80,7 +80,7 @@ be lost in your Vagrant box unless you ``destroy`` it.
 Access entry-points
 -------------------
 
-``install.php`` and ``dev.php`` entry points are IP restricted to *localhost*. To be able to use them
+``web/install.php``, ``web/clear_cache.php`` and ``web/dev.php`` entry points are IP restricted to *localhost*. To be able to use them
 with a *Vagrant* setup, you’ll need to add your host machine IP to the ``$allowedIp`` array. We already
 set two IP for you that should work for *forwarded* and *private* requests. Just uncomment the following lines
 in these files and edit them if necessary.

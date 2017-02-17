@@ -5,8 +5,8 @@ Moving a website to another server
 
 Before moving your website, make sure you have backed up your data:
 
-* Dump your database, using ``mysqldump`` or ``pg_dump`` tools.
-* Archive your ``files/`` folder, it contains all your documents and font files.
+* Dump your database, using classic ``mysqldump`` or ``pg_dump`` tools. If you’re using *MySQL* ``bin/roadiz database:dump -c`` command can speed-up the process by naming automatically your file against your *app-namespace*.
+* Archive your files using ``bin/roadiz files:export``, Roadiz will create a ZIP file with your public/private documents and fonts.
 
 Moving to a SSH+Git hosting plan or an other development machine
 ----------------------------------------------------------------
@@ -38,6 +38,7 @@ Now you can perform a schema update without losing your nodes data:
     bin/roadiz orm:schema-tool:update --dump-sql;
     bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache:clear -e prod
+    bin/roadiz cache:clear -e prod --preview
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
@@ -55,6 +56,7 @@ as it will upload only newer files and it is much faster.
     # This will synchronize files on your production server from your local Roadiz setup.
     # Do not forget ending slash after each path!
     rsync -avcz -e "ssh -p 22" /path/to/roadiz/files/ user@my-prod-server.com:/path/to/roadiz/files/
+    rsync -avcz -e "ssh -p 22" /path/to/roadiz/web/files/ user@my-prod-server.com:/path/to/roadiz/web/files/
 
 It works in the other way too. If you want to work on your local copy with up to date files and
 fonts, you can download actual files from the production website:
@@ -64,6 +66,7 @@ fonts, you can download actual files from the production website:
     # This will synchronize files on your local development server from your production server.
     # Do not forget ending slash after each path!
     rsync -avcz -e "ssh -p 22" user@my-prod-server.com:/path/to/roadiz/files/ /path/to/roadiz/files/
+    rsync -avcz -e "ssh -p 22" user@my-prod-server.com:/path/to/roadiz/web/files/ /path/to/roadiz/web/files/
 
 
 Moving to a non-SSH hosting plan
