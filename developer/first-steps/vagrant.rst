@@ -44,11 +44,15 @@ if you have lots of Roadiz instances.
 
 .. code-block:: bash
 
-    # Just LEMP stack, no Solr, no phpMyAdmin, no Mailcatcher, no Composer, no NPM, no grunt, no bower
+    # Just LEMP stack
     vagrant up --no-provision
     vagrant provision --provision-with=roadiz
 
-    # Just LEMP stack, no Solr, no Composer, no Mailcatcher, no NPM, no grunt, no bower
+    # Just LEMP stack with Mailcatcher
+    vagrant up --no-provision
+    vagrant provision --provision-with=roadiz,mailcatcher
+
+    # Just LEMP stack with PhpMyAdmin
     vagrant up --no-provision
     vagrant provision --provision-with=roadiz,phpmyadmin
 
@@ -57,7 +61,7 @@ if you have lots of Roadiz instances.
     vagrant up --no-provision
     vagrant provision --provision-with=roadiz,solr
 
-    # If you need dev tools
+    # If you need dev tools inside your VM (NPM, Composer, Yarn)
     vagrant up --no-provision
     vagrant provision --provision-with=roadiz,devtools
 
