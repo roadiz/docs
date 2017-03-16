@@ -3,3 +3,135 @@
 ==================================
 Handling nodes and their hierarchy
 ==================================
+
+By default, if you use Entities API methods or trasversing Twig filters,
+Roadiz will automatically handle security parameters such as ``node.status`` and
+``preview`` mode.
+
+.. code-block:: php
+
+    $this->get('nodeSourceApi')->getBy([
+        'node.nodeType' => $blogPostType,
+    ], [
+        'publishedAt' => 'DESC'
+    ]);
+
+This first code snippet is using *Node-source API*. This will automatically check if
+current user is logged-in and if preview mode is *ON* to display or not *unpublished nodes*.
+
+.. code-block:: php
+
+    $this->get('em')->getRepository('GeneratedNodeSources\NSBlogPost')->findBy([], [
+        'publishedAt' => 'DESC'
+    ]);
+
+This second code snippet uses standard Doctrine *Entity Manager* to directly grab
+node-sources by their entity class. This method does not check any security and will
+return every node-sources, **even unpublished, archived and deleted ones**.
+
+Hierarchy
+^^^^^^^^^
+
+To trasverse node-sources hierarchy, the easier method is to use *Twig* filters
+on your ``nodeSource`` entity.
+
+.. code-block:: html+jinja
+
+    {% set children = nodeSource|children %}
+    {% set nextSource = nodeSource|next %}
+    {% set prevSource = nodeSource|previous %}
+    {% set parent = nodeSource|parent %}
+
+    {% set children = nodeSource|children({
+        'visible': true
+    }) %}
+
+All these filters will take care of publication status, **but not publication date-time neither visibility**.
+
+.. code-block:: html+jinja
+
+    {% set children = nodeSource|children({
+        'visible': true,
+        'publishedAt': ['>=', date()],
+    }, {
+        'publishedAt': 'DESC'
+    }) %}
+
+If you need to trasverse node-source hierarchy from your controllers you can use
+the ``NodesSourcesHandler`` class.
+
+.. code-block:: php
+
+    use RZ\Roadiz\Core\Handlers\NodesSourcesHandler;
+    // …
+    $nodeSourceHandler = new NodesSourcesHandler($nodeSource);
+
+    $children = $nodeSourceHandler->getChildren([
+        'visible' => true,
+        'publishedAt' => ['>=', new \DateTime()],
+    ],[
+        'publishedAt' => 'DESC'
+    ]);
+
+Or directly use *Entity API*, this method is preferred as ``NodesSourcesHandler``
+will be deprecated in future Roadiz versions.
+
+.. code-block:: php
+
+    $children = $this->get('nodeSourceApi')->getBy([
+        'node.parent' => $nodeSource,
+        'visible' => true,
+        'publishedAt' => ['>=', new \DateTime()],
+    ],[
+        'publishedAt' => 'DESC'
+    ]);
+
+Visibility
+^^^^^^^^^^
+
+There are two parametres that you must take care of in your themes and your
+controllers, because they are not mandatory in all website cases:
+
+- Visibility
+- Publication date and time
+
+For example, *publication date and time* won’t be necessary in plain text pages and
+not timestampable contents. But we decided to add it directly in ``NodesSources``
+entity to be able to filter and order with this field in Roadiz back-office.
+This was not possible if you manually create your own ``publishedAt`` as a node-type
+field.
+
+.. warning::
+    Pay attention that *publication date and time* (``publishedAt``) and visibility
+    (``node.visible``) **does not prevent** your node-source from being viewed
+    if you did not explicitly forbid access to its controller. This field is not
+    deeply set into Roadiz security mecanics.
+
+    If you need so, make sure that your node-type controller checks these two
+    fields and throws a ``ResourceNotFoundException`` if they’re not satisfied.
+
+.. code-block:: php
+
+    class BlogPostController extends MyAwesomeTheme
+    {
+        public function indexAction(
+            Request $request,
+            Node $node = null,
+            Translation $translation = null
+        ) {
+            $this->prepareThemeAssignation($node, $translation);
+
+            $now = new DateTime("now");
+            if (!$nodeSource->getNode()->isVisible() ||
+                $nodeSource->getPublishedAt() < $now) {
+                throw new ResourceNotFoundException();
+            }
+
+            return $this->render(
+                'types/blogpost.html.twig',
+                $this->assignation
+            );
+        }
+    }
+
+

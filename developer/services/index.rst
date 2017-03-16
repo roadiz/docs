@@ -20,6 +20,7 @@ in your themes.
 * Authorization checker: ``$this->get('securityAuthorizationChecker')``
 * User token storage: ``$this->get('securityTokenStorage')``
 * Firewall: ``$this->get('firewall')``
+* Assets packages: ``$this->get('assetPackages')``
 * …
 
 Entity APIs

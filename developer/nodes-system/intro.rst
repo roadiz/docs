@@ -12,8 +12,6 @@ Let's check this simple node schema before explain it.
 
 Now, it's time to explain how it's working!
 
-
-
 .. _node-types:
 
 What is a Node-type
