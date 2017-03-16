@@ -10,8 +10,11 @@ Roadiz will automatically handle security parameters such as ``node.status`` and
 
 .. code-block:: php
 
+    // Secure method to get node-sources
+    // Implicitly check node.status
     $this->get('nodeSourceApi')->getBy([
         'node.nodeType' => $blogPostType,
+        'translation' => $translation,
     ], [
         'publishedAt' => 'DESC'
     ]);
@@ -21,8 +24,11 @@ current user is logged-in and if preview mode is *ON* to display or not *unpubli
 
 .. code-block:: php
 
+    // Insecure method to get node-sources
+    // Doctrine raw method will get all node-sources
     $this->get('em')->getRepository('GeneratedNodeSources\NSBlogPost')->findBy([], [
-        'publishedAt' => 'DESC'
+        'publishedAt' => 'DESC',
+        'translation' => $translation,
     ]);
 
 This second code snippet uses standard Doctrine *Entity Manager* to directly grab
@@ -33,7 +39,8 @@ Hierarchy
 ^^^^^^^^^
 
 To trasverse node-sources hierarchy, the easier method is to use *Twig* filters
-on your ``nodeSource`` entity.
+on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from
+origin node-source.
 
 .. code-block:: html+jinja
 
@@ -46,7 +53,7 @@ on your ``nodeSource`` entity.
         'visible': true
     }) %}
 
-All these filters will take care of publication status, **but not publication date-time neither visibility**.
+All these filters will take care of publication status and translation, **but not publication date-time neither visibility**.
 
 .. code-block:: html+jinja
 
@@ -69,6 +76,7 @@ the ``NodesSourcesHandler`` class.
     $children = $nodeSourceHandler->getChildren([
         'visible' => true,
         'publishedAt' => ['>=', new \DateTime()],
+        'translation' => $nodeSource->getTranslation(),
     ],[
         'publishedAt' => 'DESC'
     ]);
@@ -82,6 +90,7 @@ will be deprecated in future Roadiz versions.
         'node.parent' => $nodeSource,
         'visible' => true,
         'publishedAt' => ['>=', new \DateTime()],
+        'translation' => $nodeSource->getTranslation(),
     ],[
         'publishedAt' => 'DESC'
     ]);
@@ -105,7 +114,7 @@ field.
     Pay attention that *publication date and time* (``publishedAt``) and visibility
     (``node.visible``) **does not prevent** your node-source from being viewed
     if you did not explicitly forbid access to its controller. This field is not
-    deeply set into Roadiz security mecanics.
+    deeply set into Roadiz security mechanics.
 
     If you need so, make sure that your node-type controller checks these two
     fields and throws a ``ResourceNotFoundException`` if they’re not satisfied.
