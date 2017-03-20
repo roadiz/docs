@@ -25,7 +25,7 @@ you can reuse the former server’s one and adapt its database credentials.
     **Do not perform any schema update if no gen-src\\GeneratedNodeSources classes is available**,
     it will erase your NodesSources data as their entities files haven’t been generated yet.
 
-When you have edited your ``conf/config.yml`` file, regenerate your *Doctrine* entities class files:
+When you have edited your ``app/conf/config.yml`` file, regenerate your *Doctrine* entities class files:
 
 .. code-block:: bash
 

@@ -8,6 +8,7 @@ Upgrading
     **Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools
     to quickly export your database as a file.
 
+    * With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder
     * With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``
     * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 

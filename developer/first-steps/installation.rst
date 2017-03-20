@@ -14,6 +14,12 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     cd standard-edition
     bin/roadiz themes:generate FooBar
 
+*Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
+want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files
+in your projects and save them using Git, not only your theme. Of course we added a default ``.gitignore`` file to
+prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have
+different configuration on development and on your production server without bothering about merge conflicts.
+
 ================================
 Dealing with Roadiz environments
 ================================
