@@ -57,7 +57,7 @@ You can of course call objects members within Twig using the *dot* separator.
 .. code-block:: html+jinja
 
     <article>
-        <h1><a href="{{ nodeSource|url }}">{{ nodeSource.title }}</a></h1>
+        <h1><a href="{{ path(nodeSource) }}">{{ nodeSource.title }}</a></h1>
         <div>{{ nodeSource.content|markdown }}</div>
 
         {# Use complex syntax to grab documents #}
@@ -74,12 +74,37 @@ You can of course call objects members within Twig using the *dot* separator.
         {% endfor %}
     </article>
 
+Generating paths and url
+------------------------
+
+Standard Twig ``path`` and ``url`` methods are both working for *static* and *dynamic* routing. In Roadiz, these methods
+can take either a ``string`` identifier or a ``NodesSources`` instance. Of course optional parameters are available for
+both, they will automatically create an *http query string* when using a node-source.
+
+.. code-block:: html+jinja
+
+    {# Path generation with a Symfony route  #}
+    {# Eg. /fr  #}
+    {{ path('homePageLocale', {_locale: 'fr'}) }}
+
+    {# Path generation with a node-source  #}
+    {# Eg. /en/about-us  #}
+    {{ path(nodeSource) }}
+
+    {# Url generation with a node-source  #}
+    {# Eg. http://localhost:8080/en/about-us  #}
+    {{ url(nodeSource) }}
+
+    {# Path generation with a node-source and parameters  #}
+    {# Eg. /en/about-us?page=2  #}
+    {{ path(nodeSource, {'page': 2}) }}
+
+
+
 Handling node-sources with Twig
 -------------------------------
 
-Most of yout front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already
-linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data
-directly in *Twig* using the “dot” seperator.
+Most of yout front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data directly in *Twig* using the “dot” seperator.
 
 There is even some magic about *Twig* when accessing private or protected fields:
 just write the fieldname and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as
@@ -152,10 +177,10 @@ In this example, we want to create links to jump to *next* and *previous* pages.
     {% if (prev or next) %}
     <nav class="contextual-menu">
         {% if prev %}
-        <a class="previous" href="{{ prev|url }}"><i class="uk-icon-arrow-left"></i> {{ prev.title }}</a>
+        <a class="previous" href="{{ path(prev) }}"><i class="uk-icon-arrow-left"></i> {{ prev.title }}</a>
         {% endif %}
         {% if next %}
-        <a class="next" href="{{ next|url }}">{{ next.title }} <i class="uk-icon-arrow-right"></i></a>
+        <a class="next" href="{{ path(next) }}">{{ next.title }} <i class="uk-icon-arrow-right"></i></a>
         {% endif %}
     </nav>
     {% endif %}
@@ -181,7 +206,6 @@ NodesSources filters
 These following Twig filters will only work with ``NodesSources`` entities… not ``Nodes``.
 Use them with the *pipe* syntax, eg. ``nodeSource|next``.
 
-* ``url``: shortcut for ``$source->getHandler()->getUrl()``
 * ``children``: shortcut for ``$source->getHandler()->getChildren()``
 * ``next``: shortcut for ``$source->getHandler()->getNext()``
 * ``previous``: shortcut for ``$source->getHandler()->getPrevious()``

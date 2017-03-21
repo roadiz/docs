@@ -397,7 +397,7 @@ Then create your ``articles-feed.html.twig`` template to display each entity pag
     <ul class="article-list">
         {% for article in articles %}
             <li class="article-item">
-                <a class="article-link" href="{{ article|url }}">
+                <a class="article-link" href="{{ path(article) }}">
                     <h2>{{ article.title }}</h2>
                 </a>
             </li>
