@@ -8,21 +8,26 @@ Upgrading
     **Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools
     to quickly export your database as a file.
 
+    * With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder
     * With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``
     * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 
-Download latest version using *Git*
+.. topic:: Standard Edition
 
-.. code-block:: bash
+    Use *Composer* to update dependencies or Roadiz itself with *Standard edition*
 
-    cd your/webroot/folder;
-    git pull origin master;
+    .. code-block:: bash
 
-Use *Composer* to update dependancies
+        composer update -n --no-dev;
 
-.. code-block:: bash
+.. topic:: Source Edition
 
-    composer update -n --no-dev;
+    If you are using *Roadiz Source edition*: download latest version using *Git*
+
+    .. code-block:: bash
+
+        cd your/webroot/folder;
+        git pull origin master;
 
 In order to avoid losing sensible node-sources data. You should
 regenerate your node-source entities classes files:
@@ -43,7 +48,10 @@ Then, if migration summary is OK (no data loss), perform the following changes:
 .. code-block:: bash
 
     bin/roadiz orm:schema-tool:update --force;
+    # Clear cache for each environment
+    bin/roadiz cache:clear -e dev
     bin/roadiz cache:clear -e prod
+    bin/roadiz cache:clear -e prod --preview
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually

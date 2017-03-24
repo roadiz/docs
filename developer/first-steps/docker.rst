@@ -28,9 +28,7 @@ with the following content:
     services:
       MAIN:
         hostname: site
-        image: ambroisemaupate/roadiz
-        environment:
-          ROADIZ_BRANCH: develop
+        image: roadiz/standard-edition
         # Only if you are using a proxy or/and backup container
         #network_mode: "bridge"
         ports:
@@ -82,9 +80,8 @@ Then launch your container network with ``docker-compose up -d``. This will crea
 - ``site_DATA`` volume
 - ``site_DBDATA`` volume
 
-After your container launch, you’ll find a blank Roadiz install with no theme, and no data.
-Before copying your data (``files/`` folder) you’ll need to pull your theme from a *git*
-repository.
+After your container launch, you’ll find a blank ``/data/http`` folder in which you’ll have to clone your
+Roadiz application. Then you’ll be able to import your database and your files (``bin/roadiz files:import yourZipFile.zip``).
 
 Using a deploy/access key for Github/Gitlab
 -------------------------------------------
@@ -105,17 +102,17 @@ before doing anything in your ``/data`` folder.
                -C "Deploy key ($HOSTNAME) for private repository"
     # Add the generated /data/secure/ssh/id_rsa.pub key to your Github/Gitlab account
 
-    # Clone your custom theme
-    cd /data/http/themes
-    git clone git@github.com:private-account/custom-theme.git CustomTheme
-    # Install your theme composer dependencies (if any)
-    cd /data/http
-    composer update --no-dev -o
+    # Clone your Roadiz standard edition application
+    cd /data/http/
+    git clone git@github.com:private-account/my-roadiz-app.git ./
+    # Install composer dependencies
+    composer install --no-dev
+    composer dump-autoload --no-dev -o -a
 
 Configure Roadiz
 ----------------
 
-To configure your Roadiz website, edit your ``/data/http/conf/config.yml`` with *nano* editor.
+To configure your Roadiz website, edit your ``/data/http/app/conf/config.yml`` with *nano* editor.
 If you get some *"Unknown terminal error"*, you have to edit your TERM environment variable: ``export TERM=xterm``.
 
 Database
@@ -189,8 +186,8 @@ Pushing documents and fonts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Make sure your *SSH* container is started and find its public port: ``docker start site_SSH_1``.
-#. Go to your local ``files/`` folder
-#. Synchronize your files between your computer and your Docker container: ``rsync -avcz -e "ssh -p XXXXX" ./ core@site.com:/data/http/files/``. Make sure your paths ends with ``/`` not to copy files at the same level of ``files/`` folder.
+#. Send your ``.zip`` archive generated with ``bin/roadiz files:export`` command to your Docker container.
+#. Execute ``bin/roadiz files:import yourZipArchive.zip`` command to store files in Roadiz folders.
 
 Clear cache
 ^^^^^^^^^^^
@@ -222,10 +219,9 @@ variables called ``VIRTUAL_HOST``, ``LETSENCRYPT_HOST`` and ``LETSENCRYPT_EMAIL`
     services:
       MAIN:
         hostname: site
-        image: ambroisemaupate/roadiz
+        image: roadiz/standard-edition
         network_mode: "bridge"
         environment:
-          ROADIZ_BRANCH: develop
           # Bind nginx proxy to listen these domains
           VIRTUAL_HOST: site.com,www.site.com
           # Create and renew SSL cert for these domains
@@ -249,9 +245,8 @@ See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_.
     services:
       MAIN:
         hostname: site
-        image: ambroisemaupate/roadiz
+        image: roadiz/standard-edition
         environment:
-          ROADIZ_BRANCH: develop
         # Only if you are using a proxy or/and backup container
         #network_mode: "bridge"
         ports:

@@ -3,15 +3,19 @@
 Manual configuration
 ====================
 
-This section explains how main configuration file ``conf/config.yml`` works.
+This section explains how main configuration file ``app/conf/config.yml`` works.
 It is way more more convenient than launching Install theme for each configuration update.
 
-Your ``conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration.
+Your ``app/conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration.
 
 .. note::
-    By default, every Roadiz environment read ``conf/config.yml`` configuration file. But you can specify different
-    files for ``dev`` and ``test`` environments. Just create a ``conf/config_dev.yml`` or ``conf/config_test.yml`` file
+    By default, every Roadiz environment read ``app/conf/config.yml`` configuration file. But you can specify different
+    files for ``dev`` and ``test`` environments. Just create a ``app/conf/config_dev.yml`` or ``app/conf/config_test.yml`` file
     to override default parameters. You will be able to use a different database, mailer or *Solr* instance not to pollute your production environment.
+
+.. topic:: Source Edition
+
+    *Roadiz Source edition* stores configuration files in ``conf/`` folder.
 
 Doctrine
 --------
@@ -62,14 +66,14 @@ Available cache types are:
 Monolog handlers
 ----------------
 
-By default, Roadiz writes its logs to ``logs/`` folder in a file named after your running environment (eg. ``roadiz_prod.log``).
+By default, Roadiz writes its logs to ``app/logs/`` folder in a file named after your running environment (eg. ``roadiz_prod.log``).
 But you can also customize *Monolog* to use three different handlers. Pay attention that using custom log handlers will
 disable default Roadiz logging (except for *Doctrine* one) so it could be better to always use *default* handler along
 a custom one.
 
 Available handler types:
 
-- ``default``: Reproduce the Roadiz default handler which writes to ``logs/`` folder in a file named after your running environment
+- ``default``: Reproduce the Roadiz default handler which writes to ``app/logs/`` folder in a file named after your running environment
 - ``stream``: Defines a log file stream on your local system. **Your path must be writable!**
 - ``syslog``: Writes to system *syslog*.
 - ``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down.
@@ -136,8 +140,8 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
 .. code-block:: yaml
 
     entities:
-        - "src/Roadiz/Core/Entities"
-        - "src/Roadiz/Core/AbstractEntities"
+        - "../vendor/roadiz/roadiz/src/Roadiz/Core/Entities"
+        - "../vendor/roadiz/roadiz/src/Roadiz/Core/AbstractEntities"
         - "gen-src/GeneratedNodeSources"
 
 
@@ -146,7 +150,7 @@ Configure mailer
 
 Roadiz uses *Swift Mailer* to send emails. This awesome library is built to enable different
 kinds of mail transports and protocols. By default, Roadiz uses your PHP ``sendmail`` configuration
-but you can tell it to use another transport (such as an external SMTP server) in your ``conf/config.yml`` file.
+but you can tell it to use another transport (such as an external SMTP server) in your ``app/conf/config.yml`` file.
 
 You can use *SSL*, *TLS* or no encryption at all.
 
@@ -171,7 +175,7 @@ Images processing
 
 Roadiz use `Image Intervention <http://image.intervention.io/>`_ library to automatically create a lower quality
 version of your image if they are too big. You can define this threshold value
-in the `assetsProcessing` section. `driver` and `defaultQuality` will be also
+in the ``assetsProcessing`` section. ``driver`` and ``defaultQuality`` will be also
 use for the on-the-fly image processing with `Intervention Request <https://github.com/ambroisemaupate/intervention-request>`_ library.
 
 .. code-block:: yaml
@@ -220,7 +224,7 @@ Additional commands
 -------------------
 
 If you are developing your own theme, you might need to create some custom CLI commands. Roadiz can handle
-additional commands if you add them in your ``conf/config.yml`` as you would do for any additional *entities*.
+additional commands if you add them in your ``app/conf/config.yml`` as you would do for any additional *entities*.
 Make sure that every additional commands extend ``Symfony\Component\Console\Command\Command`` class.
 
 .. code-block:: yaml

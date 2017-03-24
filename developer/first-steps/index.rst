@@ -5,8 +5,9 @@ First steps
 .. toctree::
    :maxdepth: 2
 
-   getting_started
+   requirements
    installation
+   installation-source
    vagrant
    manual_config
    upgrading

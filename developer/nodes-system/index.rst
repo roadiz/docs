@@ -8,4 +8,3 @@ Node system
    intro
    node_type_fields
    nodes
-   nodes_sources
