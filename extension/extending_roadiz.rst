@@ -23,15 +23,15 @@ Create your own database entities
 ---------------------------------
 
 You can create a theme with your own entities. Just add your *Entities* folder
-to the global configuration file (``conf/config.yml``).
+to the global configuration file (``app/conf/config.yml``).
 
 .. code-block:: yaml
 
     entities:
-        - src/Roadiz/Core/Entities
-        - src/Roadiz/Core/AbstractEntities
+        - ../src/Roadiz/Core/Entities
+        - ../src/Roadiz/Core/AbstractEntities
         - gen-src/GeneratedNodeSources
-        - themes/MyTheme/Entities
+        - ../themes/MyTheme/Entities
 
 Verify if everything is OK by checking migrations:
 
@@ -75,7 +75,12 @@ Example:
         public function listAction(
             Request $request
         ) {
-            return $this->render('admin/test.html.twig', $this->assignation, null, MyThemeApp::getThemeDir());
+            return $this->render(
+                'admin/test.html.twig',
+                $this->assignation,
+                null,
+                MyThemeApp::getThemeDir()
+            );
         }
     }
 
@@ -85,7 +90,7 @@ as your template namespace.
 
 Now let's have a look to your twig template file ``admin/test.html.twig``.
 
-.. code-block:: jinja
+.. code-block:: html+jinja
 
     {% if not head.ajax %}{% set baseTemplate = '@Rozier/base.html.twig' %}{% else %}{% set baseTemplate = '@Rozier/ajaxBase.html.twig' %}{% endif %}{% extends baseTemplate %}
 
@@ -132,8 +137,10 @@ In this case the route will be:
 .. code-block:: yaml
 
     adminTestPage:
-        path:     /rz-admin/test # Setting your path behind rz-admin will activate Firewall
-        defaults: { _controller: Themes\MyTheme\AdminControllers\AdminController::listAction }
+        # Setting your path behind rz-admin will activate Firewall
+        path: /rz-admin/test
+        defaults:
+            _controller: Themes\MyTheme\AdminControllers\AdminController::listAction
 
 Inject your own entries in back-stage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
