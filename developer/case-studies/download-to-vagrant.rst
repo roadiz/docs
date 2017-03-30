@@ -4,7 +4,7 @@
 Download a website on my computer to work with Vagrant
 ======================================================
 
-This case study is meant to get a fresh development environment from an **existing** Roadiz website and theme. Following code snippets are using
+This case study is meant to get a fresh development environment from an **existing** Roadiz **Source edition** website and theme. Following code snippets are using
 some variables data, in theses examples I’ll use:
 
 - ``MYUSER`` as the MySQL database user.

@@ -151,7 +151,7 @@ Dynamic routing
 .. Note::
 
     Every node-types will be handled by a specific ``Controller``.
-    If your created a “Page” type, Roadiz will search for a ``…\\Controllers\\PageController`` class and
+    If your created a “Page” type, Roadiz will search for a ``…\Controllers\PageController`` class and
     it will try to execute the ``indexAction`` method.
 
 An indexAction method must comply with the following signature.
@@ -186,6 +186,12 @@ render your current node.
 As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object.
 This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_
 purpose which will generate a standard *html* response using a *Twig* template and an assignation array.
+
+.. note::
+
+    It’s very easy to create *JSON* responses for your API with Roadiz. You just have to
+    replace ``$this->render($template, $assignation);`` method with ``$this->renderJson($data);``. This method is
+    a shortcut for ``new JsonResponse($data);``.
 
 Home page case
 --------------
