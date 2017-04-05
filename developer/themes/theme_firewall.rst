@@ -64,6 +64,7 @@ add the matching *use* statement in your file header.
 .. code-block:: php
 
     use RZ\Roadiz\Utils\Security\FirewallEntry;
+    use Pimple\Container;
 
     /**
      * {@inheritdoc}
