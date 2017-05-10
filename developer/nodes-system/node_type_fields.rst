@@ -107,6 +107,8 @@ You must fill the *default values* field for these two types.
     classname: "Themes\MyTheme\Entities\City"
     # Displayable is the method used to display entity name
     displayable: getName
+    # Same as Displayable but for a secondary information
+    alt_displayable: getZipCode
     # Searchable entity fields
     searchable:
         - name
