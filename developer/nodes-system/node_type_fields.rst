@@ -31,6 +31,8 @@ This following fields stores simple data in your custom node-source database tab
 - CSS code
 - Country code (ISO 3166-1 alpha-2)
 - YAML code
+- Many to many join
+- Many to one join
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -91,3 +93,24 @@ If your field is named ``data``, your methods will be generated in your *NSEntit
 - ``getData()`` method will return your YAML code as *string*.
 - ``getDataAsObject()`` will return a mixed data,array or ``stdObject`` according to your code formatting. This method will throw a ``\Symfony\Component\Yaml\Exception\ParseException`` if your YAML code is not valid.
 
+Many to many and Many to one joins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can create custom relations between your node-source and whatever Doctrine
+entities in *Roadiz* or in your theme.
+
+You must fill the *default values* field for these two types.
+
+.. code-block:: yaml
+
+    # Entity class name
+    classname: "Themes\MyTheme\Entities\City"
+    # Displayable is the method used to display entity name
+    displayable: getName
+    # Searchable entity fields
+    searchable:
+        - name
+        - slug
+    orderBy:
+        - field: slug
+          direction: ASC
