@@ -21,6 +21,8 @@ in your themes.
 * User token storage: ``$this->get('securityTokenStorage')``
 * Firewall: ``$this->get('firewall')``
 * Assets packages: ``$this->get('assetPackages')``
+* Email manager: ``$this->get('emailManager')``
+* Accessing global settings: ``$this->get('settingsBag')``
 * …
 
 Entity APIs
