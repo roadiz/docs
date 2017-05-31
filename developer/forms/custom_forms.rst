@@ -61,8 +61,8 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
              */
             $helper = new CustomFormHelper($this->get('em'), $customForm);
             $form = $helper->getFormFromAnswer($this->get('formFactory'), null, true, [
-                'recaptcha_public_key' => SettingsBag::get('recaptcha_public_key'),
-                'recaptcha_private_key' => SettingsBag::get('recaptcha_private_key'),
+                'recaptcha_public_key' => $this->get('settingsBag')->get('recaptcha_public_key'),
+                'recaptcha_private_key' => $this->get('settingsBag')->get('recaptcha_private_key'),
                 'request' => $request,
             ]);
             $form->handleRequest($request);

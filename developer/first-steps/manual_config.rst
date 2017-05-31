@@ -191,6 +191,27 @@ use for the on-the-fly image processing with `Intervention Request <https://gith
         jpegoptimPath: ~
         # Path to pngquant binary to enable png optimization (3x less space)
         pngquantPath: ~
+        # List additionnal Intervention Request subscribers
+        subcribers: []
+
+Additionnal Intervention Request subscribers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Any Intervention Request subscriber can be added to configuration with its ``classname``
+and its constructor arguments. Here is an example with ``WatermarkListener`` which will
+print some text on all your images.
+
+.. code-block:: yaml
+
+    assetsProcessing:
+        # List additionnal Intervention Request subscribers
+        subcribers:
+            - class: "AM\\InterventionRequest\\Listener\\WatermarkListener"
+              args:
+                   - 'Copyright 2017'
+                   - 3
+                   - 50
+                   - "#FF0000"
 
 Console command
 ---------------

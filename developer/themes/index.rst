@@ -10,3 +10,4 @@ Themes
    display_documents
    custom_assignations
    theme_firewall
+   send_emails
