@@ -39,6 +39,7 @@ HTML output options
 * **class**
 * **alt**: If not filled, it will get the document name, then the document filename
 * **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading.
+* **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,8 +60,17 @@ Images resampling options
 Audio / Video options
 ^^^^^^^^^^^^^^^^^^^^^
 
-* **autoplay**
-* **controls**
+* **autoplay** (boolean)
+* **controls** (boolean)
+* **loop** (boolean)
+* **custom_poster** (string): URL to a image to be used as video poster
+
+You can use **multiple source files** for one video document or audio document.
+Just upload a file using tge same filename name but with a different extension. Use this method to
+add a poster image to your video too.
+For example: for ``my-video.mp4`` file, upload ``my-video.webm``, ``my-video.ogg``
+and ``my-video.jpeg`` documents. *Roadiz* will automatically generate a ``<video>`` tag using all these files as *source* and
+*poster* attribute.
 
 Using src-set attribute for responsive images
 ---------------------------------------------
