@@ -126,3 +126,30 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
 * If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
+
+Manage global documents
+-----------------------
+
+You can store documents inside *settings* for global images such as header images or website logo.
+Simply create a new *setting* in Roadiz back-office choosing *Document* type, then a file selector will appear in settings list to upload your picture.
+
+To use this document setting in your theme, you can assign it globally in your ``MyThemeApp::extendAssignation`` method.
+Use ``getDocument`` method instead of ``get`` to fetch a ``Document`` object  that you’ll be able to display in
+your Twig templates: 
+
+.. code-block:: php
+
+    $this->assignation['head']['site_logo'] = $this->get('settingsBag')->getDocument('site_logo');
+
+Then in a Twig template:
+
+.. code-block:: html+jinja
+
+    <figure id="site-logo">{{ head.site_logo|display }}</figure>
+
+This way is the easiest to fetch a global document, but it needs you to upload it once in *Settings* section.
+If this does not suit you, you can always fetch a *Document* manually using its *Doctrine* repository and a hard-coded ``filename``.
+
+.. code-block:: php
+
+    $this->assignation['head']['site_logo'] = $this->get('em')->getRepository('RZ\Roadiz\Core\Entities\Document')->findOneByFilename('logo.svg');
