@@ -194,10 +194,10 @@ use for the on-the-fly image processing with `Intervention Request <https://gith
         # List additionnal Intervention Request subscribers
         subcribers: []
 
-Additionnal Intervention Request subscribers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Additionnal *Intervention Request* subscribers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Any Intervention Request subscriber can be added to configuration with its ``classname``
+Any *Intervention Request* subscriber can be added to configuration with its ``classname``
 and its constructor arguments. Here is an example with ``WatermarkListener`` which will
 print some text on all your images.
 
@@ -212,6 +212,29 @@ print some text on all your images.
                    - 3
                    - 50
                    - "#FF0000"
+
+Use kraken.io to reduce drastically image sizes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since you can add *Intervention Request* subscribers, we created a useful one that sends
+every images to `kraken.io <https://kraken.io/>`_ services to shrink them. Once you’ve configured it,
+do not forget to empty your caches **and** image caches to see changes.
+
+.. code-block:: yaml
+
+    assetsProcessing:
+        # List additionnal Intervention Request subscribers
+        subcribers:
+            - class: "AM\\InterventionRequest\\Listener\\KrakenListener"
+              args:
+                   - "your-api-key"
+                   - "your-api-secret"
+                   - true
+
+.. warning::
+
+    Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead
+    time on the first time you request an image.
 
 Console command
 ---------------
