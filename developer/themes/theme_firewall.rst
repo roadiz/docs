@@ -6,7 +6,7 @@ Add a firewall in your theme
 
 You may need to add a secured area in your website or application, even for none-backend users.
 Roadiz uses *Symfony* security components to handle firewalled requests. You will be able to
-extend the *firewall map* in your Theme ``setupDependencyInjection`` method.
+extend the *firewall map* in your Theme ``addDefaultFirewallEntry`` method.
 
 Before create your firewall map entry, you must understand that Roadiz already has 2 firewall areas:
 
@@ -14,38 +14,38 @@ Before create your firewall map entry, you must understand that Roadiz already h
 - ``^/`` area which is required for previewing unpublished node and get user informations across the whole website
 
 The last firewall request matcher can be tricky to deal with, especially if you want to add
-another secured area as it *listen* to every requests. When you’ll add your new firewall map entry,
-always call ``parent::setupDependencyInjection($container);`` **after** your custom configuration
-to be sure that ``^/`` request matcher has **the lowest priority**.
+another secured area as it *listen* to every requests. When you’ll add new firewall map entry,
+you may call ``parent::addDefaultFirewallEntry($container);`` **before** your custom configuration
+to be sure that ``^/`` request matcher has **the lowest priority**. However, if you want to override
+``^/`` request matcher configuration you have to omit the parent method call.
 
 .. code-block:: php
 
     /**
      * {@inheritdoc}
      */
-    public static function setupDependencyInjection(Container $container)
+    public static function addDefaultFirewallEntry(Container $container)
     {
+        /*
+         * Call parent ONLY if you don’t want to create
+         * a firewall map at website root level.
+         */
+        parent::addDefaultFirewallEntry($container);
+
         /*
          * Your custom firewall map entry configuration
          * goes here
          */
-
-
-        /*
-         * Always setup general setupDependencyInjection AFTER
-         * theme because of requestMatcher order.
-         */
-        parent::setupDependencyInjection($container);
     }
 
-Configuring a firewall map entry with FirewallEntry class
----------------------------------------------------------
+Configuring a non-root firewall map entry with FirewallEntry class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before copy and pasting the following lines, think about it a little time…
 A firewall map entry defines severals mandatory routes:
 
 - A *base path* for your firewall to be triggered
-- A *login* path, which **must** be **outside** of your firewall map
+- A *login* path, which **can** be **outside** or **inside** of your firewall map
 - A *login_check* path, which **must** be **inside** of your firewall map
 - A *logout* path, which **must** be **inside** of your firewall map
 - A new role describing your secured area purpose (i.e. *ROLE_ACCESS_PRESS* for a private press kit area), you should create this role in Roadiz backoffice before.
@@ -58,7 +58,7 @@ If this example I will use:
 - ``/press/logout``
 - *ROLE_ACCESS_PRESS*
 
-Here is the code to add in your theme’ setupDependencyInjection method. Do not forget to
+Here is the code to add in your theme’ addDefaultFirewallEntry method. Do not forget to
 add the matching *use* statement in your file header.
 
 .. code-block:: php
@@ -69,8 +69,14 @@ add the matching *use* statement in your file header.
     /**
      * {@inheritdoc}
      */
-    public static function setupDependencyInjection(Container $container)
+    public static function addDefaultFirewallEntry(Container $container)
     {
+        /*
+         * Call parent ONLY if you don’t want to create
+         * a firewall map at website root level.
+         */
+        parent::addDefaultFirewallEntry($container);
+
         $firewallBasePattern = '^/press';
         $firewallBasePath = '/press';
         $firewallLogin = '/signin';
@@ -90,7 +96,7 @@ add the matching *use* statement in your file header.
             // if you need to do some stuff for your theme at visitor login
             //'Themes\YourTheme\Authentification\AuthenticationSuccessHandler'
         );
-        // Allow anonymous authentification
+        // Allow anonymous authentication
         $firewallEntry->withAnonymousAuthenticationListener();
         // Allow switch user feature
         $firewallEntry->withSwitchUserListener();
@@ -104,16 +110,10 @@ add the matching *use* statement in your file header.
             $firewallEntry->getListeners(),
             $firewallEntry->getExceptionListener()
         );
-
-        /*
-         * Always setup general setupDependencyInjection AFTER
-         * theme because of requestMatcher order.
-         */
-        parent::setupDependencyInjection($container);
     }
 
 Add login routes
-----------------
+^^^^^^^^^^^^^^^^
 
 After configuring your Firewall, you’ll need to add your routes to your theme ``routes.yml`` file.
 *Logout* and *login_check* won’t need any controller setup as they will be handled directly by Roadiz firewall
@@ -128,6 +128,15 @@ event dispatcher. The only one you need to handle is the *login* page.
     themeLoginPage:
         path:     /signin
         defaults: { _controller: Themes\MySuperTheme\Controllers\LoginController::loginAction }
+
+.. note::
+
+    If your **login** route is *inside* your firewall **and** your access map require an other role than ``IS_AUTHENTICATED_ANONYMOUSLY``
+    you must add a special access map entry to enable your public visitor to access your login page.
+
+    ``$this->container['accessMap']->add(new RequestMatcher('^/press/signin'), ['IS_AUTHENTICATED_ANONYMOUSLY']);``
+
+    Add this line with your login page pattern **before** adding your firewall entry. Access map entries order is important!
 
 In your ``LoginController``, just add error handling from the ``securityAuthenticationUtils`` service to display a
 feedback on your login form:
@@ -179,3 +188,69 @@ And do not forget to set your form *action* to ``{{ path('themeLoginCheck') }}``
             <button class="btn btn-primary" type="submit"><i class="fa fa-signin"></i> {% trans %}login{% endtrans %}</button>
         </div>
     </form>
+
+Configuring a root firewall map entry with FirewallEntry class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may want to offer authentication for every pages of your website
+and manage access control manually within your node-type controllers.
+In that case you need to override default front-end Firewall map entry with your own
+and defined login/logout paths.
+
+.. code-block:: php
+
+    use RZ\Roadiz\Utils\Security\FirewallEntry;
+    use Pimple\Container;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function addDefaultFirewallEntry(Container $container)
+    {
+        /*
+         * Do not call parent method
+         */
+
+        $firewallBasePattern = '^/';
+        $firewallBasePath = '/';
+        $firewallLogin = '/accounts';
+        $firewallLogout = '/accounts/logout';
+        $firewallLoginCheck = '/accounts/login_check';
+
+        /*
+         * You MUST use IS_AUTHENTICATED_ANONYMOUSLY base role not to prevent
+         * users to access your website
+         */
+        $firewallBaseRole = 'IS_AUTHENTICATED_ANONYMOUSLY';
+
+        $firewallEntry = new FirewallEntry(
+            $container,
+            $firewallBasePattern,
+            $firewallBasePath,
+            $firewallLogin,
+            $firewallLogout,
+            $firewallLoginCheck,
+            $firewallBaseRole
+        );
+        // Allow anonymous authentication
+        $firewallEntry->withAnonymousAuthenticationListener()
+                        ->withSwitchUserListener()
+                        // Automatically redirect to themeLoginPage route
+                        // if AccessDeniedException is thrown
+                        ->withAccessDeniedHandler('themeLoginPage')
+                        ->withReferer();
+
+        /*
+         * Finally add this entry to the Roadiz
+         * firewall map.
+         */
+        $container['firewallMap']->add(
+            $firewallEntry->getRequestMatcher(),
+            $firewallEntry->getListeners(),
+            $firewallEntry->getExceptionListener()
+        );
+    }
+
+    For the moment, every pages of your website will be public. You’ll need to use
+    ``is_granted`` *Twig* filter and ``$this->denyAccessUnlessGranted($role)`` method to
+    manage access control to your contents.

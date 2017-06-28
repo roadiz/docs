@@ -101,7 +101,7 @@ Here is an example configuration:
                 level: WARNING
             graylog:
                 type: gelf
-                # Gelf HTTP entry point url (with optional user:passwd authentification)
+                # Gelf HTTP entry point url (with optional user:passwd authentication)
                 url: http://graylog.local:12202/gelf
                 level: WARNING
 
