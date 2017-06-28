@@ -129,7 +129,7 @@ event dispatcher. The only one you need to handle is the *login* page.
         path:     /signin
         defaults: { _controller: Themes\MySuperTheme\Controllers\LoginController::loginAction }
 
-.. note::
+.. warning::
 
     If your **login** route is *inside* your firewall **and** your access map require an other role than ``IS_AUTHENTICATED_ANONYMOUSLY``
     you must add a special access map entry to enable your public visitor to access your login page.
@@ -251,6 +251,6 @@ and defined login/logout paths.
         );
     }
 
-    For the moment, every pages of your website will be public. You’ll need to use
-    ``is_granted`` *Twig* filter and ``$this->denyAccessUnlessGranted($role)`` method to
-    manage access control to your contents.
+For the moment, every pages of your website will be public. You’ll need to use
+``is_granted`` *Twig* filter and ``$this->denyAccessUnlessGranted($role)`` method to
+manage access control to your contents.
