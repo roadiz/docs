@@ -56,7 +56,7 @@ You can copy and paste the following command-lines to check easily:
     bin/phpcs --report=full --report-file=./report.txt \
                 --extensions=php --warning-severity=0 \
                 --standard=PSR2 \
-                --ignore=*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/* \
+                --ignore="*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/*" \
                 -p ./
 
 Or you can use *phpcbf* to automatically fix code style issues.
