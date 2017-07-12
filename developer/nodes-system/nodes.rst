@@ -50,18 +50,24 @@ origin node-source.
     {% set parent = nodeSource|parent %}
 
     {% set children = nodeSource|children({
-        'visible': true
+        'node.visible': true
     }) %}
 
-All these filters will take care of publication status and translation, **but not publication date-time neither visibility**.
+.. warning::
+
+    All these filters will take care of publication status and translation, **but not publication date-time neither visibility**.
 
 .. code-block:: html+jinja
 
     {% set children = nodeSource|children({
-        'visible': true,
+        'node.visible': true,
         'publishedAt': ['>=', date()],
     }, {
         'publishedAt': 'DESC'
+    }) %}
+
+    {% set nextVisible = nodeSource|next({
+        'node.visible': true
     }) %}
 
 If you need to trasverse node-source hierarchy from your controllers you can use
@@ -74,7 +80,7 @@ the ``NodesSourcesHandler`` class.
     $nodeSourceHandler = new NodesSourcesHandler($nodeSource);
 
     $children = $nodeSourceHandler->getChildren([
-        'visible' => true,
+        'node.visible' => true,
         'publishedAt' => ['>=', new \DateTime()],
         'translation' => $nodeSource->getTranslation(),
     ],[
@@ -88,7 +94,7 @@ will be deprecated in future Roadiz versions.
 
     $children = $this->get('nodeSourceApi')->getBy([
         'node.parent' => $nodeSource,
-        'visible' => true,
+        'node.visible' => true,
         'publishedAt' => ['>=', new \DateTime()],
         'translation' => $nodeSource->getTranslation(),
     ],[
