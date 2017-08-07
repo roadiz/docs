@@ -71,13 +71,13 @@ origin node-source.
     }) %}
 
 If you need to trasverse node-source hierarchy from your controllers you can use
-the ``NodesSourcesHandler`` class.
+the ``NodesSourcesHandler`` class from the handler factory service.
 
 .. code-block:: php
 
     use RZ\Roadiz\Core\Handlers\NodesSourcesHandler;
     // …
-    $nodeSourceHandler = new NodesSourcesHandler($nodeSource);
+    $nodeSourceHandler = $this->get('factory.handler')->getHandler($nodeSource);
 
     $children = $nodeSourceHandler->getChildren([
         'node.visible' => true,
@@ -87,8 +87,7 @@ the ``NodesSourcesHandler`` class.
         'publishedAt' => 'DESC'
     ]);
 
-Or directly use *Entity API*, this method is preferred as ``NodesSourcesHandler``
-will be deprecated in future Roadiz versions.
+Or directly use *Entity API*.
 
 .. code-block:: php
 

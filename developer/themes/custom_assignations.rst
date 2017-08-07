@@ -134,37 +134,20 @@ How to template *Page / Block* pattern
 Now that you’ve structured your data with a *Page* node-type and a *BasicBlock*, how do render your data
 in only one page and only one URL request? We will use custom assignations!
 
-Open your ``PageController.php`` file to assign the *node-type* you need to
-filter children nodes:
-
-.. code-block:: php
-
-    $this->prepareThemeAssignation($node, $translation);
-
-    // Get BasicBlock node-type entity to filter
-    // over current node children
-    $this->assignation['basicBlockType'] = $this->get('nodeTypeApi')
-                           ->getOneBy(['name' => 'BasicBlock']);
-
-.. note::
-    If you reuse any node-type entity more than once in several controllers, it’s better
-    to publish your *basicBlockType* as a *service* in your theme, instead of duplicating
-    your code.
-
 You can directly assign your children blocks at the beginning of your *Twig* template.
+Make sure the global ``bags`` service is available and reachable.
 
 .. code-block:: html+jinja
 
     {% set blocks = nodeSource|children({
-        node.nodeType : basicBlockType,
+        node.nodeType : bags.nodeTypes.get('BasicBlock'),
     }) %}
 
 .. note::
     You can use different *block* types in the same *page*. Just create as many
     node-types as you need and add their name to your *Page* ``children_node`` default values.
     Then add each node-type into ``children`` criteria using an array instead of
-    a single value: ``node.nodeType : [basicBlockType, anotherBlockType]``. That way, you
-    will be able to create awesome pages with different looks but with the same template
+    a single value: ``node.nodeType : [bags.nodeTypes.get('BasicBlock'), bags.nodeTypes.get('AnotherBlock')]``. That way, you will be able to create awesome pages with different looks but with the same template
     (basic blocks, gallery blocks, etc).
 
 Now we can update your ``types/page.html.twig`` template to use your assignated blocks.
@@ -178,6 +161,7 @@ Now we can update your ``types/page.html.twig`` template to use your assignated 
             'nodeSource': pageBlock,
             'parentNodeSource': nodeSource,
             'themeServices': themeServices,
+            'bags': bags,
             'head': head,
             'node': pageBlock.node,
             'nodeType': pageBlock.node.nodeType,
@@ -346,7 +330,9 @@ handling *EntityListManager*. It is useful to bind page parameter in your *routi
 
     projectPage:
         path:     /articles/{page}
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\ArticleController::listAction, page: 1 }
+        defaults:
+            _controller: Themes\MyAwesomeTheme\Controllers\ArticleController::listAction
+            page: 1
         requirements:
             page: "[0-9]+"
 
@@ -363,7 +349,7 @@ Then, build your ``listAction`` method.
         $this->prepareThemeAssignation(null, $translation);
 
         $listManager = $this->createEntityListManager(
-            'GeneratedNodeSources\\NSArticle',
+            NSArticle::class,
             ['sticky' => false], //sticky is a custom field from Article node-type
             ['node.createdAt' => 'DESC']
         );

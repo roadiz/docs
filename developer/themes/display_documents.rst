@@ -8,11 +8,10 @@ Did you noticed that *images* relation is available directly in nodeSource objec
 ``nodeSource.handler.documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
 node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
 
-Now, you can use ``DocumentViewer`` to generate HTML view for your documents no matter they are *images*, *videos* or *embed*.
-Two *Twig* filters are available with ``Documents``:
+Now, you can use the ``DocumentViewer`` service to generate HTML view for your documents no matter they are *images*, *videos* or *embed*. Two *Twig* filters are available with ``Documents``:
 
-- ``|display`` is a shortcut for ``getViewer()->getDocumentByArray($options)``. It generates an HTML tag to display your document.
-- ``|url`` is a shortcut for ``getViewer()->getDocumentUrlByArray($options)``. It generates an Url to reach your document.
+- ``|display`` generates an HTML tag to display your document.
+- ``|url`` generates a public URL to reach your document.
 
 .. code-block:: html+jinja
 
@@ -39,6 +38,7 @@ HTML output options
 * **class**
 * **alt**: If not filled, it will get the document name, then the document filename
 * **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading.
+* **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,8 +59,17 @@ Images resampling options
 Audio / Video options
 ^^^^^^^^^^^^^^^^^^^^^
 
-* **autoplay**
-* **controls**
+* **autoplay** (boolean)
+* **controls** (boolean)
+* **loop** (boolean)
+* **custom_poster** (string): URL to a image to be used as video poster
+
+You can use **multiple source files** for one video document or audio document.
+Just upload a file using tge same filename name but with a different extension. Use this method to
+add a poster image to your video too.
+For example: for ``my-video.mp4`` file, upload ``my-video.webm``, ``my-video.ogg``
+and ``my-video.jpeg`` documents. *Roadiz* will automatically generate a ``<video>`` tag using all these files as *source* and
+*poster* attribute.
 
 Using src-set attribute for responsive images
 ---------------------------------------------
@@ -116,3 +125,30 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
 * If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
+
+Manage global documents
+-----------------------
+
+You can store documents inside *settings* for global images such as header images or website logo.
+Simply create a new *setting* in Roadiz back-office choosing *Document* type, then a file selector will appear in settings list to upload your picture.
+
+To use this document setting in your theme, you can assign it globally in your ``MyThemeApp::extendAssignation`` method.
+Use ``getDocument`` method instead of ``get`` to fetch a ``Document`` object  that you’ll be able to display in
+your Twig templates: 
+
+.. code-block:: php
+
+    $this->assignation['head']['site_logo'] = $this->get('settingsBag')->getDocument('site_logo');
+
+Then in a Twig template:
+
+.. code-block:: html+jinja
+
+    <figure id="site-logo">{{ head.site_logo|display }}</figure>
+
+This way is the easiest to fetch a global document, but it needs you to upload it once in *Settings* section.
+If this does not suit you, you can always fetch a *Document* manually using its *Doctrine* repository and a hard-coded ``filename``.
+
+.. code-block:: php
+
+    $this->assignation['head']['site_logo'] = $this->get('em')->getRepository(Document::class)->findOneByFilename('logo.svg');

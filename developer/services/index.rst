@@ -23,6 +23,7 @@ in your themes.
 * Assets packages: ``$this->get('assetPackages')``
 * Email manager: ``$this->get('emailManager')``
 * Accessing global settings: ``$this->get('settingsBag')``
+* Accessing global node-types: ``$this->get('nodeTypesBag')``
 * …
 
 Entity APIs
