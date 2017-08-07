@@ -28,10 +28,10 @@ to the global configuration file (``app/conf/config.yml``).
 .. code-block:: yaml
 
     entities:
-        - ../src/Roadiz/Core/Entities
-        - ../src/Roadiz/Core/AbstractEntities
-        - gen-src/GeneratedNodeSources
-        - ../themes/MyTheme/Entities
+        - "../vendor/roadiz/roadiz/src/Roadiz/Core/Entities"
+        - "../vendor/roadiz/models/src/Roadiz/Core/AbstractEntities"
+        - "gen-src/GeneratedNodeSources"
+        - "../themes/MyTheme/Entities"
 
 Verify if everything is OK by checking migrations:
 

@@ -39,7 +39,7 @@ your fresh new Roadiz website, you will get an error as we did not install its d
 To be able to use Roadiz *install interface*, you’ll need to call the *install* entry point. An ``install.php`` file
 has been generated when you executed ``composer install`` command. This environment will be reachable at the Url ``http://mywebsite.com/install.php``.
 
-For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point.
+For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1', ':ffff:127.0.0.1', '::ffff:127.0.0.1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point.
 
 At the end of the install process, you will be invited to remove the ``install.php`` file and to connect to your
 website final URL.

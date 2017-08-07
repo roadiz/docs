@@ -113,10 +113,12 @@ multilingual pages.
 
     foo:
         path:     /foo
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::fooAction }
+        defaults:
+            _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::fooAction
     bar:
         path:     /{_locale}/bar
-        defaults: { _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::barAction }
+        defaults:
+            _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::barAction
         requirements:
             # Use every 2 letter codes
             _locale: "[a-z]{2}"
@@ -124,8 +126,8 @@ multilingual pages.
 
 .. code-block:: php
 
-    public function fooAction(Request $request) {
-
+    public function fooAction(Request $request)
+    {
         $translation = $this->bindLocaleFromRoute($request, 'en');
         $this->prepareThemeAssignation(null, $translation);
 
@@ -204,10 +206,12 @@ in your theme ``Resources/routes.yml`` file.
 
     homePage:
         path:     /
-        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
+        defaults:
+            _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction
     homePageLocale:
         path:     /{_locale}
-        defaults: { _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction }
+        defaults:
+            _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction
         requirements:
             # Use every 2 letter codes
             _locale: "[a-z]{2}"

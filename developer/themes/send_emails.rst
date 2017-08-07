@@ -4,7 +4,7 @@
 Sending emails from your website
 ================================
 
-``emailManager`` service is available to send emails from your application.
+``emailManager`` factory service is available to send emails from your application.
 It’s already configured to use simple CSS styles and you can use an HTML and plain-text
 templates.
 

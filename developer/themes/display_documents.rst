@@ -8,11 +8,10 @@ Did you noticed that *images* relation is available directly in nodeSource objec
 ``nodeSource.handler.documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
 node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
 
-Now, you can use ``DocumentViewer`` to generate HTML view for your documents no matter they are *images*, *videos* or *embed*.
-Two *Twig* filters are available with ``Documents``:
+Now, you can use the ``DocumentViewer`` service to generate HTML view for your documents no matter they are *images*, *videos* or *embed*. Two *Twig* filters are available with ``Documents``:
 
-- ``|display`` is a shortcut for ``getViewer()->getDocumentByArray($options)``. It generates an HTML tag to display your document.
-- ``|url`` is a shortcut for ``getViewer()->getDocumentUrlByArray($options)``. It generates an Url to reach your document.
+- ``|display`` generates an HTML tag to display your document.
+- ``|url`` generates a public URL to reach your document.
 
 .. code-block:: html+jinja
 
@@ -152,4 +151,4 @@ If this does not suit you, you can always fetch a *Document* manually using its 
 
 .. code-block:: php
 
-    $this->assignation['head']['site_logo'] = $this->get('em')->getRepository('RZ\Roadiz\Core\Entities\Document')->findOneByFilename('logo.svg');
+    $this->assignation['head']['site_logo'] = $this->get('em')->getRepository(Document::class)->findOneByFilename('logo.svg');

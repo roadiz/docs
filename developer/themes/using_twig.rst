@@ -28,6 +28,10 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
     * **messages** — [array]
     * **id** — [string]
     * **user** — [object]
+* **bags**
+    * **settings** — [SettingsBag]
+    * **nodeTypes** — [NodeTypesBag]
+    * **roles** — [RolesBag]
 * **authorizationChecker** — [object]
 * **tokenStorage** — [object]
 
@@ -107,8 +111,7 @@ Handling node-sources with Twig
 Most of yout front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data directly in *Twig* using the “dot” seperator.
 
 There is even some magic about *Twig* when accessing private or protected fields:
-just write the fieldname and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as
-``{{ nodeSource.getContent|markdown }}`` by *Twig*.
+just write the fieldname and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as ``{{ nodeSource.getContent|markdown }}`` by *Twig*.
 
 .. note::
     Roadiz will transform your node-type fields names to *camel-case* to create getters and setters into you NS class.
@@ -133,7 +136,6 @@ Loop over node-source children
 ------------------------------
 
 With Roadiz you will be able to grab each node-source children using custom ``children`` Twig filter.
-This filter is a shortcut for ``childBlock->getHandler()->getChildren(null, null, $authorizationChecker)``.
 
 .. code-block:: html+jinja
 
@@ -186,8 +188,7 @@ In this example, we want to create links to jump to *next* and *previous* pages.
     {% endif %}
 
 .. note::
-    Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will **always** return ``NodesSources`` objects from
-    the same translation as their sibling.
+    Calling ``getPrevious`` and ``getNext`` from a node-source *handler* will **always** return ``NodesSources`` objects from the same translation as their sibling.
 
 
 Additional filters
@@ -206,14 +207,14 @@ NodesSources filters
 These following Twig filters will only work with ``NodesSources`` entities… not ``Nodes``.
 Use them with the *pipe* syntax, eg. ``nodeSource|next``.
 
-* ``children``: shortcut for ``$source->getHandler()->getChildren()``
-* ``next``: shortcut for ``$source->getHandler()->getNext()``
-* ``previous``: shortcut for ``$source->getHandler()->getPrevious()``
-* ``firstSibling``: shortcut for ``$source->getHandler()->getFirstSibling()``
-* ``lastSibling``: shortcut for ``$source->getHandler()->getLastSibling()``
-* ``parent``: shortcut for ``$source->getHandler()->getParent()``
-* ``parents``: shortcut for ``$source->getHandler()->getParents()``
-* ``tags``: shortcut for ``$source->getHandler()->getTags()``
+* ``children``: shortcut for ``NodesSourcesHandler::getChildren()``
+* ``next``: shortcut for ``NodesSourcesHandler::getNext()``
+* ``previous``: shortcut for ``NodesSourcesHandler::getPrevious()``
+* ``firstSibling``: shortcut for ``NodesSourcesHandler::getFirstSibling()``
+* ``lastSibling``: shortcut for ``NodesSourcesHandler::getLastSibling()``
+* ``parent``: shortcut for ``$source->getParent()``
+* ``parents``: shortcut for ``NodesSourcesHandler::getParents(array $options)``
+* ``tags``: shortcut for ``NodesSourcesHandler::getTags()``
 * ``render(themeName)``: initiate a sub-request for rendering a given block *NodesSources*
 
 Documents filters
@@ -236,7 +237,7 @@ Translations filters
 These following Twig filters will only work with ``Translation`` entities.
 Use them with the *pipe* syntax, eg. ``translation|menu``.
 
-* ``menu``: shortcut for ``$translation->getViewer()->getTranslationMenuAssignation()``.
+* ``menu``: shortcut for ``TranslationViewer::getTranslationMenuAssignation()``.
 
 This filter returns some useful informations about current page available languages and their
 urls. See `getTranslationMenuAssignation method definition <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/TranslationViewer.html#method_getTranslationMenuAssignation>`_.

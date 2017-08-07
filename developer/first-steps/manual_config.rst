@@ -141,7 +141,7 @@ In order to make Roadiz more extensible, you can add your own paths to the ``ent
 
     entities:
         - "../vendor/roadiz/roadiz/src/Roadiz/Core/Entities"
-        - "../vendor/roadiz/roadiz/src/Roadiz/Core/AbstractEntities"
+        - "../vendor/roadiz/models/src/Roadiz/Core/AbstractEntities"
         - "gen-src/GeneratedNodeSources"
 
 

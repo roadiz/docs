@@ -127,7 +127,8 @@ event dispatcher. The only one you need to handle is the *login* page.
         path:     /press/login_check
     themeLoginPage:
         path:     /signin
-        defaults: { _controller: Themes\MySuperTheme\Controllers\LoginController::loginAction }
+        defaults:
+            _controller: Themes\MySuperTheme\Controllers\LoginController::loginAction
 
 .. warning::
 
