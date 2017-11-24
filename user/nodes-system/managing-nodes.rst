@@ -73,11 +73,13 @@ Edit an existing node
 
 Node edition page is composed in several tabs.
 
-- Node content
-- Node parameters
-- Tags
-- SEO
-- Tree, if your node is set up as a *container*
+- :ref:`Node content <node-content-tab>`
+- :ref:`Node parameters <node-parameters-tab>`
+- :ref:`Tags <node-tags-tab>`
+- :ref:`SEO <node-seo-tab>`
+- :ref:`Tree <node-tree-tab>`, if your node is set up as a :ref:`stack <side-actions-parameters>`
+
+.. _node-content-tab:
 
 Node content
 ^^^^^^^^^^^^
@@ -88,7 +90,9 @@ Node content
 Contents tab is basically the main part where you will edit your node specific data,
 using node-type fields such as *text* fields, or *documents* fields, etc.
 
-*This tab will display different content over translations.*
+This tab will display different content over translations depending on which fields are marked as *universal* or not.
+
+.. _node-parameters-tab:
 
 Node parameters
 ^^^^^^^^^^^^^^^
@@ -102,6 +106,24 @@ not be used so often as parameters will be set once by your developer.
 
 *This tab will display the same content over translations.*
 
+.. _side-actions-parameters:
+
+Side actions and parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Additional parameters are available on the right action-menu. These parameters are
+node-wide, they will apply on each node translations.
+
+.. image:: ./img/node-parameters-panel.png
+    :align: center
+
+- **Visibility**: Hide or show current node (according to your theme)
+- **Hide children**: Switch current node to a **stack**, children nodes won’t appear in the global Node-Tree anymore. You will be able to add *Stack type* buttons in the :ref:`node parameters tab <node-parameters-tab>`.
+- **Lock status**: Prevent users to delete current node or rename it. You should switch it on if your rely on some nodes in your themes.
+- **Forbid children**: Prevent users to create children nodes.
+
+.. _node-tags-tab:
+
 Tags
 ^^^^
 
@@ -109,6 +131,8 @@ Tags
     :align: center
 
 *This tab will display the same content over translations.*
+
+.. _node-seo-tab:
 
 SEO
 ^^^
@@ -118,8 +142,30 @@ SEO
 
 *This tab will display different content over translations.*
 
-.. Tree
-.. ^^^^
+.. _node-tree-tab:
+
+Tree
+^^^^
+
+When a node is defined as a :ref:`stack <side-actions-parameters>`, *Tree* becomes its default view. You can set the
+default ordering in the *Edit tab*. And node-types set as *publishable* will display their publication date before its name.
+
+.. image:: ./img/node-tree-tab.png
+    :align: center
+
+Tree view becomes very interesting if you have many many children nodes, when you have blog posts
+or portfolio projects for example. 
+
+.. image:: ./img/add-stack-type.png
+    :align: center
+
+Then you can add *stack type* in *Edit tab* to make some handy 
+quick-add buttons to this view.
+
+.. image:: ./img/quick-add-button.png
+    :align: center
+
+
 
 Nodes publication system
 ------------------------
