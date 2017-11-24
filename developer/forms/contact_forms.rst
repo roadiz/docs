@@ -19,6 +19,9 @@ Here is an example to create your contact form in your controller action.
    :linenos:
 
     use Symfony\Component\Validator\Constraints\File;
+    use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+    use Symfony\Component\Form\Extension\Core\Type\FileType;
+    use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
     …
     // Create contact-form manager and add 3 default fields.
@@ -28,11 +31,11 @@ Here is an example to create your contact form in your controller action.
      * (Optional) Add custom fields…
      */
     $formBuilder = $contactFormManager->getFormBuilder();
-    $formBuilder->add('callMeBack', 'checkbox', [
+    $formBuilder->add('callMeBack', CheckboxType::class, [
             'label' => 'call.me.back',
             'required' => false,
         ])
-        ->add('document', 'file', [
+        ->add('document', FileType::class, [
             'label' => 'document',
             'required' => false,
             'constraints' => [
@@ -42,7 +45,7 @@ Here is an example to create your contact form in your controller action.
                 ]),
             ]
         ])
-        ->add('send', 'submit', [
+        ->add('send', SubmitType::class, [
             'label' => 'send.contact.form',
         ]);
 
