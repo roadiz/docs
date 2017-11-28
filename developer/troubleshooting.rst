@@ -62,7 +62,6 @@ Roadiz is compatible with PHP 5.6 minimum, unfortunatly some of its dependencies
 A **quick solution** should be to edit your `composer.json` file to keep compatibility with a fixed PHP version:
 
 .. code:: json
-    :emphasize-lines: 3,4,5
 
     "config": {
         "bin-dir": "bin",
