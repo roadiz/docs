@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 0.20.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+#: ../../developer/first-steps/installation-source.rst:5
+msgid "Install Roadiz Source Edition (deprecated)"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:8
+msgid ""
+"This part is applicable for projects created prior v0.17. New projects "
+"should be created with Roadiz Standard Edition."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:11
+msgid "Roadiz *Source edition* can be downloaded in two different ways:"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:13
+msgid ""
+"*The Good one* — using **Git** and **Composer** (needs an *SSH* "
+"connection to your server and *Git*)"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:14
+msgid "*The Easy one* — using a bundled *Zip* archive with composer dependencies."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:17
+msgid "Using Git"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:19
+msgid ""
+"First you will have to setup properly your server virtual host. You can "
+"either use *Apache* or *Nginx* with Roadiz. An example virtual host is "
+"provided in source-code for each server:"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:22
+msgid "``samples/apache.conf``"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:23
+msgid "``samples/nginx.conf``"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:25
+msgid ""
+"You just have to customize your root path and server name. *Nginx* has "
+"built-in support for *php-fpm* whereas *Apache* must be configured with "
+"*fastcgi* to do the same."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:28
+msgid ""
+"These example files will provide basic security configuration for private"
+" access folders: such as ``conf`` or ``files/fonts`` folders. They will "
+"also configure your server to redirect all non static requests to Roadiz "
+"*front-controller*."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:33
+msgid ""
+"**For shared hosting plan owners**, if you can’t modify your virtual host"
+" definition, don’t panic, Roadiz has a built-in CLI command to generate "
+"``.htaccess`` files for you. Just execute ``bin/roadiz "
+"generate:htaccess`` after cloning Roadiz sources and running Composer. In"
+" the other hand, if you are using *Apache* and have access to your "
+"virtual host, we strongly recommend you to use our sample configuration "
+"and disable ``.htaccess`` files: performances are at their best without "
+"them."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:40
+msgid ""
+"When your HTTP server is ready to go, download *Roadiz* latest version "
+"using Git:"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:47
+msgid ""
+"Use `Composer <https://getcomposer.org/doc/00-intro.md#globally>`_ to "
+"download Roadiz dependencies and to build PHP class autolader. We even "
+"set up some post-scripts which will copy a new ``config.yml``, "
+"``dev.php``, ``clear_cache.php`` and ``install.php`` files for you."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:57
+msgid ""
+"When your virtual host is ready and every files have been downloaded you "
+"can go to the next part to access the `install environment`_."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:62
+msgid "The quick and dirty way: using a Zip archive"
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:64
+msgid ""
+"This method must be used if you have to work on your own computer with "
+"softwares like MAMP, WAMP or if you need to setup your website on a "
+"shared hosting plan without any SSH or Git."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:67
+msgid ""
+"If you downloaded Roadiz on the `Github release "
+"<https://github.com/roadiz/roadiz/releases>`_ page or `directly from our "
+"website <http://www.roadiz.io>`_, you should get a bundled Zip containing"
+" every Roadiz files and Composer dependencies. We even generated "
+"``.htaccess`` files and a ``conf/config.yml`` file for you."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:71
+msgid ""
+"If you can unzip directly on your server, that is cool. It will save you "
+"time, if not, just unzip it on your desktop and upload files to your "
+"server via FTP."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:75
+msgid ""
+"When you transfer your Roadiz site via FTP make sure ``.htaccess`` files "
+"are copied into each important folders (``./``, ``./conf``, ``./src``, "
+"``./files/fonts``, etc). If you are using an Apache setup, this will "
+"prevent unwanted access to important files."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:79
+msgid ""
+"Once you unzipped and moved your Roadiz files into your webserver folder,"
+" just launch the Install tool with your Internet browser by typing your "
+"new website address. If you are working on your own computer with MAMP, "
+"WAMP or other easy-server tool, just type ``http://localhost:8888/roadiz-"
+"folder`` in your browser (the port may change according to your server "
+"settings)."
+msgstr ""
+
+#: ../../developer/first-steps/installation-source.rst:84
+msgid ""
+"You have to understand that using Zip archive way with FTP transfers will"
+" make updating Roadiz harder. If you have a dedicated server or a VPS, we"
+" highly recommend you to use *Git* and *Composer* to install Roadiz. That"
+" way, you will be able to upgrade Roadiz just by typing ``git pull origin"
+" master``."
+msgstr ""
+

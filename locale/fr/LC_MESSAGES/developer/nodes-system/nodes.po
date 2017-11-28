@@ -9,16 +9,105 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.5.1\n"
 
 #: ../../developer/nodes-system/nodes.rst:5
 msgid "Handling nodes and their hierarchy"
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:7
+msgid ""
+"By default, if you use Entities API methods or trasversing Twig filters, "
+"Roadiz will automatically handle security parameters such as "
+"``node.status`` and ``preview`` mode."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:22
+msgid ""
+"This first code snippet is using *Node-source API*. This will "
+"automatically check if current user is logged-in and if preview mode is "
+"*ON* to display or not *unpublished nodes*."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:34
+msgid ""
+"This second code snippet uses standard Doctrine *Entity Manager* to "
+"directly grab node-sources by their entity class. This method does not "
+"check any security and will return every node-sources, **even "
+"unpublished, archived and deleted ones**."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:39
+msgid "Hierarchy"
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:41
+msgid ""
+"To trasverse node-sources hierarchy, the easier method is to use *Twig* "
+"filters on your ``nodeSource`` entity. Filters will implicitly set "
+"``translation`` from origin node-source."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:58
+msgid ""
+"All these filters will take care of publication status and translation, "
+"**but not publication date-time neither visibility**."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:73
+msgid ""
+"If you need to trasverse node-source hierarchy from your controllers you "
+"can use the ``NodesSourcesHandler`` class from the handler factory "
+"service."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:90
+msgid "Or directly use *Entity API*."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:104
+#: ../../developer/nodes-system/nodes.rst:109
+msgid "Visibility"
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:106
+msgid ""
+"There are two parametres that you must take care of in your themes and "
+"your controllers, because they are not mandatory in all website cases:"
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:110
+msgid "Publication date and time"
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:112
+msgid ""
+"For example, *publication date and time* won’t be necessary in plain text"
+" pages and not timestampable contents. But we decided to add it directly "
+"in ``NodesSources`` entity to be able to filter and order with this field"
+" in Roadiz back-office. This was not possible if you manually create your"
+" own ``publishedAt`` as a node-type field."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:119
+msgid ""
+"Pay attention that *publication date and time* (``publishedAt``) and "
+"visibility (``node.visible``) **does not prevent** your node-source from "
+"being viewed if you did not explicitly forbid access to its controller. "
+"This field is not deeply set into Roadiz security mechanics."
+msgstr ""
+
+#: ../../developer/nodes-system/nodes.rst:124
+msgid ""
+"If you need so, make sure that your node-type controller checks these two"
+" fields and throws a ``ResourceNotFoundException`` if they’re not "
+"satisfied."
 msgstr ""
 
