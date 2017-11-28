@@ -64,7 +64,6 @@ A **quick solution** should be to edit your `composer.json` file to keep compati
 .. code:: json
 
     "config": {
-        "bin-dir": "bin",
         "platform": {
             "php": "5.6.1"
         }
