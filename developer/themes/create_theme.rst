@@ -44,8 +44,6 @@ class.
 Edit your main class informations (``MyAwesomeThemeApp.php``)
 
 .. code-block:: php
-   :linenos:
-   :emphasize-lines: 11,25,30,34,38,42
 
     /*
      * Copyright REZO ZERO 2016

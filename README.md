@@ -28,3 +28,11 @@ And build your documentation with:
 ```bash
 make -e SPHINXOPTS="-D language='fr'" html
 ```
+
+## Export in PDF
+
+```bash
+make latex
+cd _build/latex
+pdflatex -interaction=batchmode Roadiz
+```
