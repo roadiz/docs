@@ -4,6 +4,17 @@
     <img src="https://readthedocs.org/projects/roadiz/badge/?version=latest">
 </a>
 
+## Install locally
+
+```bash
+# Make sure python3 is setup
+# On MacOS, use brew
+# brew install python3
+
+pip3 install sphinx
+pip3 install sphinx-intl
+```
+
 ## Prepare translations
 
 ```bash
