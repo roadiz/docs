@@ -9,21 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.16.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 13:38+0100\n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.5.1\n"
 
-# e2e8c59f009748a5ae89fe1c61b3a598
 #: ../../developer/first-steps/docker.rst:4
 msgid "Using Docker for production"
 msgstr ""
 
-# b613451589764ad195133d3247e56cc9
 #: ../../developer/first-steps/docker.rst:6
 msgid ""
 "Once you’ve developed your Roadiz website with your dedicated theme with "
@@ -31,7 +29,6 @@ msgid ""
 "*Docker* image to ease up and speed up deployment."
 msgstr ""
 
-# b1c8fb3b162647afa62f069e7ae8c055
 #: ../../developer/first-steps/docker.rst:12
 msgid ""
 "Docker deployment requires knowledge with *Docker* and some sys-admin "
@@ -40,7 +37,6 @@ msgid ""
 "docker>`_."
 msgstr ""
 
-# 4fd0717b97634e9297156330945158bf
 #: ../../developer/first-steps/docker.rst:15
 msgid ""
 "As a Roadiz website requires a database server and some SSH protocol to "
@@ -50,65 +46,55 @@ msgid ""
 "together."
 msgstr ""
 
-# df67c4e9bf75489abf09354d1d1bd578
 #: ../../developer/first-steps/docker.rst:20
 msgid "A simple docker-compose example"
 msgstr ""
 
-# 8cefadb3785f41108e02a13b1f009591
 #: ../../developer/first-steps/docker.rst:22
 msgid ""
 "In a blank folder named `site/` create a `docker-compose.yml` file with "
 "the following content:"
 msgstr ""
 
-# 2aa171dff0074f718b09684c728320f4
-#: ../../developer/first-steps/docker.rst:77
+#: ../../developer/first-steps/docker.rst:75
 msgid ""
 "Then launch your container network with ``docker-compose up -d``. This "
 "will create:"
 msgstr ""
 
-# d93fe3001bb6488798956c71ac097676
-#: ../../developer/first-steps/docker.rst:79
+#: ../../developer/first-steps/docker.rst:77
 msgid "``site_MAIN_1`` container"
 msgstr ""
 
-# f654b17a85654896be36da51d01ab782
-#: ../../developer/first-steps/docker.rst:80
+#: ../../developer/first-steps/docker.rst:78
 msgid "``site_DB_1`` container"
 msgstr ""
 
-# aba9c7b04b3e457982bfacc474050b9c
-#: ../../developer/first-steps/docker.rst:81
+#: ../../developer/first-steps/docker.rst:79
 msgid "``site_SSH_1`` container"
 msgstr ""
 
-# f738062056ad4ac9b00848e63f6ee33f
-#: ../../developer/first-steps/docker.rst:82
+#: ../../developer/first-steps/docker.rst:80
 msgid "``site_DATA`` volume"
 msgstr ""
 
-# 2cdf842df8674afa80ee560d98124fcd
-#: ../../developer/first-steps/docker.rst:83
+#: ../../developer/first-steps/docker.rst:81
 msgid "``site_DBDATA`` volume"
 msgstr ""
 
-# 62eff857d9e74af8be4a886f9917dafa
-#: ../../developer/first-steps/docker.rst:85
+#: ../../developer/first-steps/docker.rst:83
 msgid ""
-"After your container launch, you’ll find a blank Roadiz install with no "
-"theme, and no data. Before copying your data (``files/`` folder) you’ll "
-"need to pull your theme from a *git* repository."
+"After your container launch, you’ll find a blank ``/data/http`` folder in"
+" which you’ll have to clone your Roadiz application. Then you’ll be able "
+"to import your database and your files (``bin/roadiz files:import "
+"yourZipFile.zip``)."
 msgstr ""
 
-# 8b9f8f0f5d1747098f1dc3715be255d5
-#: ../../developer/first-steps/docker.rst:90
+#: ../../developer/first-steps/docker.rst:87
 msgid "Using a deploy/access key for Github/Gitlab"
 msgstr ""
 
-# 30c9c304d1bd4b6c8054af6006cef788
-#: ../../developer/first-steps/docker.rst:92
+#: ../../developer/first-steps/docker.rst:89
 msgid ""
 "Roadiz docker image is configured to look for your *SSH* public key in "
 "``/data/secure/ssh``. Pay attention to generate you *ssh-key* as ``core``"
@@ -116,32 +102,27 @@ msgid ""
 "folder."
 msgstr ""
 
-# c29822f0bbe4467dbcb55b80600c83f9
-#: ../../developer/first-steps/docker.rst:116
+#: ../../developer/first-steps/docker.rst:113
 msgid "Configure Roadiz"
 msgstr ""
 
-# 54e94c1031024f98bbf2bde524e4d2fe
-#: ../../developer/first-steps/docker.rst:118
+#: ../../developer/first-steps/docker.rst:115
 msgid ""
 "To configure your Roadiz website, edit your "
-"``/data/http/conf/config.yml`` with *nano* editor. If you get some "
+"``/data/http/app/conf/config.yml`` with *nano* editor. If you get some "
 "*\"Unknown terminal error\"*, you have to edit your TERM environment "
 "variable: ``export TERM=xterm``."
 msgstr ""
 
-# 9b329f0a328d48e89ee920d16e8c577b
-#: ../../developer/first-steps/docker.rst:122
+#: ../../developer/first-steps/docker.rst:119
 msgid "Database"
 msgstr ""
 
-# 01ca5f022c554885bf494e5cd346fee3
-#: ../../developer/first-steps/docker.rst:141
+#: ../../developer/first-steps/docker.rst:138
 msgid "Mailer"
 msgstr ""
 
-# f3fc3c49086646e39f4430165c206c8c
-#: ../../developer/first-steps/docker.rst:143
+#: ../../developer/first-steps/docker.rst:140
 msgid ""
 "Roadiz docker image does not provide any mail transport agent. You’ll "
 "need to subscribe to an external SMTP service if your website needs to "
@@ -150,32 +131,27 @@ msgid ""
 " in configuration."
 msgstr ""
 
-# cd8a6f995c674cc994f6ec7cbc8b94d7
-#: ../../developer/first-steps/docker.rst:159
+#: ../../developer/first-steps/docker.rst:156
 msgid "Logs"
 msgstr ""
 
-# 5bea2fa5894245a49913360b4823a130
-#: ../../developer/first-steps/docker.rst:161
+#: ../../developer/first-steps/docker.rst:158
 msgid ""
 "See manual configuration documentation section about "
 ":ref:`monolog_handlers`."
 msgstr ""
 
-# c2bafa78864e4136aafdcd84b0c62d08
-#: ../../developer/first-steps/docker.rst:164
+#: ../../developer/first-steps/docker.rst:161
 msgid "Copy data from your local environment with the SSH container"
 msgstr ""
 
-# 70fee73d589440309349a3dec7ea6d5a
-#: ../../developer/first-steps/docker.rst:168
+#: ../../developer/first-steps/docker.rst:165
 msgid ""
 "We assume that you won’t do a fresh install of your website with "
 "*Docker*. So you won’t need to access to the ``install.php`` entry point."
 msgstr ""
 
-# 7233423dc788428e8be2883e421d172a
-#: ../../developer/first-steps/docker.rst:171
+#: ../../developer/first-steps/docker.rst:168
 msgid ""
 "To copy your data from your local environment you will use your *SSH* "
 "container to perform some ``scp`` and ``rsync`` commands between your "
@@ -186,98 +162,82 @@ msgid ""
 "``sudo`` *only* connections)."
 msgstr ""
 
-# 8b8a6d908b114fd5a46f49819902283a
-#: ../../developer/first-steps/docker.rst:179
+#: ../../developer/first-steps/docker.rst:176
 msgid "Pushing database"
 msgstr ""
 
-# cc147faf861144dba664df4f80eb68cd
-#: ../../developer/first-steps/docker.rst:181
+#: ../../developer/first-steps/docker.rst:178
 msgid ""
 "Export a *MySQL* dump from your *Vagrant* or other local development: "
 "``mysqldump -ulocaluser -p localdb > local/path/site_2016_10_07.sql``."
 msgstr ""
 
-# a0c7cbec49e94c7cb9a17d1b66983d51
-# da2e234f133749a0a8a259054e3f260e
-#: ../../developer/first-steps/docker.rst:182
-#: ../../developer/first-steps/docker.rst:191
+#: ../../developer/first-steps/docker.rst:179
+#: ../../developer/first-steps/docker.rst:188
 msgid ""
 "Make sure your *SSH* container is started and find its public port: "
 "``docker start site_SSH_1``."
 msgstr ""
 
-# 56fe20e5c07641de83a6001721dd99bb
-#: ../../developer/first-steps/docker.rst:183
+#: ../../developer/first-steps/docker.rst:180
 msgid ""
 "Copy from your computer to your *Docker* container: ``scp -P XXXXX "
 "local/path/site_2016_10_07.sql core@site.com:/data/secure/``."
 msgstr ""
 
-# 5c80f181710843c3bd25abc40a50d896
-#: ../../developer/first-steps/docker.rst:184
+#: ../../developer/first-steps/docker.rst:181
 msgid "Connect to your Docker container: ``ssh -p XXXXX core@site.com``."
 msgstr ""
 
-# 95d4258aaaa446be933a6bda7b69f32d
-#: ../../developer/first-steps/docker.rst:185
+#: ../../developer/first-steps/docker.rst:182
 msgid ""
 "Import your dump: ``cd /data/secure; mysql -hmariadb -uusername -p "
 "username < site_2016_10_07.sql;``."
 msgstr ""
 
-# 194e197289a24e4aab23e4cf9a2ca6c5
-#: ../../developer/first-steps/docker.rst:186
+#: ../../developer/first-steps/docker.rst:183
 msgid ""
 "Regenerate your entities: ``cd /data/http; bin/roadiz "
 "generate:entities;``."
 msgstr ""
 
-# 7a552671577849bab3933dd00d4706f4
-#: ../../developer/first-steps/docker.rst:189
+#: ../../developer/first-steps/docker.rst:186
 msgid "Pushing documents and fonts"
 msgstr ""
 
-# 90813d93025b463ba4cee6428d7e83d5
-#: ../../developer/first-steps/docker.rst:192
-msgid "Go to your local ``files/`` folder"
-msgstr ""
-
-# 83966aae72fc4852b8142aa9cc7219c7
-#: ../../developer/first-steps/docker.rst:193
+#: ../../developer/first-steps/docker.rst:189
 msgid ""
-"Synchronize your files between your computer and your Docker container: "
-"``rsync -avcz -e \"ssh -p XXXXX\" ./ core@site.com:/data/http/files/``. "
-"Make sure your paths ends with ``/`` not to copy files at the same level "
-"of ``files/`` folder."
+"Send your ``.zip`` archive generated with ``bin/roadiz files:export`` "
+"command to your Docker container."
 msgstr ""
 
-# f89bf75ecccb4b4280603eee0b7d0ea2
-#: ../../developer/first-steps/docker.rst:196
+#: ../../developer/first-steps/docker.rst:190
+msgid ""
+"Execute ``bin/roadiz files:import yourZipArchive.zip`` command to store "
+"files in Roadiz folders."
+msgstr ""
+
+#: ../../developer/first-steps/docker.rst:193
 msgid "Clear cache"
 msgstr ""
 
-# 4495483b20044bc09ec1f8877cd803ae
-#: ../../developer/first-steps/docker.rst:198
+#: ../../developer/first-steps/docker.rst:195
 msgid ""
 "Connect to your real Docker *Roadiz* container. **Not the SSH one**: "
 "``docker exec -ti --user=core site bash``."
 msgstr ""
 
-# 3c3e862756ba4e318656304f843854ef
-#: ../../developer/first-steps/docker.rst:199
+#: ../../developer/first-steps/docker.rst:196
 msgid ""
 "Call the ``clear_cache.php`` entry point with ``curl`` command: ``curl "
 "http://localhost/clear_cache.php``."
 msgstr ""
 
-# 2a29668d64e64307a6cd926b8b6b1839
-#: ../../developer/first-steps/docker.rst:202
+#: ../../developer/first-steps/docker.rst:199
 msgid "Use a proxy to secure your containers"
 msgstr ""
 
-# 400135e09c62467aa6e373cc3f551c3b
-#: ../../developer/first-steps/docker.rst:204
+#: ../../developer/first-steps/docker.rst:201
 msgid ""
 "For better security and *SSL support* with awesome and free *Let’s "
 "Encrypt* certificates, you can use `jwilder/nginx-proxy "
@@ -289,8 +249,7 @@ msgid ""
 "*nginx front proxy* to your container."
 msgstr ""
 
-# e2c9a433495a42dd91439b55e056b53a
-#: ../../developer/first-steps/docker.rst:212
+#: ../../developer/first-steps/docker.rst:209
 msgid ""
 "As *Docker Compose* encapsulates every composed services in their own "
 "network, you have to explicitely set ``network_mode: \"bridge\"`` mode. "
@@ -301,29 +260,60 @@ msgid ""
 "setup, do not forget to add it in its ``docker-compose.yml`` too."
 msgstr ""
 
-# 123a695b3a9a4df994d61850d43b5a35
-#: ../../developer/first-steps/docker.rst:237
+#: ../../developer/first-steps/docker.rst:233
 msgid ""
 "You have to understand that using a *front-proxy* will obfuscate your "
 "visitors IP inside your Roadiz container. You’ll have to trust the proxy "
 "request to get real remote IP and protocol. (See :ref:`reverse_proxy`)"
 msgstr ""
 
-# 24b4ec45e393439fba165cb846563653
-#: ../../developer/first-steps/docker.rst:242
+#: ../../developer/first-steps/docker.rst:238
 msgid "Use Solr"
 msgstr ""
 
-# a7d9845d8e1f4e63b30291c21bdac0da
-#: ../../developer/first-steps/docker.rst:244
+#: ../../developer/first-steps/docker.rst:240
 msgid "See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_."
 msgstr ""
 
-# 52dbdac7aa3f4807bb7659e6bdf81fc7
-#: ../../developer/first-steps/docker.rst:288
+#: ../../developer/first-steps/docker.rst:283
 msgid ""
 "Then configure you Roadiz website to connect it to your Solr server (see "
 ":ref:`solr_endpoint`). Do not forget to use ``solr`` hostname and "
 "``site`` core name."
 msgstr ""
+
+# 62eff857d9e74af8be4a886f9917dafa
+#~ msgid ""
+#~ "After your container launch, you’ll find"
+#~ " a blank Roadiz install with no "
+#~ "theme, and no data. Before copying "
+#~ "your data (``files/`` folder) you’ll "
+#~ "need to pull your theme from a "
+#~ "*git* repository."
+#~ msgstr ""
+
+# 54e94c1031024f98bbf2bde524e4d2fe
+#~ msgid ""
+#~ "To configure your Roadiz website, edit"
+#~ " your ``/data/http/conf/config.yml`` with *nano*"
+#~ " editor. If you get some *\"Unknown"
+#~ " terminal error\"*, you have to edit"
+#~ " your TERM environment variable: ``export"
+#~ " TERM=xterm``."
+#~ msgstr ""
+
+# 90813d93025b463ba4cee6428d7e83d5
+#~ msgid "Go to your local ``files/`` folder"
+#~ msgstr ""
+
+# 83966aae72fc4852b8142aa9cc7219c7
+#~ msgid ""
+#~ "Synchronize your files between your "
+#~ "computer and your Docker container: "
+#~ "``rsync -avcz -e \"ssh -p XXXXX\" "
+#~ "./ core@site.com:/data/http/files/``. Make sure "
+#~ "your paths ends with ``/`` not to"
+#~ " copy files at the same level "
+#~ "of ``files/`` folder."
+#~ msgstr ""
 

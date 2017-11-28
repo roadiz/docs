@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.5.1\n"
 
 #: ../../developer/nodes-system/node_type_fields.rst:5
 msgid "Node-type fields"
@@ -49,48 +49,76 @@ msgid "Single-line text"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:20
-msgid "Date and time"
+msgid "Date"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:21
-msgid "Basic text"
+msgid "Date and time"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:22
-msgid "Markdown text"
+msgid "Basic text"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:23
-msgid "Boolean"
+msgid "Markdown text"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:24
-msgid "Integer number"
+msgid "Boolean"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:25
-msgid "Decimal number"
+msgid "Integer number"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:26
-msgid "Email"
+msgid "Decimal number"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:27
-msgid "Color"
+msgid "Email"
 msgstr ""
 
 #: ../../developer/nodes-system/node_type_fields.rst:28
+msgid "Color"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:29
 msgid "Single geographic coordinates"
 msgstr ""
 
+#: ../../developer/nodes-system/node_type_fields.rst:30
+msgid "JSON code"
+msgstr ""
+
 #: ../../developer/nodes-system/node_type_fields.rst:31
+msgid "CSS code"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:32
+msgid "Country code (ISO 3166-1 alpha-2)"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:33
+msgid "YAML code"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:34
+msgid "Many to many join"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:35
+msgid "Many to one join"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:38
 msgid ""
 "*Single geographic coordinates* field stores its data in JSON format. "
 "Make sure you don’t have manually writen data in its input field."
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:35
+#: ../../developer/nodes-system/node_type_fields.rst:42
 msgid ""
 "To use *Single geographic coordinates* you must create a *Google API "
 "Console* account with *Maps API v3* activated. Then, create a *Browser "
@@ -99,53 +127,53 @@ msgid ""
 "input will be display instead of *Roadiz Map Widget*."
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:41
+#: ../../developer/nodes-system/node_type_fields.rst:52
 msgid "Virtual data"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:43
+#: ../../developer/nodes-system/node_type_fields.rst:54
 msgid ""
 "Virtual types do not really store data in node-source table. They display"
 " custom widgets in your editing page to link documents, nodes or custom-"
 "forms with your node-source."
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:47
+#: ../../developer/nodes-system/node_type_fields.rst:58
 msgid "Documents"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:48
+#: ../../developer/nodes-system/node_type_fields.rst:59
 msgid "Nodes references"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:49
+#: ../../developer/nodes-system/node_type_fields.rst:60
 msgid "Custom form"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:52
+#: ../../developer/nodes-system/node_type_fields.rst:63
 msgid "Complex data"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:54
+#: ../../developer/nodes-system/node_type_fields.rst:65
 msgid ""
 "These fields types must be created with *default values* (comma "
 "separated) in order to display available default choices for “select-box”"
 " types:"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:57
+#: ../../developer/nodes-system/node_type_fields.rst:68
 msgid "Single choice"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:58
+#: ../../developer/nodes-system/node_type_fields.rst:69
 msgid "Multiple choices"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:59
+#: ../../developer/nodes-system/node_type_fields.rst:70
 msgid "Children nodes"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:61
+#: ../../developer/nodes-system/node_type_fields.rst:72
 msgid ""
 "*Children node* field type is a special virtual field that will display a"
 " custom node-tree inside your editing page. You can add *quick-create* "
@@ -153,21 +181,59 @@ msgid ""
 " separated."
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:66
+#: ../../developer/nodes-system/node_type_fields.rst:77
 msgid "Universal fields"
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:68
+#: ../../developer/nodes-system/node_type_fields.rst:79
 msgid ""
 "If you need a field to hold exactly the same data for all translations, "
 "you can set it as *universal*. For example for documents, numeric and "
 "boolean data that do not change from one language to another."
 msgstr ""
 
-#: ../../developer/nodes-system/node_type_fields.rst:72
+#: ../../developer/nodes-system/node_type_fields.rst:83
 msgid ""
 "It will duplicate data at each save time from default translation to "
 "others. It will also hide the edit field from non-default translation to "
 "avoid confusion."
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:88
+msgid "YAML field"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:90
+msgid ""
+"When you use YAML field type, you get an additional method to return your"
+" code already parsed. If your field is named ``data``, your methods will "
+"be generated in your *NSEntity* as ``getData()`` and "
+"``getDataAsObject()``."
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:93
+msgid "``getData()`` method will return your YAML code as *string*."
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:94
+msgid ""
+"``getDataAsObject()`` will return a mixed data,array or ``stdObject`` "
+"according to your code formatting. This method will throw a "
+"``\\Symfony\\Component\\Yaml\\Exception\\ParseException`` if your YAML "
+"code is not valid."
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:97
+msgid "Many to many and Many to one joins"
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:99
+msgid ""
+"You can create custom relations between your node-source and whatever "
+"Doctrine entities in *Roadiz* or in your theme."
+msgstr ""
+
+#: ../../developer/nodes-system/node_type_fields.rst:102
+msgid "You must fill the *default values* field for these two types."
 msgstr ""
 

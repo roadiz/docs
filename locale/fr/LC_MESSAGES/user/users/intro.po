@@ -4,23 +4,25 @@
 # documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-13 14:49+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2017-11-28 13:37+0100\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: Ambroise Maupate <ambroise@rezo-zero.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: ../../user/users/intro.rst:4
 msgid "Managing users"
-msgstr ""
+msgstr "Gérer les utilisateurs"
 
 #: ../../user/users/intro.rst:6
 msgid "This is a simple guide on how to create and manage users using Roadiz CLI."
@@ -28,14 +30,14 @@ msgstr ""
 
 #: ../../user/users/intro.rst:8
 msgid ""
-"There are two ways of adding users, via the back-office and in command-"
-"line, both will be displayed in each section."
+"There are two ways of adding users, via the back-office and in command-line, "
+"both will be displayed in each section."
 msgstr ""
 
 #: ../../user/users/intro.rst:10
 msgid ""
-"When working with Roadiz in the back-office, you can easily manage users "
-"via the *User system* icon in the toolbar."
+"When working with Roadiz in the back-office, you can easily manage users via "
+"the *User system* icon in the toolbar."
 msgstr ""
 
 #: ../../user/users/intro.rst:16
@@ -48,10 +50,9 @@ msgstr ""
 
 #: ../../user/users/intro.rst:23
 msgid ""
-"The command-line ``bin/roadiz users:create loginname`` starts a new "
-"interactive user creation session. You will create a new user with login "
-"and email, you can also choose if it's a backend user and if it's a "
-"superadmin."
+"The command-line ``bin/roadiz users:create loginname`` starts a new interactive "
+"user creation session. You will create a new user with login and email, you can "
+"also choose if it's a backend user and if it's a superadmin."
 msgstr ""
 
 #: ../../user/users/intro.rst:27
@@ -64,8 +65,7 @@ msgstr ""
 
 #: ../../user/users/intro.rst:34
 msgid ""
-"The command ``bin/roadiz users:delete loginname`` delete the user "
-"\"loginname\"."
+"The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
 msgstr ""
 
 #: ../../user/users/intro.rst:37
@@ -74,14 +74,14 @@ msgstr ""
 
 #: ../../user/users/intro.rst:39
 msgid ""
-"You can edit a users profile the same way you edit a node-type. You can "
-"add roles in the *Roles* tab."
+"You can edit a users profile the same way you edit a node-type. You can add "
+"roles in the *Roles* tab."
 msgstr ""
 
 #: ../../user/users/intro.rst:44
 msgid ""
-"If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would "
-"look like this in command-line:"
+"If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would look "
+"like this in command-line:"
 msgstr ""
 
 #: ../../user/users/intro.rst:53
@@ -90,10 +90,8 @@ msgstr ""
 
 #: ../../user/users/intro.rst:55
 msgid ""
-"It is possible to enable or disable users with ``users:enable`` or "
-"``users:disable`` command. If a user doesn't remember his password, you "
-"can regenerate it with the ``users:password`` command. For more "
-"informations and more actions, we invite you to check available commands "
-"with:"
+"It is possible to enable or disable users with ``users:enable`` or ``users:"
+"disable`` command. If a user doesn't remember his password, you can regenerate "
+"it with the ``users:password`` command. For more informations and more actions, "
+"we invite you to check available commands with:"
 msgstr ""
-

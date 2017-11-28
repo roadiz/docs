@@ -9,66 +9,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 13:38+0100\n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.5.1\n"
 
-# c74875ade8d642f4a7df255d2e35e426
 #: ../../developer/first-steps/vagrant.rst:4
 msgid "Using Vagrant for development"
 msgstr ""
 
-# bf940fd3c6aa48479de41e83bb66e195
 #: ../../developer/first-steps/vagrant.rst:6
 msgid ""
 "Roadiz comes with a dedicated ``Vagrantfile`` which is configured to run "
-"a *LEMP* stack (Nginx + PHP7.0-FPM + MariaDB), a *phpMyAdmin*, a "
-"*Mailcatcher* and an *Apache Solr server*. This will be useful to develop"
-" your website on your local computer."
+"the official ``roadiz/standard-edition`` box with a *LEMP* stack (Nginx +"
+" PHP7.0-FPM + MariaDB), a *phpMyAdmin*, a *Mailcatcher* and an *Apache "
+"Solr server*. This will be useful to develop your website on your local "
+"computer."
 msgstr ""
 
-# 2a369aaff47f42639dca06de011bc185
 #: ../../developer/first-steps/vagrant.rst:10
 msgid ""
-"Once you’ve cloned Roadiz’ sources, copy the "
-"``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your website "
+"Once you’ve created your Roadiz project, *Composer* should has copied "
+"``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your project "
 "root. Then do a ``vagrant up`` in Roadiz’ folder. Then `Vagrant "
 "<https://www.vagrantup.com/>`_ will run your code in ``/var/www`` and you"
 " will be able to completely use ``bin/roadiz`` commands without bloating "
 "your computer with lots of binaries."
 msgstr ""
 
-# 20ef4943184d477390adb861ae00a76c
 #: ../../developer/first-steps/vagrant.rst:14
 msgid "Once vagrant VM has provisioned you will be able to use:"
 msgstr ""
 
-# 68a90471b88147849821929796cc32bd
 #: ../../developer/first-steps/vagrant.rst:16
 msgid "``http://192.168.33.10/install.php`` to proceed to install."
 msgstr ""
 
-# 85e9022254a1415db761f516cb1fb868
 #: ../../developer/first-steps/vagrant.rst:17
 msgid "``http://192.168.33.10:8983/solr`` to use *Apache Solr* admin."
 msgstr ""
 
-# 801c84913d8648b7a12bb22c3ee56098
 #: ../../developer/first-steps/vagrant.rst:18
 msgid "``http://192.168.33.10/phpmyadmin`` for your *MySQL* db admin."
 msgstr ""
 
-# 62bc92e6c8dc4f5395a9ddb2289683e3
 #: ../../developer/first-steps/vagrant.rst:19
 msgid "``http://192.168.33.10:1080`` for your *Mailcatcher* tool."
 msgstr ""
 
-# abef04627cf44b86817e35b23b765436
 #: ../../developer/first-steps/vagrant.rst:21
 msgid ""
 "Do not hesitate to add an entry in your ``/etc/hosts`` file to use a "
@@ -77,7 +69,6 @@ msgid ""
 "increment your private IP**."
 msgstr ""
 
-# 3faab5615517424daeb20d0fd00b19da
 #: ../../developer/first-steps/vagrant.rst:33
 msgid ""
 "Be careful, **Windows users**, this ``Vagrantfile`` is configured to use "
@@ -85,57 +76,18 @@ msgid ""
 "*OS X* and *Linux* user this is built-in your system, so have fun!"
 msgstr ""
 
-# 1bce206f9810479c8a34fd2226ae64e1
 #: ../../developer/first-steps/vagrant.rst:38
-msgid "Provisioners"
-msgstr ""
-
-# 2e045e6821e24d258fd6f000e5ecade1
-#: ../../developer/first-steps/vagrant.rst:40
-msgid ""
-"If you don’t need *Apache Solr* or any development tools on your "
-"*Vagrant* VM, you can choose the ``roadiz`` provisioner which only set up"
-" the *LEMP* stack. So that you can use *Composer* directly on your "
-"**host** machine to take benefit of *Composer* cache if you have lots of "
-"Roadiz instances."
-msgstr ""
-
-# 8bef8ecc5ee3410e9e9105eb7d47370d
-#: ../../developer/first-steps/vagrant.rst:64
-msgid "When you use default `vagrant up` command, it’s the same as using:"
-msgstr ""
-
-# afd6cf666e7645a693f1725bf6c9e5a2
-#: ../../developer/first-steps/vagrant.rst:73
-msgid ""
-"Pay attention that *mailcatcher* and *solr* provision scripts may take "
-"several minutes to run as they have to download many dependencies and "
-"compile sources for their installation."
-msgstr ""
-
-# b54c3f7edb7b4501a4334639529bc1fb
-#: ../../developer/first-steps/vagrant.rst:76
-msgid ""
-"If you already provisioned your Vagrant and you just want to add "
-"*mailcatcher* for example, you can type ``vagrant provision --provision-"
-"with mailcatcher``. No data will be lost in your Vagrant box unless you "
-"``destroy`` it."
-msgstr ""
-
-# a968263eca14475e89e7a4e75a3ff665
-#: ../../developer/first-steps/vagrant.rst:81
 msgid "Access entry-points"
 msgstr ""
 
-# 86c759e94ee04e7a9c1387986fe17c8a
-#: ../../developer/first-steps/vagrant.rst:83
+#: ../../developer/first-steps/vagrant.rst:40
 msgid ""
-"``install.php`` and ``dev.php`` entry points are IP restricted to "
-"*localhost*. To be able to use them with a *Vagrant* setup, you’ll need "
-"to add your host machine IP to the ``$allowedIp`` array. We already set "
-"two IP for you that should work for *forwarded* and *private* requests. "
-"Just uncomment the following lines in these files and edit them if "
-"necessary."
+"``web/install.php``, ``web/clear_cache.php`` and ``web/dev.php`` entry "
+"points are IP restricted to *localhost*. To be able to use them with a "
+"*Vagrant* setup, you’ll need to add your host machine IP to the "
+"``$allowedIp`` array. We already set two IP for you that should work for "
+"*forwarded* and *private* requests. Just uncomment the following lines in"
+" these files and edit them if necessary."
 msgstr ""
 
 #~ msgid ""
@@ -186,13 +138,95 @@ msgstr ""
 #~ " latest version published on "
 #~ "*ppa:ondrej/php* repository. If you do "
 #~ "not want to use it and you "
-#~ "prefer using PHP 5.6, you can comment"
-#~ " out provisioner scripts in "
+#~ "prefer using PHP 5.6, you can "
+#~ "comment out provisioner scripts in "
 #~ "``Vagrantfile``. This changes can’t be "
 #~ "done once you’ve provisioned your "
 #~ "Vagrant VM. This is applicable only "
 #~ "for ``roadiz`` and ``mailcatcher`` scripts,"
 #~ " others can be provisioned with both"
 #~ " PHP versions."
+#~ msgstr ""
+
+# bf940fd3c6aa48479de41e83bb66e195
+#~ msgid ""
+#~ "Roadiz comes with a dedicated "
+#~ "``Vagrantfile`` which is configured to "
+#~ "run a *LEMP* stack (Nginx + "
+#~ "PHP7.0-FPM + MariaDB), a *phpMyAdmin*, a"
+#~ " *Mailcatcher* and an *Apache Solr "
+#~ "server*. This will be useful to "
+#~ "develop your website on your local "
+#~ "computer."
+#~ msgstr ""
+
+# 2a369aaff47f42639dca06de011bc185
+#~ msgid ""
+#~ "Once you’ve cloned Roadiz’ sources, copy"
+#~ " the ``samples/Vagrantfile.sample`` file as "
+#~ "``Vagrantfile`` at your website root. "
+#~ "Then do a ``vagrant up`` in "
+#~ "Roadiz’ folder. Then `Vagrant "
+#~ "<https://www.vagrantup.com/>`_ will run your "
+#~ "code in ``/var/www`` and you will "
+#~ "be able to completely use ``bin/roadiz``"
+#~ " commands without bloating your computer"
+#~ " with lots of binaries."
+#~ msgstr ""
+
+# 1bce206f9810479c8a34fd2226ae64e1
+#~ msgid "Provisioners"
+#~ msgstr ""
+
+# 2e045e6821e24d258fd6f000e5ecade1
+#~ msgid ""
+#~ "If you don’t need *Apache Solr* or"
+#~ " any development tools on your "
+#~ "*Vagrant* VM, you can choose the "
+#~ "``roadiz`` provisioner which only set up"
+#~ " the *LEMP* stack. So that you "
+#~ "can use *Composer* directly on your "
+#~ "**host** machine to take benefit of "
+#~ "*Composer* cache if you have lots "
+#~ "of Roadiz instances."
+#~ msgstr ""
+
+# 8bef8ecc5ee3410e9e9105eb7d47370d
+#~ msgid "When you use default `vagrant up` command, it’s the same as using:"
+#~ msgstr ""
+
+# afd6cf666e7645a693f1725bf6c9e5a2
+#~ msgid ""
+#~ "Pay attention that *mailcatcher* and "
+#~ "*solr* provision scripts may take "
+#~ "several minutes to run as they "
+#~ "have to download many dependencies and"
+#~ " compile sources for their installation."
+#~ msgstr ""
+
+# b54c3f7edb7b4501a4334639529bc1fb
+#~ msgid ""
+#~ "If you already provisioned your Vagrant"
+#~ " and you just want to add "
+#~ "*mailcatcher* for example, you can type"
+#~ " ``vagrant provision --provision-with "
+#~ "mailcatcher``. No data will be lost "
+#~ "in your Vagrant box unless you "
+#~ "``destroy`` it."
+#~ msgstr ""
+
+# 86c759e94ee04e7a9c1387986fe17c8a
+#~ msgid ""
+#~ "``install.php`` and ``dev.php`` entry points"
+#~ " are IP restricted to *localhost*. To"
+#~ " be able to use them with a "
+#~ "*Vagrant* setup, you’ll need to add "
+#~ "your host machine IP to the "
+#~ "``$allowedIp`` array. We already set two"
+#~ " IP for you that should work "
+#~ "for *forwarded* and *private* requests. "
+#~ "Just uncomment the following lines in"
+#~ " these files and edit them if "
+#~ "necessary."
 #~ msgstr ""
 
