@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2017-11-28 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.5.1\n"
 
 #: ../../developer/first-steps/moving.rst:4
 msgid "Moving a website to another server"
@@ -27,13 +27,17 @@ msgid "Before moving your website, make sure you have backed up your data:"
 msgstr ""
 
 #: ../../developer/first-steps/moving.rst:8
-msgid "Dump your database, using ``mysqldump`` or ``pg_dump`` tools."
+msgid ""
+"Dump your database, using classic ``mysqldump`` or ``pg_dump`` tools. If "
+"you’re using *MySQL* ``bin/roadiz database:dump -c`` command can speed-up"
+" the process by naming automatically your file against your *app-"
+"namespace*."
 msgstr ""
 
 #: ../../developer/first-steps/moving.rst:9
 msgid ""
-"Archive your ``files/`` folder, it contains all your documents and font "
-"files."
+"Archive your files using ``bin/roadiz files:export``, Roadiz will create "
+"a ZIP file with your public/private documents and fonts."
 msgstr ""
 
 #: ../../developer/first-steps/moving.rst:12
@@ -71,7 +75,7 @@ msgstr ""
 
 #: ../../developer/first-steps/moving.rst:28
 msgid ""
-"When you have edited your ``conf/config.yml`` file, regenerate your "
+"When you have edited your ``app/conf/config.yml`` file, regenerate your "
 "*Doctrine* entities class files:"
 msgstr ""
 
@@ -79,7 +83,7 @@ msgstr ""
 msgid "Now you can perform a schema update without losing your nodes data:"
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:43
+#: ../../developer/first-steps/moving.rst:44
 msgid ""
 "If you are using an OPcode cache like XCache or APC, you’ll need to purge"
 " cache manually because it can't be done from a CLI interface as they are"
@@ -87,36 +91,36 @@ msgid ""
 "FPM* service or *Apache* if your are using *mod_php*."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:48
+#: ../../developer/first-steps/moving.rst:49
 msgid "Synchronize documents and fonts"
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:50
+#: ../../developer/first-steps/moving.rst:51
 msgid ""
 "You can move your ``files/`` folder using SFTP but the best way is to use"
 " ``rsync`` command as it will upload only newer files and it is much "
 "faster."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:59
+#: ../../developer/first-steps/moving.rst:61
 msgid ""
 "It works in the other way too. If you want to work on your local copy "
 "with up to date files and fonts, you can download actual files from the "
 "production website:"
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:70
+#: ../../developer/first-steps/moving.rst:73
 msgid "Moving to a non-SSH hosting plan"
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:72
+#: ../../developer/first-steps/moving.rst:75
 msgid ""
 "You have nearly finished your brand new website using Roadiz. You have "
 "been working on your own server using Git and Composer, up to this point "
 "everthing went well."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:75
+#: ../../developer/first-steps/moving.rst:78
 msgid ""
 "Now you have to push to production, but your prod-server has no SSH "
 "connection. You are stuck with an SFTP connection or worst, an old FTP "
@@ -124,15 +128,15 @@ msgid ""
 "possible."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:79
+#: ../../developer/first-steps/moving.rst:82
 msgid ""
 "Many shared-plan hosters offer you only one or two databases. When moving"
 " a Roadiz website, make sure that your database is empty and do not "
-"contain orphan tables, you must respect the rule "
-"“One app = One database”."
+"contain orphan tables, you must respect the rule “One app = One "
+"database”."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:83
+#: ../../developer/first-steps/moving.rst:86
 msgid ""
 "If you can ZIP on your production server or if you are going to push your"
 " files via FTP, do not forget to exclude ``.git`` and ``node_modules`` "
@@ -142,54 +146,69 @@ msgid ""
 "\"mywebsite/themes/**/static/node_modules/*\"``."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:89
+#: ../../developer/first-steps/moving.rst:92
 msgid ""
 "Before transfering your website, make sure you have ``.htaccess`` file in"
 " every sensitive folders. You can use the ``bin/roadiz "
 "generate:htaccess`` on your computer."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:90
+#: ../../developer/first-steps/moving.rst:93
 msgid ""
 "If you have at least SFTP, you should have to rights to zip/unzip on your"
 " distant server. So zip the whole Roadiz folder."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:91
+#: ../../developer/first-steps/moving.rst:94
 msgid ""
 "If you only have FTP, you must be prepared to transfer your Roadiz "
 "folder, file-by-file. Just get yourself a nice cup of coffee."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:92
+#: ../../developer/first-steps/moving.rst:95
 msgid ""
 "Once everything is copied on your production server, verify than you have"
 " the same files as on your dev-server."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:93
+#: ../../developer/first-steps/moving.rst:96
 msgid "Import your database dump with phpmyadmin or pgmyadmin."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:94
+#: ../../developer/first-steps/moving.rst:97
 msgid "Edit your ``conf/config.yml`` to match your new database credentials."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:95
+#: ../../developer/first-steps/moving.rst:98
 msgid ""
 "Verify that root ``.htaccess`` file contains every informations to enable"
 " Apache url-rewriting."
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:96
+#: ../../developer/first-steps/moving.rst:99
 msgid "Try to connect to your website"
 msgstr ""
 
-#: ../../developer/first-steps/moving.rst:97
+#: ../../developer/first-steps/moving.rst:100
 msgid ""
 "If it doesn’t work or display anything, read your PHP log file to "
 "understand where the problem comes from. It might be your database "
 "credentials or an oudated PHP version. Check that your hoster has "
 "installed every needed PHP extensions, see :ref:`requirements`."
 msgstr ""
+
+#~ msgid "Dump your database, using ``mysqldump`` or ``pg_dump`` tools."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Archive your ``files/`` folder, it "
+#~ "contains all your documents and font "
+#~ "files."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When you have edited your "
+#~ "``conf/config.yml`` file, regenerate your "
+#~ "*Doctrine* entities class files:"
+#~ msgstr ""
 
