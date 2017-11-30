@@ -236,16 +236,26 @@ htmlhelp_basename = 'Roadizdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
+latex_engine = 'xelatex'
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-'papersize': 'a4paper',
-
-# The font size ('10pt', '11pt' or '12pt').
-'pointsize': '9pt',
-
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
-'preamble': '\setcounter{tocdepth}{3}'
+    # The paper size ('letterpaper' or 'a4paper').
+    #
+    'papersize': 'a4paper',
+    'pxunit': '0.48bp', # 150dpi
+    # The font size ('10pt', '11pt' or '12pt').
+    #
+    'pointsize': '9pt',
+    # Remove blank pages
+    # http://stackoverflow.com/questions/5422997/sphinx-docs-remove-blank-pages-from-generated-pdfs
+    'classoptions': ',oneside',
+    # Latex figure (float) alignment
+    #
+    'figure_align': 'H',
+    'geometry': '\\usepackage[vmargin=2.5cm, hmargin=3cm]{geometry}',
+    # Additional stuff for the LaTeX preamble.
+    #
+    'preamble': '\\setcounter{tocdepth}{3}',
+    'fncychap': '\\usepackage[Bjornstrup]{fncychap}',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -253,7 +263,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'Roadiz.tex', u'Roadiz Documentation',
-   u'REZO ZERO', 'manual'),
+   u'Ambroise Maupate, Julien Blanchet', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -283,7 +293,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'roadiz', u'Roadiz Documentation',
-     [u'REZO ZERO'], 1)
+     [u'Ambroise Maupate, Julien Blanchet'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -297,7 +307,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'Roadiz', u'Roadiz Documentation',
-   u'REZO ZERO', 'Roadiz', 'Roadiz is a polymorphic CMS based on a node system which can handle many types of services.',
+   u'Ambroise Maupate, Julien Blanchet', 'Roadiz', 'Roadiz is a polymorphic CMS based on a node system which can handle many types of services.',
    'Miscellaneous'),
 ]
 
