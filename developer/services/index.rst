@@ -22,8 +22,10 @@ in your themes.
 * Firewall: ``$this->get('firewall')``
 * Assets packages: ``$this->get('assetPackages')``
 * Email manager: ``$this->get('emailManager')``
-* Accessing global settings: ``$this->get('settingsBag')``
-* Accessing global node-types: ``$this->get('nodeTypesBag')``
+* Contact form manager: ``$this->get('contactFormManager')``
+* Accessing global settings *ParameterBag*: ``$this->get('settingsBag')``
+* Accessing global node-types *ParameterBag*: ``$this->get('nodeTypesBag')``
+* Getting an entity handler: ``$this->get('factory.handler')->getHandler($myEntity)``
 * …
 
 Entity APIs

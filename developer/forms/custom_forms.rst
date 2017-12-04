@@ -80,7 +80,7 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
                             $request,
                             $this->getTranslator()->trans('form_has_been_successfully_sent')
                         );
-                        $response = $this->redirect($this->generateUrl($this->nodeSource->getHandler()->getParent()));
+                        $response = $this->redirect($this->generateUrl($this->nodeSource->getParent()));
                     }
                     /*
                      * If you are in a BlockController use ForceResponseException

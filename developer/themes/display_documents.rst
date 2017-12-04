@@ -5,7 +5,7 @@ Displaying documents
 ====================
 
 Did you noticed that *images* relation is available directly in nodeSource object? That’s a little shortcut to
-``nodeSource.handler.documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
+``(nodeSource|handler).documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your
 node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class.
 
 Now, you can use the ``DocumentViewer`` service to generate HTML view for your documents no matter they are *images*, *videos* or *embed*. Two *Twig* filters are available with ``Documents``:
