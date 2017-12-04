@@ -24,7 +24,7 @@ with the following content:
 
 .. code-block:: yaml
 
-    version: '2'
+    version: '3'
     services:
       MAIN:
         hostname: site
@@ -42,6 +42,11 @@ with the following content:
           - DB
         # For production only
         restart: always
+        healthcheck:
+          test: ["CMD", "curl", "-f", "http://localhost"]
+          interval: 5m0s
+          timeout: 5s
+          retries: 3
       DB:
         image: ambroisemaupate/mariadb
         environment:
@@ -137,7 +142,7 @@ Database
 Mailer
 ^^^^^^
 
-Roadiz docker image does not provide any mail transport agent. You’ll need to
+Roadiz docker image **does not provide any mail transport agent**. You’ll need to
 subscribe to an external SMTP service if your website needs to send emails.
 You can also link your Roadiz container with a dockerized *Postfix* service. In every cases
 you’ll have to fill in *mailer* details in configuration.
@@ -175,7 +180,7 @@ or ``sudo`` *only* connections).
 Pushing database
 ^^^^^^^^^^^^^^^^
 
-#. Export a *MySQL* dump from your *Vagrant* or other local development: ``mysqldump -ulocaluser -p localdb > local/path/site_2016_10_07.sql``.
+#. Export a *MySQL* dump from your *Vagrant* or other local development: ``bin/roadiz database:dump -c``.
 #. Make sure your *SSH* container is started and find its public port: ``docker start site_SSH_1``.
 #. Copy from your computer to your *Docker* container: ``scp -P XXXXX local/path/site_2016_10_07.sql core@site.com:/data/secure/``.
 #. Connect to your Docker container: ``ssh -p XXXXX core@site.com``.
@@ -241,7 +246,7 @@ See `Solr docker image documentation <https://hub.docker.com/_/solr/>`_.
 
 .. code-block:: yaml
 
-    version: '2'
+    version: '3'
     services:
       MAIN:
         hostname: site

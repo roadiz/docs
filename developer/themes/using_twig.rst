@@ -198,7 +198,7 @@ Roadiz’s Twig environment implements some useful filters, such as:
 * ``inlineMarkdown``: Convert a markdown text to HTML without parsing *block* elements (useful for just italics and bolds)
 * ``markdownExtra``: Convert a markdown-extra text to HTML (footnotes, simpler tables, abbreviations)
 * ``centralTruncate(length, offset, ellipsis)``: Generate an ellipsis at the middle of your text (useful for filenames). You can decenter the ellipsis position using ``offset`` parameter, and even change your ellipsis character with ``ellipsis`` parameter.
-$ ``handler``: Get an entity handler using Roadiz *HandlerFactory*.
+* ``handler``: Get an entity handler using Roadiz *HandlerFactory*.
 
 NodesSources filters
 ^^^^^^^^^^^^^^^^^^^^

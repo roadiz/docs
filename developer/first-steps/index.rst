@@ -7,7 +7,6 @@ First steps
 
    requirements
    installation
-   installation-source
    vagrant
    manual_config
    upgrading

@@ -12,22 +12,14 @@ Upgrading
     * With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``
     * With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``
 
-.. topic:: Standard Edition
 
-    Use *Composer* to update dependencies or Roadiz itself with *Standard edition*
+Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that
+your Roadiz *version constraint* is set in your project ``composer.json`` file, then:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        composer update -n --no-dev;
+    composer update -n --no-dev;
 
-.. topic:: Source Edition
-
-    If you are using *Roadiz Source edition*: download latest version using *Git*
-
-    .. code-block:: bash
-
-        cd your/webroot/folder;
-        git pull origin master;
 
 In order to avoid losing sensible node-sources data. You should
 regenerate your node-source entities classes files:
