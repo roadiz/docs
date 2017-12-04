@@ -46,7 +46,7 @@ content and informations you’ll need to print in your emails.
 
 Your `emails/email.html.twig` template should inherits from Roadiz `base_email.html.twig` template.
 
-.. code-block:: jinja+html
+.. code-block:: html+twig
 
     {% extends 'base_email.html.twig' %}
 
@@ -67,7 +67,7 @@ Your `emails/email.html.twig` template should inherits from Roadiz `base_email.h
 
 Your `emails/email.txt.twig` template should inherits from Roadiz `base_email.txt.twig` template.
 
-.. code-block:: jinja+html
+.. code-block:: html+twig
 
     {% extends 'base_email.txt.twig' %}
 

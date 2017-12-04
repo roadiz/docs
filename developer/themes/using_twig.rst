@@ -65,7 +65,7 @@ You can of course call objects members within Twig using the *dot* separator.
         <div>{{ nodeSource.content|markdown }}</div>
 
         {# Use complex syntax to grab documents #}
-        {% set images = nodeSource.handler.documentsFromFieldName('images') %}
+        {% set images = (nodeSource|handler).documentsFromFieldName('images') %}
         {# or Shortcut syntax #}
         {% set images = nodeSource.images %}
 
@@ -147,8 +147,6 @@ With Roadiz you will be able to grab each node-source children using custom ``ch
     </div>
     {% endfor %}
 
-`getChildren method <http://api.roadiz.io/RZ/Roadiz/Core/Handlers/NodesSourcesHandler.html#method_getChildren>`_ must be called with a valid ``AuthorizationChecker`` instance if you **don’t want anonymous visitors to see unpublished contents**. Its first parameters can be set to filter over children and override default ordering. If your are using ``|children`` filter, *authorization-checker* is automatically passed to ``getChildren`` method.
-
 .. code-block:: html+jinja
 
     {#
@@ -200,6 +198,7 @@ Roadiz’s Twig environment implements some useful filters, such as:
 * ``inlineMarkdown``: Convert a markdown text to HTML without parsing *block* elements (useful for just italics and bolds)
 * ``markdownExtra``: Convert a markdown-extra text to HTML (footnotes, simpler tables, abbreviations)
 * ``centralTruncate(length, offset, ellipsis)``: Generate an ellipsis at the middle of your text (useful for filenames). You can decenter the ellipsis position using ``offset`` parameter, and even change your ellipsis character with ``ellipsis`` parameter.
+* ``handler``: Get an entity handler using Roadiz *HandlerFactory*.
 
 NodesSources filters
 ^^^^^^^^^^^^^^^^^^^^

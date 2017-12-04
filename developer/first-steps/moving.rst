@@ -22,7 +22,7 @@ Once you’ve imported your database, you must edit manually your `conf/config.y
 you can reuse the former server’s one and adapt its database credentials.
 
 .. warning::
-    **Do not perform any schema update if no gen-src\\GeneratedNodeSources classes is available**,
+    **Do not perform any schema update if no app/gen-src/GeneratedNodeSources classes is available**,
     it will erase your NodesSources data as their entities files haven’t been generated yet.
 
 When you have edited your ``app/conf/config.yml`` file, regenerate your *Doctrine* entities class files:
