@@ -405,3 +405,57 @@ Then create your ``articles-feed.html.twig`` template to display each entity pag
             {% endif %}
         </nav>
     {% endif %}
+
+Alter your Roadiz queries with events
+-------------------------------------
+
+The ``FilterQueryBuilderEvent`` can be used when *EntityListManager* criteria or *API*
+services won’t offer enough parameters to select your entities. This event will be dispatched
+when just before *Doctrine* QueryBuilder will execute the DQL query so that you can add more
+DQL statements. This can be very powerful if you need, for example, to force an ``INNER JOIN``
+or to use complexe DQL commands.
+
+.. code-block:: php
+
+    // Prepare a Closure listener to filter every NodesSources
+    // which are not called "About"
+    $callable = function(FilterQueryBuilderEvent $event) {
+        // Specify the repository on which your filter will be applied
+        // Try to be the more precise you can
+
+        // This will be applied to all nodes-sources (greedy)
+        if ($event->supports(NodesSources::class)) {
+            $qb = $event->getQueryBuilder();
+            $qb->andWhere($qb->expr()->neq($qb->expr()->lower('ns.title'), ':neq'));
+            $qb->setParameter('neq', 'about');
+        }
+        // This will be applied only on your Page nodes-sources (safer)
+        if ($event->supports(NSPage::class)) {
+            $qb = $event->getQueryBuilder();
+            $qb->andWhere($qb->expr()->neq($qb->expr()->lower('ns.title'), ':neq'));
+            $qb->setParameter('neq', 'about');
+        }
+    };
+
+    // Register your listener in Roadiz event dispatcher
+    /** @var EventDispatcher $eventDispatcher */
+    $eventDispatcher = $this->get('dispatcher');
+    $eventDispatcher->addListener(
+        QueryBuilderEvents::QUERY_BUILDER_SELECT,
+        $callable
+    );
+
+    // Do some queries or use Roadiz EntityListManager
+
+    // Do not forget to remove your listener not to alter EVERY
+    // queries on NodesSources in your following code.
+    $eventDispatcher->removeListener(
+        QueryBuilderEvents::QUERY_BUILDER_SELECT,
+        $callable
+    );
+
+.. warning::
+
+    QueryBuilder events are a powerful tool to alter **all Roadiz entities pipeline**. Make sure to remove
+    your listener from the dispatcher **before rendering your Twig templates** or to only support the ``entityClass`` you need.
+    This could alter every queries such as ``|children`` Twig filters or your main navigation loop.
