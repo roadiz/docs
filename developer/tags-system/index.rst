@@ -21,21 +21,25 @@ It means that you won’t be able to differenciate tag two ``NodesSources``, if 
 Translate tags
 --------------
 
-You will notice that tags work the same way as nodes do. By default, tags names can’t contain special characters in order to be used in URLs.
+You will notice that tags work the same way as nodes do. By default, *tags names* can’t contain special characters in order to be used in URLs.
 So we created ``TagTranslation`` entities which stand for Tag’s sources:
 
 .. image:: ./tag-translations.*
    :align: center
 
-In that way you will be able to translate your tags for each available languages.
+In that way you will be able to translate your tags for each available languages and link documents to them.
 
 Tag hierarchy
 -------------
 
 In the same way as *Nodes* work, tags can be nested to create *tag groups*.
 
-Displaying node-source’ tags with Twig
---------------------------------------
+Displaying node-source tags with Twig
+-------------------------------------
+
+Tag translations are already set up to track your current locale if you fetched them
+using ``|tags`` *Twig* filter. Simply use ``getTranslatedTags()->first()`` Tag method
+to use them in your templates.
 
 .. code-block:: html+jinja
 
@@ -45,5 +49,32 @@ Displaying node-source’ tags with Twig
     {% for tag in tags %}
         {% set tagTranslation = tag.translatedTags.first %}
         <li id="{{ tag.tagName }}">{{ tagTranslation.name }}</li>
+    {% endfor %}
+    </ul>
+
+Tags translations documents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Documents can be linked to your tag translations. They will be different for
+each translation, so make sure to synchronize them manually if you want to use the 
+same document for all translations.
+
+They are available with ``getDocuments()`` method and will be ordered by **position only**.
+
+Imagine, you want to link a PDF document for each of your tags, you can create a download
+link as described below:
+
+.. code-block:: html+jinja
+
+    {% set tags = nodeSource|tags %}
+    <ul>
+    {% for tag in tags %}
+        {% set tagTranslation = tag.translatedTags.first %}
+        <li id="{{ tag.tagName }}">
+            <p>{{ tagTranslation.name }}</p>
+            {% if tagTranslation.documents[0] %}
+                <a href="{{ tagTranslation.documents[0]|url }}" class="tag-document">{% trans %}download_tag_pdf{% endtrans %}</a>
+            {% endif %}
+        </li>
     {% endfor %}
     </ul>

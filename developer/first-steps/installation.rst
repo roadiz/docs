@@ -12,13 +12,22 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     composer create-project roadiz/standard-edition
     # Create a new theme for your project
     cd standard-edition
-    bin/roadiz themes:generate FooBar
+    bin/roadiz themes:generate --symlink --relative FooBar
 
 *Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
 want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files
 in your projects and save them using Git, not only your theme. Of course we added a default ``.gitignore`` file to
 prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have
 different configuration on development and on your production server without bothering about merge conflicts.
+
+.. note:: 
+
+    For *Windows* users, ``bin/roadiz themes:generate --symlink --relative FooBar`` command can be used
+    without ``--relative`` option to create **absolute symlinks**. You can even install your theme assets as
+    *hard copies* without ``--symlink`` option.
+    Make sure that you call regularly ``bin/roadiz themes:assets:install FooBar`` when using *hard copy* mode to update
+    your assets. You should use *symlinks* if possible to prevent update issues.
+
 
 ================================
 Dealing with Roadiz environments

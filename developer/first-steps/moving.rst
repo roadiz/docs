@@ -45,6 +45,25 @@ Now you can perform a schema update without losing your nodes data:
     because it can't be done from a CLI interface as they are shared cache engines. The most
     effective way is to restart your *PHP-FPM* service or *Apache* if your are using *mod_php*.
 
+Install assets
+^^^^^^^^^^^^^^
+
+By default, web theme assets are not tracked by *Git*. Make sure that you installed every theme
+assets using ``bin/roadiz themes:assets:install`` command. You should use ``--symlink --relative`` 
+options when possible to prevent updating assets manually. For Windows users, remove ``--relative``
+option to create *absolute* symlinks.
+
+.. code-block:: bash
+
+    bin/roadiz themes:assets:install --symlink --relative Debug;
+    bin/roadiz themes:assets:install --symlink --relative Install;
+    bin/roadiz themes:assets:install --symlink --relative Rozier;
+    # Then your theme (FooBarTheme)
+    bin/roadiz themes:assets:install --symlink --relative FooBar;
+
+*composer.json* file should execute Roadiz default themes asset install automatically after
+each update or install.
+
 Synchronize documents and fonts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
