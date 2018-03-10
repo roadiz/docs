@@ -8,6 +8,7 @@ First steps
    requirements
    installation
    vagrant
+   php_server
    manual_config
    upgrading
    moving
