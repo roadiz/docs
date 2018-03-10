@@ -12,7 +12,9 @@ Titles
 
 **Add two hashtag** ``#`` **or more according to your title importance level.**
 Backoffice shortcut buttons allow to directly insert your titles marks before your selected text. Make sure to leave a blank line before each new title you write.
-::
+
+.. code-block:: md
+
     ## Architecture
     ### Modern architecture
 
@@ -24,7 +26,9 @@ Alternate syntax
 
 Main title and second level titles can be written using ``=`` and ``-`` as
 underline characters.
-::
+
+.. code-block:: md
+
     Architecture
     ============
 
@@ -37,7 +41,9 @@ Bold
 
 **Insert two stars** ``*`` **before and after your text to set in bold.**
 Backoffice shortcut button allows to insert directly the 4 characters around your selected text.
-::
+
+.. code-block:: md
+
     This is a **bold text.** And a normal one.
 
 Be careful not to leave whitespaces inside your stars group (in the same
@@ -48,7 +54,9 @@ Italic
 
 **Insert one star** ``*`` **before and after your text to set in italic.**
 Backoffice shortcut button allows to insert directly the 2 characters around your selected text.
-::
+
+.. code-block:: md
+
     This is an *italic text.* And a normal one.
 
 Bold and italic marks can of course be combined using 3 stars before and after your selected text.
@@ -58,14 +66,18 @@ What if * character is already in use
 
 Bold and italic markup can be performed using ``_`` (underscore) character
 too if you actually need to write a *star* character in your text.
-::
+
+.. code-block:: md
+
     A __3* Bed & Breakfast__ has just opened its doors in middletown.
 
 Strike-through
 --------------
 
 **Insert two tildes** ``~`` **before and after your text to strike-through.**
-::
+
+.. code-block:: md
+
     This is ~~striked-through text~~.
 
 Ordered and unordered lists
@@ -73,7 +85,9 @@ Ordered and unordered lists
 
 **Insert a star** ``*`` **or a dash** ``-`` **followed by a single whitespace for each of your list item.**
 One item per line. Leave a blank line before and after your list. For *ordered* list, use a digit followed by a dot and a whitespace instead.
-::
+
+.. code-block:: md
+
     * A line
     - An other line
     * A unknown line
@@ -88,7 +102,9 @@ Nested list
 ^^^^^^^^^^^
 
 You can insert a second/third/… level for your list, just **by leaving four spaces before your new list-item mark.**
-::
+
+.. code-block:: md
+
     - A list item
         - A sub-item
         - A second sub-item
@@ -101,14 +117,18 @@ New paragraph and line-break
 
 A simple line-break is always ignored by Markdown language because it makes a difference between a **paragraph** and a **line-break**.
 To simply create a line-break without creating a new paragraph, **leave at least 3 spaces at the end of your text line then go to a new line.**
-::
+
+.. code-block:: md
+
     Address:<space><space><space>
     26 rue Burdeau<space><space><space>
     69001 Lyon<space><space><space>
     France
 
 To create a new paragraph, **always leave a blank line between your text blocks.** Any additional blank line will be ignored.
-::
+
+.. code-block:: md
+
     Nullam quis risus eget urna mollis ornare vel eu leo.
     Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 
@@ -123,19 +143,27 @@ Hypertext links
 
 **Write link label between braces immediately followed by the URL between parenthesis.** For external links
 do not forget protocol prefix ``http://`` or ``https://``.
-::
+
+.. code-block:: md
+
     [My link](http://www.google.com)
 
 To create a internal link, just use relative notation:
-::
+
+.. code-block:: md
+
     [Contact us](/page/contact-us)
 
 Then, for an email link, use ``mailto:`` prefix:
-::
+
+.. code-block:: md
+
     [John Doe](mailto:jdoe@example.com)
 
 A link title can be added by inserting it before *ending parenthesis* wrapped in quotes.
-::
+
+.. code-block:: md
+
     [My link](http://www.google.com "Link to Google website")
 
 Block quotes
@@ -143,7 +171,9 @@ Block quotes
 
 **Insert a** ``>`` **sign before each new paragraph and a space** to wrap your text in a
 quote block. You can then use all other Markdown symbols inside your quote.
-::
+
+.. code-block:: md
+
     > ### Donec ullamcorper nulla non metus auctor fringilla.
     > Aenean lacinia **bibendum** nulla sed consectetur.
     > Vestibulum id ligula porta felis euismod semper.
@@ -153,7 +183,9 @@ Images
 
 **Images use the link syntax with an exclamation mark prefix** ``!``. For external images
 do not forget to write full URL with protocol ``http://`` or ``https://``.
-::
+
+.. code-block:: md
+
     ![A cat](/files/cat.jpg)
 
     ![A cat from an other website](https://www.example.com/images/cat.jpg)
@@ -167,7 +199,9 @@ Footnotes
 
 Footnotes are not supported with *basic* Markdown syntax, but the *Markdown Extra* one. So before
 using them, **make sure your webdesigner used the right Markdown parser in your theme.**
-::
+
+.. code-block:: md
+
     Praesent commodo cursus magna[^note], Sed posuere consectetur est at
     lobortis. Vel scelerisque nisl consectetur et[^othernote].
 
