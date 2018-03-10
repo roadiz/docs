@@ -1,0 +1,11 @@
+# Build PDF & ePub
+formats:
+    - htmlzip
+    - epub
+    - pdf
+python:
+    version: 3.5
+    extra_requirements:
+        - recommonmark
+        - pygments-markdown-lexer
+        - sphinx-intl

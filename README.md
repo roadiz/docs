@@ -11,8 +11,10 @@
 # On MacOS, use brew
 # brew install python3
 
-pip3 install sphinx
-pip3 install sphinx-intl
+pip3 install sphinx  --user
+pip3 install sphinx-intl --user
+pip3 install recommonmark --user
+pip3 install pygments-markdown-lexer --user
 ```
 
 ## Prepare translations
