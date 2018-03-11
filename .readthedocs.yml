@@ -6,8 +6,4 @@ formats:
 python:
     pip_install: true
     version: 3.5
-    extra_requirements:
-        - recommonmark
-        - pygments-markdown-lexer
-        - sphinx-intl
 requirements_file: ./stable-req.txt
