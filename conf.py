@@ -247,26 +247,26 @@ htmlhelp_basename = 'Roadizdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
-latex_engine = 'xelatex'
+#latex_engine = 'xelatex'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
     'papersize': 'a4paper',
-    'pxunit': '0.48bp', # 150dpi
+    'pxunit': '0.50bp', # 150dpi
     # The font size ('10pt', '11pt' or '12pt').
     #
     'pointsize': '9pt',
     # Remove blank pages
     # http://stackoverflow.com/questions/5422997/sphinx-docs-remove-blank-pages-from-generated-pdfs
-    'classoptions': ',oneside',
+    #'classoptions': ',oneside',
     # Latex figure (float) alignment
     #
-    'figure_align': 'H',
-    'geometry': '\\usepackage[vmargin=2.5cm, hmargin=3cm]{geometry}',
+    #'figure_align': 'H',
+    #'geometry': '\\usepackage[vmargin=2.5cm, hmargin=3cm]{geometry}',
     # Additional stuff for the LaTeX preamble.
     #
-    'preamble': '\\setcounter{tocdepth}{3}',
-    'fncychap': '\\usepackage[Bjornstrup]{fncychap}',
+    'preamble': '\\setcounter{tocdepth}{2}',
+    #'fncychap': '\\usepackage[Bjornstrup]{fncychap}',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
