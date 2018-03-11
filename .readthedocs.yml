@@ -10,3 +10,4 @@ python:
         - recommonmark
         - pygments-markdown-lexer
         - sphinx-intl
+requirements_file: ./stable-req.txt
