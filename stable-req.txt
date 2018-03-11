@@ -9,7 +9,6 @@ imagesize==0.7.1
 Jinja2==2.10
 MarkupSafe==1.0
 Pygments==2.2.0
-pygments-markdown-lexer==0.2.0.dev0
 pytz==2017.3
 recommonmark==0.4.0
 requests==2.18.4
@@ -20,4 +19,4 @@ sphinx-rtd-theme==0.2.4
 sphinxcontrib-websupport==1.0.1
 urllib3==1.22
 
-git+https://github.com/jhermann/pygments-markdown-lexer.git#egg=pygments-markdown-lexer=pygments-markdown-lexer
+git+https://github.com/jhermann/pygments-markdown-lexer.git#egg=pygments-markdown-lexer==pygments-markdown-lexer
