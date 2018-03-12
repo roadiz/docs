@@ -23,3 +23,11 @@ PHP extensions and that you have a database server:
 
 > PHP web server was designed to aid application development. It may also be useful for testing purposes or for application demonstrations that are run in controlled environments. It is not intended to be a full-featured web server. It should not be used on a public network.
 
+## Use Mailhog to catch outgoing emails
+
+Contrary to *Vagrant*, using PHP built-in server does not provide any additional tool such as *Mailcatcher* or *Apache Solr*.
+You can setup [Mailhog](https://github.com/mailhog/MailHog) to catch outgoing emails in a clean web interface.
+
+On *macOS*, use *HomeBrew*: `brew update && brew install mailhog`, then configure your PHP `sendmail_path` to 
+use it. 
+
