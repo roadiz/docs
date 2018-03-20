@@ -20,7 +20,7 @@ in your projects and save them using Git, not only your theme. Of course we adde
 prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have
 different configuration on development and on your production server without bothering about merge conflicts.
 
-.. note:: 
+.. note::
 
     For *Windows* users, ``bin/roadiz themes:generate --symlink --relative FooBar`` command can be used
     without ``--relative`` option to create **absolute symlinks**. You can even install your theme assets as
@@ -29,14 +29,13 @@ different configuration on development and on your production server without bot
     your assets. You should use *symlinks* if possible to prevent update issues.
 
 
-================================
 Dealing with Roadiz environments
-================================
+--------------------------------
 
 .. _install environment:
 
 Installation environment
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once you’ve succedded to download Roadiz and its dependencies. You’ll have to setup its database
 and every informations needed to begin your website.
@@ -54,27 +53,27 @@ At the end of the install process, you will be invited to remove the ``install.p
 website final URL.
 
 Development environment
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 Roadiz *production* environment is not made for developing your own themes and extending back-office features.
 As the same way as *install* environment, we prepared a *dev* environment to disable resources caching and enable
 debug features. You’ll find a ``dev.php`` file at your website root which was generated at ``composer install`` command.
 As well as *install.php* entry point, you’ll need to add your own IP address to filter who can access to your *dev* environment.
 
 Preview environment
--------------------
+^^^^^^^^^^^^^^^^^^^
 The *preview* environment is not a real one as it only adds a flag to Roadiz’ Kernel to enable
 back-office users to see unpublished nodes. By default, it is available using ``preview.php``
 entry point, unless you decide to remove it.
 
 Production environment
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 This is the default ``index.php`` entry point which will be called by all your visitors.
 There is no restriction on it and it will wake up Roadiz application using the strongest
 caching policies. So it’s not recommended for development usage (you would have to flush caches
 each time your change something in the code).
 
 Clear cache environment
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 The *clear_cache* environment is only meant to empty Roadiz cache without waking up
 the whole application. It can be useful if you are using a op-code cache like *APC* or
 native PHP *OPcache*. These special caches can’t be purged from command line utilities,
