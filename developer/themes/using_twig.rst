@@ -10,30 +10,25 @@ Using Twig
 
 When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz will automatically assign some variables for you.
 
+* **cms_version** — [string]
+* **cms_prefix** — [string]
 * **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
 * **head**
     * **ajax** — [boolean] Tells if current request is an Ajax one
-    * **cmsVersion** — [string]
-    * cmsVersionNumber
-    * **cmsBuild** — [string]
     * **devMode** — [boolean]
-    * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
-    * **filesUrl** — [string]
-    * **resourcesUrl** — [string] Your theme ``Resources`` url. Useful to reach your assets.
-    * **ajaxToken** — [string]
     * **universalAnalyticsId** — [string]
     * **useCdn** - [boolean]
-    * **fontToken** — [string]
+    * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
+    * **filesUrl** — [string]
+    * **resourcesUrl** — [string] Your theme ``Resources`` path. Useful to reach your assets.
+    * **absoluteResourcesUrl** — [string] Your theme absolute ``Resources`` url. Useful to reach your assets outside of your website.
 * **session**
-    * **messages** — [array]
     * **id** — [string]
     * **user** — [object]
 * **bags**
     * **settings** — [SettingsBag]
     * **nodeTypes** — [NodeTypesBag]
     * **roles** — [RolesBag]
-* **authorizationChecker** — [object]
-* **tokenStorage** — [object]
 
 There are some more content only available from *FrontendControllers*.
 
@@ -77,6 +72,20 @@ You can of course call objects members within Twig using the *dot* separator.
             </figure>
         {% endfor %}
     </article>
+
+Checking role permissions
+-------------------------
+
+You can use standard Twig ``is_granted`` method to check if current authenticated user can
+access resources according to Roadiz *ROLES*.
+
+.. code-block:: html+jinja
+
+    {% if is_granted('ROLE_ACCESS_TAGS') %}
+    <div class="tags">
+        User can access tags
+    </div>
+    {% endif %}
 
 Generating paths and url
 ------------------------
