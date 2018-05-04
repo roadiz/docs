@@ -380,3 +380,6 @@ Instead of extending ``twig.filters`` service, just extend ``twig.extensions`` s
             return $extensions;
         });
     }
+
+Creating a custom *Twig* extension is better if you want to add many new ``filters``, ``methods`` and
+``globals`` at the same time.
