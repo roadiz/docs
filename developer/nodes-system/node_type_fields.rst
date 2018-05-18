@@ -33,6 +33,7 @@ This following fields stores simple data in your custom node-source database tab
 - YAML code
 - Many to many join
 - Many to one join
+- Custom collection
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -116,3 +117,23 @@ You must fill the *default values* field for these two types.
     orderBy:
         - field: slug
           direction: ASC
+
+Custom collection
+^^^^^^^^^^^^^^^^^
+
+Last but not least, you can create a custom collection field to store read-only data using
+a dedicated *Symfony* ``AbstractType``.
+
+You must fill the *default values* field for this type:
+
+.. code-block:: yaml
+
+    # AbstractType class name
+    entry_type: "Themes\MyTheme\Form\FooBarType"
+
+You must understand that *custom collection* data will be stored as JSON array in
+your database. So you won’t be able to query your node-source using this data.
+
+In your ``FooBarType``, you’ll be able to use *Symfony* standard fields types and
+**Roadiz** non-virtual fields too such as ``MarkdownType``, ``JsonType``, ``YamlType``.
+

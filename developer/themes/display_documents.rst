@@ -63,6 +63,7 @@ Audio / Video options
 * **autoplay** (boolean)
 * **controls** (boolean)
 * **loop** (boolean)
+* **muted** (boolean)
 * **custom_poster** (string): URL to a image to be used as video poster
 
 You can use **multiple source files** for one video document or audio document.
@@ -126,7 +127,7 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
 * If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
-* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source`` twig command. 
+* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source`` twig command.
 
 Manage global documents
 -----------------------
