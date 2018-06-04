@@ -130,6 +130,30 @@ Add this to your `config.yml` to link your CMS to your *Solr* server:
 Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr:check`` to get
 more informations.
 
+Reverse proxy cache invalidation
+--------------------------------
+
+Roadiz can request cache invalidation to external and internal cache proxies such as internal
+*Symfony* AppCache or a *Varnish* instance. If configured, Roadiz will create a ``BAN`` request
+to each configured proxy **when user clears back-office caches**, and it will create a ``PURGE`` request
+**on each node-source** *update event* using first reachable node-source URL.
+
+.. code-block:: yaml
+
+    reverseProxyCache:
+        frontend:
+            localhost:
+                host: localhost
+                domainName: myapp.test
+            external:
+                host: varnish
+                domainName: myapp.test
+
+.. note::
+
+    Make sure you `configured your external reverse proxy <https://github.com/roadiz/roadiz/blob/develop/samples/varnish_default.vcl>`_
+    in order to receive and handle ``BAN`` and ``PURGE`` HTTP requests.
+
 
 Entities paths
 --------------
@@ -236,8 +260,8 @@ do not forget to empty your caches **and** image caches to see changes.
     Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead
     time on the first time you request an image.
 
-Console command
----------------
+Console commands
+----------------
 
 Roadiz can be executed as a simple CLI tool using your SSH connection. This is useful to
 handle basic administration tasks with no need of backoffice administration.
