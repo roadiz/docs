@@ -35,6 +35,33 @@ Roadiz uses *Doctrine ORM* to store your data. It will directly pass this YAML c
 you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 
+Themes
+------
+
+Since *Roadiz v0.23*, themes are statically registered into Roadiz configuration for better performances
+and delaying database usage. You have to register any front-end theme in your ``app/conf/config.yml`` file.
+Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;
+
+.. code-block:: yaml
+
+    themes:
+        -
+            classname: \Themes\DefaultTheme\DefaultThemeApp
+            hostname: '*'
+            routePrefix: ''
+        -
+            classname: \Themes\FooBarTheme\FooBarThemeApp
+            hostname: 'foobar.test'
+            routePrefix: ''
+
+You can define hostname specific themes and add a route-prefix for your routing. Defaults values
+are ``'*'`` for the *hostname* and ``''`` (empty string) for the route-prefix.
+
+.. warning::
+
+    No theme configuration will lead into a 404 error on your website home page. But you will still have
+    access to the back-office which is now hard-registered into Roadiz configuration.
+
 Cache drivers
 -------------
 
