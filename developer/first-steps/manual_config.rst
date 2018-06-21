@@ -104,6 +104,7 @@ Available handler types:
 - ``stream``: Defines a log file stream on your local system. **Your path must be writable!**
 - ``syslog``: Writes to system *syslog*.
 - ``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down.
+- ``sentry``: Send logs to your *Sentry* instance. **Requires sentry/sentry PHP library**: ``composer require sentry/sentry``. It’s a good idea to combine a *sentry* handler with a local logging system if your external entry point is down.
 
 ``type`` and ``level`` values are mandatory for each handlers.
 
@@ -131,6 +132,10 @@ Here is an example configuration:
                 # Gelf HTTP entry point url (with optional user:passwd authentication)
                 url: http://graylog.local:12202/gelf
                 level: WARNING
+            sentry:
+                type: sentry
+                level: WARNING
+                url: https://xxxxxx:xxxxxx@sentry.io/1
 
 
 .. _solr_endpoint:
