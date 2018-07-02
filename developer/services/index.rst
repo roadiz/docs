@@ -99,3 +99,27 @@ Search results with highlighting
         # String object (HTML)
         $hightlight = $result['highlighting'];
     }
+
+Search criteria
+^^^^^^^^^^^^^^^
+
+Solr will search in *NodesSources* index by default, but it will not filter by translation, type or visibility.
+You can add your own search criteria using similar filter names as ``nodeSourceApi``.
+
+- ``visible``: boolean
+- ``translation``: a Roadiz Translation object
+- ``_locale``: string
+- ``tags``: Roadiz Tag object or Tag array
+- ``nodeType``: a Roadiz NodeType object
+- ``status``: defaults to PUBLISHED
+
+.. code-block:: php
+
+    $criteria = [
+        'visible' => true,
+        'translation' => $translation,
+        'nodeType' => [
+            $this->get('nodeTypesBag')->get('Page'),
+            // …
+        ],
+    ];
