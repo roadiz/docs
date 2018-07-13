@@ -13,6 +13,10 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
 * **cms_version** — [string]
 * **cms_prefix** — [string]
 * **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
+* **is_debug** - [boolean]
+* **is_preview** - [boolean]
+* **is_dev_mode** - [boolean]
+* **is_prod_mode** - [boolean]
 * **head**
     * **ajax** — [boolean] Tells if current request is an Ajax one
     * **devMode** — [boolean]
@@ -111,7 +115,6 @@ both, they will automatically create an *http query string* when using a node-so
     {# Path generation with a node-source and parameters  #}
     {# Eg. /en/about-us?page=2  #}
     {{ path(nodeSource, {'page': 2}) }}
-
 
 
 Handling node-sources with Twig
