@@ -33,9 +33,9 @@ This following fields stores simple data in your custom node-source database tab
 - YAML code
 - Many to many join
 - Many to one join
+- Single relationship using a provider
+- Multiple relationship using a provider
 - Custom collection
-- Single provider
-- Multiple provider
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -50,6 +50,7 @@ This following fields stores simple data in your custom node-source database tab
 
 .. image:: ./img/field-types.*
    :align: center
+   :width: 300
 
 Virtual data
 ^^^^^^^^^^^^
