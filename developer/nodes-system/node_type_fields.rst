@@ -34,6 +34,8 @@ This following fields stores simple data in your custom node-source database tab
 - Many to many join
 - Many to one join
 - Custom collection
+- Single provider
+- Multiple provider
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
@@ -117,6 +119,64 @@ You must fill the *default values* field for these two types.
     orderBy:
         - field: slug
           direction: ASC
+
+Single and multiple provider
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The generic provider type allow you to fetch every data you want through a ``Provider``
+class in your theme. This can be really useful if you need to fetch items from an external API
+and to reference them in your nodes-sources.
+
+Imagine that you want to link your page with an *Instagram* post. You’ll have to create a class that
+extends ``Themes\Rozier\Explorer\AbstractExplorerProvider`` and configure it in your field:
+
+.. code-block:: yaml
+
+    classname: Themes\MyTheme\Provider\ExternalApiProvider
+
+This provider will implement ``getItems``, ``getItemsById`` and other methods from
+``ExplorerProviderInterface`` in order to be able to display your *Instagram* posts in
+Roadiz explorer widget and to find your selected items back.
+Each *Instagram* post will be wrapped in a ``Themes\Rozier\Explorer\AbstractExplorerItem`` that
+will map your custom data to the right fields to be showed in Roadiz back-office.
+
+You’ll find an implementation example in Roadiz with ``Themes\Rozier\Explorer\SettingsProvider`` and
+``Themes\Rozier\Explorer\SettingExplorerItem``. These classes do not fetch data from an API but from your
+database using ``EntityListManager``.
+
+Single and multiple provider types can accept additional options too. If you want to make your provider
+configurable at runtime you can pass ``options`` in your field configuration.
+
+.. code-block:: yaml
+
+    classname: Themes\MyTheme\Provider\ExternalApiProvider
+    options:
+        - name: user
+          value: me
+        - name: access_token
+          value: xxxxx
+
+Then you must override your provider’ ``configureOptions`` method to add which options are allowed.
+
+.. code-block:: php
+
+    use Symfony\Component\OptionsResolver\OptionsResolver;
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'page' => 1,
+            'search' => null,
+            'itemPerPage' => 30,
+            // add more default options here
+            'user' => 'me',
+        ]);
+        // You can required options
+        $resolver->setRequired('access_token');
+    }
 
 Custom collection
 ^^^^^^^^^^^^^^^^^
