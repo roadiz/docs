@@ -12,6 +12,7 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
 
 * **cms_version** — [string]
 * **cms_prefix** — [string]
+* **help_external_url** — [string] Back-office help URL (this can be overriden in your theme if your wrote a dedicated documentation for your customers)
 * **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
 * **is_debug** - [boolean]
 * **is_preview** - [boolean]
