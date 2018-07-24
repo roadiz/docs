@@ -52,24 +52,6 @@ Add this line to your ``index.php`` and ``preview.php`` files after
     // Trust incoming request IP as your reverse proxy
     Request::setTrustedProxies(array($request->server->get('REMOTE_ADDR')));
 
-Roadiz uses PHP 7.1 features but I’m running on PHP 5.6 or 7.0
---------------------------------------------------------------
-
-If you have some weird errors about `void` keywords and methods signatures that are not compatible with their parent methods, your application may use not available PHP features in your version. Usually you have dependencies which use PHP 7.1+ features such as *type hinting* or *return types*.
-
-Roadiz is compatible with PHP 5.6 minimum, unfortunatly some of its dependencies such as *Doctrine* may be more advanced and may allow only PHP 7.1 with their latest version.
-
-A **quick solution** should be to edit your `composer.json` file to keep compatibility with a fixed PHP version:
-
-.. code:: json
-
-    "config": {
-        "platform": {
-            "php": "5.6.1"
-        }
-    }
-
-That way, *Composer* will keep your dependencies up to date **but** it won’t use versions that don’t match your *platform* version.
 
 Find help before posting an issue on Github
 -------------------------------------------
