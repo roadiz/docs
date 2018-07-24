@@ -303,6 +303,55 @@ Then create your template ``form-blocks/contactblock.html.twig``:
         {{ form(contactForm) }}
     </div>
 
+Use controller rendering
+------------------------
+
+Roadiz implements the standard *Symfony* fragment rendering too. Use ``render()``
+Twig function with ``controller()`` function to initiate a Roadiz sub-request and
+embed complex contents into your templates.
+
+.. code-block:: html+jinja
+
+    {# views/base.html.twig #}
+
+    {# ... #}
+    <div id="sidebar">
+        {{ render(controller(
+            'Themes\\MyTheme\\Controllers\\ArticleController::recentArticlesAction',
+            { 'max': 3 }
+        )) }}
+    </div>
+
+Then use regular Roadiz controllers and actions to handle your sub-request:
+
+.. code-block:: php
+
+    // themes/MyTheme/Controllers/ArticleController.php
+    namespace Themes\MyTheme\Controllers;
+
+    // ...
+
+    class ArticleController extends MyThemeApp
+    {
+        public function recentArticlesAction(Request $request, $max = 3, $_locale = 'en')
+        {
+            $translation = $this->bindLocaleFromRoute($request, $_locale);
+            $this->prepareThemeAssignation(null, $translation);
+
+            // make a database call or other logic
+            // to get the "$max" most recent articles
+            $articles = ...;
+
+            return $this->render(
+                'article/recent_list.html.twig',
+                ['articles' => $articles]
+            );
+        }
+    }
+
+See https://symfony.com/doc/current/templating/embedding_controllers.html for more details about
+*Symfony* render extension.
+
 Paginate entities using EntityListManager
 -----------------------------------------
 

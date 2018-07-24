@@ -63,7 +63,36 @@ Audio / Video options
 * **autoplay** (boolean)
 * **controls** (boolean)
 * **loop** (boolean)
+* **muted** (boolean)
 * **custom_poster** (string): URL to a image to be used as video poster
+
+For *Soundcloud* embeds
+
+* **hide_related** (boolean)
+* **show_comments** (boolean)
+* **show_user** (boolean)
+* **show_reposts** (boolean)
+* **visual** (boolean)
+
+For *Vimeo* embeds
+
+* **displayTitle** (boolean)
+* **byline** (boolean)
+* **portrait** (boolean)
+* **color** (boolean)
+* **api** (boolean)
+* **automute** (boolean)
+* **autopause** (boolean)
+
+For *Youtube* `embeds <https://developers.google.com/youtube/player_parameters>`_
+
+* **modestbranding** (boolean)
+* **rel** (boolean)
+* **showinfo** (boolean)
+* **start** (integer)
+* **end** (integer)
+* **enablejsapi** (boolean)
+* **playlist** (boolean)
 
 You can use **multiple source files** for one video document or audio document.
 Just upload a file using tge same filename name but with a different extension. Use this method to
@@ -126,7 +155,7 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
 * If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
-* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source`` twig command. 
+* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source`` twig command.
 
 Manage global documents
 -----------------------

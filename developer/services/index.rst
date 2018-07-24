@@ -67,9 +67,11 @@ Simple search results
     $results = $this->get('solr.search.nodeSource')
                     ->search(
                         $request->get('q'), # Use ?q query parameter to search with
-                        $criteria, # a simple criteria array to filter search results
-                        10, # result count
-                        true # Search in tags too
+                        $criteria,          # a simple criteria array to filter search results
+                        10,                 # result count
+                        true                # Search in tags too
+                        10000               # Proximity (optional, default: 10000)
+                        1                   # Page (optional, default: 1)
                     );
 
     foreach ($results as $nodeSource) {
@@ -88,9 +90,11 @@ Search results with highlighting
     $results = $this->get('solr.search.nodeSource')
                     ->searchWithHighlight(
                         $request->get('q'), # Use ?q query parameter to search with
-                        $criteria, # a simple criteria array to filter search results
-                        10, # result count
-                        true # Search in tags too
+                        $criteria,          # a simple criteria array to filter search results
+                        10,                 # result count
+                        true                # Search in tags too
+                        10000               # Proximity (optional, default: 10000)
+                        1                   # Page (optional, default: 1)
                     );
 
     foreach ($results as $result) {
@@ -99,6 +103,25 @@ Search results with highlighting
         # String object (HTML)
         $hightlight = $result['highlighting'];
     }
+
+Count search results
+^^^^^^^^^^^^^^^^^^^^
+
+``$this->get('solr.search.nodeSource')->count()`` method will return all results count, useful for creating search paginations.
+
+.. code-block:: php
+
+    $criteria = [];
+    $resultsCount = $this->get('solr.search.nodeSource')
+                    ->count(
+                        $request->get('q'), # Use ?q query parameter to search with
+                        $criteria,          # a simple criteria array to filter search results
+                        0,                  # result count (useless, for compatibility only)
+                        true                # Search in tags too
+                    );
+
+    $pageCount = ceil($resultsCount/$this->getItemPerPage());
+    $itemPerPage = $this->getItemPerPage();
 
 Search criteria
 ^^^^^^^^^^^^^^^

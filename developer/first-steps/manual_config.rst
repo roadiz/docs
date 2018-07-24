@@ -35,6 +35,33 @@ Roadiz uses *Doctrine ORM* to store your data. It will directly pass this YAML c
 you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 
+Themes
+------
+
+Since *Roadiz v0.23*, themes are statically registered into Roadiz configuration for better performances
+and delaying database usage. You have to register any front-end theme in your ``app/conf/config.yml`` file.
+Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;
+
+.. code-block:: yaml
+
+    themes:
+        -
+            classname: \Themes\DefaultTheme\DefaultThemeApp
+            hostname: '*'
+            routePrefix: ''
+        -
+            classname: \Themes\FooBarTheme\FooBarThemeApp
+            hostname: 'foobar.test'
+            routePrefix: ''
+
+You can define hostname specific themes and add a route-prefix for your routing. Defaults values
+are ``'*'`` for the *hostname* and ``''`` (empty string) for the route-prefix.
+
+.. warning::
+
+    No theme configuration will lead into a 404 error on your website home page. But you will still have
+    access to the back-office which is now hard-registered into Roadiz configuration.
+
 Cache drivers
 -------------
 
@@ -77,6 +104,7 @@ Available handler types:
 - ``stream``: Defines a log file stream on your local system. **Your path must be writable!**
 - ``syslog``: Writes to system *syslog*.
 - ``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down.
+- ``sentry``: Send logs to your *Sentry* instance. **Requires sentry/sentry PHP library**: ``composer require sentry/sentry``. It’s a good idea to combine a *sentry* handler with a local logging system if your external entry point is down.
 
 ``type`` and ``level`` values are mandatory for each handlers.
 
@@ -104,6 +132,10 @@ Here is an example configuration:
                 # Gelf HTTP entry point url (with optional user:passwd authentication)
                 url: http://graylog.local:12202/gelf
                 level: WARNING
+            sentry:
+                type: sentry
+                level: WARNING
+                url: https://xxxxxx:xxxxxx@sentry.io/1
 
 
 .. _solr_endpoint:
@@ -129,6 +161,30 @@ Add this to your `config.yml` to link your CMS to your *Solr* server:
 
 Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr:check`` to get
 more informations.
+
+Reverse proxy cache invalidation
+--------------------------------
+
+Roadiz can request cache invalidation to external and internal cache proxies such as internal
+*Symfony* AppCache or a *Varnish* instance. If configured, Roadiz will create a ``BAN`` request
+to each configured proxy **when user clears back-office caches**, and it will create a ``PURGE`` request
+**on each node-source** *update event* using first reachable node-source URL.
+
+.. code-block:: yaml
+
+    reverseProxyCache:
+        frontend:
+            localhost:
+                host: localhost
+                domainName: myapp.test
+            external:
+                host: varnish
+                domainName: myapp.test
+
+.. note::
+
+    Make sure you `configured your external reverse proxy <https://github.com/roadiz/roadiz/blob/develop/samples/varnish_default.vcl>`_
+    in order to receive and handle ``BAN`` and ``PURGE`` HTTP requests.
 
 
 Entities paths
@@ -236,8 +292,8 @@ do not forget to empty your caches **and** image caches to see changes.
     Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead
     time on the first time you request an image.
 
-Console command
----------------
+Console commands
+----------------
 
 Roadiz can be executed as a simple CLI tool using your SSH connection. This is useful to
 handle basic administration tasks with no need of backoffice administration.
