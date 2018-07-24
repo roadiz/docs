@@ -66,6 +66,34 @@ Audio / Video options
 * **muted** (boolean)
 * **custom_poster** (string): URL to a image to be used as video poster
 
+For *Soundcloud* embeds
+
+* **hide_related** (boolean)
+* **show_comments** (boolean)
+* **show_user** (boolean)
+* **show_reposts** (boolean)
+* **visual** (boolean)
+
+For *Vimeo* embeds
+
+* **displayTitle** (boolean)
+* **byline** (boolean)
+* **portrait** (boolean)
+* **color** (boolean)
+* **api** (boolean)
+* **automute** (boolean)
+* **autopause** (boolean)
+
+For *Youtube* `embeds <https://developers.google.com/youtube/player_parameters>`_
+
+* **modestbranding** (boolean)
+* **rel** (boolean)
+* **showinfo** (boolean)
+* **start** (integer)
+* **end** (integer)
+* **enablejsapi** (boolean)
+* **playlist** (boolean)
+
 You can use **multiple source files** for one video document or audio document.
 Just upload a file using tge same filename name but with a different extension. Use this method to
 add a poster image to your video too.
