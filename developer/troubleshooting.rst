@@ -49,8 +49,8 @@ Add this line to your ``index.php`` and ``preview.php`` files after
 .. code:: php
 
     $request = Request::createFromGlobals(); // Existing line to get request
-    // Trust incoming request IP as your reverse proxy
-    Request::setTrustedProxies(array($request->server->get('REMOTE_ADDR')));
+    // Trust incoming request IP as your reverse proxy for only X_FORWARDED… headers.
+    Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
 
 
 Find help before posting an issue on Github
