@@ -22,7 +22,7 @@ Problem with entities and Doctrine cache?
 After each Roadiz **upgrade** you should always upgrade your
 node-sources entity classes and upgrade database schema.
 
-.. code:: bash
+.. code-block:: shell
 
     bin/roadiz generate:nsentities;
     bin/roadiz orm:schema-tool:update --dump-sql --force;
@@ -40,17 +40,19 @@ Running Roadiz behind a reverse proxy
 
 If you are behind a reverse-proxy like *Varnish* or *Nginx proxy* on a
 *Docker* environment, IP addresses, domain name and proto (https/http)
-could not be correctly set. So you will have to tell Roadiz to trust
-your proxy in order to use ``X_FORWARDED_*`` env vars.
+could not be correctly set. So you will have to `tell Roadiz to trust
+your proxy <https://symfony.com/doc/2.8/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly>`_ in order to use ``X_FORWARDED_*`` env vars.
 
 Add this line to your ``index.php`` and ``preview.php`` files after
 ``$request = Request::createFromGlobals();`` line.
 
-.. code:: php
+.. code-block:: php
 
     $request = Request::createFromGlobals(); // Existing line to get request
     // Trust incoming request IP as your reverse proxy
-    Request::setTrustedProxies(array($request->server->get('REMOTE_ADDR')));
+    Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')]);
+    // Remove HEADER_FORWARDED from trusted header names
+    Request::setTrustedHeaderName(Request::HEADER_FORWARDED, null);
 
 Roadiz uses PHP 7.1 features but I’m running on PHP 5.6 or 7.0
 --------------------------------------------------------------
