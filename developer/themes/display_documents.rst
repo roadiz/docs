@@ -38,7 +38,9 @@ HTML output options
 * **identifier**
 * **class**
 * **alt**: If not filled, it will get the document name, then the document filename
-* **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading.
+* **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image.
+* **lazyload_class** (default: ``lazyload``) Class name to be added when enabling lazyloading.
+* **picture** (false|true), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**.
 * **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
 
 Images resampling options
