@@ -38,7 +38,7 @@ http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 Themes
 ------
 
-Since *Roadiz v0.23*, themes are statically registered into Roadiz configuration for better performances
+Since *Roadiz v1.0*, themes are statically registered into Roadiz configuration for better performances
 and delaying database usage. You have to register any front-end theme in your ``app/conf/config.yml`` file.
 Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;
 

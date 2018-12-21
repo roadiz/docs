@@ -27,15 +27,16 @@ to be sure that ``^/`` request matcher has **the lowest priority**. However, if 
     public static function addDefaultFirewallEntry(Container $container)
     {
         /*
-         * Call parent ONLY if you don’t want to create
-         * a firewall map at website root level.
-         */
-        parent::addDefaultFirewallEntry($container);
-
-        /*
          * Your custom firewall map entry configuration
          * goes here
          */
+
+        /*
+         * Call parent ONLY if you don’t want to create
+         * a firewall map at website root level. And call it after
+         * your own firewall entry.
+         */
+        parent::addDefaultFirewallEntry($container);
     }
 
 Configuring a non-root firewall map entry with FirewallEntry class
@@ -255,3 +256,24 @@ and defined login/logout paths.
 For the moment, every pages of your website will be public. You’ll need to use
 ``is_granted`` *Twig* filter and ``$this->denyAccessUnlessGranted($role)`` method to
 manage access control to your contents.
+
+Multi-theme website
+^^^^^^^^^^^^^^^^^^^
+
+If your website has more than one theme you must disable firewall entries on every non-main
+theme app class not to register duplicated firewall entries with the same access-map rules.
+
+For example, if you registered a ``MainTheme`` and a ``SecondaryTheme``, add the following
+lines to your ``themes/SecondaryTheme/SecondaryThemeApp.php`` class:
+
+.. code-block:: php
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function addDefaultFirewallEntry(Container $container)
+    {
+        /*
+         * Do not register any firewall entry
+         */
+    }
