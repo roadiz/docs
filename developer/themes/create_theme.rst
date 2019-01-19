@@ -110,11 +110,11 @@ multilingual pages.
 .. code-block:: yaml
 
     foo:
-        path:     /foo
+        path: /foo
         defaults:
             _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::fooAction
     bar:
-        path:     /{_locale}/bar
+        path: /{_locale}/bar
         defaults:
             _controller: Themes\MyAwesomeTheme\Controllers\FooBarController::barAction
         requirements:
@@ -179,7 +179,7 @@ render your current node.
 
         return $this->render(
             'types/page.html.twig',  // Twig template path
-            $this->assignation      // Assignation array to fill template placeholders
+            $this->assignation       // Assignation array to fill template placeholders
         );
     }
 
@@ -203,11 +203,11 @@ in your theme ``Resources/routes.yml`` file.
 .. code-block:: yaml
 
     homePage:
-        path:     /
+        path: /
         defaults:
             _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction
     homePageLocale:
-        path:     /{_locale}
+        path: /{_locale}
         defaults:
             _controller: Themes\MyAwesomeTheme\MyAwesomeThemeApp::homeAction
         requirements:
@@ -277,7 +277,7 @@ the namespace to look into. It becames useful when you mix several themes with t
          */
         $this->prepareThemeAssignation($home, $translation);
 
-        return $this->render('home.html.twig', $this->assignation, null, static::getThemeDir());
+        return $this->render('home.html.twig', $this->assignation);
     }
 
 Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice

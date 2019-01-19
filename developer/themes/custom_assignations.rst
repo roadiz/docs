@@ -378,7 +378,7 @@ handling *EntityListManager*. It is useful to bind page parameter in your *routi
 .. code-block:: yaml
 
     projectPage:
-        path:     /articles/{page}
+        path: /articles/{page}
         defaults:
             _controller: Themes\MyAwesomeTheme\Controllers\ArticleController::listAction
             page: 1
