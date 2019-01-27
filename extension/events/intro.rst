@@ -38,6 +38,11 @@ NodesSources events
 Every node-source events methods will accept a ``RZ\Roadiz\Core\Events\FilterNodesSourcesEvent`` object as argument.
 This object contains the current ``NodesSources`` entity. You will get it using ``$event->getNodeSource()``.
 
+* *nodeSource.indexing:* ``NodesSourcesEvents::NODE_SOURCE_INDEXING``.
+This event type is dispatched during Solr indexation. Your event will be ``\RZ\Roadiz\Core\Events\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type.
+* *nodeSource.pathGenerating:* ``NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING``.
+This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name). Event is a ``\RZ\Roadiz\Core\Events\FilterNodeSourcePathEvent``
+
 .. note::
     You will find a simple subscriber example in Roadiz back-office theme which is called ``Themes\Rozier\Events\SolariumSubscriber``.
     This subscriber is useful to update or delete your *Solr* index documents against your node-source database.
