@@ -92,6 +92,8 @@ access resources according to Roadiz *ROLES*.
     </div>
     {% endif %}
 
+.. _twig-generate-paths:
+
 Generating paths and url
 ------------------------
 

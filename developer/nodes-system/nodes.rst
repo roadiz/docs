@@ -149,3 +149,106 @@ field.
     }
 
 
+Generating paths and url
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`.
+
+.. code-block:: php
+
+    class BlogPostController extends MyAwesomeTheme
+    {
+        public function indexAction(
+            Request $request,
+            Node $node = null,
+            Translation $translation = null
+        ) {
+            $this->prepareThemeAssignation($node, $translation);
+
+            // Generate a path for current node-source
+            $path = $this->generateUrl($this-nodeSource);
+
+            // Generate an absolute URL for current node-source
+            $absoluteUrl =  $this->generateUrl(
+                $this->nodeSource,
+                [],
+                UrlGeneratorInterface::ABSOLUTE_URL
+            );
+        }
+    }
+
+Overriding default node-source path generation
+----------------------------------------------
+
+You can override default node-source path generation in order to use ``{{ path() }}`` method
+in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type
+which purpose only is to link to an other node in your website. When you call *path* or *URL*
+generation on it, you should prefer getting its linked node path, so you can listen
+to ``NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING`` event and stop propagation to return
+your linked node path instead of your *link* node path.
+
+.. code-block:: php
+
+    use GeneratedNodeSources\NSLink;
+    use RZ\Roadiz\Core\Events\FilterNodeSourcePathEvent;
+    use RZ\Roadiz\Core\Events\NodesSourcesEvents;
+    use RZ\Roadiz\Utils\UrlGenerators\NodesSourcesUrlGenerator;
+    use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+    class LinkPathSubscriber implements EventSubscriberInterface
+    {
+        /**
+         * @inheritDoc
+         */
+        public static function getSubscribedEvents()
+        {
+            return [
+                /*
+                 * Needs to execute this BEFORE default nodes-sources path generation
+                 */
+                NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING => [['onNodesSourcesPath', 0]],
+            ];
+        }
+
+        /**
+         * @param FilterNodeSourcePathEvent $event
+         */
+        public function onNodesSourcesPath(FilterNodeSourcePathEvent $event): void
+        {
+            $source = $event->getNodeSource();
+            if ($source instanceof NSLink) {
+                /*
+                 * Prevent default nodes-sources path generation
+                 * to be executed.
+                 */
+                $event->stopPropagation();
+
+                if (isset($source->getRefNode()[0])) {
+                    $realNode = $source->getRefNode()[0]->getNodeSources()->first();
+                    $urlGenerator = new NodesSourcesUrlGenerator(
+                        null,
+                        $realNode,
+                        $event->isForceLocale()
+                    );
+                    $event->setPath($urlGenerator->getNonContextualUrl(
+                        $event->getTheme(),
+                        $event->getParameters()
+                    ));
+                } else {
+                    $event->setPath('');
+                }
+            }
+        }
+    }
+
+Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:
+
+.. code-block:: php
+
+    /** @var EventDispatcher $dispatcher */
+    $dispatcher = $container['dispatcher'];
+    $dispatcher->addSubscriber(new LinkPathSubscriber());
+
+This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache
+provider, instead of generating your custom URL inside your Twig templates or PHP controllers.
+
