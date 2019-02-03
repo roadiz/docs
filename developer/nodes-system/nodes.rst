@@ -182,10 +182,10 @@ Overriding default node-source path generation
 
 You can override default node-source path generation in order to use ``{{ path() }}`` method
 in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type
-which purpose is to link to an other node in your website. When you call *path* or *URL*
-generation on it, you should prefer to get its linked node path instead, so you can listen
+which purpose only is to link to an other node in your website. When you call *path* or *URL*
+generation on it, you should prefer getting its linked node path, so you can listen
 to ``NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING`` event and stop propagation to return
-your linked node path instead of you *link* node path.
+your linked node path instead of your *link* node path.
 
 .. code-block:: php
 
