@@ -91,6 +91,7 @@ as your template namespace.
 Now let's have a look to your twig template file ``admin/test.html.twig``.
 
 .. code-block:: html+jinja
+
     {% extends '@Rozier/layout.html.twig' %}
 
     {% block customStyles %}

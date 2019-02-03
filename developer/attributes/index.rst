@@ -6,6 +6,10 @@ Attributes are entities meant to qualify features on other entities, such as *no
 The main difference between *tags* and *attributes* is that you can set a value for
 each attributed *node*.
 
+.. image:: ./img/manage_attributes.png
+   :align: right
+   :width: 300
+
 The attribute "Color" can be set to "red" for one node and set to "green" for an other one.
 
 Okay, but now what is the difference between *attributes* and node-type fields? Not so much
@@ -42,25 +46,38 @@ without any additional development.
 Attributes types
 ^^^^^^^^^^^^^^^^
 
-- String
-- Date
-- Date and time
-- Single choice: choice among defined options in your attribute
-- Boolean
-- Integer
-- Decimal
-- Email
-- Color
-- Country: ISO 2-letters country code
+.. image:: ./img/create_attribute.png
+   :align: center
+
+- *String*
+- *Date*
+- *Date and time*
+- *Single choice*: choice among defined options in your attribute
+- *Boolean*
+- *Integer*
+- *Decimal*
+- *Email*
+- *Color*
+- *Country*: ISO 2-letters country code
+
+Add attributes to nodes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+*Attribute* section is available for any node in any translations.
+
+.. image:: ./img/add_attribute.png
+   :align: center
 
 Twig extension
 ^^^^^^^^^^^^^^
 
+Several filters and tests are available to ease up templating with *attributes*:
+
 Filters
 -------
 
-- ``attributes``: same as ``node_source_attributes()`` method
-- ``attribute_label``
+- ``attributes``: same as ``node_source_attributes()`` method, get all available attributes from a ``NodesSources``.
+- ``attribute_label``: get attribute translated ``label`` or ``code`` if not translated.
 
 Tests
 -----
