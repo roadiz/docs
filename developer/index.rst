@@ -12,6 +12,7 @@ skills.
    first-steps/index.rst
    nodes-system/index.rst
    tags-system/index.rst
+   attributes/index.rst
    themes/index.rst
    forms/index.rst
    services/index.rst
