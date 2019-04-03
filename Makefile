@@ -4,6 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
+SPHINXPROJ    = RoadizDoc
 PAPER         = a4
 BUILDDIR      = _build
 
@@ -63,6 +64,9 @@ singlehtml:
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
 	@echo
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
+
+livehtml:
+	sphinx-autobuild -B --ignore "*/.git/*" --ignore "*HEAD" --ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) ${SOURCEDIR} $(BUILDDIR)/html
 
 pickle:
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
