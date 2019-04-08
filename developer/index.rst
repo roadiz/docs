@@ -17,6 +17,7 @@ skills.
    forms/index.rst
    services/index.rst
    services/glossary.rst
+   serialization/index.rst
    case-studies/index.rst
    contributing.rst
    troubleshooting.rst

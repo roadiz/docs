@@ -1,6 +1,6 @@
 # Roadiz documentation
 
-[![](https://readthedocs.org/projects/roadiz/badge/?version=latest)](https://readthedocs.org/projects/roadiz/?badge=latest) 
+[![](https://readthedocs.org/projects/roadiz/badge/?version=latest)](https://readthedocs.org/projects/roadiz/?badge=latest)
 ![](https://img.shields.io/github/license/roadiz/docs.svg)
 
 ## Install locally
@@ -12,6 +12,7 @@
 
 pip3 install sphinx  --user
 pip3 install sphinx-intl --user
+pip3 install sphinx-autobuild --user
 pip3 install recommonmark --user
 pip3 install pygments-markdown-lexer --user
 ```
@@ -28,6 +29,12 @@ And build your documentation with:
 
 ```bash
 make -e SPHINXOPTS="-D language='fr'" html
+```
+
+## Live reload during writing
+
+```
+make livehtml
 ```
 
 ## Export in PDF
