@@ -50,7 +50,7 @@ Images resampling options
 * **height**
 * **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
 * **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
-* **align**, to use along with ``fit`` parameter to choose which part of the picture to fit. Allowed options: 
+* **align**, to use along with ``fit`` parameter to choose which part of the picture to fit. Allowed options:
     * top-left
     * top
     * top-right
@@ -86,6 +86,13 @@ For *Soundcloud* embeds
 * **show_user** (boolean)
 * **show_reposts** (boolean)
 * **visual** (boolean)
+
+For *Mixcloud* embeds
+
+* **mini** (boolean) defaults to ``false``
+* **light** (boolean) defaults to ``true``
+* **hide_cover** (boolean) defaults to ``true``
+* **hide_artwork** (boolean) defaults to ``false``
 
 For *Vimeo* embeds
 
