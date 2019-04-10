@@ -177,6 +177,8 @@ You can use ``generateUrl()`` in your controllers to get a node-source’ path o
         }
     }
 
+.. _override_default_path:
+
 Overriding default node-source path generation
 ----------------------------------------------
 
@@ -192,54 +194,60 @@ your linked node path instead of your *link* node path.
     use GeneratedNodeSources\NSLink;
     use RZ\Roadiz\Core\Events\FilterNodeSourcePathEvent;
     use RZ\Roadiz\Core\Events\NodesSourcesEvents;
-    use RZ\Roadiz\Utils\UrlGenerators\NodesSourcesUrlGenerator;
+    use Symfony\Component\EventDispatcher\EventDispatcherInterface;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-    class LinkPathSubscriber implements EventSubscriberInterface
+    class LinkPathGeneratingEventListener implements EventSubscriberInterface
     {
-        /**
-         * @inheritDoc
-         */
         public static function getSubscribedEvents()
         {
             return [
-                /*
-                 * Needs to execute this BEFORE default nodes-sources path generation
-                 */
-                NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING => [['onNodesSourcesPath', 0]],
+                NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING => ['onLinkPathGeneration']
             ];
         }
 
         /**
          * @param FilterNodeSourcePathEvent $event
+         * @param string                    $eventName
+         * @param EventDispatcherInterface  $dispatcher
          */
-        public function onNodesSourcesPath(FilterNodeSourcePathEvent $event): void
+        public function onLinkPathGeneration(FilterNodeSourcePathEvent $event, $eventName, EventDispatcherInterface $dispatcher)
         {
-            $source = $event->getNodeSource();
-            if ($source instanceof NSLink) {
-                /*
-                 * Prevent default nodes-sources path generation
-                 * to be executed.
-                 */
-                $event->stopPropagation();
+            $nodeSource = $event->getNodeSource();
 
-                if (isset($source->getRefNode()[0])) {
-                    $realNode = $source->getRefNode()[0]->getNodeSources()->first();
-                    $urlGenerator = new NodesSourcesUrlGenerator(
-                        null,
-                        $realNode,
-                        $event->isForceLocale()
-                    );
-                    $event->setPath($urlGenerator->getNonContextualUrl(
-                        $event->getTheme(),
-                        $event->getParameters()
-                    ));
-                } else {
-                    $event->setPath('');
+            if ($nodeSource instanceof NSLink) {
+                if (filter_var($nodeSource->getExternalUrl(), FILTER_VALIDATE_URL)) {
+                    /*
+                     * If editor linked to an external link
+                     */
+                    $event->stopPropagation();
+                    $event->setComplete(true);
+                    $event->setPath($nodeSource->getExternalUrl());
+                } elseif (count($nodeSource->getNodeReferenceSources()) > 0 &&
+                    null !== $linkedSource = $nodeSource->getNodeReferenceSources()[0]) {
+                    /*
+                     * If editor linked to an internal page through a node reference
+                     */
+                    /** @var FilterNodeSourcePathEvent $subEvent */
+                    $subEvent = clone $event;
+                    $subEvent->setNodeSource($linkedSource);
+                    /*
+                     * Dispatch a path generation again for linked node-source.
+                     */
+                    $dispatcher->dispatch(NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING, $subEvent);
+                    /*
+                     * Fill main event with sub-event data
+                     */
+                    $event->setPath($subEvent->getPath());
+                    $event->setComplete($subEvent->isComplete());
+                    $event->setParameters($subEvent->getParameters());
+                    // Stop propagation AFTER sub-event was dispatched not to prevent it to perform.
+                    $event->stopPropagation();
                 }
             }
         }
     }
+
 
 Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:
 
@@ -247,7 +255,7 @@ Then register your subscriber to the Roadiz event dispatcher in your theme ``set
 
     /** @var EventDispatcher $dispatcher */
     $dispatcher = $container['dispatcher'];
-    $dispatcher->addSubscriber(new LinkPathSubscriber());
+    $dispatcher->addSubscriber(new LinkPathGeneratingEventListener());
 
 This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache
 provider, instead of generating your custom URL inside your Twig templates or PHP controllers.
