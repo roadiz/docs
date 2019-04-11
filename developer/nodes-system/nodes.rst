@@ -70,24 +70,8 @@ origin node-source.
         'node.visible': true
     }) %}
 
-If you need to trasverse node-source hierarchy from your controllers you can use
-the ``NodesSourcesHandler`` class from the handler factory service.
-
-.. code-block:: php
-
-    use RZ\Roadiz\Core\Handlers\NodesSourcesHandler;
-    // …
-    $nodeSourceHandler = $this->get('factory.handler')->getHandler($nodeSource);
-
-    $children = $nodeSourceHandler->getChildren([
-        'node.visible' => true,
-        'publishedAt' => ['>=', new \DateTime()],
-        'translation' => $nodeSource->getTranslation(),
-    ],[
-        'publishedAt' => 'DESC'
-    ]);
-
-Or directly use *Entity API*.
+If you need to trasverse node-source graph from your controllers you can use
+the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``.
 
 .. code-block:: php
 
@@ -99,6 +83,23 @@ Or directly use *Entity API*.
     ],[
         'publishedAt' => 'DESC'
     ]);
+
+.. warning::
+
+    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria.
+
+    .. code-block:: php
+
+        // Here Doctrine will only join NSPage table to NodesSources
+        $children = $this->get('nodeSourceApi')->getBy([
+            'node.nodeType' => $this->get('nodeTypesBag')->get('Page'),
+            'node.parent' => $nodeSource,
+            'node.visible' => true,
+            'publishedAt' => ['>=', new \DateTime()],
+            'translation' => $nodeSource->getTranslation(),
+        ],[
+            'publishedAt' => 'DESC'
+        ]);
 
 Visibility
 ^^^^^^^^^^

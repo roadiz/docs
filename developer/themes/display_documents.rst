@@ -189,13 +189,13 @@ your Twig templates: 
 
 .. code-block:: php
 
-    $this->assignation['head']['site_logo'] = $this->get('settingsBag')->getDocument('site_logo');
+    $document = $this->get('settingsBag')->getDocument('site_logo');
 
-Then in a Twig template:
+Or in a Twig template:
 
 .. code-block:: html+jinja
 
-    <figure id="site-logo">{{ head.site_logo|display }}</figure>
+    <figure id="site-logo">{{ bags.settings.getDocument('site_logo')|display }}</figure>
 
 This way is the easiest to fetch a global document, but it needs you to upload it once in *Settings* section.
 If this does not suit you, you can always fetch a *Document* manually using its *Doctrine* repository and a hard-coded ``filename``.

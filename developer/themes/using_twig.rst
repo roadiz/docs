@@ -64,9 +64,6 @@ You can of course call objects members within Twig using the *dot* separator.
         <h1><a href="{{ path(nodeSource) }}">{{ nodeSource.title }}</a></h1>
         <div>{{ nodeSource.content|markdown }}</div>
 
-        {# Use complex syntax to grab documents #}
-        {% set images = (nodeSource|handler).documentsFromFieldName('images') %}
-        {# or Shortcut syntax #}
         {% set images = nodeSource.images %}
 
         {% for image in images %}
@@ -147,6 +144,25 @@ in your PHP controller before, you can directly use them in *Twig*:
         </figure>
     {% endfor %}
 
+Use node references
+-------------------
+
+If you added a *node reference* field to your node-source type you will able to grab them
+directly from the proxy methods. For example, add a ``artist_references`` field which links some ``Artist`` nodes to your ``Page`` node-type. Then you will be able to grab them using:
+
+.. code-block:: html+jinja
+
+    {% set artists = nodeSource.artistReferencesSources %}
+    {% for artist in artists %}
+        <a href="{{ path(artist) }}">{{ artist.title }}</a>
+    {% endfor %}
+
+Note the ``Sources`` suffix after field getter name. It allows you to directly fetch
+``NodesSources`` objects instead of ``Node``.
+
+We encourage you to set only one Node-Type to your node-reference field to optimize
+*Doctrine* queries.
+
 Loop over node-source children
 ------------------------------
 
@@ -165,11 +181,13 @@ With Roadiz you will be able to grab each node-source children using custom ``ch
 .. code-block:: html+jinja
 
     {#
-     # This statement will only grab *visible* children node-sources and
+     # This statement will only grab *visible* “Page” children node-sources and
      # will order them ascendently according to their *title*.
      #}
-    {% set childrenBlocks = nodeSource|children(
-        {'node.visible': true},
+    {% set childrenBlocks = nodeSource|children({
+            'node.visible': true,
+            'node.nodeType': bags.nodeTypes.get('Page'),
+        },
         {'title': 'ASC'}
     ) %}
 
