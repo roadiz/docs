@@ -455,3 +455,16 @@ Workflow
         ``Symfony\Component\Workflow\Registry``
     workflow.node_workflow
         ``RZ\Roadiz\Workflow\NodeWorkflow``
+
+
+Utils
+^^^^^
+
+.. glossary::
+
+    utils.nodeNameChecker
+        ``RZ\Roadiz\Utils\Node\NodeNameChecker``
+    utils.uniqueNodeGenerator
+        ``RZ\Roadiz\Utils\Node\UniqueNodeGenerator``
+    utils.universalDataDuplicator
+        ``RZ\Roadiz\Utils\Node\UniversalDataDuplicator``
