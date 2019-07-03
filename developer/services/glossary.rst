@@ -445,3 +445,13 @@ Configuration
         ``RZ\Roadiz\Config\YamlConfigurationHandler``
     config
         ``array``
+
+Workflow
+^^^^^^^^
+
+.. glossary::
+
+    workflow.registry
+        ``Symfony\Component\Workflow\Registry``
+    workflow.node_workflow
+        ``RZ\Roadiz\Workflow\NodeWorkflow``

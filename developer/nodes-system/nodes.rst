@@ -149,6 +149,40 @@ field.
         }
     }
 
+Publication workflow
+^^^^^^^^^^^^^^^^^^^^
+
+Each Node state is handled by a *Workflow* to switch between the following 5 states:
+
+.. rubric:: States
+
+    - ``Node::DRAFT``
+    - ``Node::PENDING``
+    - ``Node::PUBLISHED``
+    - ``Node::ARCHIVED``
+    - ``Node::DELETED``
+
+.. rubric:: Transitions
+
+    - review
+    - reject
+    - publish
+    - archive
+    - unarchive
+    - delete
+    - undelete
+
+You cannot changes a Node status directly using its *setter*, you must use Roadiz main *registry* to perform
+transition. This can prevent unwanted behaviours and you can track changes with events and guards:
+
+.. code-block:: php
+
+    /** @var Registry $registry */
+    $registry = $this->get('workflow.registry');
+    if ($registry->get($node)->can($node, 'publish')) {
+        $registry->get($node)->apply($node, 'publish');
+    }
+
 
 Generating paths and url
 ^^^^^^^^^^^^^^^^^^^^^^^^
