@@ -13,3 +13,4 @@ First steps
    upgrading
    moving
    docker
+   installation-on-shared-hosting

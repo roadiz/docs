@@ -70,24 +70,8 @@ origin node-source.
         'node.visible': true
     }) %}
 
-If you need to trasverse node-source hierarchy from your controllers you can use
-the ``NodesSourcesHandler`` class from the handler factory service.
-
-.. code-block:: php
-
-    use RZ\Roadiz\Core\Handlers\NodesSourcesHandler;
-    // …
-    $nodeSourceHandler = $this->get('factory.handler')->getHandler($nodeSource);
-
-    $children = $nodeSourceHandler->getChildren([
-        'node.visible' => true,
-        'publishedAt' => ['>=', new \DateTime()],
-        'translation' => $nodeSource->getTranslation(),
-    ],[
-        'publishedAt' => 'DESC'
-    ]);
-
-Or directly use *Entity API*.
+If you need to trasverse node-source graph from your controllers you can use
+the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``.
 
 .. code-block:: php
 
@@ -99,6 +83,23 @@ Or directly use *Entity API*.
     ],[
         'publishedAt' => 'DESC'
     ]);
+
+.. warning::
+
+    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria.
+
+    .. code-block:: php
+
+        // Here Doctrine will only join NSPage table to NodesSources
+        $children = $this->get('nodeSourceApi')->getBy([
+            'node.nodeType' => $this->get('nodeTypesBag')->get('Page'),
+            'node.parent' => $nodeSource,
+            'node.visible' => true,
+            'publishedAt' => ['>=', new \DateTime()],
+            'translation' => $nodeSource->getTranslation(),
+        ],[
+            'publishedAt' => 'DESC'
+        ]);
 
 Visibility
 ^^^^^^^^^^
@@ -148,4 +149,151 @@ field.
         }
     }
 
+Publication workflow
+^^^^^^^^^^^^^^^^^^^^
+
+Each Node state is handled by a *Workflow* to switch between the following 5 states:
+
+.. rubric:: States
+
+- ``Node::DRAFT``
+- ``Node::PENDING``
+- ``Node::PUBLISHED``
+- ``Node::ARCHIVED``
+- ``Node::DELETED``
+
+.. rubric:: Transitions
+
+- review
+- reject
+- publish
+- archive
+- unarchive
+- delete
+- undelete
+
+You cannot changes a Node status directly using its *setter*, you must use Roadiz main *registry* to perform
+transition. This can prevent unwanted behaviours and you can track changes with events and guards:
+
+.. code-block:: php
+
+    /** @var Registry $registry */
+    $registry = $this->get('workflow.registry');
+    if ($registry->get($node)->can($node, 'publish')) {
+        $registry->get($node)->apply($node, 'publish');
+    }
+
+
+Generating paths and url
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`.
+
+.. code-block:: php
+
+    class BlogPostController extends MyAwesomeTheme
+    {
+        public function indexAction(
+            Request $request,
+            Node $node = null,
+            Translation $translation = null
+        ) {
+            $this->prepareThemeAssignation($node, $translation);
+
+            // Generate a path for current node-source
+            $path = $this->generateUrl($this-nodeSource);
+
+            // Generate an absolute URL for current node-source
+            $absoluteUrl =  $this->generateUrl(
+                $this->nodeSource,
+                [],
+                UrlGeneratorInterface::ABSOLUTE_URL
+            );
+        }
+    }
+
+.. _override_default_path:
+
+Overriding default node-source path generation
+----------------------------------------------
+
+You can override default node-source path generation in order to use ``{{ path() }}`` method
+in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type
+which purpose only is to link to an other node in your website. When you call *path* or *URL*
+generation on it, you should prefer getting its linked node path, so you can listen
+to ``NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING`` event and stop propagation to return
+your linked node path instead of your *link* node path.
+
+.. code-block:: php
+
+    use GeneratedNodeSources\NSLink;
+    use RZ\Roadiz\Core\Events\FilterNodeSourcePathEvent;
+    use RZ\Roadiz\Core\Events\NodesSourcesEvents;
+    use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+    use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+    class LinkPathGeneratingEventListener implements EventSubscriberInterface
+    {
+        public static function getSubscribedEvents()
+        {
+            return [
+                NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING => ['onLinkPathGeneration']
+            ];
+        }
+
+        /**
+         * @param FilterNodeSourcePathEvent $event
+         * @param string                    $eventName
+         * @param EventDispatcherInterface  $dispatcher
+         */
+        public function onLinkPathGeneration(FilterNodeSourcePathEvent $event, $eventName, EventDispatcherInterface $dispatcher)
+        {
+            $nodeSource = $event->getNodeSource();
+
+            if ($nodeSource instanceof NSLink) {
+                if (filter_var($nodeSource->getExternalUrl(), FILTER_VALIDATE_URL)) {
+                    /*
+                     * If editor linked to an external link
+                     */
+                    $event->stopPropagation();
+                    $event->setComplete(true);
+                    $event->setContainsScheme(true); // Tells router not to prepend protocol and host to current URL
+                    $event->setPath($nodeSource->getExternalUrl());
+                } elseif (count($nodeSource->getNodeReferenceSources()) > 0 &&
+                    null !== $linkedSource = $nodeSource->getNodeReferenceSources()[0]) {
+                    /*
+                     * If editor linked to an internal page through a node reference
+                     */
+                    /** @var FilterNodeSourcePathEvent $subEvent */
+                    $subEvent = clone $event;
+                    $subEvent->setNodeSource($linkedSource);
+                    /*
+                     * Dispatch a path generation again for linked node-source.
+                     */
+                    $dispatcher->dispatch(NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING, $subEvent);
+                    /*
+                     * Fill main event with sub-event data
+                     */
+                    $event->setPath($subEvent->getPath());
+                    $event->setComplete($subEvent->isComplete());
+                    $event->setParameters($subEvent->getParameters());
+                    $event->setContainsScheme($subEvent->containsScheme());
+                    // Stop propagation AFTER sub-event was dispatched not to prevent it to perform.
+                    $event->stopPropagation();
+                }
+            }
+        }
+    }
+
+
+Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:
+
+.. code-block:: php
+
+    /** @var EventDispatcher $dispatcher */
+    $dispatcher = $container['dispatcher'];
+    $dispatcher->addSubscriber(new LinkPathGeneratingEventListener());
+
+This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache
+provider, instead of generating your custom URL inside your Twig templates or PHP controllers.
 

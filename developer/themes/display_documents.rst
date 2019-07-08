@@ -50,6 +50,16 @@ Images resampling options
 * **height**
 * **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
 * **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
+* **align**, to use along with ``fit`` parameter to choose which part of the picture to fit. Allowed options:
+    * top-left
+    * top
+    * top-right
+    * left
+    * center
+    * right
+    * bottom-left
+    * bottom
+    * bottom-right
 * **grayscale** (boolean)
 * **quality** (1-100)
 * **flip** (``h`` or ``v``), mirror your image vertical or horizontal
@@ -76,6 +86,13 @@ For *Soundcloud* embeds
 * **show_user** (boolean)
 * **show_reposts** (boolean)
 * **visual** (boolean)
+
+For *Mixcloud* embeds
+
+* **mini** (boolean) defaults to ``false``
+* **light** (boolean) defaults to ``true``
+* **hide_cover** (boolean) defaults to ``true``
+* **hide_artwork** (boolean) defaults to ``false``
 
 For *Vimeo* embeds
 
@@ -172,13 +189,13 @@ your Twig templates: 
 
 .. code-block:: php
 
-    $this->assignation['head']['site_logo'] = $this->get('settingsBag')->getDocument('site_logo');
+    $document = $this->get('settingsBag')->getDocument('site_logo');
 
-Then in a Twig template:
+Or in a Twig template:
 
 .. code-block:: html+jinja
 
-    <figure id="site-logo">{{ head.site_logo|display }}</figure>
+    <figure id="site-logo">{{ bags.settings.getDocument('site_logo')|display }}</figure>
 
 This way is the easiest to fetch a global document, but it needs you to upload it once in *Settings* section.
 If this does not suit you, you can always fetch a *Document* manually using its *Doctrine* repository and a hard-coded ``filename``.

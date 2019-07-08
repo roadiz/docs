@@ -12,9 +12,12 @@ skills.
    first-steps/index.rst
    nodes-system/index.rst
    tags-system/index.rst
+   attributes/index.rst
    themes/index.rst
    forms/index.rst
    services/index.rst
+   services/glossary.rst
+   serialization/index.rst
    case-studies/index.rst
    contributing.rst
    troubleshooting.rst
