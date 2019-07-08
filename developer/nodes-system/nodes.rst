@@ -257,6 +257,7 @@ your linked node path instead of your *link* node path.
                      */
                     $event->stopPropagation();
                     $event->setComplete(true);
+                    $event->setContainsScheme(true); // Tells router not to prepend protocol and host to current URL
                     $event->setPath($nodeSource->getExternalUrl());
                 } elseif (count($nodeSource->getNodeReferenceSources()) > 0 &&
                     null !== $linkedSource = $nodeSource->getNodeReferenceSources()[0]) {
@@ -276,6 +277,7 @@ your linked node path instead of your *link* node path.
                     $event->setPath($subEvent->getPath());
                     $event->setComplete($subEvent->isComplete());
                     $event->setParameters($subEvent->getParameters());
+                    $event->setContainsScheme($subEvent->containsScheme());
                     // Stop propagation AFTER sub-event was dispatched not to prevent it to perform.
                     $event->stopPropagation();
                 }
