@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-13 14:49+0200\n"
-"PO-Revision-Date: 2016-08-11 15:03+0200\n"
+"PO-Revision-Date: 2019-07-08 15:09+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.3\n"
 "Language: fr\n"
 
 #: ../../user/documents-system/intro.rst:4
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../../user/documents-system/intro.rst:21
 msgid "Embed document"
-msgstr "Intégrer un document "
+msgstr "Intégrer un document"
 
 #: ../../user/documents-system/intro.rst:23
 msgid ""
@@ -56,8 +56,8 @@ msgid ""
 "embedded documents from Youtube, SoundCloud, Vimeo and Dailymotion."
 msgstr ""
 "Il s'agit de la manipulation la plus \"complexe\" de la documentation. "
-"Vous pouvez intégrer des sources provenant de Youtube, SoundCloud, Vimeo "
-"et Dailymotion."
+"Vous pouvez intégrer des sources provenant de Youtube, SoundCloud, "
+"Mixcloud, TED, Vimeo et Dailymotion."
 
 #: ../../user/documents-system/intro.rst:29
 msgid ""
@@ -81,8 +81,7 @@ msgid ""
 "your website from Splashbase."
 msgstr ""
 "La fonctionnalité *Aléatoire* vous permet de télécharger des sources "
-"aléatoires sur votre site depuis la plateforme photo et vidéo "
-"Splashbase. "
+"aléatoires sur votre site depuis la plateforme photo et vidéo Splashbase."
 
 #: ../../user/documents-system/intro.rst:42
 msgid "Unused document"
