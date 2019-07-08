@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 13:17+0100\n"
-"PO-Revision-Date: 2017-11-28 13:39+0100\n"
+"PO-Revision-Date: 2019-07-08 15:15+0200\n"
 "Last-Translator: Ambroise Maupate <ambroise@rezo-zero.com>\n"
 "Language: fr\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.5.1\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: ../../user/nodes-system/managing-nodes.rst:4
 msgid "Managing nodes"
@@ -34,10 +34,10 @@ msgid ""
 msgstr ""
 "Les nœuds sont l'élément le plus important du CMS Roadiz. Ils permettent la "
 "mise en forme de votre contenu telle que vous le souhaitez en fonction de la "
-"définition de vos types nœuds. Un nœud peut être un post de blog, une page "
-"de contenu, une galerie photo, ou même un produit de l'e-boutique. Voilà "
-"pourquoi nous l'avons appelé \"Nœud\", c'est un conteneur de données "
-"abstrait interconnecté avec un autre nœud, au sein d'une arborescence. "
+"définition de vos types de nœuds. Un nœud peut être un post de blog, une "
+"page de contenu, une galerie photo, ou même un produit de l'e-boutique. "
+"Voilà pourquoi nous l'avons appelé \"Nœud\", c'est une unité de données "
+"abstraite et interconnectée avec le reste de votre arborescence."
 
 #: ../../user/nodes-system/managing-nodes.rst:13
 msgid "Node-tree navigation"
@@ -46,11 +46,11 @@ msgstr "Navigation dans l'arborescence"
 #: ../../user/nodes-system/managing-nodes.rst:17
 msgid "Simple node-tree after installing Roadiz with *Default theme*."
 msgstr ""
-"Arborescence simple après installation de Roadiz avec un *Thème par défaut*"
+"Arborescence simple après installation de Roadiz avec le *Default theme*."
 
 #: ../../user/nodes-system/managing-nodes.rst:22
 msgid "Contextual menu for *home* node."
-msgstr "Menu contextuel pour un nœud *Accueil*"
+msgstr "Menu contextuel pour un nœud *Accueil*."
 
 #: ../../user/nodes-system/managing-nodes.rst:27
 msgid ""
@@ -60,11 +60,12 @@ msgid ""
 msgstr ""
 "Chaque nœud a sa place dans votre site et c'est pourquoi nous avons choisi "
 "d'organiser votre contenu à travers une arborescence. C'est intuitif et cela "
-"fonctionne de la même manière que la gestion de vos fichiers d'ordinateur."
+"fonctionne de la même manière que la gestion des fichiers de votre "
+"ordinateur."
 
 #: ../../user/nodes-system/managing-nodes.rst:30
 msgid "To edit a node’ content, simply click on it."
-msgstr "Pour éditer le contenu nœud, cliquez simplement dessus."
+msgstr "Pour éditer le contenu d’un nœud, cliquez simplement dessus."
 
 #: ../../user/nodes-system/managing-nodes.rst:31
 msgid ""
@@ -76,8 +77,8 @@ msgstr ""
 "Pour déplacer un nœud dans votre arborescence, réalisez un \"cliquer-déposer"
 "\" grâce à la poignée (en forme de rond ou de losange). Vous pouvez déposer "
 "un nœud avant ou après un autre élément. Vous pouvez également le déposer à "
-"l'intérieur d'un autre nœud, en plaçant votre souris sur le coin droit de ce "
-"dernier pour déplacer l'ombre du nœud concerné vers la droite."
+"l'intérieur d'un autre nœud, en décalant légèrement votre souris vers la "
+"droite de ce dernier pour déplacer l'ombre du nœud à l’intérieur."
 
 #: ../../user/nodes-system/managing-nodes.rst:32
 msgid ""
@@ -85,7 +86,7 @@ msgid ""
 "the node or click on the arrow at the right when you pass your mouse over."
 msgstr ""
 "D'autres options sont disponibles à partir du menu contextuel de chaque "
-"nœud. Faites un clic droit sur le nœud ou cliquez sur la flèche droite qui "
+"nœud. Faites un clic-droit sur le nœud ou cliquez sur la flèche droite qui "
 "apparaît au survol."
 
 #: ../../user/nodes-system/managing-nodes.rst:35
@@ -96,7 +97,7 @@ msgstr "Actions des menus contextuels"
 msgid "*Add child node:* to create a content inside the current node."
 msgstr ""
 "*Ajouter un nœud enfant* : créer une zone de contenu à l'intérieur d'un nœud "
-"existant"
+"existant."
 
 #: ../../user/nodes-system/managing-nodes.rst:38
 msgid "*Edit node:* links to the current node “edit content” page."
@@ -122,7 +123,8 @@ msgid ""
 "will be prompt before really deleting a node."
 msgstr ""
 "*Supprimer* : placera le nœud actuel dans la corbeille. Une fenêtre de "
-"confirmation s'ouvrira afin de supprimer un nœud définitivement. "
+"confirmation s'ouvrira afin de supprimer un nœud. Le nœud n’est pas supprimé "
+"définitivement, il se retrouve dans la corbeille."
 
 #: ../../user/nodes-system/managing-nodes.rst:42
 msgid ""
