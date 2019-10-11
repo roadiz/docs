@@ -40,8 +40,10 @@ HTML output options
 * **alt**: If not filled, it will get the document name, then the document filename
 * **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image.
 * **lazyload_class** (default: ``lazyload``) Class name to be added when enabling lazyloading.
+* **fallback** (URL|data-uri) Defines a custom fallback image URL or *data-uri* when using ``lazyload`` option in order to fill ``src`` attribute and validate against W3C
 * **picture** (false|true), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**.
 * **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
+* **loading** (auto|lazy|eager), for next-gen browser only that will support native lazy-loading. This will be applied only on `img`, `picture` and `iframe` elements. *This can fail W3C validation*.
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,9 +126,11 @@ and ``my-video.jpeg`` documents. *Roadiz* will automatically generate a ``<video
 Using src-set attribute for responsive images
 ---------------------------------------------
 
-Roadiz can generate a ``srcset`` attribute to create a responsive image tag like the one you can find `on these examples <https://responsiveimages.org/>`_.
+Roadiz can generate a ``srcset`` attribute to create a responsive image
+tag like the one you can find `on these examples <https://responsiveimages.org/>`_.
 
 * **srcset** (Array) Define for each rule an Array of format. `Specifications <https://www.w3.org/html/wg/drafts/html/master/semantics.html#attr-img-srcset>`_
+* **media** (Array) Define one ``srcset`` for each media-query. You cannot use ``media`` without ``picture`` option.
 
 .. code-block:: html+jinja
 
@@ -166,6 +170,91 @@ This will output an ``img`` tag like the following one:
          srcset="/assets/f600x600-q75/image.jpg 1200w, /assets/f200x200-q90/image.jpg 780w"
          sizes="(max-width: 780px) 200px, (max-width: 1200px) 600px"
          alt="A responsive image">
+
+Generate <picture> elements
+---------------------------
+
+If you want to combine ``srcset`` for media queries **and** device ratio, use ``picture`` element with ``media`` option:
+
+.. code-block:: html+jinja
+
+    {% set image = nodeSource.images[0] %}
+    {% if image %}
+    {{ image|display({
+        'fit':'640x400',
+        'quality':75,
+        'picture': true,
+        'media': [
+            {
+                'srcset': [
+                    {
+                        'format': {
+                            'fit':'320x200',
+                            'quality':90
+                        },
+                        'rule': '1x',
+                    },
+                    {
+                        'format': {
+                            'fit':'640x400',
+                            'quality':75
+                        },
+                        'rule': '2x',
+                    }
+                ],
+                'rule': '(max-width: 767px)'
+            },
+            {
+                'srcset': [
+                    {
+                        'format': {
+                            'fit':'800x600',
+                            'quality':80
+                        },
+                        'rule': '1x',
+                    },
+                    {
+                        'format': {
+                            'fit':'1600x1200',
+                            'quality':70
+                        },
+                        'rule': '2x',
+                    }
+                ],
+                'rule': '(min-width: 768px)'
+            }
+        ]
+    }) }}
+    {% endif %}
+
+This will output a ``picture`` element supporting :
+
+- *WebP* image format (*Roadiz* will automatically generate a ``.webp`` image if your PHP is compiled with *webp* support)
+- *Media query* attributes
+- *Device ratio* src-set rules
+- A fallback ``img`` element for older browsers
+
+.. code-block:: html
+
+    <picture>
+        <source media="(max-width: 767px)"
+                srcset="/assets/f320x200-q90/folder/file.jpg.webp 1x, /assets/f640x400-q75/folder/file.jpg.webp 2x"
+                type="image/webp">
+        <source media="(max-width: 767px)"
+                srcset="/assets/f320x200-q90/folder/file.jpg 1x, /assets/f640x400-q75/folder/file.jpg 2x"
+                type="image/jpeg">
+
+        <source media="(min-width: 768px)"
+                srcset="/assets/f800x600-q80/folder/file.jpg.webp 1x, /assets/f1600x1200-q70/folder/file.jpg.webp 2x"
+                type="image/webp">
+        <source media="(min-width: 768px)"
+                srcset="/assets/f800x600-q80/folder/file.jpg 1x, /assets/f1600x1200-q70/folder/file.jpg 2x"
+                type="image/jpeg">
+
+        <img alt="file.jpg"
+             src="/assets/f640x400-q75/folder/file.jpg"
+             width="640" height="400" />
+    </picture>
 
 More document details
 ---------------------
