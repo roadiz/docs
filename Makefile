@@ -66,7 +66,7 @@ singlehtml:
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 livehtml:
-	sphinx-autobuild -B --ignore "*/.git/*" --ignore "*HEAD" --ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) ${SOURCEDIR} $(BUILDDIR)/html
+	sphinx-autobuild -B --ignore "*/.git/*" --ignore "*/roadiz_rtd_theme/*" --ignore "*.pickle" --ignore "*.doctree" --ignore "*HEAD" --ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) ${SOURCEDIR} $(BUILDDIR)/html
 
 pickle:
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
