@@ -153,7 +153,7 @@ Add this to your `config.yml` to link your CMS to your *Solr* server:
             localhost:
                 host: "localhost"
                 port: "8983"
-                path: "/solr"
+                path: "/"
                 core: "mycore"
                 timeout: 3
                 username: ""
