@@ -29,7 +29,7 @@ without any additional development.
     <ul class="block-attributes">
         {% for attributeValueTranslation in nodeSource|attributes %}
             <li>
-                <strong>{{ attributeValueTranslation|attribute_label }}:</strong>
+                <strong>{{ attributeValueTranslation|attribute_label(translation) }}:</strong>
                 {% if attributeValueTranslation is datetime %}
                     {{ attributeValueTranslation.value|localizeddate('medium', 'short') }}
                 {% elseif attributeValueTranslation is date %}
