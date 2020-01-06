@@ -11,9 +11,15 @@ composer create-project roadiz/standard-edition
 # Create a new theme for your project
 cd standard-edition
 bin/roadiz themes:generate --symlink --relative FooBar
+
 # Launch PHP server with web folder as root
 php -S 0.0.0.0:8080 -t web vendor/roadiz/roadiz/conf/router.php
+# OR use Makefile recipe
+make dev-server
 ```
+
+Standard Edition has a ``Makefile`` recipe for launching internal PHP server 
+with a chosen port and IP: ``make dev-server``.
 
 If you want to use PHP internal server, make sure you have installed all required
 PHP extensions and that you have a database server:
