@@ -7,3 +7,4 @@ Extension system
 
    extending_roadiz
    events/intro
+   extending_solr
