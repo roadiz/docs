@@ -41,6 +41,7 @@ HTML output options
 * **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image.
 * **lazyload_class** (default: ``lazyload``) Class name to be added when enabling lazyloading.
 * **fallback** (URL|data-uri) Defines a custom fallback image URL or *data-uri* when using ``lazyload`` option in order to fill ``src`` attribute and validate against W3C
+* **blurredFallback** (false|true, default: ``false``) Generated a very low quality image version for lazyload fallback to better control image size and better experience.
 * **picture** (false|true), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**.
 * **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
 * **loading** (auto|lazy|eager), for next-gen browser only that will support native lazy-loading. This will be applied only on `img`, `picture` and `iframe` elements. *This can fail W3C validation*.
