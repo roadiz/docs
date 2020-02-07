@@ -89,6 +89,25 @@ access resources according to Roadiz *ROLES*.
     </div>
     {% endif %}
 
+Checking node-sources type
+--------------------------
+
+You can use every node-type names as simple *Twig test* against your ``nodeSource``
+variables.
+
+.. code-block:: html+jinja
+
+    {% set parentNodeSource = nodeSource|parent %}
+
+    {% if parentNodeSource is Page %}
+        <p>I’m in a page</p>
+    {% endif %}
+    {% if parentNodeSource is BlogPost %}
+        <p>I’m in a blog article</p>
+    {% endif %}
+
+You can use real node-type names, like ``Page``, or their PHP classname, like ``NSPage``.
+
 .. _twig-generate-paths:
 
 Generating paths and url

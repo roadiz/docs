@@ -72,7 +72,8 @@ it’s persisted into *Solr* engine (especially ``collection_txt`` field):
                 foreach ($children as $child) {
                     /** @var SolariumNodeSource $solarium */
                     $solarium = $this->container[SolariumFactoryInterface::class]->createWithNodesSources($child);
-                    $childAssoc = $solarium->getFieldsAssoc();
+                    // Fetch all fields array association AS sub-resources (i.e. do not index their title)
+                    $childAssoc = $solarium->getFieldsAssoc(true);
                     $assoc['collection_txt'] = array_merge(
                         $assoc['collection_txt'],
                         $childAssoc['collection_txt']
@@ -80,7 +81,6 @@ it’s persisted into *Solr* engine (especially ``collection_txt`` field):
                 }
 
                 $event->setAssociations($assoc);
-                $event->stopPropagation();
             }
         }
     }
