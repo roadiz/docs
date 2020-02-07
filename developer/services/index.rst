@@ -59,11 +59,13 @@ get node-sources from a search query.
 Simple search results
 ^^^^^^^^^^^^^^^^^^^^^
 
-``$this->get('solr.search.nodeSource')->search()`` method will return an array of ``NodesSources``
+``$this->get('solr.search.nodeSource')->search()`` method will return
+a ``SolrSearchResults`` *traversable* object listing ``NodesSources``:
 
 .. code-block:: php
 
     $criteria = [];
+    /** @var SolrSearchResults $results */
     $results = $this->get('solr.search.nodeSource')
                     ->search(
                         $request->get('q'), # Use ?q query parameter to search with
@@ -82,11 +84,15 @@ Simple search results
 Search results with highlighting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return an array of array with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag.
+``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return
+a ``SolrSearchResults`` *traversable* object with arrays with a simple structure:
+``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data
+with highlighted text wrapped in ``span.solr-highlight`` html tag.
 
 .. code-block:: php
 
     $criteria = [];
+    /** @var SolrSearchResults $results */
     $results = $this->get('solr.search.nodeSource')
                     ->searchWithHighlight(
                         $request->get('q'), # Use ?q query parameter to search with
@@ -101,26 +107,32 @@ Search results with highlighting
         # NodesSources object
         $nodeSource = $result['nodeSource'];
         # String object (HTML)
-        $hightlight = $result['highlighting'];
+        $highlight = $result['highlighting'];
     }
 
 Count search results
 ^^^^^^^^^^^^^^^^^^^^
 
-``$this->get('solr.search.nodeSource')->count()`` method will return all results count, useful for creating search paginations.
+``$this->get('solr.search.nodeSource')->search()`` and
+``$this->get('solr.search.nodeSource')->searchWithHighlight()``methods will return
+a ``SolrSearchResults`` *traversable* object. You can use ``SolrSearchResults::getResultCount()``
+to get results count.
 
 .. code-block:: php
 
     $criteria = [];
-    $resultsCount = $this->get('solr.search.nodeSource')
-                    ->count(
+    /** @var SolrSearchResults $results */
+    $results = $this->get('solr.search.nodeSource')
+                    ->search(
                         $request->get('q'), # Use ?q query parameter to search with
                         $criteria,          # a simple criteria array to filter search results
-                        0,                  # result count (useless, for compatibility only)
+                        10,                 # result count
                         true                # Search in tags too
+                        10000               # Proximity (optional, default: 10000)
+                        1                   # Page (optional, default: 1)
                     );
 
-    $pageCount = ceil($resultsCount/$this->getItemPerPage());
+    $pageCount = ceil($results->getResultCount()/$this->getItemPerPage());
     $itemPerPage = $this->getItemPerPage();
 
 Search criteria
@@ -130,17 +142,20 @@ Solr will search in *NodesSources* index by default, but it will not filter by t
 You can add your own search criteria using similar filter names as ``nodeSourceApi``.
 
 - ``visible``: boolean
-- ``translation``: a Roadiz Translation object
+- ``translation``: a ``Translation`` object
 - ``_locale``: string
-- ``tags``: Roadiz Tag object or Tag array
-- ``nodeType``: a Roadiz NodeType object
-- ``status``: defaults to PUBLISHED
+- ``tags``: a ``Tag`` object or ``Tag`` array
+- ``nodeType``: a ``NodeType`` object
+- ``status``: defaults to ``Node::PUBLISHED``
+- ``publishedAt``: ``\DateTime`` or array like ``EntityRepository::findBy`` method.
 
 .. code-block:: php
 
     $criteria = [
         'visible' => true,
         'translation' => $translation,
+        // Returns only published nodes-sources
+        'publishedAt' => ['<=', new \DateTime()],
         'nodeType' => [
             $this->get('nodeTypesBag')->get('Page'),
             // …
