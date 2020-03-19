@@ -7,10 +7,10 @@ First steps
 
    requirements
    installation
+   docker
    vagrant
    php_server
    manual_config
    upgrading
    moving
-   docker
    installation-on-shared-hosting
