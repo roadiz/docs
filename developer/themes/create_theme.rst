@@ -31,7 +31,7 @@ fit our needs with many starter node-types and a front-end framework using *ES6*
 .. code-block:: bash
 
     # Use Roadiz command to pull and rename BaseTheme after your own project
-    bin/roadiz themes:generate MyAwesome
+    bin/roadiz themes:generate --relative --symlink MyAwesome
 
 Your theme will be generated as ``/themes/MyAwesomeTheme`` with ``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php``
 class.

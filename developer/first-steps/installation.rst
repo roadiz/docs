@@ -9,10 +9,17 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
 .. code-block:: bash
 
     # Create a new Roadiz project
-    composer create-project roadiz/standard-edition
-    # Create a new theme for your project
-    cd standard-edition
+    composer create-project roadiz/standard-edition my-website
+    cd my-website
+    # Create a new theme for your project and link assets
+    # path in public folder
     bin/roadiz themes:generate --symlink --relative FooBar
+    # Go to your theme
+    cd themes/FooBarTheme
+    # Install JS dependencies with npm or Yarn
+    yarn # or npm install
+    # Build your new theme assets
+    yarn build # or npm run build
 
 *Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
 want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files
@@ -37,8 +44,8 @@ Dealing with Roadiz environments
 Installation environment
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once you’ve succedded to download Roadiz and its dependencies. You’ll have to setup its database
-and every informations needed to begin your website.
+Once you’ve succeeded to download Roadiz and its dependencies. You’ll have to setup its database
+and every information needed to begin your website.
 
 As every *Symfony* applications do, *Roadiz* works using environments. By default, there is a *production*
 environment which is handled by ``index.php`` entry point. At this moment, if you try to connect to

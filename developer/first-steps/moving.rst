@@ -11,8 +11,8 @@ Before moving your website, make sure you have backed up your data:
 Moving to a SSH+Git hosting plan or an other development machine
 ----------------------------------------------------------------
 
-From this point you can install your new webserver, as described in :ref:`Install section <installation>`.
-Pay attention that if your theme needs some additionnal *composer* dependencies you should
+From this point you can install your new web-server, as described in :ref:`Install section <installation>`.
+Pay attention that if your theme needs some additional *composer* dependencies you should
 *clone/copy* it into your *themes/* folder **before** running ``composer install --no-dev``. That way
 *composer* will download theme libraries at the same time as Roadiz’ ones (:ref:`See how to use Composer in your themes <theme_composer>`).
 
@@ -49,7 +49,7 @@ Install assets
 ^^^^^^^^^^^^^^
 
 By default, web theme assets are not tracked by *Git*. Make sure that you installed every theme
-assets using ``bin/roadiz themes:assets:install`` command. You should use ``--symlink --relative`` 
+assets using ``bin/roadiz themes:assets:install`` command. You should use ``--symlink --relative``
 options when possible to prevent updating assets manually. For Windows users, remove ``--relative``
 option to create *absolute* symlinks.
 
