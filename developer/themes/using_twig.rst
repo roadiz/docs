@@ -25,8 +25,6 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
     * **useCdn** - [boolean]
     * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
     * **filesUrl** — [string]
-    * **resourcesUrl** — [string] Your theme ``Resources`` path. Useful to reach your assets.
-    * **absoluteResourcesUrl** — [string] Your theme absolute ``Resources`` url. Useful to reach your assets outside of your website.
 * **session**
     * **id** — [string]
     * **user** — [object]
@@ -135,6 +133,33 @@ both, they will automatically create an *http query string* when using a node-so
     {# Eg. /en/about-us?page=2  #}
     {{ path(nodeSource, {'page': 2}) }}
 
+Generating assets paths and url
+-------------------------------
+
+You also can use standard ``{{ asset('file.jpg', 'FooBarTheme') }}`` to generate a path to a public asset stored
+in your theme. This will generate ``/themes/FooBarTheme/static/file.jpg`` path, **do not** add a leading slash to let
+Symfony package generate path according to request context.
+
+If you need this path to converted to absolute url, use ``{{ absolute_url(asset('file.jpg', 'FooBarTheme')) }}``.
+
+``asset`` method second argument is the *package* to use for resolving assets. Your theme main service provider, i.e
+``Themes\FooBarTheme\Services\FooBarThemeServiceProvider`` should declare a *package* with your theme name. If not,
+you can add any *package* by extending ``assetPackages`` service:
+
+.. code-block:: php
+
+    $container->extend('assetPackages', function (Packages $packages, Container $c) {
+        $packages->addPackage('FooBarTheme', new PathPackage(
+            'themes/FooBarTheme/static',
+            $c['versionStrategy'],
+            new RequestStackContext($c['requestStack'])
+        ));
+        return $packages;
+    });
+
+.. note::
+    Make sure you are **not** using a leading slash in your asset paths. If you begin path with a
+    slash, the assets package won't resolve it and it will assume that your path is already absolute.
 
 Handling node-sources with Twig
 -------------------------------
