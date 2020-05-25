@@ -20,6 +20,10 @@ You can add users simply by clicking *Add an user* button.
 .. image:: ./img/add_user_button.png
     :align: center
 
+If you create an user without specifying its *password*, an email with a password reset link will sent to your new user.
+Make sure that you entered the right email and that your Roadiz website has a *mailer* configured. New user will be locked
+unless he or she reset its password first.
+
 The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session.
 You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin.
 
