@@ -118,10 +118,12 @@ Now let's have a look to your twig template file ``admin/test.html.twig``.
     </section>
     {% endblock %}
 
-The first line is for inheriting from Rozier base template, you can notice that we explicitely choose `@Rozier` namespace.
+The first line is for inheriting from Rozier base template, you can notice that we explicitly choose `@Rozier` namespace.
 
 The two next blocks are made for you to add some CSS or Javascript.
-For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ request.baseUrl ~ "/themes/MyTheme/static/css/customstyle.css" }}``,  or add directly some CSS with "<style>" tag.
+For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag,
+the path must be something like that ``{{ asset('static/css/customstyle.css', 'MyTheme') }}``,
+or add directly some CSS with "<style>" tag.
 For JS, the block ``customScripts`` work as is, just link an external JS file or write your ``<script>`` tag.
 
 Then create your own content, do not hesitate to give a look at Rozier back-stage theme Twig files to use the right DOM structure.

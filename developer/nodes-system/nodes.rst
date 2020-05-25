@@ -221,33 +221,35 @@ You can override default node-source path generation in order to use ``{{ path()
 in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type
 which purpose only is to link to an other node in your website. When you call *path* or *URL*
 generation on it, you should prefer getting its linked node path, so you can listen
-to ``NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING`` event and stop propagation to return
+to ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return
 your linked node path instead of your *link* node path.
 
 .. code-block:: php
 
     use GeneratedNodeSources\NSLink;
-    use RZ\Roadiz\Core\Events\FilterNodeSourcePathEvent;
-    use RZ\Roadiz\Core\Events\NodesSourcesEvents;
     use Symfony\Component\EventDispatcher\EventDispatcherInterface;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+    use RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent;
 
     class LinkPathGeneratingEventListener implements EventSubscriberInterface
     {
         public static function getSubscribedEvents()
         {
             return [
-                NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING => ['onLinkPathGeneration']
+                NodesSourcesPathGeneratingEvent:class => ['onLinkPathGeneration']
             ];
         }
 
         /**
-         * @param FilterNodeSourcePathEvent $event
-         * @param string                    $eventName
-         * @param EventDispatcherInterface  $dispatcher
+         * @param NodesSourcesPathGeneratingEvent $event
+         * @param string                          $eventName
+         * @param EventDispatcherInterface        $dispatcher
          */
-        public function onLinkPathGeneration(FilterNodeSourcePathEvent $event, $eventName, EventDispatcherInterface $dispatcher)
-        {
+        public function onLinkPathGeneration(
+            NodesSourcesPathGeneratingEvent $event,
+            $eventName,
+            EventDispatcherInterface $dispatcher
+        ) {
             $nodeSource = $event->getNodeSource();
 
             if ($nodeSource instanceof NSLink) {

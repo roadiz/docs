@@ -13,25 +13,24 @@ When you use :ref:`Dynamic routing <dynamic-routing>` within your theme, Roadiz 
 * **cms_version** — [string]
 * **cms_prefix** — [string]
 * **help_external_url** — [string] Back-office help URL (this can be overriden in your theme if your wrote a dedicated documentation for your customers)
-* **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
 * **is_debug** - [boolean]
 * **is_preview** - [boolean]
 * **is_dev_mode** - [boolean]
 * **is_prod_mode** - [boolean]
 * **head**
-    * **ajax** — [boolean] Tells if current request is an Ajax one
     * **devMode** — [boolean]
     * **universalAnalyticsId** — [string]
     * **useCdn** - [boolean]
     * **baseUrl** — [string] Server base Url. Basically your domain name, port and folder if you didn’t setup Roadiz at you server root
     * **filesUrl** — [string]
-* **session**
-    * **id** — [string]
-    * **user** — [object]
 * **bags**
     * **settings** — [SettingsBag]
     * **nodeTypes** — [NodeTypesBag]
     * **roles** — [RolesBag]
+* **app**
+    * **session** — [Session]
+    * **user** — [User]
+    * **request** — [object] Symfony request object which contains useful data such as current URI or GET parameters
 
 There are some more content only available from *FrontendControllers*.
 
