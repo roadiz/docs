@@ -141,20 +141,8 @@ Symfony package generate path according to request context.
 
 If you need this path to converted to absolute url, use ``{{ absolute_url(asset('file.jpg', 'FooBarTheme')) }}``.
 
-``asset`` method second argument is the *package* to use for resolving assets. Your theme main service provider, i.e
-``Themes\FooBarTheme\Services\FooBarThemeServiceProvider`` should declare a *package* with your theme name. If not,
-you can add any *package* by extending ``assetPackages`` service:
-
-.. code-block:: php
-
-    $container->extend('assetPackages', function (Packages $packages, Container $c) {
-        $packages->addPackage('FooBarTheme', new PathPackage(
-            'themes/FooBarTheme/static',
-            $c['versionStrategy'],
-            new RequestStackContext($c['requestStack'])
-        ));
-        return $packages;
-    });
+``asset`` method second argument is the *package* to use for resolving assets. Roadiz automatically registers a package
+using your theme name.
 
 .. note::
     Make sure you are **not** using a leading slash in your asset paths. If you begin path with a
@@ -163,10 +151,10 @@ you can add any *package* by extending ``assetPackages`` service:
 Handling node-sources with Twig
 -------------------------------
 
-Most of yout front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data directly in *Twig* using the “dot” seperator.
+Most of your front-end work will consist in editing *Twig* templating, *Twig* assignations and… *Twig* filters. Roadiz core entities are already linked together so you don’t have to prepare your data before rendering it. Basically, you can access *nodes* or *node-sources* data directly in *Twig* using the “dot” separator.
 
 There is even some magic about *Twig* when accessing private or protected fields:
-just write the fieldname and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as ``{{ nodeSource.getContent|markdown }}`` by *Twig*.
+just write the field-name and it will use the getter method instead: ``{{ nodeSource.content|markdown }}`` will be interpreted as ``{{ nodeSource.getContent|markdown }}`` by *Twig*.
 
 .. note::
     Roadiz will transform your node-type fields names to *camel-case* to create getters and setters into you NS class.
@@ -305,6 +293,7 @@ Use them with the *pipe* syntax, eg. ``document|display``.
 * ``imageOrientation``: get image orientation as *string*, returns ``landscape`` or ``portrait``.
 * ``path``: shortcut for document real path on server.
 * ``exists``: shortcut to test if document file exists on server. Returns ``boolean``.
+* ``embedFinder``: return the embed finder to handle external documents sources such as *Youtube* or *Vimeo*
 
 Translations filters
 ^^^^^^^^^^^^^^^^^^^^
