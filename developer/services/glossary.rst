@@ -228,6 +228,7 @@ Factories
 
     document.viewer
         :sup:`Factory` ``RZ\Roadiz\Core\Viewers\DocumentViewer``
+        **Deprecated**:
 
     translation.viewer
         :sup:`Factory` ``RZ\Roadiz\Core\Viewers\TranslationViewer``
