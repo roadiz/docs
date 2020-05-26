@@ -37,18 +37,13 @@ NodesSources events
 
 Each node-source event object contains the current ``NodesSources`` entity. You will get it using ``$event->getNodeSource()``.
 
-* ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesIndexingEvent::class``:
-This event type is dispatched during Solr indexation. Your event will be ``\RZ\Roadiz\Core\Events\FilterSolariumNodeSourceEvent``
-and it will allow you to alter or improve your Solr index according to your node-source type.
+* ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesIndexingEvent::class``: This event type is dispatched during Solr indexation. Your event will be ``\RZ\Roadiz\Core\Events\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type.
 
 .. note::
     You will find a simple subscriber example in Roadiz back-office theme which is called ``Themes\Rozier\Events\SolariumSubscriber``.
     This subscriber is useful to update or delete your *Solr* index documents against your node-source database.
 
-* ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent::class``:
-This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig
-method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate
-the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name).
+* ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent::class``: This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name).
 
 Tags events
 -----------
@@ -69,7 +64,7 @@ Folders events
 Each folder event object contains the current ``Folder`` entity. You will get it using ``$event->getFolder()``.
 
 Translations events
---------------
+-------------------
 
 * ``RZ\Roadiz\Core\Events\Translation\TranslationCreatedEvent::class``
 * ``RZ\Roadiz\Core\Events\Translation\TranslationUpdatedEvent::class``
@@ -78,7 +73,7 @@ Translations events
 Each folder event object contains the current ``Translation`` entity. You will get it using ``$event->getTranslation()``.
 
 UrlAlias events
---------------
+---------------
 
 * ``RZ\Roadiz\Core\Events\UrlAlias\UrlAliasCreatedEvent::class``
 * ``RZ\Roadiz\Core\Events\UrlAlias\UrlAliasUpdatedEvent::class``
@@ -87,7 +82,7 @@ UrlAlias events
 Each folder event object contains the current ``UrlAlias`` entity. You will get it using ``$event->getUrlAlias()``.
 
 User events
---------------
+-----------
 
 * ``RZ\Roadiz\Core\Events\User\UserCreatedEvent::class``
 * ``RZ\Roadiz\Core\Events\User\UserUpdatedEvent::class``

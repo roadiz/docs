@@ -15,12 +15,12 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * ``php-intl`` extension
 * ``php-xml`` extension
 * ``php-curl`` extension
+* ``php-mbstring`` extension
 * JSON needs to be enabled
 * ctype needs to be enabled
 * Your php.ini needs to have the ``date.timezone`` setting
 * You need to have at least version 2.6.21 of libxml
 * PHP tokenizer needs to be enabled
-* mbstring functions need to be enabled
 * PHP *OPcache* + *APCu* (APC 3.0.17+ or another opcode cache needs to be installed)
 * php.ini recommended settings
     * ``short_open_tag = Off``

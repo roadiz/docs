@@ -250,8 +250,8 @@ use for the on-the-fly image processing with `Intervention Request <https://gith
         # List additionnal Intervention Request subscribers
         subcribers: []
 
-Additionnal *Intervention Request* subscribers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Additional *Intervention Request* subscribers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Any *Intervention Request* subscriber can be added to configuration with its ``classname``
 and its constructor arguments. Here is an example with ``WatermarkListener`` which will

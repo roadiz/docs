@@ -13,8 +13,7 @@ Moving to a SSH+Git hosting plan or an other development machine
 
 From this point you can install your new web-server, as described in :ref:`Install section <installation>`.
 Pay attention that if your theme needs some additional *composer* dependencies you should
-*clone/copy* it into your *themes/* folder **before** running ``composer install --no-dev``. That way
-*composer* will download theme libraries at the same time as Roadiz’ ones (:ref:`See how to use Composer in your themes <theme_composer>`).
+*clone/copy* it into your *themes/* folder **before** running ``composer install --no-dev``.
 
 Then import your dump and files into your new server.
 
@@ -39,6 +38,8 @@ Now you can perform a schema update without losing your nodes data:
     bin/roadiz orm:schema-tool:update --force;
     bin/roadiz cache:clear -e prod
     bin/roadiz cache:clear -e prod --preview
+    bin/roadiz cache:clear-fpm -e prod
+    bin/roadiz cache:clear-fpm -e prod --preview
 
 .. note::
     If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually
@@ -92,28 +93,28 @@ Moving to a non-SSH hosting plan
 --------------------------------
 
 You have nearly finished your brand new website using Roadiz. You have been working on your own
-server using Git and Composer, up to this point everthing went well.
+server using Git and Composer, up to this point everything went well.
 
 Now you have to push to production, but your prod-server has no SSH connection. You are stuck with
 an SFTP connection or worst, an old FTP one. Don’t panic, it will take a little more time but it is still possible.
 
 .. warning::
-    Many shared-plan hosters offer you only one or two databases. When moving a Roadiz website, make sure
+    Many shared-plan hosting companies offer you only one or two databases. When moving a Roadiz website, make sure
     that your database is empty and do not contain orphan tables, you must respect the rule “One app = One database”.
 
 .. note::
     If you can ZIP on your production server or if you are going to push your files via FTP,
     do not forget to exclude ``.git`` and ``node_modules`` folders! These folders have **lots** of useless files
-    for a production SSH-less environnement.
+    for a production SSH-less environment.
     Here is a sample ZIP command to exclude them:
     ``zip -r mywebsite.zip mywebsite/ -x "mywebsite/.git/*" "mywebsite/themes/**/static/node_modules/*"``.
 
-* Before transfering your website, make sure you have ``.htaccess`` file in every sensitive folders. You can use the ``bin/roadiz generate:htaccess`` on your computer.
+* Before transferring your website, make sure you have ``.htaccess`` file in every sensitive folders. You can use the ``bin/roadiz generate:htaccess`` on your computer.
 * If you have at least SFTP, you should have to rights to zip/unzip on your distant server. So zip the whole Roadiz folder.
 * If you only have FTP, you must be prepared to transfer your Roadiz folder, file-by-file. Just get yourself a nice cup of coffee.
 * Once everything is copied on your production server, verify than you have the same files as on your dev-server.
 * Import your database dump with phpmyadmin or pgmyadmin.
 * Edit your ``conf/config.yml`` to match your new database credentials.
-* Verify that root ``.htaccess`` file contains every informations to enable Apache url-rewriting.
+* Verify that root ``.htaccess`` file contains every information to enable Apache url-rewriting.
 * Try to connect to your website
-* If it doesn’t work or display anything, read your PHP log file to understand where the problem comes from. It might be your database credentials or an oudated PHP version. Check that your hoster has installed every needed PHP extensions, see :ref:`requirements`.
+* If it doesn’t work or display anything, read your PHP log file to understand where the problem comes from. It might be your database credentials or an outdated PHP version. Check that your hosting manager has installed every needed PHP extensions, see :ref:`getting-started`.

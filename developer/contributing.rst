@@ -31,7 +31,7 @@ Unit-tests can be launched by the following command:
 
 .. code-block:: console
 
-    bin/phpunit -v --bootstrap=tests/bootstrap.php tests/
+    php bin/phpunit -v --bootstrap=tests/bootstrap.php --whitelist ./src tests/
 
 If your are writing a feature, don't forget to write a unit test for it. You can find some example in the folder ``tests``.
 In Roadiz, there are 4 types of tests:
@@ -53,21 +53,26 @@ You can copy and paste the following command-lines to check easily:
 
 .. code-block:: console
 
-    bin/phpcs --report=full --report-file=./report.txt \
-                --extensions=php --warning-severity=0 \
-                --standard=PSR2 \
-                --ignore="*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/*" \
-                -p ./
+    php bin/phpcs --report=full --report-file=./report.txt -p ./
 
 Or you can use *phpcbf* to automatically fix code style issues.
 
 .. code-block:: console
 
-    bin/phpcbf --report=full --report-file=./report.txt \
-                --extensions=php --warning-severity=0 \
-                --standard=PSR2 \
-                --ignore="*/node_modules/*,*/.AppleDouble,*/vendor/*,*/cache/*,*/gen-src/*,*/tests/*,*/bin/*" \
-                -p ./
+    php bin/phpcbf --report=full --report-file=./report.txt -p ./
 
 Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability.
 Your code will be checked when we will be considering your pull requests.
+
+Static analysis
+---------------
+
+Then we use ``phpstan`` as a static code analyzer to check bugs and misuses before they occur:
+
+.. code-block:: console
+
+    php bin/phpstan analyse -c phpstan.neon -l 1 src themes/Rozier themes/Install
+
+.. topic:: Standard Edition
+
+    Roadiz *Standard Edition* comes with a ``Makefile`` to make it easier to test your sources and your theme. Just execute ``make test`` and ``phpcbf`` and ``phpstan`` will test your theme sources. If you are using *Gitlab CI/CD* with our ``.gitlab-ci.yml`` file, those tests will be executed at each pipeline trigger.

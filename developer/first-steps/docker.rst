@@ -39,7 +39,7 @@ reflect your local user **UID** during image build.
 
 So use the same uid in your `.env` file **before** starting and building your Docker image.
 
-.. code-block:: dotenv
+.. code-block:: bash
 
     USER_UID=1000
 

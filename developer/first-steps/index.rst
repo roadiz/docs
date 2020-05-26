@@ -9,7 +9,7 @@ First steps
    installation
    docker
    vagrant
-   php_server
+   php_server.md
    manual_config
    upgrading
    moving
