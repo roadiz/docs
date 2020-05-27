@@ -77,63 +77,76 @@ Fill in the form to create a new field :
 Other actions
 -------------
 
-From one website to another, you can export node-types as .rzt files.
+From one website to another, you can export node-types as .json files.
 
 .. image:: ./img/export_nodetype.png
     :align: center
 
-An .rzt file should look like this when you open it in any editor (it is basically a .json file):
+An .json file should look like this when you open it in any editor:
 
 .. code-block:: json
 
     {
         "name": "Page",
         "displayName": "Page",
-        "description": null,
         "visible": true,
+        "publishable": false,
+        "reachable": true,
         "newsletterType": false,
-        "hidingNodes": true,
+        "hidingNodes": false,
+        "color": "#000000",
         "fields": [
             {
-                "name": "excerpt",
-                "label": "Excerpt",
-                "description": null,
-                "visible": true,
+                "position": 1.0,
+                "name": "content",
+                "label": "Content",
                 "type": 4,
+                "expanded": false,
+                "nodeTypeName": "Page",
+                "universal": false,
                 "indexed": false,
-                "virtual": false,
-                "default_values": null,
-                "group_name": null
+                "visible": true
             },
             {
-                "name": "image",
-                "label": "Image",
-                "description": null,
-                "visible": true,
-                "type": 9,
-                "indexed": false,
-                "virtual": true,
-                "default_values": null,
-                "group_name": null
-            },
-            {
+                "position": 2.0,
                 "name": "children",
-                "label": "Children",
-                "description": null,
-                "visible": true,
+                "label": "N\u0153uds enfants",
                 "type": 16,
+                "expanded": false,
+                "nodeTypeName": "Page",
+                "universal": false,
                 "indexed": false,
-                "virtual": true,
-                "default_values": "",
-                "group_name": null
+                "visible": true
+            },
+            {
+                "position": 3.0,
+                "name": "header_image",
+                "label": "Header image",
+                "type": 9,
+                "expanded": false,
+                "nodeTypeName": "Page",
+                "universal": false,
+                "indexed": false,
+                "visible": true
+            },
+            {
+                "position": 4.0,
+                "name": "pictures",
+                "label": "Pictures",
+                "type": 9,
+                "expanded": false,
+                "nodeTypeName": "Page",
+                "universal": false,
+                "indexed": false,
+                "visible": true
             }
-        ]
+        ],
+        "defaultTtl": 0
     }
 
+Notice the four fields that have been added to this *Page* node-type.
 
-Notice the three fields that have been added to this *Page* node-type.
-
-You can write an .rzt file yourself if you feel like it, but it is probably easier to simply export node-types from existing website, then import it on your new website.
+You can write an .json file yourself if you feel like it, but it is probably easier to simply export node-types from existing website, then import it on your new website.
 It can be easily done by clicking on *Import node-type* button, then selecting it via your explorer.
 
 .. image:: ./img/import_nodetype.png

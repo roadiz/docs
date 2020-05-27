@@ -15,18 +15,20 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * ``php-intl`` extension
 * ``php-xml`` extension
 * ``php-curl`` extension
+* ``php-mbstring`` extension
 * JSON needs to be enabled
 * ctype needs to be enabled
 * Your php.ini needs to have the ``date.timezone`` setting
 * You need to have at least version 2.6.21 of libxml
 * PHP tokenizer needs to be enabled
-* mbstring functions need to be enabled
 * PHP *OPcache* + *APCu* (APC 3.0.17+ or another opcode cache needs to be installed)
-* php.ini recommended settings
-    * ``short_open_tag = Off``
-    * ``magic_quotes_gpc = Off``
-    * ``register_globals = Off``
-    * ``session.auto_start = Off``
+* ``php.ini`` recommended settings
+
+    - ``short_open_tag = Off``
+    - ``magic_quotes_gpc = Off``
+    - ``register_globals = Off``
+    - ``session.auto_start = Off``
+
 * MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php-xxxsql`` extension according to your database driver flavor)
 * Zip/Unzip
 * cUrl
@@ -76,14 +78,18 @@ CMS Structure
 
 * ``bin/``: Contains the Roadiz CLI executable
 * ``app/``: Contains every runtime resources from configuration to app cache and nodes-sources entities
+
     * ``cache/``: Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
     * ``conf/``: Your setup configuration file(s) (this folder must be writable for PHP)
     * ``gen-src/``: Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)
     * ``logs/``: *Monolog* logs folder
+
 * ``files/``: Private documents and font files root (this folder must be writable for PHP)
 * ``samples/``: This folder contains useful configuration and example files for Apache or Nginx webservers
 * ``web/``: Your website root, it contains your application entry-points and your public assets
+
     * ``files/``: Public documents (this folder must be writable for PHP)
     * ``themes/``: public assets mirror for each theme, this folder contains symlinks to your ``themes/YourTheme/static`` folder
+
 * ``themes/``: Contains your themes and system themes such as *Rozier* and *Install*
 * ``vendor/``: Dependencies folder managed by *Composer*

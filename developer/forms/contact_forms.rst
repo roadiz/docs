@@ -68,17 +68,7 @@ In this example, we used ``withDefaultFields`` method which add automatically ``
 fields with right validation contraints. This method is optional and you can add any field you want manually, just
 keep in mind that you should always ask for an ``email``.
 
-Add session messages to your assignations:
-
-.. code-block:: php
-
-    // Get session messages
-    $this->assignation['session']['messages'] = $this->get('session')
-                                                     ->getFlashBag()
-                                                     ->all();
-
-
-Then in your contact page Twig template
+Then in your contact page Twig template:
 
 .. code-block:: html+jinja
    :linenos:
@@ -86,15 +76,13 @@ Then in your contact page Twig template
     {#
      # Display contact errors
      #}
-    {% if session.messages|length %}
-        {% for type, msgs in session.messages %}
-            {% for msg in msgs %}
-                <div class="alert alert-{% if type == "confirm" %}success{% elseif type == "warning" %}warning{% else %}danger{% endif %}">
-                    <p>{{ msg }}</p>
-                </div>
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
+    {% for label, messages in app.flashes(['warning', 'error']) %}
+       {% for message in messages %}
+           <p class="alert alert-{{ label }}">
+               {{- message -}}
+           </p>
+       {% endfor %}
+    {% endfor %}
     {#
      # Display contact form
      #}
@@ -176,4 +164,10 @@ Do not forget to add recaptcha form-template and to embed google’s javascript.
         <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
     {%- endblock recaptcha_widget %}
 
+Sending contact form and accept application/json
+------------------------------------------------
 
+If you want to send your contact form using `window.fetch` and `window.FormData`, Roadiz
+will still generate an html-based `Response` or `RedirectResponse`. You need to add `Accept: application/json`
+header to your request so that Roadiz will respond as JSON. Roadiz `JsonResponse` will contain *success* message or
+*error* messages for each wrong fields.

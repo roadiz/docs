@@ -105,10 +105,10 @@ entities in *Roadiz* or in your theme.
 
 You must fill the *default values* field for these two types.
 
-.. code-block:: yaml
+.. code-block:: YAML
 
     # Entity class name
-    classname: "Themes\MyTheme\Entities\City"
+    classname: Themes\MyTheme\Entities\City
     # Displayable is the method used to display entity name
     displayable: getName
     # Same as Displayable but for a secondary information
@@ -148,7 +148,7 @@ database using ``EntityListManager``.
 Single and multiple provider types can accept additional options too. If you want to make your provider
 configurable at runtime you can pass ``options`` in your field configuration.
 
-.. code-block:: yaml
+.. code-block:: YAML
 
     classname: Themes\MyTheme\Provider\ExternalApiProvider
     options:
@@ -187,10 +187,10 @@ a dedicated *Symfony* ``AbstractType``.
 
 You must fill the *default values* field for this type:
 
-.. code-block:: yaml
+.. code-block:: YAML
 
     # AbstractType class name
-    entry_type: "Themes\MyTheme\Form\FooBarType"
+    entry_type: Themes\MyTheme\Form\FooBarType
 
 You must understand that *custom collection* data will be stored as JSON array in
 your database. So you won’t be able to query your node-source using this data.

@@ -8,7 +8,7 @@ Roadiz themes are one of the main parts of the CMS. They allow you to create you
 You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build
 your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it.
 
-Each theme is a folder which must be placed in ``themes/`` folder. Roadiz comes with 3 default themes :
+Each theme is a folder which must be placed in ``themes/`` folder. Roadiz *Sources* comes with 3 default themes :
 
 - *Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time.
 - *Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall.
@@ -79,32 +79,13 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
 
 Then you will be able to add your fresh new theme into Roadiz backoffice or through Roadiz install.
 
-.. _theme_composer:
-
-Theme specific dependencies
----------------------------
-
-Imagine that you need some extra *Composer* requirements for your theme. Basically, you
-need to display a social network feed with *Twitter* and some *Instagram* duck-face photos.
-You will need the `rezozero/mixedfeed <https://github.com/rezozero/mixedfeed>`_ library to be loaded with Composer but you can’t touch the
-main *Roadiz* ``composer.json``… How do we do?
-Roadiz uses the `wikimedia/composer-merge-plugin <https://github.com/wikimedia/composer-merge-plugin>`_ which do some magic stuff with multiple
-*composer.json* files. So you just have to create a new *composer.json* file inside your theme
-directory and call ``composer update`` **from the Roadiz root folder**.
-
-.. warning::
-    Do not use the ``composer`` command **inside** your Theme folders but **only at the Roadiz
-    root folder level.** If not, *Composer* will download and install specific dependencies
-    inside your theme and the main *autoloader* won’t find your new PHP classes.
-
-
 Static routing
 --------------
 
 Before searching for a node’s Url (Dynamic routing), Roadiz will parse your theme ``route.yml``
 to find static controllers and actions to execute.
 Static actions just have to comply with the ``Request`` / ``Response`` scheme.
-It is adviced to add ``$_locale`` and ``$_route`` optional arguments to better handle
+It is advised to add ``$_locale`` and ``$_route`` optional arguments to better handle
 multilingual pages.
 
 .. code-block:: yaml
