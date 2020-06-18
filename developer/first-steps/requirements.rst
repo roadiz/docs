@@ -29,7 +29,7 @@ Here is a short summary of mandatory elements before installing Roadiz:
     - ``register_globals = Off``
     - ``session.auto_start = Off``
 
-* MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install ``php-xxxsql`` extension according to your database driver flavor)
+* MariaDB 10.2.4+ or MySQL 5.7+ database with `JSON_*` functions support
 * Zip/Unzip
 * cUrl
 * Composer
