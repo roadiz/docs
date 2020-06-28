@@ -470,6 +470,12 @@ Security
     accessDeniedHandler
         ``RZ\Roadiz\Core\Authorization\AccessDeniedHandler``
 
+    nodeChrootResolvers
+        ``array<RZ\Roadiz\Core\Authorization\Chroot\NodeChrootResolver>``
+
+    RZ\Roadiz\Core\Authorization\Chroot\NodeChrootResolver
+        ``RZ\Roadiz\Core\Authorization\Chroot\NodeChrootChainResolver``
+
 Serialization
 ^^^^^^^^^^^^^
 
@@ -616,3 +622,27 @@ Utils
 
     utils.universalDataDuplicator
         ``RZ\Roadiz\Utils\Node\UniversalDataDuplicator``
+
+
+OpenId
+^^^^^^
+
+.. glossary::
+
+    RZ\Roadiz\OpenId\OAuth2LinkGenerator:
+        ``RZ\Roadiz\OpenId\OAuth2LinkGenerator``
+
+    jwtRoleStrategies
+        ``array<RZ\Roadiz\OpenId\Authentication\Provider\JwtRoleStrategy>``
+
+    RZ\Roadiz\OpenId\Authentication\Provider\JwtRoleStrategy
+        ``RZ\Roadiz\OpenId\Authentication\Provider\ChainJwtRoleStrategy``
+
+    RZ\Roadiz\OpenId\Authentication\Provider\OAuth2AuthenticationProvider
+        ``RZ\Roadiz\OpenId\Authentication\Provider\OAuth2AuthenticationProvider``
+
+    RZ\Roadiz\OpenId\Authentication\Provider\OpenIdAccountProvider
+        ``RZ\Roadiz\OpenId\Authentication\Provider\OpenIdAccountProvider``
+
+    RZ\Roadiz\OpenId\Discovery
+        ``RZ\Roadiz\OpenId\Discovery`` or ``null``
