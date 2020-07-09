@@ -190,6 +190,7 @@ Generating paths and url
 You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`.
 
 .. code-block:: php
+
     use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 
     class BlogPostController extends MyAwesomeTheme

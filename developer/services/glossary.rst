@@ -646,3 +646,6 @@ OpenId
 
     RZ\Roadiz\OpenId\Discovery
         ``RZ\Roadiz\OpenId\Discovery`` or ``null``
+
+    oauth2AuthenticationProvider.validators:
+        ``array<RZ\Roadiz\OpenId\Authentication\Validator\JwtValidator>``

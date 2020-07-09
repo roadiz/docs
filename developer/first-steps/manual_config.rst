@@ -35,6 +35,35 @@ Roadiz uses *Doctrine ORM* to store your data. It will directly pass this YAML c
 you can use every available drivers and options from its documentation at
 http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html
 
+Choose your inheritance model
+-----------------------------
+
+*Roadiz’* main feature is all about its polymorphic document model which is mapped on a relational database. This requires a
+challenging structure which can be lead to some performance bottlenecks when dealing with more than 20-30 node-types.
+So we made the data inheritance model configurable to allow switching to `single_class <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#single-table-inheritance>`_ scheme which will be more performant
+if you need lots of node-types. However *Single class* model will drop support for indexable fields and you won’t be able
+to create fields with the *same name but not the same type* because all node-type fields will be created in the **same SQL table**.
+
+If you really need to create indexable fields and to mix field types, we advise you to keep the original `joined table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#class-table-inheritance>`_
+inheritance type which creates a dedicated SQL table for each node-type. *Joined table* inheritance can be very useful
+with a small number of node-type (max. 20) and very different fields. But its main drawback is that Roadiz needs to *LEFT JOIN*
+every node-type table for each node-source query, **unless you specify one node-type criteria**.
+
+You can configure *Doctrine* strategy for NodesSources inheritance classes in ``app/conf/config.yml``:
+
+.. code-block:: yaml
+
+    inheritance:
+        # type: joined
+        type: single_table
+
+- Joined class inheritance: ``joined``
+- Single table inheritance: ``single_table``
+
+.. warning::
+
+    If you change this setting after creating content in your website, all node-sources data will be lost.
+
 Themes
 ------
 
@@ -331,3 +360,4 @@ Make sure that every additional commands extend ``Symfony\Component\Console\Comm
 
     additionalCommands:
         - \Themes\DefaultTheme\Commands\DefaultThemeCommand
+
