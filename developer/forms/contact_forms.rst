@@ -123,7 +123,7 @@ with it as an argument.
 
     $form = $contactFormManager->getForm();
 
-    // Assignate your form view to display it in Twig.
+    // Assign your form view to display it in Twig.
     $this->assignation['contactForm'] = $form->createView();
 
     return $this->render('blocks/contactformblock.html.twig', $this->assignation);
@@ -131,6 +131,25 @@ with it as an argument.
 Then, in your *master* controller (i.e. ``PageController``), ``render`` method will automatically
 catch your *ForceResponseException* exception in order to extract the forced response object. Then
 it will return your response instead of your page twig rendered output.
+
+Alter email configuration after form submit
+------------------------------------------
+
+If you want to customize emails sent with form data, you can use Symfony form events to change the contact form manager
+options:
+The following example alters the email subject to add the user email and makes the subject unique for the receiver.
+
+.. code-block:: php
+
+   $formBuilder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) use ($contactFormManager) {
+      $contactFormManager->setSubject($contactFormManager->getSubject() . ': ' . $event->getForm()->get('email')->getData());
+   });
+
+You can also use this behaviour to change dynamically the contact form receiver after the user chose it in a select box input.
+
+.. note::
+
+   You can read more about form events at https://symfony.com/doc/current/form/events.html
 
 Securing your form with *Google reCAPTCHA*
 ------------------------------------------
