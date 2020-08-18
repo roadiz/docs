@@ -33,18 +33,18 @@ Now, you can use the ``DocumentViewer`` service to generate HTML view for your 
 HTML output options
 -------------------
 
-* **absolute** (true|false), generates an *absolute* URL with protocol, domain-name and base-url. This must be used for social network images.
-* **embed** (true|false), display an embed as iframe instead of its thumbnail
+* **absolute** (true|false, default: ``false``), generates an *absolute* URL with protocol, domain-name and base-url. This must be used for social network images.
+* **embed** (true|false, default: ``false``), display an embed as iframe instead of its thumbnail
 * **identifier**
 * **class**
 * **alt**: If not filled, it will get the document name, then the document filename
-* **lazyload** (true|false), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image.
+* **lazyload** (true|false, default: ``false``), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image.
 * **lazyload_class** (default: ``lazyload``) Class name to be added when enabling lazyloading.
 * **fallback** (URL|data-uri) Defines a custom fallback image URL or *data-uri* when using ``lazyload`` option in order to fill ``src`` attribute and validate against W3C
 * **blurredFallback** (false|true, default: ``false``) Generated a very low quality image version for lazyload fallback to better control image size and better experience.
-* **picture** (false|true), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**.
-* **inline** (true|false), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
-* **loading** (auto|lazy|eager), for next-gen browser only that will support native lazy-loading. This will be applied only on `img`, `picture` and `iframe` elements. *This can fail W3C validation*.
+* **picture** (false|true, default: ``false``), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**.
+* **inline** (true|false, default: ``true``), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``.
+* **loading** (auto|lazy|eager|null, default: ``null``), for next-gen browser only that will support native lazy-loading. This will be applied only on `img`, `picture` and `iframe` elements. *This can fail W3C validation*.
 
 Images resampling options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,59 +63,60 @@ Images resampling options
     * bottom-left
     * bottom
     * bottom-right
-* **grayscale** (boolean)
-* **quality** (1-100)
+* **grayscale** (boolean, default: ``false``)
+* **quality** (1-100, default: ``90``)
 * **flip** (``h`` or ``v``), mirror your image vertical or horizontal
-* **blur** (1-100) *(can be really slow to process)*
-* **sharpen** (1-100)
-* **contrast** (1-100)
+* **blur** (1-100, default: ``0``) *(can be really slow to process)*
+* **sharpen** (1-100, default: ``0``)
+* **contrast** (1-100, default: ``0``)
 * **background** (hexadecimal color without #)
-* **progressive** (boolean), it will interlace the image if it’s a *PNG* file.
-* **noProcess** (boolean): Disable image processing
+* **progressive** (boolean, default: ``false``), it will interlace the image if it’s a *PNG* file.
+* **noProcess** (boolean, default: ``false``): Disable image processing, useful if you want to keep animated GIF
 
 Audio / Video options
 ^^^^^^^^^^^^^^^^^^^^^
 
-* **autoplay** (boolean)
-* **controls** (boolean)
-* **loop** (boolean)
-* **muted** (boolean)
+* **autoplay** (boolean, default: ``false``)
+* **controls** (boolean, default: ``true``)
+* **loop** (boolean, default: ``false``)
+* **muted** (boolean, default: ``false``)
 * **custom_poster** (string): URL to a image to be used as video poster
 
 For *Soundcloud* embeds
 
-* **hide_related** (boolean)
-* **show_comments** (boolean)
-* **show_user** (boolean)
-* **show_reposts** (boolean)
-* **visual** (boolean)
+* **hide_related** (boolean, default: ``false``)
+* **show_comments** (boolean, default: ``false``)
+* **show_user** (boolean, default: ``false``)
+* **show_reposts** (boolean, default: ``false``)
+* **visual** (boolean, default: ``false``)
 
 For *Mixcloud* embeds
 
-* **mini** (boolean) defaults to ``false``
-* **light** (boolean) defaults to ``true``
-* **hide_cover** (boolean) defaults to ``true``
-* **hide_artwork** (boolean) defaults to ``false``
+* **mini** (boolean, default: ``false``)
+* **light** (boolean, default: ``true``)
+* **hide_cover** (boolean, default: ``true``)
+* **hide_artwork** (boolean, default: ``false``)
 
 For *Vimeo* embeds
 
-* **displayTitle** (boolean)
-* **byline** (boolean)
-* **portrait** (boolean)
+* **displayTitle** (boolean, default: ``false``)
+* **byline** (boolean, default: ``false``)
+* **portrait** (boolean, default: ``false``)
 * **color** (boolean)
-* **api** (boolean)
-* **automute** (boolean)
-* **autopause** (boolean)
+* **api** (boolean, default: ``true``)
+* **automute** (boolean, default: ``false``)
+* **autopause** (boolean, default: ``false``)
 
 For *Youtube* `embeds <https://developers.google.com/youtube/player_parameters>`_
 
-* **modestbranding** (boolean)
-* **rel** (boolean)
-* **showinfo** (boolean)
-* **start** (integer)
-* **end** (integer)
-* **enablejsapi** (boolean)
-* **playlist** (boolean)
+* **modestbranding** (boolean, default: ``true``)
+* **rel** (boolean, default: ``false``)
+* **showinfo** (boolean, default: ``false``)
+* **start** (integer, default: ``false``)
+* **end** (integer, default: ``false``)
+* **enablejsapi** (boolean, default: ``true``)
+* **playlist** (boolean, default: ``false``)
+* **playsinline** (boolean, default: ``false``): Allow iframe to play inline on iOS
 
 You can use **multiple source files** for one video document or audio document.
 Just upload a file using tge same filename name but with a different extension. Use this method to
@@ -265,7 +266,7 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes.
 * If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm).
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
-* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source`` twig command.
+* Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source(options…)`` twig command.
 
 Manage global documents
 -----------------------
@@ -275,7 +276,7 @@ Simply create a new *setting* in Roadiz back-office choosing *Document* type, th
 
 To use this document setting in your theme, you can assign it globally in your ``MyThemeApp::extendAssignation`` method.
 Use ``getDocument`` method instead of ``get`` to fetch a ``Document`` object  that you’ll be able to display in
-your Twig templates: 
+your Twig templates:
 
 .. code-block:: php
 
