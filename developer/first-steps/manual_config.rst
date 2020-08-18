@@ -40,7 +40,7 @@ Choose your inheritance model
 
 *Roadiz’* main feature is all about its polymorphic document model which is mapped on a relational database. This requires a
 challenging structure which can be lead to some performance bottlenecks when dealing with more than 20-30 node-types.
-So we made the data inheritance model configurable to allow switching to `single_class <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#single-table-inheritance>`_ scheme which will be more performant
+So we made the data inheritance model configurable to allow switching to `single_table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#single-table-inheritance>`_ scheme which will be more performant
 if you need lots of node-types. However *Single class* model will drop support for indexable fields and you won’t be able
 to create fields with the *same name but not the same type* because all node-type fields will be created in the **same SQL table**.
 

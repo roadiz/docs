@@ -52,7 +52,7 @@ in order to make page content available from your Twig template.
     * **keywords** — [string]
 
 All these data will be available in your Twig template using ``{{ }}`` syntax.
-For example use ``{{ pageMeta.title }}`` inside your head’s ``<title>`` tag.
+For example use ``{{ pageMeta.title }}`` inside your head’s ``<title>`` tag.
 You can of course call objects members within Twig using the *dot* separator.
 
 .. code-block:: html+jinja

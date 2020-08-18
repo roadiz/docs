@@ -77,6 +77,7 @@ CMS Structure
 -------------
 
 * ``bin/``: Contains the Roadiz CLI executable
+* ``docker/``: Tools for creating development and production *Docker* image for your project
 * ``app/``: Contains every runtime resources from configuration to app cache and nodes-sources entities
 
     * ``cache/``: Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)
@@ -91,5 +92,5 @@ CMS Structure
     * ``files/``: Public documents (this folder must be writable for PHP)
     * ``themes/``: public assets mirror for each theme, this folder contains symlinks to your ``themes/YourTheme/static`` folder
 
-* ``themes/``: Contains your themes and system themes such as *Rozier* and *Install*
+* ``themes/``: Contains your own themes and all your website logic
 * ``vendor/``: Dependencies folder managed by *Composer*
