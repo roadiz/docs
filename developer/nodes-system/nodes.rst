@@ -70,7 +70,7 @@ origin node-source.
         'node.visible': true
     }) %}
 
-If you need to trasverse node-source graph from your controllers you can use
+If you need to traverse node-source graph from your controllers you can use
 the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``.
 
 .. code-block:: php
@@ -191,6 +191,8 @@ You can use ``generateUrl()`` in your controllers to get a node-source’ path o
 
 .. code-block:: php
 
+    use Symfony\Cmf\Component\Routing\RouteObjectInterface;
+
     class BlogPostController extends MyAwesomeTheme
     {
         public function indexAction(
@@ -201,12 +203,15 @@ You can use ``generateUrl()`` in your controllers to get a node-source’ path o
             $this->prepareThemeAssignation($node, $translation);
 
             // Generate a path for current node-source
-            $path = $this->generateUrl($this-nodeSource);
+            $path = $this->generateUrl(
+                RouteObjectInterface::OBJECT_BASED_ROUTE_NAME,
+                [RouteObjectInterface::ROUTE_OBJECT => $this->nodeSource]
+            );
 
             // Generate an absolute URL for current node-source
             $absoluteUrl =  $this->generateUrl(
-                $this->nodeSource,
-                [],
+                RouteObjectInterface::OBJECT_BASED_ROUTE_NAME,
+                [RouteObjectInterface::ROUTE_OBJECT => $this->nodeSource],
                 UrlGeneratorInterface::ABSOLUTE_URL
             );
         }

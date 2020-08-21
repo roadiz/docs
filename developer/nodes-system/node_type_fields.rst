@@ -39,14 +39,13 @@ This following fields stores simple data in your custom node-source database tab
 
 .. note ::
     *Single geographic coordinates* field stores its data in JSON format. Make sure you
-    don’t have manually writen data in its input field.
+    don’t have manually written data in its input field.
 
 .. warning ::
     To use *Single geographic coordinates* you must create a *Google API Console* account with *Maps API v3* activated.
     Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings
-    to enable *geographic* node-type fields. If you didn’t do it, a simple text input will
+    to enable *geographic* node-type fields. If you didn't do it, a simple text input will
     be display instead of *Roadiz Map Widget*.
-
 
 .. image:: ./img/field-types.*
    :align: center

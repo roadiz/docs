@@ -8,14 +8,10 @@ to use for development. *Docker* on Linux will provide awesome performances and 
 without bloating your development machine. Performances won't be as good on *macOS* or *Windows* hosts,
 but it will prevent installing singled versioned PHP and MySQL directly on your computer.
 
-First, copy ``.env.dist`` file to  ``.env`` and configure it according to your host machine.
+First, edit ``.env`` file and configure it according to your host machine (you can copy it from ``.env.dist``
+if it does not exist).
 
 .. code-block:: bash
-
-    # Copy sample environment variables
-    # and adjust them against your needs.
-    # Especially APP_PORT when you're working on several projects
-    cp .env.dist .env;
 
     # Build PHP image
     docker-compose build;

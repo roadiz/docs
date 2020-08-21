@@ -34,6 +34,7 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
     use RZ\Roadiz\Core\Entities\CustomForm;
     use RZ\Roadiz\Core\Exceptions\EntityAlreadyExistsException;
     use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+    use Symfony\Cmf\Component\Routing\RouteObjectInterface;
     use RZ\Roadiz\Utils\CustomForm\CustomFormHelper;
     use Symfony\Component\Form\FormError;
     use Symfony\Component\HttpFoundation\JsonResponse;
@@ -80,7 +81,10 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
                             $request,
                             $this->getTranslator()->trans('form_has_been_successfully_sent')
                         );
-                        $response = $this->redirect($this->generateUrl($this->nodeSource->getParent()));
+                        $response = $this->redirect($this->generateUrl(
+                            RouteObjectInterface::OBJECT_BASED_ROUTE_NAME,
+                            [RouteObjectInterface::ROUTE_OBJECT => $this->nodeSource->getParent()]
+                        ));
                     }
                     /*
                      * If you are in a BlockController use ForceResponseException
