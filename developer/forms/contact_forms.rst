@@ -133,7 +133,7 @@ catch your *ForceResponseException* exception in order to extract the forced res
 it will return your response instead of your page twig rendered output.
 
 Alter email configuration after form submit
-------------------------------------------
+-------------------------------------------
 
 If you want to customize emails sent with form data, you can use Symfony form events to change the contact form manager
 options:
