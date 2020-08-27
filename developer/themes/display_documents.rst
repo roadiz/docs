@@ -268,6 +268,51 @@ You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roa
 * Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*).
 * Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source(options…)`` twig command.
 
+Displaying document metas
+-------------------------
+
+Documents can have *name*, *description* and *copyright* (which can be translated),
+just access them using ``documentTranslations`` multiple relation
+(``documentTranslations.first`` should always contain current context’ translation):
+
+.. code-blocks:: html+jinja
+
+    {% for document in nodeSource.documents %}
+        <div class="document-item">
+            {{ document|display }}
+
+            {% set metas = document.documentTranslations.first %}
+            <h3 class="document-item-name">{{ metas.name }}</h3>
+            <div class="document-item-description">{{ metas.description|markdown }}</div>
+            <em class="document-item-copyright">{{ metas.copyright }}</em>
+        </div>
+    {% endfor %}
+
+Displaying document thumbnails
+------------------------------
+
+Embed and non-HTML documents will not display automatically their thumbnails, even if they got one.
+Native videos and audios will always try to display ``<video>`` or ``<audio>`` elements, so if you need to force
+display their thumbnail image you’ll need to write it manually:
+
+.. code-blocks:: html+jinja
+
+    {% for document in nodeSource.documents %}
+        <div class="document-item">
+            {% if document.hasThumbnails %}
+                {{ document.thumbnails[0]|display }}
+            {% else %}
+                {{ document|display({
+                    'controls': true,
+                    'autoplay': false
+                }) }}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+Non-viewable document types, such as *PDF*, *Word*, *Excel*, *Archives*…, will always use their thumbnail image,
+if there is one, when you call ``{{ document|display }}``.
+
 Manage global documents
 -----------------------
 
