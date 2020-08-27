@@ -275,7 +275,7 @@ Documents can have *name*, *description* and *copyright* (which can be translate
 just access them using ``documentTranslations`` multiple relation
 (``documentTranslations.first`` should always contain current context’ translation):
 
-.. code-blocks:: html+jinja
+.. code-block:: html+jinja
 
     {% for document in nodeSource.documents %}
         <div class="document-item">
@@ -295,7 +295,7 @@ Embed and non-HTML documents will not display automatically their thumbnails, ev
 Native videos and audios will always try to display ``<video>`` or ``<audio>`` elements, so if you need to force
 display their thumbnail image you’ll need to write it manually:
 
-.. code-blocks:: html+jinja
+.. code-block:: html+jinja
 
     {% for document in nodeSource.documents %}
         <div class="document-item">
