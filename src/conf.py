@@ -29,11 +29,11 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
     p = Popen('which git', shell=True, stdout=PIPE)
     git = p.stdout.read().strip()
     cwd = os.getcwd()
-    _themes = os.path.join(cwd, '_themes/roadiz_rtd_theme')
+    _themes = os.path.join(cwd, '../_themes/roadiz_rtd_theme')
 
     if not os.path.isdir(_themes):
         call([git, 'clone', 'https://github.com/roadiz/roadiz_rtd_theme.git',
-                '_themes/roadiz_rtd_theme'])
+                '../_themes/roadiz_rtd_theme'])
     else:
         os.chdir(_themes)
         call([git, 'checkout', 'master'])
@@ -41,9 +41,9 @@ if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
         os.chdir(cwd)
 
     # Remove theme demo docs avoid PDF and ePub issues
-    # shutil.rmtree('_themes/roadiz_rtd_theme/demo_docs', ignore_errors=True)
+    # shutil.rmtree('../_themes/roadiz_rtd_theme/demo_docs', ignore_errors=True)
 
-    sys.path.append(os.path.abspath('_themes/roadiz_rtd_theme'))
+    sys.path.append(os.path.abspath('../_themes/roadiz_rtd_theme'))
 
     parent = os.path.dirname(os.path.dirname(__file__))
     sys.path.append(os.path.abspath(parent))
@@ -165,7 +165,7 @@ primary_domain = 'php'
 # a list of builtin themes.
 #html_theme = 'default'
 html_theme = "roadiz_rtd_theme"
-html_theme_path = ["_themes/roadiz_rtd_theme"]
+html_theme_path = [_themes]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
