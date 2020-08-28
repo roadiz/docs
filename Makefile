@@ -2,6 +2,7 @@
 #
 
 # You can set these variables from the command line.
+SOURCEDIR     = src
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = RoadizDoc
@@ -16,7 +17,7 @@ endif
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(SOURCEDIR)
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
@@ -66,7 +67,17 @@ singlehtml:
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 livehtml:
-	sphinx-autobuild -B --ignore "*/$(BUILDDIR)/*" --ignore "*/.git/*" --ignore "*/roadiz_rtd_theme/*" --ignore "*.pickle" --ignore "*.doctree" --ignore "*HEAD" --ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) ${SOURCEDIR} $(BUILDDIR)/html
+	sphinx-autobuild -B --ignore "*/$(BUILDDIR)/*" \
+						--ignore "*/_static/*" \
+						--ignore "*/Makefile" \
+						--ignore "*/.idea/*" \
+						--ignore "*/.git/*" \
+						--ignore "*/roadiz_rtd_theme/*" \
+						--ignore "*rst~" \
+						--ignore "*.pickle" \
+						--ignore "*.doctree" \
+						--ignore "*HEAD" \
+						--ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
 pickle:
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
