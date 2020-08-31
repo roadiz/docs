@@ -216,6 +216,41 @@ to each configured proxy **when user clears back-office caches**, and it will cr
     in order to receive and handle ``BAN`` and ``PURGE`` HTTP requests.
 
 
+Cloudflare proxy cache
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you are using Cloudflare as a reverse proxy cache, you can configure Roadiz to send requests to Cloudflare
+to purge all items or files (when editing a node-source). You need to gather following information:
+
+- Cloudflare zone identifier
+- Cloudflare API credentials (Bearer token or email + auth-key)
+
+Then you can configure Roadiz with Bearer token:
+
+.. code-block:: yaml
+
+    reverseProxyCache:
+        frontend: []
+        cloudflare:
+            zone: cloudflare-zone
+            bearer: ~
+
+Or with your Email and AuthKey:
+
+.. code-block:: yaml
+
+    reverseProxyCache:
+        frontend: []
+        cloudflare:
+            zone: cloudflare-zone
+            email: ~
+            key: ~
+
+.. note::
+
+    Roadiz uses *Purge all files* and *Purge Files by URL* entry points: https://api.cloudflare.com/#zone-purge-all-files
+    which are available on all Cloudflare plans.
+
 Entities paths
 --------------
 
