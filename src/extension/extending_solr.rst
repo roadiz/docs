@@ -23,18 +23,17 @@ it’s persisted into *Solr* engine (especially ``collection_txt`` field):
     use GeneratedNodeSources\NSGroupBlock;
     use GeneratedNodeSources\NSPage;
     use Pimple\Container;
+    use RZ\Roadiz\Core\ContainerAwareInterface;
+    use RZ\Roadiz\Core\ContainerAwareTrait;
     use RZ\Roadiz\Core\Entities\NodesSources;
     use RZ\Roadiz\Core\Events\NodesSources\NodesSourcesIndexingEvent;
     use RZ\Roadiz\Core\SearchEngine\SolariumFactoryInterface;
     use RZ\Roadiz\Core\SearchEngine\SolariumNodeSource;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-    final class PageIndexingEventSubscriber implements EventSubscriberInterface
+    final class PageIndexingEventSubscriber implements EventSubscriberInterface, ContainerAwareInterface
     {
-        /**
-         * @var Container
-         */
-        protected $container;
+        use ContainerAwareTrait;
 
         public function __construct(Container $container)
         {
@@ -84,6 +83,7 @@ it’s persisted into *Solr* engine (especially ``collection_txt`` field):
             }
         }
     }
+
 
 Then register this subscriber to your event-dispatcher:
 
