@@ -9,20 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.20.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../developer/first-steps/requirements.rst:5
+#: ../../src/developer/first-steps/requirements.rst:5
 msgid "Requirements"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:9
+#: ../../src/developer/first-steps/requirements.rst:9
 msgid ""
 "Roadiz is a web application running with PHP. It requires an HTTP server "
 "for static assets and **SSH access** with out/ingoing allowed "
@@ -30,103 +30,101 @@ msgid ""
 "installing Roadiz:"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:12
+#: ../../src/developer/first-steps/requirements.rst:12
 msgid "Nginx or Apache, with a dedicated virtual host as described below."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:13
-msgid "PHP 5.6+ **required**, PHP 7+ *recommended*"
+#: ../../src/developer/first-steps/requirements.rst:13
+msgid "PHP 7.2+ **required**"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:14
+#: ../../src/developer/first-steps/requirements.rst:14
 msgid "``php-gd`` extension"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:15
+#: ../../src/developer/first-steps/requirements.rst:15
 msgid "``php-intl`` extension"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:16
+#: ../../src/developer/first-steps/requirements.rst:16
 msgid "``php-xml`` extension"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:17
+#: ../../src/developer/first-steps/requirements.rst:17
 msgid "``php-curl`` extension"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:18
+#: ../../src/developer/first-steps/requirements.rst:18
+msgid "``php-mbstring`` extension"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:19
 msgid "JSON needs to be enabled"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:19
+#: ../../src/developer/first-steps/requirements.rst:20
 msgid "ctype needs to be enabled"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:20
+#: ../../src/developer/first-steps/requirements.rst:21
 msgid "Your php.ini needs to have the ``date.timezone`` setting"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:21
+#: ../../src/developer/first-steps/requirements.rst:22
 msgid "You need to have at least version 2.6.21 of libxml"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:22
+#: ../../src/developer/first-steps/requirements.rst:23
 msgid "PHP tokenizer needs to be enabled"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:23
-msgid "mbstring functions need to be enabled"
-msgstr ""
-
-#: ../../developer/first-steps/requirements.rst:24
+#: ../../src/developer/first-steps/requirements.rst:24
 msgid ""
 "PHP *OPcache* + *APCu* (APC 3.0.17+ or another opcode cache needs to be "
 "installed)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:28
-msgid "php.ini recommended settings"
+#: ../../src/developer/first-steps/requirements.rst:25
+msgid "``php.ini`` recommended settings"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:26
+#: ../../src/developer/first-steps/requirements.rst:27
 msgid "``short_open_tag = Off``"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:27
+#: ../../src/developer/first-steps/requirements.rst:28
 msgid "``magic_quotes_gpc = Off``"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:28
+#: ../../src/developer/first-steps/requirements.rst:29
 msgid "``register_globals = Off``"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:29
+#: ../../src/developer/first-steps/requirements.rst:30
 msgid "``session.auto_start = Off``"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:30
-msgid ""
-"MariaDB/MySQL/PostgreSQL or SQLite database (do not forget to install "
-"``php-xxxsql`` extension according to your database driver flavor)"
+#: ../../src/developer/first-steps/requirements.rst:32
+msgid "MariaDB 10.2.4+ or MySQL 5.7+ database with `JSON_*` functions support"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:31
+#: ../../src/developer/first-steps/requirements.rst:33
 msgid "Zip/Unzip"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:32
+#: ../../src/developer/first-steps/requirements.rst:34
 msgid "cUrl"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:33
+#: ../../src/developer/first-steps/requirements.rst:35
 msgid "Composer"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:34
+#: ../../src/developer/first-steps/requirements.rst:36
 msgid "Git"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:37
+#: ../../src/developer/first-steps/requirements.rst:39
 msgid ""
 "If you are using a *shared hosting plan*, make sure that your server’s "
 "SSH connection allows external connections. You can verify with a simple "
@@ -137,61 +135,64 @@ msgid ""
 "and send it with SFTP/FTP (it might take a long time) or *rsync* it."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:43
+#: ../../src/developer/first-steps/requirements.rst:45
 msgid "For Nginx users"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:45
+#: ../../src/developer/first-steps/requirements.rst:47
 msgid ""
 "If you are using Nginx, you don’t have to enable any extensions. You only"
 " need to create your *virtual host* using our example file "
 "``/samples/nginx.conf``."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:49
+#: ../../src/developer/first-steps/requirements.rst:51
 msgid "For Apache users"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:51
+#: ../../src/developer/first-steps/requirements.rst:53
 msgid "If you are using *Apache* do not forget to enable these mods:"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:53
+#: ../../src/developer/first-steps/requirements.rst:55
 msgid "``mod_rewrite``: enabling Roadiz front-controller system."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:54
+#: ../../src/developer/first-steps/requirements.rst:56
 msgid "``mod_expires``: enabling http cache headers on static assets."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:56
+#: ../../src/developer/first-steps/requirements.rst:58
 msgid "And do not use built-in ``mod_php``, prefer *PHP-FPM* 😉!"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:58
+#: ../../src/developer/first-steps/requirements.rst:60
 msgid ""
 "Then use ``/samples/apache.conf`` template to create your *virtual host* "
 "configuration file. It shows how to set rewrite and secure private "
 "folders from being viewed from public visitors."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:61
+#: ../../src/developer/first-steps/requirements.rst:63
 msgid ""
 "If you do not have access to your Apache virtual host configuration, you "
 "can use the built-in *htaccess* generator:"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:63
+#: ../../src/developer/first-steps/requirements.rst:65
 msgid "``bin/roadiz generate:htaccess``"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:65
+#: ../../src/developer/first-steps/requirements.rst:67
 msgid ""
 "This command will generate ``.htaccess`` files in each critical folder to"
 " enable PHP scripts or deny public access to forbidden folders."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:69
+msgid "Standard Edition"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:71
 msgid ""
 "``bin/roadiz generate:htaccess`` is not needed anymore with *Roadiz "
 "Standard edition* as you will configure your *Apache/Nginx* root to "
@@ -199,100 +200,116 @@ msgid ""
 "anymore."
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:75
+#: ../../src/developer/first-steps/requirements.rst:77
 msgid "CMS Structure"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:79
-#: ../../developer/first-steps/requirements.rst:95
+#: ../../src/developer/first-steps/requirements.rst:79
 msgid "``bin/``: Contains the Roadiz CLI executable"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:84
+#: ../../src/developer/first-steps/requirements.rst:80
+msgid ""
+"``docker/``: Tools for creating development and production *Docker* image"
+" for your project"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:81
 msgid ""
 "``app/``: Contains every runtime resources from configuration to app "
 "cache and nodes-sources entities"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:81
-#: ../../developer/first-steps/requirements.rst:96
+#: ../../src/developer/first-steps/requirements.rst:83
 msgid ""
 "``cache/``: Every cache file for *Twig* templates and `Intervention "
 "Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder"
 " must be writable for PHP)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:82
-#: ../../developer/first-steps/requirements.rst:97
+#: ../../src/developer/first-steps/requirements.rst:84
 msgid ""
 "``conf/``: Your setup configuration file(s) (this folder must be writable"
 " for PHP)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:83
-#: ../../developer/first-steps/requirements.rst:99
+#: ../../src/developer/first-steps/requirements.rst:85
 msgid ""
 "``gen-src/``: Generated PHP code for Doctrine and your Node-types "
 "entities (this folder must be writable for PHP)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:84
-#: ../../developer/first-steps/requirements.rst:105
+#: ../../src/developer/first-steps/requirements.rst:86
 msgid "``logs/``: *Monolog* logs folder"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:85
+#: ../../src/developer/first-steps/requirements.rst:88
 msgid ""
 "``files/``: Private documents and font files root (this folder must be "
 "writable for PHP)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:86
-#: ../../developer/first-steps/requirements.rst:100
+#: ../../src/developer/first-steps/requirements.rst:89
 msgid ""
 "``samples/``: This folder contains useful configuration and example files"
 " for Apache or Nginx webservers"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:88
+#: ../../src/developer/first-steps/requirements.rst:90
 msgid ""
 "``web/``: Your website root, it contains your application entry-points "
 "and your public assets"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:88
+#: ../../src/developer/first-steps/requirements.rst:92
 msgid "``files/``: Public documents (this folder must be writable for PHP)"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:89
+#: ../../src/developer/first-steps/requirements.rst:93
 msgid ""
 "``themes/``: public assets mirror for each theme, this folder contains "
 "symlinks to your ``themes/YourTheme/static`` folder"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:90
-#: ../../developer/first-steps/requirements.rst:103
-msgid ""
-"``themes/``: Contains your themes and system themes such as *Rozier* and "
-"*Install*"
+#: ../../src/developer/first-steps/requirements.rst:95
+msgid "``themes/``: Contains your own themes and all your website logic"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:91
-#: ../../developer/first-steps/requirements.rst:104
+#: ../../src/developer/first-steps/requirements.rst:96
 msgid "``vendor/``: Dependencies folder managed by *Composer*"
 msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:98
-msgid ""
-"``files/``: Documents and font files root (this folder must be writable "
-"for PHP)"
-msgstr ""
+#~ msgid "PHP 5.6+ **required**, PHP 7+ *recommended*"
+#~ msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:101
-msgid "``src/``: Roadiz CMS logic and core source code"
-msgstr ""
+#~ msgid "mbstring functions need to be enabled"
+#~ msgstr ""
 
-#: ../../developer/first-steps/requirements.rst:102
-msgid "``tests/``: PHP Unit tests root"
-msgstr ""
+#~ msgid "php.ini recommended settings"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "MariaDB/MySQL/PostgreSQL or SQLite database "
+#~ "(do not forget to install ``php-"
+#~ "xxxsql`` extension according to your "
+#~ "database driver flavor)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``themes/``: Contains your themes and "
+#~ "system themes such as *Rozier* and "
+#~ "*Install*"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``files/``: Documents and font files "
+#~ "root (this folder must be writable "
+#~ "for PHP)"
+#~ msgstr ""
+
+#~ msgid "``src/``: Roadiz CMS logic and core source code"
+#~ msgstr ""
+
+#~ msgid "``tests/``: PHP Unit tests root"
+#~ msgstr ""
 

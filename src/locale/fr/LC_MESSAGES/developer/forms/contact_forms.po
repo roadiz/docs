@@ -9,27 +9,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 14:49+0200\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../developer/forms/contact_forms.rst:5
+#: ../../src/developer/forms/contact_forms.rst:5
 msgid "Building contact forms"
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:7
+#: ../../src/developer/forms/contact_forms.rst:7
 msgid ""
 "With Roadiz you can easily create simple contact forms with "
 "``ContactFormManager`` class. Your controller has a convenient shortcut "
 "to create this manager with ``$this->createContactFormManager()`` method."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:10
+#: ../../src/developer/forms/contact_forms.rst:10
 msgid ""
 "If you want to add your own fields, you can use the manager’ form-builder"
 " with ``$contactFormManager->getFormBuilder();``. Then add your field "
@@ -37,15 +37,15 @@ msgid ""
 "to handle errors."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:14
+#: ../../src/developer/forms/contact_forms.rst:14
 msgid "One contact-form for one action"
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:16
+#: ../../src/developer/forms/contact_forms.rst:16
 msgid "Here is an example to create your contact form in your controller action."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:64
+#: ../../src/developer/forms/contact_forms.rst:67
 msgid ""
 "In this example, we used ``withDefaultFields`` method which add "
 "automatically ``email``, ``name`` and ``message`` fields with right "
@@ -54,19 +54,15 @@ msgid ""
 "``email``."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:68
-msgid "Add session messages to your assignations:"
+#: ../../src/developer/forms/contact_forms.rst:71
+msgid "Then in your contact page Twig template:"
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:78
-msgid "Then in your contact page Twig template"
-msgstr ""
-
-#: ../../developer/forms/contact_forms.rst:102
+#: ../../src/developer/forms/contact_forms.rst:93
 msgid "Using contact-form in *block* controllers"
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:104
+#: ../../src/developer/forms/contact_forms.rst:95
 msgid ""
 "If you want to use *contact-forms* in blocks instead of a full page, you "
 "will need to make your redirection response **bubble** through *Twig* "
@@ -74,7 +70,7 @@ msgid ""
 "pass your Redirect or Json response within your Exception."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:109
+#: ../../src/developer/forms/contact_forms.rst:100
 msgid ""
 "Roadiz makes this possible with "
 "``RZ\\Roadiz\\Core\\Exceptions\\ForceResponseException``. For example, in"
@@ -84,7 +80,7 @@ msgid ""
 "to throw a ``ForceResponseException`` with it as an argument."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:140
+#: ../../src/developer/forms/contact_forms.rst:131
 msgid ""
 "Then, in your *master* controller (i.e. ``PageController``), ``render`` "
 "method will automatically catch your *ForceResponseException* exception "
@@ -92,11 +88,35 @@ msgid ""
 "response instead of your page twig rendered output."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:145
+#: ../../src/developer/forms/contact_forms.rst:136
+msgid "Alter email configuration after form submit"
+msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:138
+msgid ""
+"If you want to customize emails sent with form data, you can use Symfony "
+"form events to change the contact form manager options: The following "
+"example alters the email subject to add the user email and makes the "
+"subject unique for the receiver."
+msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:148
+msgid ""
+"You can also use this behaviour to change dynamically the contact form "
+"receiver after the user chose it in a select box input."
+msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:152
+msgid ""
+"You can read more about form events at "
+"https://symfony.com/doc/current/form/events.html"
+msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:155
 msgid "Securing your form with *Google reCAPTCHA*"
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:147
+#: ../../src/developer/forms/contact_forms.rst:157
 msgid ""
 "Roadiz can seamlessly use *Google reCAPTCHA* to secure your contact form "
 "against robots. All you need to do is to register on "
@@ -104,15 +124,34 @@ msgid ""
 "Once you’ve got these two keys, add them to your Roadiz settings."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:154
+#: ../../src/developer/forms/contact_forms.rst:164
 msgid ""
 "Then, just use ``withGoogleRecaptcha()`` method on your contact-form "
 "manager."
 msgstr ""
 
-#: ../../developer/forms/contact_forms.rst:163
+#: ../../src/developer/forms/contact_forms.rst:173
 msgid ""
 "Do not forget to add recaptcha form-template and to embed google’s "
 "javascript."
 msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:187
+msgid "Sending contact form and accept application/json"
+msgstr ""
+
+#: ../../src/developer/forms/contact_forms.rst:189
+msgid ""
+"If you want to send your contact form using `window.fetch` and "
+"`window.FormData`, Roadiz will still generate an html-based `Response` or"
+" `RedirectResponse`. You need to add `Accept: application/json` header to"
+" your request so that Roadiz will respond as JSON. Roadiz `JsonResponse` "
+"will contain *success* message or *error* messages for each wrong fields."
+msgstr ""
+
+#~ msgid "Add session messages to your assignations:"
+#~ msgstr ""
+
+#~ msgid "Then in your contact page Twig template"
+#~ msgstr ""
 

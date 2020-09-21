@@ -8,59 +8,59 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.16.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 14:00+0100\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: 2016-12-29 17:46+0100\n"
 "Last-Translator: Ambroise Maupate <ambroise@rezo-zero.com>\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr\n"
-"X-Generator: Poedit 1.7.5\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
 
 # bf7028d98c0e4c59bfad89abc4befeda
-#: ../../user/write-in-markdown/index.rst:4
+#: ../../src/user/write-in-markdown/index.rst:4
 msgid "Write in Markdown"
 msgstr "Écrire en Markdown"
 
 # 8dc22523e21c4ab7857f4149271559e9
-#: ../../user/write-in-markdown/index.rst:6
+#: ../../src/user/write-in-markdown/index.rst:6
 msgid ""
 "Markdown is a lightweight markup language with plain text formatting "
 "syntax designed so that it can be converted to HTML and many other "
 "formats using a tool by the same name. […] The key design goal is "
 "readability – that the language be readable as-is, without looking like "
 "it has been marked up with tags or formatting instructions, unlike text "
-"formatted with a markup language, such as Rich Text Format (RTF) or "
-"HTML, which have obvious tags and formatting instructions."
+"formatted with a markup language, such as Rich Text Format (RTF) or HTML,"
+" which have obvious tags and formatting instructions."
 msgstr ""
 "Markdown est un langage de balisage léger avec une syntaxe en texte brut "
 "conçue pour être facilement traduite en HTML et bien d’autres formats. "
 "[…] Le but de Markdown est de rester lisible tel quel sans donner "
 "l’impression qu’il a été marqué par des balises ou des instructions de "
 "formatage, contrairement au Rich Text Format (RTF) ou HTML qui utilisent "
-"des balises et instructions de formatage empêchant leur lecture par "
-"un(e) non-spécialiste."
+"des balises et instructions de formatage empêchant leur lecture par un(e)"
+" non-spécialiste."
 
 # b3ffa6a784924e70955bba3ee8eb7a72
-#: ../../user/write-in-markdown/index.rst:11
+#: ../../src/user/write-in-markdown/index.rst:11
 msgid "Wikipedia article — https://en.wikipedia.org/wiki/Markdown"
 msgstr "Article sur Wikipédia — https://fr.wikipedia.org/wiki/Markdown"
 
 # afcb696b1e0447d6816539ba9225fe92
-#: ../../user/write-in-markdown/index.rst:11
+#: ../../src/user/write-in-markdown/index.rst:11
 msgid "Titles"
 msgstr "Titres"
 
 # 8267517537e5494bb8df21b66a984fee
-#: ../../user/write-in-markdown/index.rst:13
+#: ../../src/user/write-in-markdown/index.rst:13
+#, fuzzy
 msgid ""
 "**Add two hashtag** ``#`` **or more according to your title importance "
-"level.** Backoffice shortcut buttons allow to directly insert your "
-"titles marks before your selected text. Make sure to leave a blank line "
-"before each new title you write. ::"
+"level.** Backoffice shortcut buttons allow to directly insert your titles"
+" marks before your selected text. Make sure to leave a blank line before "
+"each new title you write."
 msgstr ""
 "**Ajouter deux dièses** ``#`` **ou plus en fonction de l’importance du "
 "titre souhaitée.** Les boutons du back-office permettent d’insérer "
@@ -68,73 +68,75 @@ msgstr ""
 "laisser une ligne vide avant chaque nouveau titre. ::"
 
 # 1205b18e78ef4c24ac25bb527dea935d
-#: ../../user/write-in-markdown/index.rst:19
+#: ../../src/user/write-in-markdown/index.rst:21
 msgid ""
 "Be careful not to use only one hashtag to create a first-level title as "
 "this is usually used for pages main title."
 msgstr ""
-"Attention à ne pas utiliser une seule dièse pour créer un titre de "
-"niveau 1, car il est généralement réservé au titre principal de votre "
-"page."
+"Attention à ne pas utiliser une seule dièse pour créer un titre de niveau"
+" 1, car il est généralement réservé au titre principal de votre page."
 
 # bcccd60feb674c278a805a4e28f89e1a
-#: ../../user/write-in-markdown/index.rst:23
+#: ../../src/user/write-in-markdown/index.rst:25
 msgid "Alternate syntax"
 msgstr "Syntaxe alternative"
 
 # 9c0441e9c66b4b0399663d7a73502b15
-#: ../../user/write-in-markdown/index.rst:25
+#: ../../src/user/write-in-markdown/index.rst:27
+#, fuzzy
 msgid ""
 "Main title and second level titles can be written using ``=`` and ``-`` "
-"as underline characters. ::"
+"as underline characters."
 msgstr ""
 "Les titres principaux et secondaires peuvent être écrits en les "
 "soulignant avec les caractères ``=`` et ``-``. ::"
 
 # d3afc23b98144602b05758eb82f52836
-#: ../../user/write-in-markdown/index.rst:36
+#: ../../src/user/write-in-markdown/index.rst:40
 msgid "Bold"
 msgstr "Gras"
 
 # ff35fe285eb448bfb7a26cdcac0e0bbd
-#: ../../user/write-in-markdown/index.rst:38
+#: ../../src/user/write-in-markdown/index.rst:42
+#, fuzzy
 msgid ""
-"**Insert two stars** ``*`` **before and after your text to set in bold."
-"** Backoffice shortcut button allows to insert directly the 4 characters "
-"around your selected text. ::"
+"**Insert two stars** ``*`` **before and after your text to set in bold.**"
+" Backoffice shortcut button allows to insert directly the 4 characters "
+"around your selected text."
 msgstr ""
 "**Insérer deux étoiles** ``*`` **au début et à la fin du texte pour le "
 "mettre en gras.** Le bouton du back-office permet d’insérer directement "
 "les 4 étoiles autour du texte sélectionné. ::"
 
 # fefbff55827e42c59be228868065e0ed
-#: ../../user/write-in-markdown/index.rst:43
+#: ../../src/user/write-in-markdown/index.rst:49
 msgid ""
 "Be careful not to leave whitespaces inside your stars group (in the same "
 "way you do with parenthesis) otherwise your text won’t be styled."
 msgstr ""
-"Attention à ne pas laisser d’espace à l’intérieur du groupe d’étoiles "
-"(de la même manière qu’avec les parenthèses) sinon le formatage ne "
+"Attention à ne pas laisser d’espace à l’intérieur du groupe d’étoiles (de"
+" la même manière qu’avec les parenthèses) sinon le formatage ne "
 "s’appliquera pas."
 
 # f28e46ff133f4849bd982cad27b66cfd
-#: ../../user/write-in-markdown/index.rst:47
+#: ../../src/user/write-in-markdown/index.rst:53
 msgid "Italic"
 msgstr "Italique"
 
 # 40c00f584c2b4f2dbd1fd46ca60e2adc
-#: ../../user/write-in-markdown/index.rst:49
+#: ../../src/user/write-in-markdown/index.rst:55
+#, fuzzy
 msgid ""
-"**Insert one star** ``*`` **before and after your text to set in italic."
-"** Backoffice shortcut button allows to insert directly the 2 characters "
-"around your selected text. ::"
+"**Insert one star** ``*`` **before and after your text to set in "
+"italic.** Backoffice shortcut button allows to insert directly the 2 "
+"characters around your selected text."
 msgstr ""
 "**Insérer une étoile** ``*`` **au début et à la fin du texte pour le "
 "mettre en italique.** Le bouton du back-office permet d’insérer "
 "directement les 2 étoiles autour du texte sélectionné. ::"
 
 # 67b16f8b0f1b41e5ba4cdbe6b5cb820e
-#: ../../user/write-in-markdown/index.rst:54
+#: ../../src/user/write-in-markdown/index.rst:62
 msgid ""
 "Bold and italic marks can of course be combined using 3 stars before and "
 "after your selected text."
@@ -143,47 +145,50 @@ msgstr ""
 "de trois étoiles au début et à la fin du texte sélectionné."
 
 # 0b36e353d4fb4dada06b1f54afdf625b
-#: ../../user/write-in-markdown/index.rst:57
+#: ../../src/user/write-in-markdown/index.rst:65
 msgid "What if * character is already in use"
 msgstr "Et si le caractère * est déjà utilisé dans mon texte ?"
 
 # ba2079ebc3dc41ec8d141fd414742a0f
-#: ../../user/write-in-markdown/index.rst:59
+#: ../../src/user/write-in-markdown/index.rst:67
+#, fuzzy
 msgid ""
 "Bold and italic markup can be performed using ``_`` (underscore) "
 "character too if you actually need to write a *star* character in your "
-"text. ::"
+"text."
 msgstr ""
 "Les gras et italique peuvent être formattés de la même manière avec le "
-"caractère tiret-bas ``_`` si votre texte contient le caractère "
-"*étoile*. ::"
+"caractère tiret-bas ``_`` si votre texte contient le caractère *étoile*. "
+"::"
 
 # 02e21a1640eb46df9dd036e7b05d87db
-#: ../../user/write-in-markdown/index.rst:65
+#: ../../src/user/write-in-markdown/index.rst:75
 msgid "Strike-through"
 msgstr "Barré"
 
 # ca80b820840d47cca64ffefeaac94ead
-#: ../../user/write-in-markdown/index.rst:67
+#: ../../src/user/write-in-markdown/index.rst:77
+#, fuzzy
 msgid ""
 "**Insert two tildes** ``~`` **before and after your text to strike-"
-"through.** ::"
+"through.**"
 msgstr ""
 "**Insérer deux tildes** ``~`` **au début et à la fin de votre texte pour "
 "le barrer.** ::"
 
 # 2a4fda940fb04e16a434b85933cb82e0
-#: ../../user/write-in-markdown/index.rst:72
+#: ../../src/user/write-in-markdown/index.rst:84
 msgid "Ordered and unordered lists"
 msgstr "Listes ordonnées et non-ordonnées"
 
 # 1dd3f77c5f63467d8d2568dfbbe7bc07
-#: ../../user/write-in-markdown/index.rst:74
+#: ../../src/user/write-in-markdown/index.rst:86
+#, fuzzy
 msgid ""
 "**Insert a star** ``*`` **or a dash** ``-`` **followed by a single "
-"whitespace for each of your list item.** One item per line. Leave a "
-"blank line before and after your list. For *ordered* list, use a digit "
-"followed by a dot and a whitespace instead. ::"
+"whitespace for each of your list item.** One item per line. Leave a blank"
+" line before and after your list. For *ordered* list, use a digit "
+"followed by a dot and a whitespace instead."
 msgstr ""
 "**Insérer une étoile** ``*`` **ou un tiret** ``-`` **suivi d’une espace "
 "et ce, pour chaque élément de la liste.** Un élément par ligne. Laisser "
@@ -191,7 +196,7 @@ msgstr ""
 "utiliser un chiffre suivi d’un point et d’une espace. ::"
 
 # ef6267ffb29547b4a7399a7311b002b1
-#: ../../user/write-in-markdown/index.rst:85
+#: ../../src/user/write-in-markdown/index.rst:99
 msgid ""
 "If you need to break an item into several lines, you’ll need to use the "
 "line-break markup."
@@ -200,31 +205,33 @@ msgstr ""
 "vous devrez utiliser la syntaxe du retour-chariot."
 
 # c23cf5f181334e3ca760a94176d9cd4e
-#: ../../user/write-in-markdown/index.rst:88
+#: ../../src/user/write-in-markdown/index.rst:102
 msgid "Nested list"
 msgstr "Liste imbriquée"
 
 # d379bb39d3e742b990492f9735ea8d06
-#: ../../user/write-in-markdown/index.rst:90
+#: ../../src/user/write-in-markdown/index.rst:104
+#, fuzzy
 msgid ""
 "You can insert a second/third/… level for your list, just **by leaving "
-"four spaces before your new list-item mark.** ::"
+"four spaces before your new list-item mark.**"
 msgstr ""
 "Vous pouvez insérer un deuxième/troisième/… niveau à votre liste en "
 "**laissant quatre espaces avant chaque nouvel élément de liste.** ::"
 
 # b5980d70b94945b3bd1c3843467f9d64
-#: ../../user/write-in-markdown/index.rst:100
+#: ../../src/user/write-in-markdown/index.rst:116
 msgid "New paragraph and line-break"
 msgstr "Nouveau paragraphe et retour-chariot"
 
 # 0b235ad9883343d1b8616b13a940443f
-#: ../../user/write-in-markdown/index.rst:102
+#: ../../src/user/write-in-markdown/index.rst:118
+#, fuzzy
 msgid ""
 "A simple line-break is always ignored by Markdown language because it "
 "makes a difference between a **paragraph** and a **line-break**. To "
 "simply create a line-break without creating a new paragraph, **leave at "
-"least 3 spaces at the end of your text line then go to a new line.** ::"
+"least 3 spaces at the end of your text line then go to a new line.**"
 msgstr ""
 "Un simple retour à la ligne est toujours ignoré par Markdown car il fait "
 "la différence entre un **paragraphe** et un **retour-chariot** (retour à "
@@ -233,20 +240,21 @@ msgstr ""
 "ligne de texte et aller à la ligne.** ::"
 
 # e613ccfdb17144ba881a937a2fec8f44
-#: ../../user/write-in-markdown/index.rst:110
+#: ../../src/user/write-in-markdown/index.rst:128
+#, fuzzy
 msgid ""
 "To create a new paragraph, **always leave a blank line between your text "
-"blocks.** Any additional blank line will be ignored. ::"
+"blocks.** Any additional blank line will be ignored."
 msgstr ""
-"Pour créer un nouveau paragraphe, **laisser toujours une ligne vide "
-"entre vos blocs de texte.** Tout ligne vide en plus sera ignorée. ::"
+"Pour créer un nouveau paragraphe, **laisser toujours une ligne vide entre"
+" vos blocs de texte.** Tout ligne vide en plus sera ignorée. ::"
 
 # b1b624d36d384e43971aafdb8125fa01
-#: ../../user/write-in-markdown/index.rst:118
+#: ../../src/user/write-in-markdown/index.rst:138
 msgid ""
-"According to your website design (CSS), new paragraphs may have no "
-"visual margins between them. Inserting more than one blank line won’t "
-"add any additional visual space as Markdown ignores it."
+"According to your website design (CSS), new paragraphs may have no visual"
+" margins between them. Inserting more than one blank line won’t add any "
+"additional visual space as Markdown ignores it."
 msgstr ""
 "En fonction du design (CSS) de votre site, les paragraphes peuvent ne "
 "posséder aucune marge visuelle entre eux. Insérer plus d’une ligne vide "
@@ -254,51 +262,56 @@ msgstr ""
 "superflues."
 
 # 722f64b729ce434dba7d0110a6ce8688
-#: ../../user/write-in-markdown/index.rst:122
+#: ../../src/user/write-in-markdown/index.rst:142
 msgid "Hypertext links"
 msgstr "Liens hypertextes"
 
 # d3f58bef934b46ab8f929f208ddd4f40
-#: ../../user/write-in-markdown/index.rst:124
+#: ../../src/user/write-in-markdown/index.rst:144
+#, fuzzy
 msgid ""
-"**Write link label between braces immediately followed by the URL "
-"between parenthesis.** For external links do not forget protocol prefix "
-"``http://`` or ``https://``. ::"
+"**Write link label between braces immediately followed by the URL between"
+" parenthesis.** For external links do not forget protocol prefix "
+"``http://`` or ``https://``."
 msgstr ""
 "**Écrire le label du lien entre crochets suivis immédiatement de l’URL "
 "entre parenthèses.** Pour les liens externes, attention à ne pas oublier "
 "le préfixe du protocole ``http://`` ou ``https://``. ::"
 
 # aaabedd77c58421e951a4b57a7006400
-#: ../../user/write-in-markdown/index.rst:129
-msgid "To create a internal link, just use relative notation: ::"
+#: ../../src/user/write-in-markdown/index.rst:151
+#, fuzzy
+msgid "To create a internal link, just use relative notation:"
 msgstr "Pour un lien interne, il faut utiliser la notation relative : ::"
 
 # bd95bcd9945e45a4a95649befb492fe1
-#: ../../user/write-in-markdown/index.rst:133
-msgid "Then, for an email link, use ``mailto:`` prefix: ::"
+#: ../../src/user/write-in-markdown/index.rst:157
+#, fuzzy
+msgid "Then, for an email link, use ``mailto:`` prefix:"
 msgstr "Pour un lien d’email, préfixer l’URL avec ``mailto:`` : ::"
 
 # ea6eb27d55ee44b0bd1358b8af707cf7
-#: ../../user/write-in-markdown/index.rst:137
+#: ../../src/user/write-in-markdown/index.rst:163
+#, fuzzy
 msgid ""
 "A link title can be added by inserting it before *ending parenthesis* "
-"wrapped in quotes. ::"
+"wrapped in quotes."
 msgstr ""
 "Un titre de lien peut être ajouter en l’insérant avant la parenthèse "
 "fermante, entouré de guillemets. ::"
 
 # 61638d5bf24c43f6834dd9a5d73ff45a
-#: ../../user/write-in-markdown/index.rst:142
+#: ../../src/user/write-in-markdown/index.rst:170
 msgid "Block quotes"
 msgstr "Citations"
 
 # 7fe3201748994cee994bb159c65b8d1d
-#: ../../user/write-in-markdown/index.rst:144
+#: ../../src/user/write-in-markdown/index.rst:172
+#, fuzzy
 msgid ""
-"**Insert a** ``>`` **sign before each new paragraph and a space** to "
-"wrap your text in a quote block. You can then use all other Markdown "
-"symbols inside your quote. ::"
+"**Insert a** ``>`` **sign before each new paragraph and a space** to wrap"
+" your text in a quote block. You can then use all other Markdown symbols "
+"inside your quote."
 msgstr ""
 "**Insérer le signe** ``>`` **et une espace avant chaque nouveau "
 "paragraphe** pour inclure your texte dans une citation. Vous pourrez "
@@ -306,23 +319,24 @@ msgstr ""
 "citation. ::"
 
 # bdb29d7115be45bd818fe376007b8262
-#: ../../user/write-in-markdown/index.rst:152
+#: ../../src/user/write-in-markdown/index.rst:182
 msgid "Images"
 msgstr "Images"
 
 # 0c68ae6650ca45d78256ec5c803daab8
-#: ../../user/write-in-markdown/index.rst:154
+#: ../../src/user/write-in-markdown/index.rst:184
+#, fuzzy
 msgid ""
-"**Images use the link syntax with an exclamation mark prefix** ``!``. "
-"For external images do not forget to write full URL with protocol "
-"``http://`` or ``https://``. ::"
+"**Images use the link syntax with an exclamation mark prefix** ``!``. For"
+" external images do not forget to write full URL with protocol "
+"``http://`` or ``https://``."
 msgstr ""
 "**Les images utilisent la même syntaxe que les liens en étant préfixées "
 "par un point d’exclamation** ``!``. Pour les images externes, n’oubliez "
 "pas d’écrire l’URL complet avec protocole ``http://`` ou ``https://``. ::"
 
 # 6d044916252143278e6293205d0f0451
-#: ../../user/write-in-markdown/index.rst:161
+#: ../../src/user/write-in-markdown/index.rst:193
 msgid ""
 "Be careful, images will be displayed as is, unless your webdesigner "
 "planned to adapt image size coming from Markdown fields using CSS. As "
@@ -338,32 +352,34 @@ msgstr ""
 "importantes de votre site-web et d’utiliser des *liens relatifs*."
 
 # 370e11e8cfa14fa4b94fbb09948f6658
-#: ../../user/write-in-markdown/index.rst:166
+#: ../../src/user/write-in-markdown/index.rst:198
 msgid "Footnotes"
 msgstr "Notes de bas de page"
 
 # 3a5f7926b2744d67915a0cf46843f95c
-#: ../../user/write-in-markdown/index.rst:168
+#: ../../src/user/write-in-markdown/index.rst:200
+#, fuzzy
 msgid ""
 "Footnotes are not supported with *basic* Markdown syntax, but the "
 "*Markdown Extra* one. So before using them, **make sure your webdesigner "
-"used the right Markdown parser in your theme.** ::"
+"used the right Markdown parser in your theme.**"
 msgstr ""
 "Les notes de bas de page ne sont pas prises en charge par la version "
 "basique de Markdown mais par la version *MarkdownExtra*. Ainsi, "
-"**vérifiez que votre webdesigner a bien utilisé le bon formateur "
-"Markdown dans votre thème.** ::"
+"**vérifiez que votre webdesigner a bien utilisé le bon formateur Markdown"
+" dans votre thème.** ::"
 
 # 89b81f6bb3374806ace180d930824126
-#: ../../user/write-in-markdown/index.rst:177
+#: ../../src/user/write-in-markdown/index.rst:211
 msgid ""
 "Markdown will *automatically generate anchor links between your footnote "
 "and its reference*. It will automatically **use numbers as footnote "
-"reference labels**, so you don’t have to bother to write numbers "
-"yourself but easy-to-remember markers labels."
+"reference labels**, so you don’t have to bother to write numbers yourself"
+" but easy-to-remember markers labels."
 msgstr ""
 "Markdown *générera automatiquement les liens d’ancre entre vos notes de "
 "bas de page et leur références.* Il **utilisera automatiquement des "
 "numéros pour les appels de notes**, vous n’avez du coup pas besoin de "
 "vous embêter à les numéroter manuellement, juste à les nommer de manière "
 "à bien les repérer."
+

@@ -9,20 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../extension/extending_roadiz.rst:5
+#: ../../src/extension/extending_roadiz.rst:5
 msgid "Extending Roadiz"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:7
+#: ../../src/extension/extending_roadiz.rst:7
 msgid ""
 "It is time to see how to extend Roadiz! As you read in Roadiz "
 ":ref:`philosophy` part, we won’t ship \"plugin\" or \"module\" like "
@@ -30,11 +30,11 @@ msgid ""
 " that really matters: Themes!"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:12
+#: ../../src/extension/extending_roadiz.rst:12
 msgid "Theme powered CMS"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:14
+#: ../../src/extension/extending_roadiz.rst:14
 msgid ""
 "We coded the Theme system to be the core of your extending experience. "
 "You don't need to change something else than your theme. So you can use a"
@@ -42,7 +42,7 @@ msgid ""
 "place."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:18
+#: ../../src/extension/extending_roadiz.rst:18
 msgid ""
 "You can add new entities. If so, don't forget to add your ``Entities`` "
 "namespace in Roadiz config file. With theses additional entities, you "
@@ -50,28 +50,28 @@ msgid ""
 "Let's see how to."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:23
+#: ../../src/extension/extending_roadiz.rst:23
 msgid "Create your own database entities"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:25
+#: ../../src/extension/extending_roadiz.rst:25
 msgid ""
 "You can create a theme with your own entities. Just add your *Entities* "
 "folder to the global configuration file (``app/conf/config.yml``)."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:36
+#: ../../src/extension/extending_roadiz.rst:36
 msgid "Verify if everything is OK by checking migrations:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:42
+#: ../../src/extension/extending_roadiz.rst:42
 msgid ""
 "If you see your entities being created and no system database erased, "
 "just apply your migration with ``--force``. If Doctrine send some error, "
 "you probably need to clear metadata cache:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:49
+#: ../../src/extension/extending_roadiz.rst:49
 msgid ""
 "Clearing cache from command line **will not empty op-code cache**. Be "
 "sure to call ``clear_cache.php`` entry point to actually clear *PHP-FPM* "
@@ -79,21 +79,21 @@ msgid ""
 "accessible from *localhost*:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:59
+#: ../../src/extension/extending_roadiz.rst:59
 msgid "Add back-office entry"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:61
+#: ../../src/extension/extending_roadiz.rst:61
 msgid ""
 "At first, create a controller into your theme folder, for example "
 "``themes/MyTheme/AdminControllers/AdminController``."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:63
+#: ../../src/extension/extending_roadiz.rst:63
 msgid "Example:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:87
+#: ../../src/extension/extending_roadiz.rst:87
 msgid ""
 "If you look at this exemple you can see the class extends ``RozierApp`` "
 "not your ``MyThemeApp`` class! This will enable you to “inject” your code"
@@ -101,28 +101,27 @@ msgid ""
 "`MyThemeApp::getThemeDir()` as your template namespace."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:91
+#: ../../src/extension/extending_roadiz.rst:91
 msgid "Now let's have a look to your twig template file ``admin/test.html.twig``."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:121
+#: ../../src/extension/extending_roadiz.rst:121
 msgid ""
 "The first line is for inheriting from Rozier base template, you can "
-"notice that we explicitely choose `@Rozier` namespace."
+"notice that we explicitly choose `@Rozier` namespace."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:123
+#: ../../src/extension/extending_roadiz.rst:123
 msgid ""
 "The two next blocks are made for you to add some CSS or Javascript. For "
 "CSS, the block ``customStyle`` can be use to link an external file with a"
 " ``<link>`` tag, the path must be something like that ``{{ "
-"request.baseUrl ~ \"/themes/MyTheme/static/css/customstyle.css\" }}``,  "
-"or add directly some CSS with \"<style>\" tag. For JS, the block "
-"``customScripts`` work as is, just link an external JS file or write your"
-" ``<script>`` tag."
+"asset('static/css/customstyle.css', 'MyTheme') }}``, or add directly some"
+" CSS with \"<style>\" tag. For JS, the block ``customScripts`` work as "
+"is, just link an external JS file or write your ``<script>`` tag."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:127
+#: ../../src/extension/extending_roadiz.rst:129
 msgid ""
 "Then create your own content, do not hesitate to give a look at Rozier "
 "back-stage theme Twig files to use the right DOM structure. For simple "
@@ -130,39 +129,39 @@ msgid ""
 "HTML coding style."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:131
+#: ../../src/extension/extending_roadiz.rst:133
 msgid "Linking things together"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:133
+#: ../../src/extension/extending_roadiz.rst:135
 msgid "Add the route in the theme ``route.yml`` file."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:135
+#: ../../src/extension/extending_roadiz.rst:137
 msgid "In this case the route will be:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:146
+#: ../../src/extension/extending_roadiz.rst:148
 msgid "Inject your own entries in back-stage"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:148
+#: ../../src/extension/extending_roadiz.rst:150
 msgid ""
 "The last thing to do is to add your new admin entry in the back-office "
 "menu."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:150
+#: ../../src/extension/extending_roadiz.rst:152
 msgid ""
 "Go to your ``MyThemeApp.php`` main class and override "
 "``setupDependencyInjection`` method, or create it if it doesn’t exist."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:176
+#: ../../src/extension/extending_roadiz.rst:178
 msgid "Do not forget to add ``use Pimple\\Container;`` in your file header."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:178
+#: ../../src/extension/extending_roadiz.rst:180
 msgid ""
 "``setupDependencyInjection`` method is called statically at boot time "
 "when Roadiz’s kernel is running all available Themes to setup services. "
@@ -170,14 +169,14 @@ msgid ""
 "define every buttons available in Rozier backstage main-menu."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:182
+#: ../../src/extension/extending_roadiz.rst:184
 msgid ""
 "If you want to have a category and sub-entries, just change the path at "
 "``null`` value and create your ``subentries`` array as described in the "
 "next example:"
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:202
+#: ../../src/extension/extending_roadiz.rst:204
 msgid ""
 "You can restrict buttons to users with specific roles. Just replace "
 "``'roles' => null`` with ``'roles' => array('ROLE_ACCESS_NODES')``. You "
@@ -185,7 +184,7 @@ msgid ""
 "system."
 msgstr ""
 
-#: ../../extension/extending_roadiz.rst:207
+#: ../../src/extension/extending_roadiz.rst:209
 msgid ""
 "Adding roles in ``backoffice.entries`` service will only restrict buttons"
 " display in Rozier backstage interface. To really protect your "
@@ -201,5 +200,28 @@ msgstr ""
 #~ " own entities. Just add your "
 #~ "*Entities* folder to the global "
 #~ "configuration file (``conf/config.yml``)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The first line is for inheriting "
+#~ "from Rozier base template, you can "
+#~ "notice that we explicitely choose "
+#~ "`@Rozier` namespace."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The two next blocks are made for"
+#~ " you to add some CSS or "
+#~ "Javascript. For CSS, the block "
+#~ "``customStyle`` can be use to link "
+#~ "an external file with a ``<link>`` "
+#~ "tag, the path must be something "
+#~ "like that ``{{ request.baseUrl ~ "
+#~ "\"/themes/MyTheme/static/css/customstyle.css\" }}``,  or"
+#~ " add directly some CSS with "
+#~ "\"<style>\" tag. For JS, the block "
+#~ "``customScripts`` work as is, just link"
+#~ " an external JS file or write "
+#~ "your ``<script>`` tag."
 #~ msgstr ""
 

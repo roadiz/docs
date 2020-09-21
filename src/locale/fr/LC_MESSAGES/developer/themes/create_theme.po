@@ -9,20 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../developer/themes/create_theme.rst:5
+#: ../../src/developer/themes/create_theme.rst:5
 msgid "Creating a theme"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:7
+#: ../../src/developer/themes/create_theme.rst:7
 msgid ""
 "Roadiz themes are one of the main parts of the CMS. They allow you to "
 "create your really personal website. You can duplicate an existing theme "
@@ -32,31 +32,31 @@ msgid ""
 "according to the street name where REZO ZERO created it."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:11
+#: ../../src/developer/themes/create_theme.rst:11
 msgid ""
 "Each theme is a folder which must be placed in ``themes/`` folder. Roadiz"
-" comes with 3 default themes :"
+" *Sources* comes with 3 default themes :"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:13
+#: ../../src/developer/themes/create_theme.rst:13
 msgid ""
 "*Install* : It’s the first page theme you see when you launch Roadiz in "
 "your browser for the first time."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:14
+#: ../../src/developer/themes/create_theme.rst:14
 msgid ""
 "*Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s "
 "available from ``rz-admin/`` url and protected by firewall."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:15
+#: ../../src/developer/themes/create_theme.rst:15
 msgid ""
 "*DefaultTheme* : It’s a demo theme which is mainly used to demonstrate "
 "basic Roadiz features and to try the back-office editing capabilities."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:17
+#: ../../src/developer/themes/create_theme.rst:17
 msgid ""
 "As these 3 themes come bundled with Roadiz, you can’t edit or update "
 "their files. Your changes would be overrode the next time you update "
@@ -65,7 +65,10 @@ msgid ""
 "or using CLI commands."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:22
+msgid "Source Edition"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:22
 msgid ""
 "If you are using Roadiz *Source edition*, we configured *Git* versioning "
 "tool to ignore every additional theme you create in ``/themes`` folder. "
@@ -74,24 +77,27 @@ msgid ""
 "updates."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:26
+#: ../../src/developer/themes/create_theme.rst:26
 msgid "Preparing your own frontend theme"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:28
+#: ../../src/developer/themes/create_theme.rst:28
 msgid ""
 "To start from a fresh and clean foundation, we built a `BaseTheme "
 "<https://github.com/roadiz/BaseTheme>`_ to fit our needs with many "
 "starter node-types and a front-end framework using *ES6* and *Webpack*."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:36
+#: ../../src/developer/themes/create_theme.rst:36
 msgid ""
 "Your theme will be generated as ``/themes/MyAwesomeTheme`` with "
 "``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php`` class."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:41
+msgid "Standard Edition"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:41
 msgid ""
 "Roadiz *Standard edition* will create a symbolic link into ``web/`` "
 "folder to publish your new theme public assets as "
@@ -99,60 +105,34 @@ msgid ""
 "supports *symbolic links*."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:44
+#: ../../src/developer/themes/create_theme.rst:44
 msgid "Edit your main class informations (``MyAwesomeThemeApp.php``)"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:82
+#: ../../src/developer/themes/create_theme.rst:80
 msgid ""
 "Then you will be able to add your fresh new theme into Roadiz backoffice "
 "or through Roadiz install."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:87
-msgid "Theme specific dependencies"
-msgstr ""
-
-#: ../../developer/themes/create_theme.rst:89
-msgid ""
-"Imagine that you need some extra *Composer* requirements for your theme. "
-"Basically, you need to display a social network feed with *Twitter* and "
-"some *Instagram* duck-face photos. You will need the `rezozero/mixedfeed "
-"<https://github.com/rezozero/mixedfeed>`_ library to be loaded with "
-"Composer but you can’t touch the main *Roadiz* ``composer.json``… How do "
-"we do? Roadiz uses the `wikimedia/composer-merge-plugin "
-"<https://github.com/wikimedia/composer-merge-plugin>`_ which do some "
-"magic stuff with multiple *composer.json* files. So you just have to "
-"create a new *composer.json* file inside your theme directory and call "
-"``composer update`` **from the Roadiz root folder**."
-msgstr ""
-
-#: ../../developer/themes/create_theme.rst:98
-msgid ""
-"Do not use the ``composer`` command **inside** your Theme folders but "
-"**only at the Roadiz root folder level.** If not, *Composer* will "
-"download and install specific dependencies inside your theme and the main"
-" *autoloader* won’t find your new PHP classes."
-msgstr ""
-
-#: ../../developer/themes/create_theme.rst:104
+#: ../../src/developer/themes/create_theme.rst:83
 msgid "Static routing"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:106
+#: ../../src/developer/themes/create_theme.rst:85
 msgid ""
 "Before searching for a node’s Url (Dynamic routing), Roadiz will parse "
 "your theme ``route.yml`` to find static controllers and actions to "
 "execute. Static actions just have to comply with the ``Request`` / "
-"``Response`` scheme. It is adviced to add ``$_locale`` and ``$_route`` "
+"``Response`` scheme. It is advised to add ``$_locale`` and ``$_route`` "
 "optional arguments to better handle multilingual pages."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:151
+#: ../../src/developer/themes/create_theme.rst:130
 msgid "Dynamic routing"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:155
+#: ../../src/developer/themes/create_theme.rst:134
 msgid ""
 "Every node-types will be handled by a specific ``Controller``. If your "
 "created a “Page” type, Roadiz will search for a "
@@ -160,7 +140,7 @@ msgid ""
 "``indexAction`` method."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:159
+#: ../../src/developer/themes/create_theme.rst:138
 msgid ""
 "An indexAction method must comply with the following signature. It will "
 "take the HttpFoundation’s Request as first then a ``Node`` and a "
@@ -168,7 +148,7 @@ msgid ""
 "generate your page information and to render your current node."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:188
+#: ../../src/developer/themes/create_theme.rst:167
 msgid ""
 "As *Symfony* controllers do, every Roadiz controllers actions have to "
 "return a valid ``Response`` object. This is the `render method "
@@ -177,7 +157,7 @@ msgid ""
 "template and an assignation array."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:194
+#: ../../src/developer/themes/create_theme.rst:173
 msgid ""
 "It’s very easy to create *JSON* responses for your API with Roadiz. You "
 "just have to replace ``$this->render($template, $assignation);`` method "
@@ -185,11 +165,11 @@ msgid ""
 "JsonResponse($data);``."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:199
+#: ../../src/developer/themes/create_theme.rst:178
 msgid "Home page case"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:201
+#: ../../src/developer/themes/create_theme.rst:180
 msgid ""
 "Homepage is always a special page to handle. With Roadiz you have the "
 "choice to handle it as a static page or as a dynamic page. In both case "
@@ -197,25 +177,25 @@ msgid ""
 "``Resources/routes.yml`` file."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:219
+#: ../../src/developer/themes/create_theme.rst:198
 msgid ""
 "Now you can code your ``homeAction`` method in ``MyAwesomeThemeApp`` "
 "class. It will need 2 arguments:"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:221
+#: ../../src/developer/themes/create_theme.rst:200
 msgid "A ``Request`` object: ``$request``"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:222
+#: ../../src/developer/themes/create_theme.rst:201
 msgid "An optional locale string variable ``$_locale = null``"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:225
+#: ../../src/developer/themes/create_theme.rst:204
 msgid "Dynamic home"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:227
+#: ../../src/developer/themes/create_theme.rst:206
 msgid ""
 "If your home page is built with a node. You can tell Roadiz to handle "
 "home request as a *Page* request (if your home is a *page* type node) "
@@ -225,11 +205,11 @@ msgid ""
 "other page, there is no need to make special ajustments."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:255
+#: ../../src/developer/themes/create_theme.rst:234
 msgid "Static home"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:257
+#: ../../src/developer/themes/create_theme.rst:236
 msgid ""
 "Imagine now that your home page has a totally different look than other "
 "pages. Instead of letting ``handle()`` method returning your Response "
@@ -239,22 +219,22 @@ msgid ""
 "several themes with the same templates names."
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:285
+#: ../../src/developer/themes/create_theme.rst:264
 msgid ""
 "Keep in ming that ``prepareThemeAssignation`` method will assign for you "
 "some useful variables no matter you choice a dynamic or a static home "
 "handling:"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:288
+#: ../../src/developer/themes/create_theme.rst:267
 msgid "``node``"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:289
+#: ../../src/developer/themes/create_theme.rst:268
 msgid "``nodeSource``"
 msgstr ""
 
-#: ../../developer/themes/create_theme.rst:290
+#: ../../src/developer/themes/create_theme.rst:269
 msgid "``translation``"
 msgstr ""
 
@@ -359,5 +339,59 @@ msgstr ""
 #~ "``…\\\\Controllers\\\\PageController`` class and it"
 #~ " will try to execute the "
 #~ "``indexAction`` method."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Each theme is a folder which must"
+#~ " be placed in ``themes/`` folder. "
+#~ "Roadiz comes with 3 default themes "
+#~ ":"
+#~ msgstr ""
+
+#~ msgid "Theme specific dependencies"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Imagine that you need some extra "
+#~ "*Composer* requirements for your theme. "
+#~ "Basically, you need to display a "
+#~ "social network feed with *Twitter* and"
+#~ " some *Instagram* duck-face photos. "
+#~ "You will need the `rezozero/mixedfeed "
+#~ "<https://github.com/rezozero/mixedfeed>`_ library to "
+#~ "be loaded with Composer but you "
+#~ "can’t touch the main *Roadiz* "
+#~ "``composer.json``… How do we do? Roadiz"
+#~ " uses the `wikimedia/composer-merge-plugin"
+#~ " <https://github.com/wikimedia/composer-merge-plugin>`_"
+#~ " which do some magic stuff with "
+#~ "multiple *composer.json* files. So you "
+#~ "just have to create a new "
+#~ "*composer.json* file inside your theme "
+#~ "directory and call ``composer update`` "
+#~ "**from the Roadiz root folder**."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Do not use the ``composer`` command "
+#~ "**inside** your Theme folders but **only"
+#~ " at the Roadiz root folder level.**"
+#~ " If not, *Composer* will download and"
+#~ " install specific dependencies inside your"
+#~ " theme and the main *autoloader* "
+#~ "won’t find your new PHP classes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Before searching for a node’s Url "
+#~ "(Dynamic routing), Roadiz will parse "
+#~ "your theme ``route.yml`` to find static"
+#~ " controllers and actions to execute. "
+#~ "Static actions just have to comply "
+#~ "with the ``Request`` / ``Response`` "
+#~ "scheme. It is adviced to add "
+#~ "``$_locale`` and ``$_route`` optional "
+#~ "arguments to better handle multilingual "
+#~ "pages."
 #~ msgstr ""
 

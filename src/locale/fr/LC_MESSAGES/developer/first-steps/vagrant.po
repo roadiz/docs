@@ -9,20 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.8.0\n"
 
-#: ../../developer/first-steps/vagrant.rst:4
+#: ../../src/developer/first-steps/vagrant.rst:4
 msgid "Using Vagrant for development"
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:6
+#: ../../src/developer/first-steps/vagrant.rst:6
 msgid ""
 "Roadiz comes with a dedicated ``Vagrantfile`` which is configured to run "
 "the official ``roadiz/standard-edition`` box with a *LEMP* stack (Nginx +"
@@ -31,7 +31,25 @@ msgid ""
 "computer."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:10
+#: ../../src/developer/first-steps/vagrant.rst:12
+msgid ""
+"*Git*, *Composer*, *Virtual Box* and *Vagrant* must be setup on your "
+"local computer before going further into Vagrant development."
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:15
+msgid "https://getcomposer.org/download/"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:16
+msgid "https://www.virtualbox.org/"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:17
+msgid "https://www.vagrantup.com/"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:19
 msgid ""
 "Once you’ve created your Roadiz project, *Composer* should has copied "
 "``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your project "
@@ -41,27 +59,27 @@ msgid ""
 "your computer with lots of binaries."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:14
+#: ../../src/developer/first-steps/vagrant.rst:24
 msgid "Once vagrant VM has provisioned you will be able to use:"
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:16
+#: ../../src/developer/first-steps/vagrant.rst:26
 msgid "``http://192.168.33.10/install.php`` to proceed to install."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:17
+#: ../../src/developer/first-steps/vagrant.rst:27
 msgid "``http://192.168.33.10:8983/solr`` to use *Apache Solr* admin."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:18
+#: ../../src/developer/first-steps/vagrant.rst:28
 msgid "``http://192.168.33.10/phpmyadmin`` for your *MySQL* db admin."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:19
+#: ../../src/developer/first-steps/vagrant.rst:29
 msgid "``http://192.168.33.10:1080`` for your *Mailcatcher* tool."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:21
+#: ../../src/developer/first-steps/vagrant.rst:31
 msgid ""
 "Do not hesitate to add an entry in your ``/etc/hosts`` file to use a "
 "local *domain name* instead of using the private IP address (eg. "
@@ -69,18 +87,18 @@ msgid ""
 "increment your private IP**."
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:33
+#: ../../src/developer/first-steps/vagrant.rst:43
 msgid ""
 "Be careful, **Windows users**, this ``Vagrantfile`` is configured to use "
 "a *NFS* fileshare. Disable it if you did not setup a *NFS* emulator. For "
 "*OS X* and *Linux* user this is built-in your system, so have fun!"
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:38
+#: ../../src/developer/first-steps/vagrant.rst:48
 msgid "Access entry-points"
 msgstr ""
 
-#: ../../developer/first-steps/vagrant.rst:40
+#: ../../src/developer/first-steps/vagrant.rst:50
 msgid ""
 "``web/install.php``, ``web/clear_cache.php`` and ``web/dev.php`` entry "
 "points are IP restricted to *localhost*. To be able to use them with a "
@@ -88,6 +106,66 @@ msgid ""
 "``$allowedIp`` array. We already set two IP for you that should work for "
 "*forwarded* and *private* requests. Just uncomment the following lines in"
 " these files and edit them if necessary."
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:64
+msgid "Database and Solr credentials"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:66
+msgid ""
+"Roadiz *Vagrant* box provides standard *MariaDB* and *Apache Solr* "
+"servers which run automatically at launch. Here are their default "
+"credentials:"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:70
+msgid "Database credentials"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:71
+#: ../../src/developer/first-steps/vagrant.rst:78
+msgid "Host: ``localhost``"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:72
+msgid "User: ``roadiz``"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:73
+msgid "Password: ``roadiz``"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:74
+msgid "Database: ``roadiz`` or ``roadiz_test`` (for executing unit tests)"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:77
+msgid "*Solr* credentials"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:79
+msgid "Core: ``roadiz`` or ``roadiz_test`` (for executing unit tests)"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:80
+msgid "User: *none*"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:81
+msgid "Password: *none*"
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:86
+msgid ""
+"Of course, this *Vagrant* virtual machine should not be used for any "
+"*production* environment. You can find provisioning scripts on our "
+"`Github repository <https://github.com/roadiz/vagrant-box>`_, feel free "
+"to make enhancement sugggestions about them."
+msgstr ""
+
+#: ../../src/developer/first-steps/vagrant.rst:92
+msgid "Full config.yml example for Vagrant"
 msgstr ""
 
 #~ msgid ""

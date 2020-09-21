@@ -21,15 +21,14 @@ from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 
 # import sphinx_rtd_theme
-#
+cwd = os.getcwd()
+_themes = os.path.join(cwd, '../_themes/roadiz_rtd_theme')
 # Add and use Pylons theme
 if 'sphinx-build' in ' '.join(sys.argv): # protect against dumb importers
     from subprocess import call, Popen, PIPE
 
     p = Popen('which git', shell=True, stdout=PIPE)
     git = p.stdout.read().strip()
-    cwd = os.getcwd()
-    _themes = os.path.join(cwd, '../_themes/roadiz_rtd_theme')
 
     if not os.path.isdir(_themes):
         call([git, 'clone', 'https://github.com/roadiz/roadiz_rtd_theme.git',

@@ -1,0 +1,1466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-21 11:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../src/developer/services/glossary.rst:4
+msgid "Services list"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:6
+msgid ""
+"Here is the current list of Roadiz services registered into ``Kernel`` "
+"container. These can be overridden or used from any Controller with "
+"``$this->get()`` method."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:9
+msgid "Kernel"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:12
+msgid "stopwatch"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:14
+msgid "``Symfony\\Component\\Stopwatch\\Stopwatch``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:15
+msgid "kernel"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:17
+msgid "``RZ\\Roadiz\\Core\\Kernel``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:18
+msgid "dispatcher"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:20
+msgid "``Symfony\\Component\\EventDispatcher\\EventDispatcher``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:23
+msgid "Assets"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:25
+msgid "versionStrategy"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:27
+msgid "``Symfony\\Component\\Asset\\VersionStrategy\\EmptyVersionStrategy``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:28
+msgid "interventionRequestSupportsWebP"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:30
+msgid "``bool``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:31
+msgid "interventionRequestConfiguration"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:33
+msgid "``AM\\InterventionRequest\\Configuration``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:34
+msgid "interventionRequestSubscribers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:36
+#: ../../src/developer/services/glossary.rst:53
+#: ../../src/developer/services/glossary.rst:74
+#: ../../src/developer/services/glossary.rst:99
+#: ../../src/developer/services/glossary.rst:102
+#: ../../src/developer/services/glossary.rst:111
+#: ../../src/developer/services/glossary.rst:125
+#: ../../src/developer/services/glossary.rst:257
+#: ../../src/developer/services/glossary.rst:260
+#: ../../src/developer/services/glossary.rst:300
+#: ../../src/developer/services/glossary.rst:426
+#: ../../src/developer/services/glossary.rst:459
+#: ../../src/developer/services/glossary.rst:462
+#: ../../src/developer/services/glossary.rst:488
+#: ../../src/developer/services/glossary.rst:598
+msgid "``array``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:37
+msgid "interventionRequestLogger"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:39
+#: ../../src/developer/services/glossary.rst:306
+#: ../../src/developer/services/glossary.rst:528
+msgid "``Monolog\\Logger``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:40
+msgid "interventionRequest"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:42
+msgid "``AM\\InterventionRequest\\InterventionRequest``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:43
+msgid "assetPackages"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:45
+msgid "``RZ\\Roadiz\\Utils\\Asset\\Packages``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:48
+msgid "Back-office"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:51
+msgid "backoffice.entries"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:56
+msgid "Bags"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:58
+msgid "settingsBag"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:60
+msgid "``RZ\\Roadiz\\Core\\Bags\\Settings``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:61
+msgid "rolesBag"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:63
+msgid "``RZ\\Roadiz\\Core\\Bags\\Roles``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:64
+msgid "nodeTypesBag"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:66
+msgid "``RZ\\Roadiz\\Core\\Bags\\NodeTypes``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:69
+msgid "Console"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:72
+msgid "console.commands"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:77
+msgid "Debug"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:80
+msgid "messagescollector"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:82
+msgid "``DebugBar\\DataCollector\\MessagesCollector``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:83
+msgid "doctrine.debugstack"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:85
+msgid "``Doctrine\\DBAL\\Logging\\DebugStack``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:86
+msgid "debugbar"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:88
+msgid "``RZ\\Roadiz\\Utils\\DebugBar\\RoadizDebugBar``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:89
+msgid "debugbar.renderer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:91
+msgid "``DebugBar\\JavascriptRenderer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:94
+msgid "Doctrine"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:97
+msgid "doctrine.relative_entities_paths"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:100
+msgid "doctrine.entities_paths"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:103
+msgid "em.config"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:105
+msgid "``Doctrine\\ORM\\Configuration``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:106
+msgid "em"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:108
+msgid ""
+"``Doctrine\\ORM\\EntityManager``, you can access it using "
+"``$this->get(EntityManagerInterface::class)``."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:109
+msgid "em.eventSubscribers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:112
+msgid "nodesSourcesUrlCacheProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:114
+msgid "``Doctrine\\Common\\Cache\\CacheProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:115
+msgid "CacheProvider::class"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:117
+msgid ""
+":sup:`Factory` Creates a ``CacheProvider::class`` using Roadiz "
+"configuration, , you can access it using "
+"``$this->get(CacheProvider::class)``."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:120
+msgid "Embed documents"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:123
+msgid "document.platforms"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:126
+msgid "embed_finder.youtube"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:128
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\YoutubeEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:129
+msgid "embed_finder.vimeo"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:131
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\VimeoEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:132
+msgid "embed_finder.dailymotion"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:134
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\DailymotionEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:135
+msgid "embed_finder.soundcloud"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:137
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\SoundcloudEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:138
+msgid "embed_finder.mixcloud"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:140
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\MixcloudEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:141
+msgid "embed_finder.spotify"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:143
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\SpotifyEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:144
+msgid "embed_finder.ted"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:146
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\TedEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:147
+msgid "embed_finder.twitch"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:149
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\MediaFinders\\TwitchEmbedFinder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:152
+msgid "Entity Api"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:155
+msgid "nodeApi"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:157
+msgid "``RZ\\Roadiz\\CMS\\Utils\\NodeApi``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:158
+msgid "nodeTypeApi"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:160
+msgid "``RZ\\Roadiz\\CMS\\Utils\\NodeTypeApi``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:161
+msgid "nodeSourceApi"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:163
+msgid "``RZ\\Roadiz\\CMS\\Utils\\NodeSourceApi``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:164
+msgid "tagApi"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:166
+msgid "``RZ\\Roadiz\\CMS\\Utils\\TagApi``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:170
+msgid "Factories"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:173
+msgid "emailManager"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:175
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\EmailManager``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:176
+msgid "contactFormManager"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:178
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\ContactFormManager``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:179
+msgid "NodeFactory::class"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:181
+msgid ""
+"``RZ\\Roadiz\\Utils\\Node\\NodeFactory``. Factory to create new nodes "
+"from a title, a node-type and translation."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:182
+msgid "TagFactory::class"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:184
+msgid ""
+"``RZ\\Roadiz\\Utils\\Tag\\TagFactory``. Factory to create new tags from a"
+" title, a parent tag and a translation."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:185
+msgid "factory.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:187
+msgid ""
+"``RZ\\Roadiz\\Core\\Handlers\\HandlerFactory`` Creates any Handler based "
+"on entity class."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:189
+msgid "node.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:191
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\NodeHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:192
+msgid "nodes_sources.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:194
+msgid ":sup:`Factory`  ``RZ\\Roadiz\\Core\\Handlers\\NodesSourcesHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:195
+msgid "node_type.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:197
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\NodeTypeHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:198
+msgid "node_type_field.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:200
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\NodeTypeFieldHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:201
+msgid "document.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:203
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\DocumentHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:204
+msgid "custom_form.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:206
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\CustomFormHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:207
+msgid "custom_form_field.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:209
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\CustomFormFieldHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:210
+msgid "folder.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:212
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\FolderHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:213
+msgid "font.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:215
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\FontHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:216
+msgid "group.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:218
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\GroupHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:219
+msgid "newsletter.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:221
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\NewsletterHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:222
+msgid "tag.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:224
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\TagHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:225
+msgid "translation.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:227
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Handlers\\TranslationHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:228
+msgid "document.viewer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:230
+msgid ""
+":sup:`Factory` ``RZ\\Roadiz\\Core\\Viewers\\DocumentViewer`` "
+"**Deprecated**:"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:232
+msgid "translation.viewer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:234
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Viewers\\TranslationViewer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:235
+msgid "user.viewer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:237
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Viewers\\UserViewer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:238
+msgid "document.url_generator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:240
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\UrlGenerators\\DocumentUrlGenerator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:241
+msgid "document.factory"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:243
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Utils\\Document\\DocumentFactory``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:246
+msgid "Forms"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:249
+msgid "formValidator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:251
+msgid "``Symfony\\Component\\Form\\Validator\\ValidatorInterface``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:252
+msgid "formFactory"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:254
+msgid "``Symfony\\Component\\Form\\FormFactoryInterface``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:255
+msgid "form.extensions"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:258
+msgid "form.type.extensions"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:261
+msgid "Rollerworks\\\\Component\\\\PasswordStrength\\\\Blacklist\\\\BlacklistProviderInterface"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:263
+msgid "Blacklist chained provider for Password forms."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:264
+msgid "Rollerworks\\\\Component\\\\PasswordStrength\\\\Validator\\\\Constraints\\\\BlacklistValidator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:266
+msgid ""
+"Blacklist form validator to be used and instanciated by Symfony "
+"ContainerConstraintValidatorFactory."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:269
+msgid "Importers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:272
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\ChainImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:274
+msgid ""
+":sup:`Factory` Creates an chained importer that will import serialized "
+"data based on required entity class."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:275
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\GroupsImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:277
+msgid ":sup:`Factory` Creates an importer for ``Group``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:278
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\NodesImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:280
+msgid ":sup:`Factory` Creates an importer for ``Node``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:281
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\NodeTypesImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:283
+msgid ":sup:`Factory` Creates an importer for ``NodeType``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:284
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\RolesImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:286
+msgid ":sup:`Factory` Creates an importer for ``Role``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:287
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\SettingsImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:289
+msgid ":sup:`Factory` Creates an importer for ``Setting``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:290
+msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\TagsImporter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:292
+msgid ":sup:`Factory` Creates an importer for ``Tag``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:295
+msgid "Logger"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:298
+msgid "logger.handlers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:301
+msgid "logger.path"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:303
+#: ../../src/developer/services/glossary.rst:405
+#: ../../src/developer/services/glossary.rst:550
+#: ../../src/developer/services/glossary.rst:592
+msgid "``string``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:304
+msgid "logger"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:309
+msgid "Mailer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:312
+msgid "mailer.transport"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:314
+msgid "``\\Swift_SmtpTransport`` or ``\\Swift_SendmailTransport``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:315
+msgid "mailer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:317
+msgid "``\\Swift_Mailer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:320
+msgid "Routing"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:323
+msgid "httpKernel"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:325
+msgid "``Symfony\\Component\\HttpKernel\\HttpKernel``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:326
+msgid "requestStack"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:328
+msgid "``Symfony\\Component\\HttpFoundation\\RequestStack``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:329
+msgid "requestContext"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:331
+msgid "``Symfony\\Component\\Routing\\RequestContext``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:332
+msgid "resolver"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:334
+msgid "``Symfony\\Component\\HttpKernel\\Controller\\ControllerResolver``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:335
+msgid "argumentResolver"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:337
+msgid "``Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:338
+msgid "router"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:340
+msgid "``Symfony\\Cmf\\Component\\Routing\\ChainRouter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:341
+msgid "staticRouter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:343
+msgid "``RZ\\Roadiz\\Core\\Routing\\StaticRouter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:344
+msgid "nodeRouter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:346
+msgid "``RZ\\Roadiz\\Core\\Routing\\NodeRouter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:347
+msgid "redirectionRouter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:349
+msgid "``RZ\\Roadiz\\Core\\Routing\\RedirectionRouter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:350
+msgid "urlGenerator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:352
+msgid "Alias to ``router``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:353
+msgid "httpUtils"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:355
+msgid "``Symfony\\Component\\Security\\Http\\HttpUtils``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:356
+msgid "routeListener"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:358
+msgid "``RZ\\Roadiz\\Core\\Events\\TimedRouteListener``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:359
+msgid "routeCollection"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:361
+msgid "``RZ\\Roadiz\\Core\\Routing\\RoadizRouteCollection``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:364
+msgid "Security"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:367
+msgid "session.pdo"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:369
+msgid "``\\PDO`` or ``null`` if pdo session are not configured."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:370
+msgid "session.storage"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:372
+msgid "``Symfony\\Component\\HttpFoundation\\Session\\Storage\\NativeSessionStorage``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:373
+msgid "session"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:375
+msgid "``Symfony\\Component\\HttpFoundation\\Session\\Session``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:376
+msgid "sessionTokenStorage"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:378
+msgid "``Symfony\\Component\\Security\\Csrf\\TokenStorage\\SessionTokenStorage``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:379
+msgid "csrfTokenManager"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:381
+msgid "``Symfony\\Component\\Security\\Csrf\\CsrfTokenManager``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:382
+msgid "securityAuthenticationUtils"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:384
+msgid "``Symfony\\Component\\Security\\Http\\Authentication\\AuthenticationUtils``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:385
+msgid "contextListener"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:387
+msgid "``Symfony\\Component\\Security\\Http\\Firewall\\ContextListener``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:388
+msgid "accessMap"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:390
+msgid "``Symfony\\Component\\Security\\Http\\AccessMap``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:391
+msgid "userProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:393
+msgid "``RZ\\Roadiz\\Core\\Handlers\\UserProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:394
+msgid "userChecker"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:396
+msgid "``Symfony\\Component\\Security\\Core\\User\\UserChecker``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:397
+msgid "daoAuthenticationProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:399
+msgid "``Symfony\\Component\\Security\\Core\\Authentication\\Provider\\DaoAuthenticationProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:400
+msgid "rememberMeAuthenticationProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:402
+msgid "``Symfony\\Component\\Security\\Core\\Authentication\\Provider\\RememberMeAuthenticationProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:403
+msgid "rememberMeCookieName"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:406
+msgid "rememberMeCookieLifetime"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:408
+msgid "``integer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:409
+msgid "cookieClearingLogoutHandler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:411
+msgid "``Symfony\\Component\\Security\\Http\\Logout\\CookieClearingLogoutHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:412
+msgid "tokenBasedRememberMeServices"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:414
+msgid "``Symfony\\Component\\Security\\Http\\RememberMe\\TokenBasedRememberMeServices``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:415
+msgid "rememberMeListener"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:417
+msgid "``Symfony\\Component\\Security\\Http\\Firewall\\RememberMeListener``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:418
+msgid "authenticationProviderList"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:420
+msgid "``array<Symfony\\Component\\Security\\Core\\Authentication\\Provider\\AuthenticationProviderInterface>``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:421
+msgid "authenticationManager"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:423
+msgid "``Symfony\\Component\\Security\\Core\\Authentication\\AuthenticationProviderManager``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:424
+msgid "security.voters"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:427
+msgid "accessDecisionManager"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:429
+msgid "``Symfony\\Component\\Security\\Core\\Authorization\\AccessDecisionManager``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:430
+msgid "securityAuthenticationTrustResolver"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:432
+msgid "``Symfony\\Component\\Security\\Core\\Authentication\\AuthenticationTrustResolver``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:433
+msgid "securityAuthorizationChecker"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:435
+msgid "``Symfony\\Component\\Security\\Core\\Authorization\\AuthorizationChecker``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:436
+msgid "securityTokenStorage"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:438
+msgid "``Symfony\\Component\\Security\\Core\\Authentication\\Token\\Storage\\TokenStorage``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:439
+msgid "securityAccessListener"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:441
+msgid "``Symfony\\Component\\Security\\Http\\Firewall\\AccessListener``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:442
+msgid "roleHierarchy"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:444
+msgid "``RZ\\Roadiz\\Utils\\Security\\DoctrineRoleHierarchy``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:445
+msgid "roleHierarchyVoter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:447
+msgid "``Symfony\\Component\\Security\\Core\\Authorization\\Voter\\RoleHierarchyVoter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:448
+msgid "groupVoter"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:450
+msgid "``RZ\\Roadiz\\Core\\Authorization\\Voter\\GroupVoter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:451
+msgid "switchUser"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:453
+msgid "``Symfony\\Component\\Security\\Http\\Firewall\\SwitchUserListener``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:454
+msgid "firewallMap"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:456
+msgid "``Symfony\\Component\\Security\\Http\\FirewallMap``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:457
+msgid "passwordEncoder"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:460
+msgid "userImplementations"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:463
+msgid "userEncoderFactory"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:465
+msgid "``Symfony\\Component\\Security\\Core\\Encoder\\EncoderFactory``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:466
+msgid "firewall"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:468
+msgid "``RZ\\Roadiz\\Utils\\Security\\TimedFirewall``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:469
+msgid "accessDeniedHandler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:471
+msgid "``RZ\\Roadiz\\Core\\Authorization\\AccessDeniedHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:472
+msgid "nodeChrootResolvers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:474
+msgid "``array<RZ\\Roadiz\\Core\\Authorization\\Chroot\\NodeChrootResolver>``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:475
+msgid "RZ\\Roadiz\\Core\\Authorization\\Chroot\\NodeChrootResolver"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:477
+msgid "``RZ\\Roadiz\\Core\\Authorization\\Chroot\\NodeChrootChainResolver``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:480
+msgid "Serialization"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:483
+msgid "JMS\\Serializer\\SerializerBuilder"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:485
+msgid "``JMS\\Serializer\\SerializerBuilder``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:486
+msgid "serializer.subscribers"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:489
+msgid "serializer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:491
+msgid "``JMS\\Serializer\\Serializer``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:494
+msgid "Solr"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:497
+msgid "solr"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:499
+msgid "``Solarium\\Client``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:500
+msgid "AdapterInterface"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:502
+msgid "``Solarium\\Core\\Client\\Adapter\\AdapterInterface``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:503
+msgid "SolariumFactoryInterface"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:505
+msgid "``RZ\\Roadiz\\Core\\SearchEngine\\SolariumFactory``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:506
+msgid "solr.ready"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:508
+msgid "``boolean`` Return true if Solr server is reachable."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:509
+msgid "solr.search.nodeSource"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:511
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\SearchEngine\\NodeSourceSearchHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:512
+msgid "solr.search.document"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:514
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\SearchEngine\\DocumentSearchHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:517
+msgid "Themes"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:520
+msgid "themeResolver"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:522
+msgid "``RZ\\Roadiz\\Utils\\Theme\\StaticThemeResolver``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:523
+msgid "ThemeGenerator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:525
+msgid "``RZ\\Roadiz\\Utils\\Theme\\ThemeGenerator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:526
+msgid "logger.themes"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:531
+msgid "Translation"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:534
+msgid "defaultTranslation"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:536
+msgid ""
+"``RZ\\Roadiz\\Core\\Entities\\Translation`` or ``null`` if you don’t have"
+" any default translation."
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:537
+msgid "translator.locale"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:539
+msgid "``string`` or ``null``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:540
+msgid "translator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:542
+msgid "``Symfony\\Component\\Translation\\Translator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:545
+msgid "Twig"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:548
+msgid "twig.cacheFolder"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:551
+msgid "twig.loaderFileSystem"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:553
+msgid "``Twig\\Loader\\FilesystemLoader``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:554
+msgid "twig.environment_class"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:556
+msgid ":sup:`Private` ``Twig\\Environment``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:557
+msgid "twig.formRenderer"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:559
+msgid "``Symfony\\Bridge\\Twig\\Form\\TwigRendererEngine``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:560
+msgid "twig.environment"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:562
+msgid "``Twig\\Environment``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:563
+msgid "twig.extensions"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:565
+#: ../../src/developer/services/glossary.rst:568
+msgid "``Doctrine\\Common\\Collections\\ArrayCollection``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:566
+msgid "twig.filters"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:569
+msgid "twig.fragmentHandler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:571
+msgid "``Symfony\\Component\\HttpKernel\\Fragment\\FragmentHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:572
+msgid "twig.profile"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:574
+msgid "``Twig\\Profiler\\Profile``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:575
+msgid "twig.routingExtension"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:577
+msgid "``Symfony\\Bridge\\Twig\\Extension\\RoutingExtension``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:578
+msgid "twig.centralTruncateExtension"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:580
+msgid "``Twig\\TwigFilter``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:581
+msgid "twig.cacheExtension"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:583
+msgid "``Asm89\\Twig\\CacheExtension\\Extension``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:587
+msgid "Configuration"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:590
+msgid "config.path"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:593
+msgid "config.handler"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:595
+msgid "``RZ\\Roadiz\\Config\\YamlConfigurationHandler``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:596
+msgid "config"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:601
+msgid "Workflow"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:604
+msgid "workflow.registry"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:606
+msgid "``Symfony\\Component\\Workflow\\Registry``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:607
+msgid "workflow.node_workflow"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:609
+msgid "``RZ\\Roadiz\\Workflow\\NodeWorkflow``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:613
+msgid "Utils"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:616
+msgid "utils.nodeNameChecker"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:618
+msgid "``RZ\\Roadiz\\Utils\\Node\\NodeNameChecker``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:619
+msgid "utils.uniqueNodeGenerator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:621
+msgid "``RZ\\Roadiz\\Utils\\Node\\UniqueNodeGenerator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:622
+msgid "utils.universalDataDuplicator"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:624
+msgid "``RZ\\Roadiz\\Utils\\Node\\UniversalDataDuplicator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:628
+msgid "OpenId"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:631
+msgid "RZ\\Roadiz\\OpenId\\OAuth2LinkGenerator:"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:633
+msgid "``RZ\\Roadiz\\OpenId\\OAuth2LinkGenerator``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:634
+msgid "jwtRoleStrategies"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:636
+msgid "``array<RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy>``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:637
+msgid "RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:639
+msgid "``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\ChainJwtRoleStrategy``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:640
+msgid "RZ\\Roadiz\\OpenId\\Authentication\\Provider\\OAuth2AuthenticationProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:642
+msgid "``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\OAuth2AuthenticationProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:643
+msgid "RZ\\Roadiz\\OpenId\\Authentication\\Provider\\OpenIdAccountProvider"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:645
+msgid "``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\OpenIdAccountProvider``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:646
+msgid "RZ\\Roadiz\\OpenId\\Discovery"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:648
+msgid "``RZ\\Roadiz\\OpenId\\Discovery`` or ``null``"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:649
+msgid "oauth2AuthenticationProvider.validators:"
+msgstr ""
+
+#: ../../src/developer/services/glossary.rst:651
+msgid "``array<RZ\\Roadiz\\OpenId\\Authentication\\Validator\\JwtValidator>``"
+msgstr ""
+
