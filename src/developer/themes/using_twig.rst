@@ -213,7 +213,7 @@ With Roadiz you will be able to grab each node-source children using custom ``ch
 
     {#
      # This statement will only grab *visible* “Page” children node-sources and
-     # will order them ascendently according to their *title*.
+     # will order them ascendant according to their *title*.
      #}
     {% set childrenBlocks = nodeSource|children({
             'node.visible': true,
@@ -308,11 +308,11 @@ urls. See `getTranslationMenuAssignation method definition <http://api.roadiz.io
 You do not have to pass it the current request object as the filter will grab it
 for you. But you can specify if you want *absolute* urls or not.
 
-
 Standard filters and extensions are also available:
 
 * ``{{ path('myRoute') }}``: for generating static routes Url.
-* ``truncate`` and ``wordwrap`` which are parts of the `Text Extension <http://twig.sensiolabs.org/doc/extensions/text.html>`_ .
+* ``u.truncate`` and ``u.wordwrap`` which are parts of the `UnicodeString instance <https://twig.symfony.com/doc/3.x/filters/u.html>`_ .
+* ``format_date``, ``format_datetime``, ``format_currency``, ``format_number``, ``country_name``  which are parts of the `IntlExtension extension <https://twig.symfony.com/doc/3.x/filters/format_currency.html>`_ .
 
 
 Create your own Twig filters

@@ -36,11 +36,11 @@ without any additional development.
                 {% endif %}
                 <strong>{{ attributeValueTranslation|attribute_label(translation) }}:</strong>
                 {% if attributeValueTranslation is datetime %}
-                    {{ attributeValueTranslation.value|localizeddate('medium', 'short') }}
+                    {{ attributeValueTranslation.value|format_datetime('medium', 'short', locale=app.request.locale) }}
                 {% elseif attributeValueTranslation is date %}
-                    {{ attributeValueTranslation.value|localizeddate('medium') }}
+                    {{ attributeValueTranslation.value|format_date('medium', locale=app.request.locale) }}
                 {% elseif attributeValueTranslation is country %}
-                    {{ attributeValueTranslation.value|country_iso(request.locale) }}
+                    {{ attributeValueTranslation.value|country_name(request.locale) }}
                 {% else %}
                     {{ attributeValueTranslation.value }}
                 {% endif%}
@@ -68,11 +68,11 @@ If you grouped your attributes, you can use ``grouped_attributes`` filter instea
                             {% endif %}
                             <strong>{{ attributeValueTranslation|attribute_label(translation) }}:</strong>
                             {% if attributeValueTranslation is datetime %}
-                                {{ attributeValueTranslation.value|localizeddate('medium', 'short') }}
+                                {{ attributeValueTranslation.value|format_datetime('medium', 'short', locale=app.request.locale) }}
                             {% elseif attributeValueTranslation is date %}
-                                {{ attributeValueTranslation.value|localizeddate('medium') }}
+                                {{ attributeValueTranslation.value|format_date('medium', locale=app.request.locale) }}
                             {% elseif attributeValueTranslation is country %}
-                                {{ attributeValueTranslation.value|country_iso(request.locale) }}
+                                {{ attributeValueTranslation.value|country_name(request.locale) }}
                             {% else %}
                                 {{ attributeValueTranslation.value }}
                             {% endif%}
