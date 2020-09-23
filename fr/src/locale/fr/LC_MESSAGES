@@ -13,160 +13,167 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/nodes-system/nodes.pot\n"
-"X-Crowdin-File-ID: 114\n"
+"X-Crowdin-File: /develop/i18n/locale/user/write-in-markdown/index.pot\n"
+"X-Crowdin-File-ID: 162\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/nodes-system/nodes.rst:5
-msgid "Handling nodes and their hierarchy"
+#: ../../src/user/write-in-markdown/index.rst:4
+msgid "Write in Markdown"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:7
-msgid "By default, if you use Entities API methods or trasversing Twig filters, Roadiz will automatically handle security parameters such as ``node.status`` and ``preview`` mode."
+#: ../../src/user/write-in-markdown/index.rst:6
+msgid "Markdown is a lightweight markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name. […] The key design goal is readability – that the language be readable as-is, without looking like it has been marked up with tags or formatting instructions, unlike text formatted with a markup language, such as Rich Text Format (RTF) or HTML, which have obvious tags and formatting instructions."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:22
-msgid "This first code snippet is using *Node-source API*. This will automatically check if current user is logged-in and if preview mode is *ON* to display or not *unpublished nodes*."
+#: ../../src/user/write-in-markdown/index.rst:11
+msgid "Wikipedia article — https://en.wikipedia.org/wiki/Markdown"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:34
-msgid "This second code snippet uses standard Doctrine *Entity Manager* to directly grab node-sources by their entity class. This method does not check any security and will return every node-sources, **even unpublished, archived and deleted ones**."
+#: ../../src/user/write-in-markdown/index.rst:11
+msgid "Titles"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:39
-msgid "Hierarchy"
+#: ../../src/user/write-in-markdown/index.rst:13
+msgid "**Add two hashtag** ``#`` **or more according to your title importance level.** Backoffice shortcut buttons allow to directly insert your titles marks before your selected text. Make sure to leave a blank line before each new title you write."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:41
-msgid "To trasverse node-sources hierarchy, the easier method is to use *Twig* filters on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from origin node-source."
+#: ../../src/user/write-in-markdown/index.rst:21
+msgid "Be careful not to use only one hashtag to create a first-level title as this is usually used for pages main title."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:58
-msgid "All these filters will take care of publication status and translation, **but not publication date-time neither visibility**."
+#: ../../src/user/write-in-markdown/index.rst:25
+msgid "Alternate syntax"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:73
-msgid "If you need to traverse node-source graph from your controllers you can use the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``."
+#: ../../src/user/write-in-markdown/index.rst:27
+msgid "Main title and second level titles can be written using ``=`` and ``-`` as underline characters."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:89
-msgid "Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria."
+#: ../../src/user/write-in-markdown/index.rst:40
+msgid "Bold"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:105
-#: ../../src/developer/nodes-system/nodes.rst:110
-msgid "Visibility"
+#: ../../src/user/write-in-markdown/index.rst:42
+msgid "**Insert two stars** ``*`` **before and after your text to set in bold.** Backoffice shortcut button allows to insert directly the 4 characters around your selected text."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:107
-msgid "There are two parametres that you must take care of in your themes and your controllers, because they are not mandatory in all website cases:"
+#: ../../src/user/write-in-markdown/index.rst:49
+msgid "Be careful not to leave whitespaces inside your stars group (in the same way you do with parenthesis) otherwise your text won’t be styled."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:111
-msgid "Publication date and time"
+#: ../../src/user/write-in-markdown/index.rst:53
+msgid "Italic"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:113
-msgid "For example, *publication date and time* won’t be necessary in plain text pages and not timestampable contents. But we decided to add it directly in ``NodesSources`` entity to be able to filter and order with this field in Roadiz back-office. This was not possible if you manually create your own ``publishedAt`` as a node-type field."
+#: ../../src/user/write-in-markdown/index.rst:55
+msgid "**Insert one star** ``*`` **before and after your text to set in italic.** Backoffice shortcut button allows to insert directly the 2 characters around your selected text."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:120
-msgid "Pay attention that *publication date and time* (``publishedAt``) and visibility (``node.visible``) **does not prevent** your node-source from being viewed if you did not explicitly forbid access to its controller. This field is not deeply set into Roadiz security mechanics."
+#: ../../src/user/write-in-markdown/index.rst:62
+msgid "Bold and italic marks can of course be combined using 3 stars before and after your selected text."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:125
-msgid "If you need so, make sure that your node-type controller checks these two fields and throws a ``ResourceNotFoundException`` if they’re not satisfied."
+#: ../../src/user/write-in-markdown/index.rst:65
+msgid "What if * character is already in use"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:153
-msgid "Publication workflow"
+#: ../../src/user/write-in-markdown/index.rst:67
+msgid "Bold and italic markup can be performed using ``_`` (underscore) character too if you actually need to write a *star* character in your text."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:155
-msgid "Each Node state is handled by a *Workflow* to switch between the following 5 states:"
+#: ../../src/user/write-in-markdown/index.rst:75
+msgid "Strike-through"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:158
-msgid "States"
+#: ../../src/user/write-in-markdown/index.rst:77
+msgid "**Insert two tildes** ``~`` **before and after your text to strike-through.**"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:159
-msgid "``Node::DRAFT``"
+#: ../../src/user/write-in-markdown/index.rst:84
+msgid "Ordered and unordered lists"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:160
-msgid "``Node::PENDING``"
+#: ../../src/user/write-in-markdown/index.rst:86
+msgid "**Insert a star** ``*`` **or a dash** ``-`` **followed by a single whitespace for each of your list item.** One item per line. Leave a blank line before and after your list. For *ordered* list, use a digit followed by a dot and a whitespace instead."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:161
-msgid "``Node::PUBLISHED``"
+#: ../../src/user/write-in-markdown/index.rst:99
+msgid "If you need to break an item into several lines, you’ll need to use the line-break markup."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:162
-msgid "``Node::ARCHIVED``"
+#: ../../src/user/write-in-markdown/index.rst:102
+msgid "Nested list"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:163
-msgid "``Node::DELETED``"
+#: ../../src/user/write-in-markdown/index.rst:104
+msgid "You can insert a second/third/… level for your list, just **by leaving four spaces before your new list-item mark.**"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:166
-msgid "Transitions"
+#: ../../src/user/write-in-markdown/index.rst:116
+msgid "New paragraph and line-break"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:167
-msgid "review"
+#: ../../src/user/write-in-markdown/index.rst:118
+msgid "A simple line-break is always ignored by Markdown language because it makes a difference between a **paragraph** and a **line-break**. To simply create a line-break without creating a new paragraph, **leave at least 3 spaces at the end of your text line then go to a new line.**"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:168
-msgid "reject"
+#: ../../src/user/write-in-markdown/index.rst:128
+msgid "To create a new paragraph, **always leave a blank line between your text blocks.** Any additional blank line will be ignored."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:169
-msgid "publish"
+#: ../../src/user/write-in-markdown/index.rst:138
+msgid "According to your website design (CSS), new paragraphs may have no visual margins between them. Inserting more than one blank line won’t add any additional visual space as Markdown ignores it."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:170
-msgid "archive"
+#: ../../src/user/write-in-markdown/index.rst:142
+msgid "Hypertext links"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:171
-msgid "unarchive"
+#: ../../src/user/write-in-markdown/index.rst:144
+msgid "**Write link label between braces immediately followed by the URL between parenthesis.** For external links do not forget protocol prefix ``http://`` or ``https://``."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:172
-msgid "delete"
+#: ../../src/user/write-in-markdown/index.rst:151
+msgid "To create a internal link, just use relative notation:"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:173
-msgid "undelete"
+#: ../../src/user/write-in-markdown/index.rst:157
+msgid "Then, for an email link, use ``mailto:`` prefix:"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:175
-msgid "You cannot changes a Node status directly using its *setter*, you must use Roadiz main *registry* to perform transition. This can prevent unwanted behaviours and you can track changes with events and guards:"
+#: ../../src/user/write-in-markdown/index.rst:163
+msgid "A link title can be added by inserting it before *ending parenthesis* wrapped in quotes."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:188
-msgid "Generating paths and url"
+#: ../../src/user/write-in-markdown/index.rst:170
+msgid "Block quotes"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:190
-msgid "You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`."
+#: ../../src/user/write-in-markdown/index.rst:172
+msgid "**Insert a** ``>`` **sign before each new paragraph and a space** to wrap your text in a quote block. You can then use all other Markdown symbols inside your quote."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:223
-msgid "Overriding default node-source path generation"
+#: ../../src/user/write-in-markdown/index.rst:182
+msgid "Images"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:225
-msgid "You can override default node-source path generation in order to use ``{{ path() }}`` method in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type which purpose only is to link to an other node in your website. When you call *path* or *URL* generation on it, you should prefer getting its linked node path, so you can listen to ``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return your linked node path instead of your *link* node path."
+#: ../../src/user/write-in-markdown/index.rst:184
+msgid "**Images use the link syntax with an exclamation mark prefix** ``!``. For external images do not forget to write full URL with protocol ``http://`` or ``https://``."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:296
-msgid "Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:"
+#: ../../src/user/write-in-markdown/index.rst:193
+msgid "Be careful, images will be displayed as is, unless your webdesigner planned to adapt image size coming from Markdown fields using CSS. As links, an external image may break if its owner deletes the original image. Make sure to host critical images directly on your website and to use *relative URL*."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:304
-msgid "This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache provider, instead of generating your custom URL inside your Twig templates or PHP controllers."
+#: ../../src/user/write-in-markdown/index.rst:198
+msgid "Footnotes"
+msgstr ""
+
+#: ../../src/user/write-in-markdown/index.rst:200
+msgid "Footnotes are not supported with *basic* Markdown syntax, but the *Markdown Extra* one. So before using them, **make sure your webdesigner used the right Markdown parser in your theme.**"
+msgstr ""
+
+#: ../../src/user/write-in-markdown/index.rst:211
+msgid "Markdown will *automatically generate anchor links between your footnote and its reference*. It will automatically **use numbers as footnote reference labels**, so you don’t have to bother to write numbers yourself but easy-to-remember markers labels."
 msgstr ""
 
