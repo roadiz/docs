@@ -13,15 +13,15 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/forms/index.pot\n"
-"X-Crowdin-File-ID: 104\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/index.pot\n"
+"X-Crowdin-File-ID: 106\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/forms/index.rst:3
-msgid "Forms"
+#: ../../src/developer/index.rst:3
+msgid "Developer documentation"
 msgstr ""
 
-#: ../../src/developer/forms/index.rst:5
-msgid "Roadiz uses *Symfony* forms logic and API. However, we made ready-made contact and custom forms builders to ease up your development and even make form-building available for your website editors."
+#: ../../src/developer/index.rst:5
+msgid "Developer documentation deals with Roadiz’ inside and how to create your own themes. It requires a minimum of *Twig* templating knowledge and oriented-object *PHP* skills."
 msgstr ""
 
