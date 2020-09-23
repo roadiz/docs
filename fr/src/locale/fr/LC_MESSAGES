@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"PO-Revision-Date: 2020-09-23 20:24\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -13,208 +13,160 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/serialization/index.pot\n"
-"X-Crowdin-File-ID: 116\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/nodes-system/nodes.pot\n"
+"X-Crowdin-File-ID: 114\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/serialization/index.rst:4
-msgid "Serialization"
+#: ../../src/developer/nodes-system/nodes.rst:5
+msgid "Handling nodes and their hierarchy"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:6
-msgid "*Roadiz* CMS uses ``jms/serializer`` to perform JSON serialization over any objects, especially *Doctrine* entities."
+#: ../../src/developer/nodes-system/nodes.rst:7
+msgid "By default, if you use Entities API methods or trasversing Twig filters, Roadiz will automatically handle security parameters such as ``node.status`` and ``preview`` mode."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:22
-msgid "Customize existing serialized entities"
+#: ../../src/developer/nodes-system/nodes.rst:22
+msgid "This first code snippet is using *Node-source API*. This will automatically check if current user is logged-in and if preview mode is *ON* to display or not *unpublished nodes*."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:25
-msgid "Serialize nodes-sources URL"
+#: ../../src/developer/nodes-system/nodes.rst:34
+msgid "This second code snippet uses standard Doctrine *Entity Manager* to directly grab node-sources by their entity class. This method does not check any security and will return every node-sources, **even unpublished, archived and deleted ones**."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:27
-msgid "Your can add data in your serialized data from your themes using ``EventSubscriberInterface`` listening on ``serializer.post_serialize`` event. For example, you may want to get your *reachable* ``NodesSources`` URL in their JSON response. Here is how to do:"
+#: ../../src/developer/nodes-system/nodes.rst:39
+msgid "Hierarchy"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:111
-msgid "Then register your ``NodesSourcesUriSubscriber`` in your theme services:"
+#: ../../src/developer/nodes-system/nodes.rst:41
+msgid "To trasverse node-sources hierarchy, the easier method is to use *Twig* filters on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from origin node-source."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:120
-msgid "Then your JSON response will contain the additional key ``url`` :"
+#: ../../src/developer/nodes-system/nodes.rst:58
+msgid "All these filters will take care of publication status and translation, **but not publication date-time neither visibility**."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:129
-msgid "You can add every piece of data in your serialized responses, even node children by injecting a *tree-walker*."
+#: ../../src/developer/nodes-system/nodes.rst:73
+msgid "If you need to traverse node-source graph from your controllers you can use the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:132
-msgid "Serialize documents URL"
+#: ../../src/developer/nodes-system/nodes.rst:89
+msgid "Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:134
-msgid "Same way for injecting your document URL (i.e. image path, or iframe source), we need to call Roadiz document URL generator for any Document serialized into our JSON response:"
+#: ../../src/developer/nodes-system/nodes.rst:105
+#: ../../src/developer/nodes-system/nodes.rst:110
+msgid "Visibility"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:258
-msgid "Groups"
+#: ../../src/developer/nodes-system/nodes.rst:107
+msgid "There are two parametres that you must take care of in your themes and your controllers, because they are not mandatory in all website cases:"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:261
-msgid "id"
+#: ../../src/developer/nodes-system/nodes.rst:111
+msgid "Publication date and time"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:263
-msgid "Serialize every entity ``id``."
+#: ../../src/developer/nodes-system/nodes.rst:113
+msgid "For example, *publication date and time* won’t be necessary in plain text pages and not timestampable contents. But we decided to add it directly in ``NodesSources`` entity to be able to filter and order with this field in Roadiz back-office. This was not possible if you manually create your own ``publishedAt`` as a node-type field."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:264
-msgid "timestamps"
+#: ../../src/developer/nodes-system/nodes.rst:120
+msgid "Pay attention that *publication date and time* (``publishedAt``) and visibility (``node.visible``) **does not prevent** your node-source from being viewed if you did not explicitly forbid access to its controller. This field is not deeply set into Roadiz security mechanics."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:266
-msgid "Serialize every date-timed entity ``createdAt`` and ``updatedAt`` fields."
+#: ../../src/developer/nodes-system/nodes.rst:125
+msgid "If you need so, make sure that your node-type controller checks these two fields and throws a ``ResourceNotFoundException`` if they’re not satisfied."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:267
-msgid "position"
+#: ../../src/developer/nodes-system/nodes.rst:153
+msgid "Publication workflow"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:269
-msgid "Serialize every entity ``position`` fields."
+#: ../../src/developer/nodes-system/nodes.rst:155
+msgid "Each Node state is handled by a *Workflow* to switch between the following 5 states:"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:270
-msgid "color"
+#: ../../src/developer/nodes-system/nodes.rst:158
+msgid "States"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:272
-msgid "Serialize every entity ``color`` fields."
+#: ../../src/developer/nodes-system/nodes.rst:159
+msgid "``Node::DRAFT``"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:273
-msgid "nodes_sources"
+#: ../../src/developer/nodes-system/nodes.rst:160
+msgid "``Node::PENDING``"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:275
-msgid "Serialize entities in a ``NodesSources`` context (all fields)."
+#: ../../src/developer/nodes-system/nodes.rst:161
+msgid "``Node::PUBLISHED``"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:276
-msgid "nodes_sources_base"
+#: ../../src/developer/nodes-system/nodes.rst:162
+msgid "``Node::ARCHIVED``"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:278
-msgid "Serialize entities in a ``NodesSources`` context, but with essential information."
+#: ../../src/developer/nodes-system/nodes.rst:163
+msgid "``Node::DELETED``"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:279
-msgid "nodes_sources_documents"
+#: ../../src/developer/nodes-system/nodes.rst:166
+msgid "Transitions"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:281
-msgid "Serialize documents linked to a ``NodesSources`` for each virtual field."
+#: ../../src/developer/nodes-system/nodes.rst:167
+msgid "review"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:282
-msgid "nodes_sources_default"
+#: ../../src/developer/nodes-system/nodes.rst:168
+msgid "reject"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:284
-msgid "Serialize ``NodesSources`` fields not contained in any **group**."
+#: ../../src/developer/nodes-system/nodes.rst:169
+msgid "publish"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:285
-msgid "nodes_sources_``group``"
+#: ../../src/developer/nodes-system/nodes.rst:170
+msgid "archive"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:287
-msgid "Custom serialization groups are created according to your node-typ fields groups. For example, if you set a field to a ``link`` group, ``nodes_sources_link`` serialization group will be automatically generated for this field. *Be careful*, Roadiz will use groups *canonical names* to generate serialization groups, it can mix ``_`` and ``-``."
+#: ../../src/developer/nodes-system/nodes.rst:171
+msgid "unarchive"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:291
-msgid "node"
+#: ../../src/developer/nodes-system/nodes.rst:172
+msgid "delete"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:293
-msgid "Serialize entities in a ``Node`` context."
+#: ../../src/developer/nodes-system/nodes.rst:173
+msgid "undelete"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:294
-msgid "tag"
+#: ../../src/developer/nodes-system/nodes.rst:175
+msgid "You cannot changes a Node status directly using its *setter*, you must use Roadiz main *registry* to perform transition. This can prevent unwanted behaviours and you can track changes with events and guards:"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:296
-#: ../../src/developer/serialization/index.rst:299
-msgid "Serialize entities in a ``Tag`` context."
+#: ../../src/developer/nodes-system/nodes.rst:188
+msgid "Generating paths and url"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:297
-msgid "tag_base"
+#: ../../src/developer/nodes-system/nodes.rst:190
+msgid "You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:300
-msgid "node_type"
+#: ../../src/developer/nodes-system/nodes.rst:223
+msgid "Overriding default node-source path generation"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:302
-msgid "Serialize entities in a ``NodeType`` context."
+#: ../../src/developer/nodes-system/nodes.rst:225
+msgid "You can override default node-source path generation in order to use ``{{ path() }}`` method in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type which purpose only is to link to an other node in your website. When you call *path* or *URL* generation on it, you should prefer getting its linked node path, so you can listen to ``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return your linked node path instead of your *link* node path."
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:303
-msgid "attribute"
+#: ../../src/developer/nodes-system/nodes.rst:296
+msgid "Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:"
 msgstr ""
 
-#: ../../src/developer/serialization/index.rst:305
-msgid "Serialize entities in a ``Attribute`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:306
-msgid "custom_form"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:308
-msgid "Serialize entities in a ``CustomForm`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:309
-msgid "document"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:311
-msgid "Serialize entities in a ``Document`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:312
-msgid "folder"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:314
-msgid "Serialize entities in a ``Folder`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:315
-msgid "translation"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:317
-msgid "Serialize entities in a ``Translation`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:318
-msgid "setting"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:320
-msgid "Serialize entities in a ``Setting`` context."
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:321
-msgid "setting_group"
-msgstr ""
-
-#: ../../src/developer/serialization/index.rst:323
-msgid "Serialize entities in a ``SettingGroup`` context."
+#: ../../src/developer/nodes-system/nodes.rst:304
+msgid "This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache provider, instead of generating your custom URL inside your Twig templates or PHP controllers."
 msgstr ""
 
