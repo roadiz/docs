@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:59\n"
+"PO-Revision-Date: 2020-09-23 21:14\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -31,59 +31,59 @@ msgstr ""
 
 #: ../../src/user/users/intro.rst:10
 msgid "When working with Roadiz in the back-office, you can easily manage users via the *User system* icon in the toolbar."
-msgstr ""
+msgstr "Lorsque vous travaillez dans le back-office de Roadiz, vous pouvez facilement gérer les utilisateurs via l'icône *Système utilisateur* dans la barre d'outils."
 
 #: ../../src/user/users/intro.rst:16
 msgid "Create a new user"
-msgstr ""
+msgstr "Créer un nouvel utilisateur"
 
 #: ../../src/user/users/intro.rst:21
 msgid "You can add users simply by clicking *Add an user* button."
-msgstr ""
+msgstr "Vous pouvez ajouter des utilisateurs en cliquant sur le bouton *Ajouter un utilisateur*."
 
 #: ../../src/user/users/intro.rst:26
 msgid "If you create an user without specifying its *password*, an email with a password reset link will sent. Make sure that you entered the right email and that your Roadiz website has a *mailer* configured. New user will be locked unless he or she resets its password first."
-msgstr ""
+msgstr "Si vous créez un utilisateur sans spécifier son *mot de passe*, un email avec un lien de réinitialisation du mot de passe sera envoyé. Assurez-vous que vous avez entré le bon email et que votre site web Roadiz a un *mailer* configuré. Le nouvel utilisateur sera verrouillé à moins qu'il ne réinitialise son mot de passe d'abord."
 
 #: ../../src/user/users/intro.rst:33
 msgid "A new user without password will stay locked until he or she resets its password."
-msgstr ""
+msgstr "Un nouvel utilisateur sans mot de passe aura son compte verrouillé jusqu'à ce qu'il réinitialise son mot de passe."
 
 #: ../../src/user/users/intro.rst:35
 msgid "The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
-msgstr ""
+msgstr "La ligne de commande ``bin/roadiz users:create loginname`` démarre une nouvelle session interactive de création d'un utilisateur. Vous allez créer un nouvel utilisateur avec son nom d’utilisateur et son email, vous pouvez aussi choisir si il s’agit d’un utilisateur backend ou bien super-admin."
 
 #: ../../src/user/users/intro.rst:39
 msgid "Delete user"
-msgstr ""
+msgstr "Suppression d’un utilisateur"
 
 #: ../../src/user/users/intro.rst:41
 msgid "You can remove users by clicking the trashcan icon."
-msgstr ""
+msgstr "Vous pouvez supprimer des utilisateurs en cliquant sur l'icône de la corbeille."
 
 #: ../../src/user/users/intro.rst:46
 msgid "The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
-msgstr ""
+msgstr "La commande ``bin/roadiz users:delete loginname`` supprime l'utilisateur \"loginname\"."
 
 #: ../../src/user/users/intro.rst:49
 msgid "Adding role"
-msgstr ""
+msgstr "Ajouter un rôle"
 
 #: ../../src/user/users/intro.rst:51
 msgid "You can edit a users profile the same way you edit a node-type. You can add roles in the *Roles* tab."
-msgstr ""
+msgstr "Vous pouvez modifier un profil utilisateur de la même manière que vous modifiez un type de nœud. Vous pouvez ajouter des rôles dans l'onglet *Roles*."
 
 #: ../../src/user/users/intro.rst:56
 msgid "If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would look like this in command-line:"
-msgstr ""
+msgstr "Si vous voulez ajouter le rôle ``ROLE_SUPERADMIN`` à l'utilisateur \"test\", il ressemblerait à cela en ligne de commande :"
 
 #: ../../src/user/users/intro.rst:65
 msgid "Other action"
-msgstr ""
+msgstr "Autres actions"
 
 #: ../../src/user/users/intro.rst:67
 msgid "It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command. If a user doesn't remember his password, you can regenerate it with the ``users:password`` command. For more informations and more actions, we invite you to check available commands with:"
-msgstr ""
+msgstr "Il est possible d'activer ou de désactiver les utilisateurs avec la commande ``users:enable`` ou ``users:disable``. Si un utilisateur ne se souvient pas de son mot de passe, vous pouvez le régénérer avec la commande ``users:password``. Pour plus d'informations et plus d'actions, nous vous invitons à vérifier les commandes disponibles avec:"
 
 #: ../../src/user/users/intro.rst:77
 msgid "Enable SSO for back-office users"
@@ -119,25 +119,25 @@ msgstr "Quels *rôles* (séparés par virgule) vous souhaitez automatiquement as
 
 #: ../../src/user/users/intro.rst:100
 msgid "What domain name to restrict users from. This is very important for *Google Suite* users because the auto-discovery is the same for everybody. You may not want to allow every Google Suite users to access your back-office 😉."
-msgstr ""
+msgstr "Quel nom de domaine utiliser pour restreindre les utilisateurs. C'est très important pour les utilisateurs de *Google Suite* car la configuration est la même pour tout les utilisateurs de ce service. Vous ne souhaitez pas autoriser tous les clients Google Suite à accéder à votre back-office 😉."
 
 #: ../../src/user/users/intro.rst:101
 msgid "A button label for your back-office login page."
-msgstr ""
+msgstr "Un libellé de bouton pour la page de connexion de votre back-office."
 
 #: ../../src/user/users/intro.rst:108
 msgid "Fill all your gathered information to the right *Roadiz* settings."
-msgstr ""
+msgstr "Remplissez toutes les informations collectées dans les paramètres de *Roadiz* correspondant."
 
 #: ../../src/user/users/intro.rst:114
 msgid "Then, if your parameter are correct you should see your SSO connect button on *Roadiz* back-office login page. Pay attention that if your SSO users do not have sufficient permissions they may have a 403 error after being redirected from SSO flow."
-msgstr ""
+msgstr "Ensuite, si votre parametrage est correct, vous devriez voir votre bouton de connexion SSO sur la page de connexion du back-office *Roadiz*. Faites attention à ce que vos utilisateurs SSO aient les permissions suffisantes pour accéder au back-office, ils pourraient avoir une erreur 403 après avoir été redirigés depuis le flux SSO."
 
 #: ../../src/user/users/intro.rst:124
 msgid "Google Suite OpenID implementation is described at https://developers.google.com/identity/protocols/oauth2/openid-connect#discovery"
-msgstr ""
+msgstr "L'implémentation OpenID de Google Suite est décrite sur https://developers.google.com/identity/protocols/oauth2/openid-connect#discovery"
 
 #: ../../src/user/users/intro.rst:126
 msgid "First, create a new OAuth2 application on https://console.cloud.google.com/ and follow instructions at https://developers.google.com/identity/protocols/oauth2/openid-connect#getcredentials"
-msgstr ""
+msgstr "Premièrement, créez une nouvelle application OAuth2 sur https://console.cloud.google.com/ et suivez les instructions sur https://developers.google.com/identity/protocols/oauth2/openid-connect#getcredentials"
 
