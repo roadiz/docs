@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
+"POT-Creation-Date: 2020-09-23 23:36+0200\n"
 "PO-Revision-Date: 2019-07-08 15:09+0200\n"
 "Last-Translator: \n"
 "Language: fr\n"
@@ -48,11 +48,52 @@ msgstr ""
 "Téléverser un document n'a jamais été aussi simple : cliquez sur le "
 "document et glissez-le dans la zone concernée."
 
-#: ../../src/user/documents-system/intro.rst:21
+#: ../../src/user/documents-system/intro.rst:19
+msgid ""
+"When you upload files, Roadiz will try to reduce any image larger than "
+"2500 pixels (width or height) in order to ease up further transformations"
+" on it. The CMS will always keep a *raw* version of your uploaded "
+"document if you decide to increase this limit over 2500 pixels. Keep in "
+"mind that Roadiz won’t be able to optimize your image to a better format:"
+" for example if you uploaded a PNG image containing no transparent area, "
+"the CMS won’t convert it to JPEG format and you will end up with a heavy "
+"file even if you resize it."
+msgstr ""
+
+#: ../../src/user/documents-system/intro.rst:22
+msgid "Photographs, complex images with no transparency: *use JPEG*"
+msgstr ""
+
+#: ../../src/user/documents-system/intro.rst:23
+msgid "Logos, icons, complex images with transparency: *use PNG*"
+msgstr ""
+
+#: ../../src/user/documents-system/intro.rst:25
+msgid ""
+"Using an image optimizer (such as *tinyjpg*, *kraken.io*, *jpgoptim*, …) "
+"**before** uploading onto Roadiz is useless because, the CMS will lose "
+"these optimizations when it processes transformations (crop, resizing, "
+"contrast and quality)."
+msgstr ""
+
+#: ../../src/user/documents-system/intro.rst:27
+#, python-format
+msgid ""
+"On the other hand, if your website has been developed with ``picture`` "
+"support, Roadiz will be able to serve any images in the new WEBP format "
+"which is 30% lighter than JPEG and supports transparency (alpha channel)."
+" So any user browsing your website with a Chrome, Firefox or Edge will "
+"see only WEBP images and will save up minimum 30% of bandwidth usage. In "
+"the near future, AVIF image format will be more supported by major "
+"browsers, and Roadiz will be able to generate optimized image with this "
+"format too."
+msgstr ""
+
+#: ../../src/user/documents-system/intro.rst:31
 msgid "Embed document"
 msgstr "Intégrer un document"
 
-#: ../../src/user/documents-system/intro.rst:23
+#: ../../src/user/documents-system/intro.rst:33
 msgid ""
 "Here is the magical part of the Documents section. You can have embedded "
 "documents from *YouTube*, *SoundCloud*, *Vimeo*, *Mixcloud*, *Spotify*, "
@@ -60,11 +101,11 @@ msgid ""
 "in your content blocks."
 msgstr ""
 
-#: ../../src/user/documents-system/intro.rst:30
+#: ../../src/user/documents-system/intro.rst:40
 msgid "Random document"
 msgstr "Document aléatoire"
 
-#: ../../src/user/documents-system/intro.rst:32
+#: ../../src/user/documents-system/intro.rst:42
 #, fuzzy
 msgid ""
 "*Random* is a cool feature that allows to download random documents to "
@@ -73,11 +114,11 @@ msgstr ""
 "La fonctionnalité *Aléatoire* vous permet de télécharger des sources "
 "aléatoires sur votre site depuis la plateforme photo et vidéo Splashbase."
 
-#: ../../src/user/documents-system/intro.rst:38
+#: ../../src/user/documents-system/intro.rst:48
 msgid "Unused document"
 msgstr "Document inutilisé"
 
-#: ../../src/user/documents-system/intro.rst:40
+#: ../../src/user/documents-system/intro.rst:50
 msgid ""
 "Clicking *Unused document* allows you to gather every unused documents on"
 " your website, so you can clean your database and get rid of useless "
