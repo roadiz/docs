@@ -13,31 +13,11 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/docker.pot\n"
-"X-Crowdin-File-ID: 80\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/index.pot\n"
+"X-Crowdin-File-ID: 82\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/first-steps/docker.rst:4
-msgid "Using Docker for development"
-msgstr ""
-
-#: ../../src/developer/first-steps/docker.rst:6
-msgid "Roadiz standard edition is shipped with a ``docker-compose`` example environment ready to use for development. *Docker* on Linux will provide awesome performances and a production-like environment without bloating your development machine. Performances won't be as good on *macOS* or *Windows* hosts, but it will prevent installing singled versioned PHP and MySQL directly on your computer."
-msgstr ""
-
-#: ../../src/developer/first-steps/docker.rst:11
-msgid "First, edit ``.env`` file and configure it according to your host machine (you can copy it from ``.env.dist`` if it does not exist)."
-msgstr ""
-
-#: ../../src/developer/first-steps/docker.rst:22
-msgid "Then your website will be available at ``http://localhost:${APP_PORT}``."
-msgstr ""
-
-#: ../../src/developer/first-steps/docker.rst:24
-msgid "For linux users, where *Docker* is running natively (without underlying virtualization), pay attention that *PHP* is running with *www-data* user. You must update your ``.env`` file to reflect your local user **UID** during image build."
-msgstr ""
-
-#: ../../src/developer/first-steps/docker.rst:36
-msgid "So use the same uid in your `.env` file **before** starting and building your Docker image."
+#: ../../src/developer/first-steps/index.rst:3
+msgid "First steps"
 msgstr ""
 
