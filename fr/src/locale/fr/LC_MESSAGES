@@ -13,215 +13,175 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/extension/events/intro.pot\n"
-"X-Crowdin-File-ID: 142\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/services/index.pot\n"
+"X-Crowdin-File-ID: 120\n"
 "Language: fr_FR\n"
 
-#: ../../src/extension/events/intro.rst:4
-msgid "Events"
+#: ../../src/developer/services/index.rst:4
+msgid "Services"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:6
-msgid "Roadiz node system implements several events. So you will be able to create and inject your own event subscribers inside *Roadiz* dispatcher."
+#: ../../src/developer/services/index.rst:6
+msgid "Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency injection container. Thanks to this architecture, all Core and Backoffice services are available from any controller in your themes."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:9
-msgid "To understand how the event dispatcher works, you should read the `Symfony documentation at <http://symfony.com/doc/current/components/event_dispatcher/introduction.html>`_ before."
+#: ../../src/developer/services/index.rst:15
+msgid "Doctrine entity manager: ``$this->get('em')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:14
-msgid "Nodes events"
+#: ../../src/developer/services/index.rst:16
+msgid "Twig rendering environment: ``$this->get('twig.environment')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:16
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:17
+msgid "Translator: ``$this->get('translator')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:17
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUpdatedEvent::class``"
+#: ../../src/developer/services/index.rst:18
+msgid "Url matcher: ``$this->get('urlMatcher')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:18
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDeletedEvent::class``"
+#: ../../src/developer/services/index.rst:19
+msgid "Url generator: ``$this->get('urlGenerator')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:19
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUndeletedEvent::class``"
+#: ../../src/developer/services/index.rst:20
+msgid "Authorization checker: ``$this->get('securityAuthorizationChecker')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:20
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDuplicatedEvent::class``"
+#: ../../src/developer/services/index.rst:21
+msgid "User token storage: ``$this->get('securityTokenStorage')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:21
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodePathChangedEvent::class``"
+#: ../../src/developer/services/index.rst:22
+msgid "Firewall: ``$this->get('firewall')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:22
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeTaggedEvent::class``: This event is triggered for tag and un-tag action."
+#: ../../src/developer/services/index.rst:23
+msgid "Assets packages: ``$this->get('assetPackages')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:23
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeVisibilityChangedEvent::class``: This event is triggered each time a node becomes visible or unvisible."
+#: ../../src/developer/services/index.rst:24
+msgid "Email manager: ``$this->get('emailManager')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:24
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeStatusChangedEvent::class``: This event is triggered each time a node status changes."
+#: ../../src/developer/services/index.rst:25
+msgid "Contact form manager: ``$this->get('contactFormManager')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:26
-msgid "Each node event object contains the current ``Node`` entity. You will get it using ``$event->getNode()``."
+#: ../../src/developer/services/index.rst:26
+msgid "Accessing global settings *ParameterBag*: ``$this->get('settingsBag')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:29
-msgid "NodesSources events"
+#: ../../src/developer/services/index.rst:27
+msgid "Accessing global node-types *ParameterBag*: ``$this->get('nodeTypesBag')``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:31
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSourcesEvents``"
+#: ../../src/developer/services/index.rst:28
+msgid "Getting an entity handler: ``$this->get('factory.handler')->getHandler($myEntity)``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:33
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:29
+msgid "…"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:34
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPreUpdatedEvent::class``: This event is dispatched BEFORE entity manager FLUSHED."
+#: ../../src/developer/services/index.rst:32
+msgid "Entity APIs"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:35
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesUpdatedEvent::class``: This event is dispatched AFTER entity manager FLUSHED."
+#: ../../src/developer/services/index.rst:34
+msgid "All these services are Doctrine repository wrappers meant to ease querying entities inside your themes and according to ``AuthorizationChecker``. This will implicitely check if nodes or node-sources are published when you request them without bothering to insert the right criteria in your *findBy* calls."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:36
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesDeletedEvent::class``"
+#: ../../src/developer/services/index.rst:39
+msgid "Each of these implements ``AbstractApi`` methods ``getBy`` and ``getOneBy``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:38
-msgid "Each node-source event object contains the current ``NodesSources`` entity. You will get it using ``$event->getNodeSource()``."
+#: ../../src/developer/services/index.rst:41
+msgid "`nodeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeApi.html>`_"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:40
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesIndexingEvent::class``: This event type is dispatched during Solr indexation. Your event will be ``\\RZ\\Roadiz\\Core\\Events\\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type."
+#: ../../src/developer/services/index.rst:42
+msgid "`nodeTypeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeTypeApi.html>`_"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:43
-msgid "You will find a simple subscriber example in Roadiz back-office theme which is called ``Themes\\Rozier\\Events\\SolariumSubscriber``. This subscriber is useful to update or delete your *Solr* index documents against your node-source database."
+#: ../../src/developer/services/index.rst:43
+msgid "`nodeSourceApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeSourceApi.html>`_"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:46
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent::class``: This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name)."
+#: ../../src/developer/services/index.rst:44
+msgid "`tagApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/TagApi.html>`_"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:49
-msgid "Tags events"
+#: ../../src/developer/services/index.rst:47
+msgid "Using Solr API"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:51
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:49
+msgid "Solr is a really powerful tool to search over your node database with a clever plain-text search engine and the ability to highlight your criteria in the search results. Before going further, make sure that a Solr server is available and that it is well configured in your ``config.yml``. You can use the ``bin/roadiz solr:check`` command to verify and then ``bin/roadiz solr:reindex`` command to force synchronizing your node database with Solr index."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:52
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagUpdatedEvent::class``"
+#: ../../src/developer/services/index.rst:56
+msgid "You can use the ``solr.search.nodeSource`` service and its two methods to get node-sources from a search query."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:53
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagDeletedEvent::class``"
+#: ../../src/developer/services/index.rst:60
+msgid "Simple search results"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:55
-msgid "Each tag event object contains the current ``Tag`` entity. You will get it using ``$event->getTag()``."
+#: ../../src/developer/services/index.rst:62
+msgid "``$this->get('solr.search.nodeSource')->search()`` method will return a ``SolrSearchResults`` *traversable* object listing ``NodesSources``:"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:58
-msgid "Folders events"
+#: ../../src/developer/services/index.rst:85
+msgid "Search results with highlighting"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:60
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:87
+msgid "``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return a ``SolrSearchResults`` *traversable* object with arrays with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:61
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderUpdatedEvent::class``"
+#: ../../src/developer/services/index.rst:114
+msgid "Count search results"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:62
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderDeletedEvent::class``"
+#: ../../src/developer/services/index.rst:116
+msgid "``$this->get('solr.search.nodeSource')->search()`` and ``$this->get('solr.search.nodeSource')->searchWithHighlight()``methods will return a ``SolrSearchResults`` *traversable* object. You can use ``SolrSearchResults::getResultCount()`` to get results count."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:64
-msgid "Each folder event object contains the current ``Folder`` entity. You will get it using ``$event->getFolder()``."
+#: ../../src/developer/services/index.rst:139
+msgid "Search criteria"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:67
-msgid "Translations events"
+#: ../../src/developer/services/index.rst:141
+msgid "Solr will search in *NodesSources* index by default, but it will not filter by translation, type or visibility. You can add your own search criteria using similar filter names as ``nodeSourceApi``."
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:69
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:144
+msgid "``visible``: boolean"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:70
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationUpdatedEvent::class``"
+#: ../../src/developer/services/index.rst:145
+msgid "``translation``: a ``Translation`` object"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:71
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationDeletedEvent::class``"
+#: ../../src/developer/services/index.rst:146
+msgid "``_locale``: string"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:73
-msgid "Each folder event object contains the current ``Translation`` entity. You will get it using ``$event->getTranslation()``."
+#: ../../src/developer/services/index.rst:147
+msgid "``tags``: a ``Tag`` object or ``Tag`` array"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:76
-msgid "UrlAlias events"
+#: ../../src/developer/services/index.rst:148
+msgid "``nodeType``: a ``NodeType`` object"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:78
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasCreatedEvent::class``"
+#: ../../src/developer/services/index.rst:149
+msgid "``status``: defaults to ``Node::PUBLISHED``"
 msgstr ""
 
-#: ../../src/extension/events/intro.rst:79
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasUpdatedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:80
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasDeletedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:82
-msgid "Each folder event object contains the current ``UrlAlias`` entity. You will get it using ``$event->getUrlAlias()``."
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:85
-msgid "User events"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:87
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserCreatedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:88
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserUpdatedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:89
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDeletedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:90
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDisabledEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:91
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserEnabledEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:92
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserPasswordChangedEvent::class``"
-msgstr ""
-
-#: ../../src/extension/events/intro.rst:94
-msgid "Each folder event object contains the current ``User`` entity. You will get it using ``$event->getUser()``."
+#: ../../src/developer/services/index.rst:150
+msgid "``publishedAt``: ``\\DateTime`` or array like ``EntityRepository::findBy`` method."
 msgstr ""
 
