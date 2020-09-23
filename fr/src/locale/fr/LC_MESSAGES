@@ -13,67 +13,175 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/tags-system/index.pot\n"
-"X-Crowdin-File-ID: 122\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/services/index.pot\n"
+"X-Crowdin-File-ID: 120\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/tags-system/index.rst:5
-msgid "Tag system"
+#: ../../src/developer/services/index.rst:4
+msgid "Services"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:7
-msgid "Nodes are essentially hierarchical entities. So we created an entity to link nodes between them no matter where/what they are. Tags are meant as *tag* nodes, we couldn’t be more explicit. But if you didn’t understand here is a schema:"
+#: ../../src/developer/services/index.rst:6
+msgid "Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency injection container. Thanks to this architecture, all Core and Backoffice services are available from any controller in your themes."
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:14
-msgid "You can see that tags can gather heterogenous nodes coming from different types (pages and projects). Tags can be used to display a category-navigation on your theme or to simply tidy your backoffice node database."
+#: ../../src/developer/services/index.rst:15
+msgid "Doctrine entity manager: ``$this->get('em')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:17
-msgid "Did you notice that ``Tags`` are related to ``Nodes`` entities, not ``NodesSources``? We thought that it would be easier to manage that way not to forget to tag a specific node translation. It means that you won’t be able to differenciate tag two ``NodesSources``, if you absolutely need to, we encourage you to create two different nodes."
+#: ../../src/developer/services/index.rst:16
+msgid "Twig rendering environment: ``$this->get('twig.environment')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:22
-msgid "Translate tags"
+#: ../../src/developer/services/index.rst:17
+msgid "Translator: ``$this->get('translator')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:24
-msgid "You will notice that tags work the same way as nodes do. By default, *tags names* can’t contain special characters in order to be used in URLs. So we created ``TagTranslation`` entities which stand for Tag’s sources:"
+#: ../../src/developer/services/index.rst:18
+msgid "Url matcher: ``$this->get('urlMatcher')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:30
-msgid "In that way you will be able to translate your tags for each available languages and link documents to them."
+#: ../../src/developer/services/index.rst:19
+msgid "Url generator: ``$this->get('urlGenerator')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:33
-msgid "Tag hierarchy"
+#: ../../src/developer/services/index.rst:20
+msgid "Authorization checker: ``$this->get('securityAuthorizationChecker')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:35
-msgid "In the same way as *Nodes* work, tags can be nested to create *tag groups*."
+#: ../../src/developer/services/index.rst:21
+msgid "User token storage: ``$this->get('securityTokenStorage')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:38
-msgid "Displaying node-source tags with Twig"
+#: ../../src/developer/services/index.rst:22
+msgid "Firewall: ``$this->get('firewall')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:40
-msgid "Tag translations are already set up to track your current locale if you fetched them using ``|tags`` *Twig* filter. Simply use ``getTranslatedTags()->first()`` Tag method to use them in your templates."
+#: ../../src/developer/services/index.rst:23
+msgid "Assets packages: ``$this->get('assetPackages')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:56
-msgid "Tags translations documents"
+#: ../../src/developer/services/index.rst:24
+msgid "Email manager: ``$this->get('emailManager')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:58
-msgid "Documents can be linked to your tag translations. They will be different for each translation, so make sure to synchronize them manually if you want to use the same document for all translations."
+#: ../../src/developer/services/index.rst:25
+msgid "Contact form manager: ``$this->get('contactFormManager')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:62
-msgid "They are available with ``getDocuments()`` method and will be ordered by **position only**."
+#: ../../src/developer/services/index.rst:26
+msgid "Accessing global settings *ParameterBag*: ``$this->get('settingsBag')``"
 msgstr ""
 
-#: ../../src/developer/tags-system/index.rst:64
-msgid "Imagine, you want to link a PDF document for each of your tags, you can create a download link as described below:"
+#: ../../src/developer/services/index.rst:27
+msgid "Accessing global node-types *ParameterBag*: ``$this->get('nodeTypesBag')``"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:28
+msgid "Getting an entity handler: ``$this->get('factory.handler')->getHandler($myEntity)``"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:29
+msgid "…"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:32
+msgid "Entity APIs"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:34
+msgid "All these services are Doctrine repository wrappers meant to ease querying entities inside your themes and according to ``AuthorizationChecker``. This will implicitely check if nodes or node-sources are published when you request them without bothering to insert the right criteria in your *findBy* calls."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:39
+msgid "Each of these implements ``AbstractApi`` methods ``getBy`` and ``getOneBy``"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:41
+msgid "`nodeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeApi.html>`_"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:42
+msgid "`nodeTypeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeTypeApi.html>`_"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:43
+msgid "`nodeSourceApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeSourceApi.html>`_"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:44
+msgid "`tagApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/TagApi.html>`_"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:47
+msgid "Using Solr API"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:49
+msgid "Solr is a really powerful tool to search over your node database with a clever plain-text search engine and the ability to highlight your criteria in the search results. Before going further, make sure that a Solr server is available and that it is well configured in your ``config.yml``. You can use the ``bin/roadiz solr:check`` command to verify and then ``bin/roadiz solr:reindex`` command to force synchronizing your node database with Solr index."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:56
+msgid "You can use the ``solr.search.nodeSource`` service and its two methods to get node-sources from a search query."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:60
+msgid "Simple search results"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:62
+msgid "``$this->get('solr.search.nodeSource')->search()`` method will return a ``SolrSearchResults`` *traversable* object listing ``NodesSources``:"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:85
+msgid "Search results with highlighting"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:87
+msgid "``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return a ``SolrSearchResults`` *traversable* object with arrays with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:114
+msgid "Count search results"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:116
+msgid "``$this->get('solr.search.nodeSource')->search()`` and ``$this->get('solr.search.nodeSource')->searchWithHighlight()``methods will return a ``SolrSearchResults`` *traversable* object. You can use ``SolrSearchResults::getResultCount()`` to get results count."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:139
+msgid "Search criteria"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:141
+msgid "Solr will search in *NodesSources* index by default, but it will not filter by translation, type or visibility. You can add your own search criteria using similar filter names as ``nodeSourceApi``."
+msgstr ""
+
+#: ../../src/developer/services/index.rst:144
+msgid "``visible``: boolean"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:145
+msgid "``translation``: a ``Translation`` object"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:146
+msgid "``_locale``: string"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:147
+msgid "``tags``: a ``Tag`` object or ``Tag`` array"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:148
+msgid "``nodeType``: a ``NodeType`` object"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:149
+msgid "``status``: defaults to ``Node::PUBLISHED``"
+msgstr ""
+
+#: ../../src/developer/services/index.rst:150
+msgid "``publishedAt``: ``\\DateTime`` or array like ``EntityRepository::findBy`` method."
 msgstr ""
 
