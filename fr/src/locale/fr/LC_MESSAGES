@@ -13,51 +13,47 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/php_server.pot\n"
-"X-Crowdin-File-ID: 92\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/upgrading.pot\n"
+"X-Crowdin-File-ID: 96\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/first-steps/php_server.rst:4
-msgid "Using PHP server for development"
+#: ../../src/developer/first-steps/upgrading.rst:5
+msgid "Upgrading"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:6
-msgid "If *Vagrant* is too heavy for your purpose, you can simply use *PHP built-in server*."
+#: ../../src/developer/first-steps/upgrading.rst:8
+msgid "**Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools to quickly export your database as a file."
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:9
-msgid "Following command will launch a web-server listening on all IP addresses on port 8080. We also use a dedicated *router* file to serve static and generated resources:"
+#: ../../src/developer/first-steps/upgrading.rst:11
+msgid "With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:26
-msgid "Standard Edition has a ``Makefile`` recipe for launching internal PHP server with a chosen port and IP: ``make dev-server``."
+#: ../../src/developer/first-steps/upgrading.rst:12
+msgid "With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:29
-msgid "If you want to use PHP internal server, make sure you have installed all required PHP extensions and that you have a database server:"
+#: ../../src/developer/first-steps/upgrading.rst:13
+msgid "With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:32
-msgid "You can use a local MySQL/MariaDB server"
+#: ../../src/developer/first-steps/upgrading.rst:16
+msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:33
-msgid "Or use a SQLite3 database, just use ``../app/conf/database.db3`` path during install."
+#: ../../src/developer/first-steps/upgrading.rst:24
+msgid "In order to avoid losing sensible node-sources data. You should regenerate your node-source entities classes files:"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:38
-msgid "PHP web server was designed to aid application development. It may also be useful for testing purposes or for application demonstrations that are run in controlled environments. It is not intended to be a full-featured web server. It should not be used on a public network."
+#: ../../src/developer/first-steps/upgrading.rst:31
+msgid "Then run database schema update, first review migration details to see if no data will be removed:"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:44
-msgid "Use Mailhog to catch outgoing emails"
+#: ../../src/developer/first-steps/upgrading.rst:38
+msgid "Then, if migration summary is OK (no data loss), perform the following changes:"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:46
-msgid "Contrary to *Vagrant*, using PHP built-in server does not provide any additional tool such as *Mailcatcher* or *Apache Solr*. You can setup `Mailhog <https://github.com/mailhog/MailHog>`__ to catch outgoing emails in a clean web interface."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:51
-msgid "On *macOS*, use *HomeBrew*: ``brew update && brew install mailhog``, then configure your PHP ``sendmail_path`` to use it."
+#: ../../src/developer/first-steps/upgrading.rst:52
+msgid "If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
 msgstr ""
 
