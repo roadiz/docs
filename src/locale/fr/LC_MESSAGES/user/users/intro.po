@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:47\n"
+"PO-Revision-Date: 2020-09-23 20:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Gérer les utilisateurs"
 
 #: ../../src/user/users/intro.rst:6
 msgid "This is a simple guide on how to create and manage users using Roadiz CLI."
-msgstr ""
+msgstr "Il s'agit d'un guide simple sur la façon de créer et de gérer les utilisateurs en utilisant Roadiz CLI."
 
 #: ../../src/user/users/intro.rst:8
 msgid "There are two ways of adding users, via the back-office and in command-line, both will be displayed in each section."
