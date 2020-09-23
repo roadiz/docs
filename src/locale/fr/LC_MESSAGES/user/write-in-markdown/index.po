@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:48\n"
+"PO-Revision-Date: 2020-09-23 20:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -155,7 +155,7 @@ msgstr "**Insérer le signe** ``>`` **et une espace avant chaque nouveau paragra
 
 #: ../../src/user/write-in-markdown/index.rst:182
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 #: ../../src/user/write-in-markdown/index.rst:184
 msgid "**Images use the link syntax with an exclamation mark prefix** ``!``. For external images do not forget to write full URL with protocol ``http://`` or ``https://``."
