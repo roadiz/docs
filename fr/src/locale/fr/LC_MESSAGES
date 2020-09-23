@@ -13,264 +13,131 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/user/nodes-system/managing-nodes.pot\n"
-"X-Crowdin-File-ID: 158\n"
+"X-Crowdin-File: /develop/i18n/locale/user/users/intro.pot\n"
+"X-Crowdin-File-ID: 160\n"
 "Language: fr_FR\n"
 
-#: ../../src/user/nodes-system/managing-nodes.rst:4
-msgid "Managing nodes"
+#: ../../src/user/users/intro.rst:4
+msgid "Managing users"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:6
-msgid "Nodes are the most important part of Roadiz CMS. They are your content which can be shaped as you want according to your node-types definitions. A node can be a blog-post, a content page, a photo gallery, even a shop product. This is why we called it “Node”, it’s an abstract data container interconnected with other node in a tree."
+#: ../../src/user/users/intro.rst:6
+msgid "This is a simple guide on how to create and manage users using Roadiz CLI."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:13
-msgid "Node-tree navigation"
+#: ../../src/user/users/intro.rst:8
+msgid "There are two ways of adding users, via the back-office and in command-line, both will be displayed in each section."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:17
-msgid "Simple node-tree after installing Roadiz with *Default theme*."
+#: ../../src/user/users/intro.rst:10
+msgid "When working with Roadiz in the back-office, you can easily manage users via the *User system* icon in the toolbar."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:22
-msgid "Contextual menu for *home* node."
+#: ../../src/user/users/intro.rst:16
+msgid "Create a new user"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:27
-msgid "Each node has a place in your website, that’s why we chose to arrange your content in a tree-shaped way. It’s intuitive and it works the same as your computer files."
+#: ../../src/user/users/intro.rst:21
+msgid "You can add users simply by clicking *Add an user* button."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:30
-msgid "To edit a node’ content, simply click on it."
+#: ../../src/user/users/intro.rst:26
+msgid "If you create an user without specifying its *password*, an email with a password reset link will sent. Make sure that you entered the right email and that your Roadiz website has a *mailer* configured. New user will be locked unless he or she resets its password first."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:31
-msgid "To move a node across your tree, drag & drop using its handle (round or rombus shape). You can drop a node after or before an other one. You can also drop inside just by moving your mouse a bit on the right, you should see the node shadow to shift right."
+#: ../../src/user/users/intro.rst:33
+msgid "A new user without password will stay locked until he or she resets its password."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:32
-msgid "Other actions are available from each node’ contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over."
+#: ../../src/user/users/intro.rst:35
+msgid "The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:35
-msgid "Contextual menu actions"
+#: ../../src/user/users/intro.rst:39
+msgid "Delete user"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:37
-msgid "*Add child node:* to create a content inside the current node."
+#: ../../src/user/users/intro.rst:41
+msgid "You can remove users by clicking the trashcan icon."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:38
-msgid "*Edit node:* links to the current node “edit content” page."
+#: ../../src/user/users/intro.rst:46
+msgid "The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:39
-msgid "*Move to first position:* to move a node at the first position inside its parent node."
+#: ../../src/user/users/intro.rst:49
+msgid "Adding role"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:40
-msgid "*Move to last position:* basically the same for the last position."
+#: ../../src/user/users/intro.rst:51
+msgid "You can edit a users profile the same way you edit a node-type. You can add roles in the *Roles* tab."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:41
-msgid "*Delete node:* to move current node to the trashcan. A confirmation page will be prompt before really deleting a node."
+#: ../../src/user/users/intro.rst:56
+msgid "If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would look like this in command-line:"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:42
-msgid "*Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed in Urls and your website, even if you are an administrator."
+#: ../../src/user/users/intro.rst:65
+msgid "Other action"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:43
-msgid "*Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users using ``preview.php`` entry point."
+#: ../../src/user/users/intro.rst:67
+msgid "It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command. If a user doesn't remember his password, you can regenerate it with the ``users:password`` command. For more informations and more actions, we invite you to check available commands with:"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:44
-msgid "*Publish offspring:* Publish a node and all its children nodes recursively."
+#: ../../src/user/users/intro.rst:77
+msgid "Enable SSO for back-office users"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:45
-msgid "*Duplicate:* Copy all current node’ content and relationships into a new node."
+#: ../../src/user/users/intro.rst:79
+msgid "Roadiz is compatible with any **OpenID** single sign-on system (such as Google, Exchange, …) and can be configured to allow your company users to login to your back-office with several ``ROLES``."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:48
-msgid "Creating a node"
+#: ../../src/user/users/intro.rst:82
+msgid "First, make sure to generate and gather the following information from your *OpenID* provider:"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:None
-msgid "Add buttons"
+#: ../../src/user/users/intro.rst:84
+msgid "OpenID client ID"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:55
-msgid "“Add node” button located at the top of your *node-tree*."
+#: ../../src/user/users/intro.rst:85
+msgid "OpenID client secret"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:60
-msgid "“Add a *child* node” button, which is located at the top of each node’ contextual menu."
+#: ../../src/user/users/intro.rst:86
+msgid "OpenID auto-discovery URL (i.e. for Google GSuite user https://accounts.google.com/.well-known/openid-configuration)"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:62
-msgid "To add a blank node to your node-tree, you will need to choose your location. In Roadiz you can add a content at the root of your tree or choose a “parent-node”. In both cases you will be asked to choose a *node-type* and a *node-name* before creating your node."
+#: ../../src/user/users/intro.rst:88
+msgid "Then you should decide:"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:67
-msgid "*Node name* is the global identifier for your node. It must be unique and won’t change from one translation to an other. It can be changed later except if your developer locked it up. *Node name* is usually used to build your pages URL."
+#: ../../src/user/users/intro.rst:90
+msgid "What *roles* (comma separated) you want to be automatically granted to users connected with your SSO. You always can create a more complex strategy in your website by registering a ``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy``."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:68
-msgid "*Node-type* defines what fields will be available in your content. Choose well as you won’t be able to change it later, you ’ll have to delete and recreate an other node."
+#: ../../src/user/users/intro.rst:100
+msgid "What domain name to restrict users from. This is very important for *Google Suite* users because the auto-discovery is the same for everybody. You may not want to allow every Google Suite users to access your back-office 😉."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:72
-msgid "Edit an existing node"
+#: ../../src/user/users/intro.rst:101
+msgid "A button label for your back-office login page."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:74
-msgid "Node edition page is composed in several tabs."
+#: ../../src/user/users/intro.rst:108
+msgid "Fill all your gathered information to the right *Roadiz* settings."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:76
-msgid ":ref:`Node content <node-content-tab>`"
+#: ../../src/user/users/intro.rst:114
+msgid "Then, if your parameter are correct you should see your SSO connect button on *Roadiz* back-office login page. Pay attention that if your SSO users do not have sufficient permissions they may have a 403 error after being redirected from SSO flow."
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:77
-msgid ":ref:`Node parameters <node-parameters-tab>`"
+#: ../../src/user/users/intro.rst:124
+msgid "Google Suite OpenID implementation is described at https://developers.google.com/identity/protocols/oauth2/openid-connect#discovery"
 msgstr ""
 
-#: ../../src/user/nodes-system/managing-nodes.rst:78
-msgid ":ref:`Tags <node-tags-tab>`"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:79
-msgid ":ref:`SEO <node-seo-tab>`"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:80
-msgid ":ref:`Tree <node-tree-tab>`, if your node is set up as a :ref:`stack <side-actions-parameters>`"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:85
-msgid "Node content"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:90
-msgid "Contents tab is basically the main part where you will edit your node specific data, using node-type fields such as *text* fields, or *documents* fields, etc."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:93
-msgid "This tab will display different content over translations depending on which fields are marked as *universal* or not."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:98
-msgid "Node parameters"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:103
-msgid "Parameters are global data such as your *node name*. They are used for managing your node visibility according to each user role and node back-office’ settings. This section should not be used so often as parameters will be set once by your developer."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:107
-#: ../../src/user/nodes-system/managing-nodes.rst:133
-msgid "*This tab will display the same content over translations.*"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:112
-msgid "Side actions and parameters"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:114
-msgid "Additional parameters are available on the right action-menu. These parameters are node-wide, they will apply on each node translations."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:120
-msgid "**Visibility**: Hide or show current node (according to your theme)"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:121
-msgid "**Hide children**: Switch current node to a **stack**, children nodes won’t appear in the global Node-Tree anymore. You will be able to add *Stack type* buttons in the :ref:`node parameters tab <node-parameters-tab>`."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:122
-msgid "**Lock status**: Prevent users to delete current node or rename it. You should switch it on if your rely on some nodes in your themes."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:123
-msgid "**Forbid children**: Prevent users to create children nodes."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:128
-msgid "Tags"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:138
-msgid "SEO"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:143
-msgid "*This tab will display different content over translations.*"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:148
-msgid "Tree"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:150
-msgid "When a node is defined as a :ref:`stack <side-actions-parameters>`, *Tree* becomes its default view. You can set the default ordering in the *Edit tab*. And node-types set as *publishable* will display their publication date before its name."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:156
-msgid "Tree view becomes very interesting if you have many many children nodes, when you have blog posts or portfolio projects for example."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:162
-msgid "Then you can add *stack type* in *Edit tab* to make some handy quick-add buttons to this view."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:171
-msgid "Nodes publication system"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:173
-msgid "During its lifecycle, every nodes can have a different publication status. When you create a new content, it will be automatically set as **Draft** by Roadiz so that you can edit it without bothering your visitors and sharing unfinished work."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:178
-msgid "Available statuses:"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:180
-msgid "**Draft**: First status for new nodes"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:181
-msgid "**Pending validation**: It’s a medium status for user that do not have permission to publish nodes"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:182
-msgid "**Published**: That’s the most important status, it will set the green light to your visitor to view your content"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:183
-msgid "**Archived**: When you don’t want to publish a node but you don’t want to delete it either"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:184
-msgid "**Deleted**: It’s the last status for your nodes. Before emptying your node trashcan, every content will wait with this status."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:186
-msgid "To improve status visibility, *draft* and *pending* nodes have a rhombus shape and *published* nodes have a circle shape."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:189
-msgid "Preview unpublished nodes"
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:191
-msgid "As unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them using a dedicated *entry point* called ``preview.php``, yes this is not very original. We decided to create a different entry point not to share the same URL with your public website as it could create confusing errors if your website is hosted behing a reverse proxy engine."
-msgstr ""
-
-#: ../../src/user/nodes-system/managing-nodes.rst:196
-msgid "For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to ``http://mywebsite.com/preview.php/my-news``. This URL will only allow authentified backend users, other people will be blocked."
+#: ../../src/user/users/intro.rst:126
+msgid "First, create a new OAuth2 application on https://console.cloud.google.com/ and follow instructions at https://developers.google.com/identity/protocols/oauth2/openid-connect#getcredentials"
 msgstr ""
 
