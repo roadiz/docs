@@ -1,82 +1,67 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:24\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/forms/custom_forms.pot\n"
+"X-Crowdin-File-ID: 102\n"
+"Language: fr_FR\n"
 
-#: ../../developer/forms/custom_forms.rst:5
+#: ../../src/developer/forms/custom_forms.rst:5
 msgid "Building custom forms"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:7
-msgid ""
-"Building a custom form looks like building a node but it is a lot "
-"simpler! Let's have a look at structure image."
+#: ../../src/developer/forms/custom_forms.rst:7
+msgid "Building a custom form looks like building a node but it is a lot simpler! Let's have a look at structure image."
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:13
-msgid ""
-"After creating a custom form, you add some question. The questions are "
-"the CustomFormField type."
+#: ../../src/developer/forms/custom_forms.rst:13
+msgid "After creating a custom form, you add some question. The questions are the CustomFormField type."
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:17
+#: ../../src/developer/forms/custom_forms.rst:17
 msgid "The answer is saved in two entities:"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:16
+#: ../../src/developer/forms/custom_forms.rst:16
 msgid "in CustomFormAnswer"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:17
+#: ../../src/developer/forms/custom_forms.rst:17
 msgid "in CustomFormFieldAttribute"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:19
-msgid ""
-"The CustomFormAnswer will store the IP and the submitted time. While "
-"question answer will be in CustomFormFieldAttribute with the "
-"CustomFormAnswer id and the CustomFormField id."
+#: ../../src/developer/forms/custom_forms.rst:19
+msgid "The CustomFormAnswer will store the IP and the submitted time. While question answer will be in CustomFormFieldAttribute with the CustomFormAnswer id and the CustomFormField id."
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:22
+#: ../../src/developer/forms/custom_forms.rst:22
 msgid "Adding custom form to your theme"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:24
-msgid ""
-"If you want to integrate your custom-forms into your theme, you can use "
-"Roadiz ``CustomFormHelper`` class to generate a standard "
-"``FormInterface`` and to create a view into your theme templates."
+#: ../../src/developer/forms/custom_forms.rst:24
+msgid "If you want to integrate your custom-forms into your theme, you can use Roadiz ``CustomFormHelper`` class to generate a standard ``FormInterface`` and to create a view into your theme templates."
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:28
-msgid ""
-"First you must create a dedicated action for your node or your block if "
-"you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter."
+#: ../../src/developer/forms/custom_forms.rst:28
+msgid "First you must create a dedicated action for your node or your block if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter."
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:104
-msgid ""
-"If you didn’t do it yet, create a custom form theme in your ``views/`` "
-"folder:"
+#: ../../src/developer/forms/custom_forms.rst:108
+msgid "If you didn’t do it yet, create a custom form theme in your ``views/`` folder:"
 msgstr ""
 
-#: ../../developer/forms/custom_forms.rst:136
+#: ../../src/developer/forms/custom_forms.rst:140
 msgid "In your main view, add your form and use your custom form theme:"
 msgstr ""
 
