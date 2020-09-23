@@ -1,31 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/contributing.pot\n"
+"X-Crowdin-File-ID: 78\n"
+"Language: fr_FR\n"
 
 #: ../../src/developer/contributing.rst:5
 msgid "Contributing"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:7
-msgid ""
-"If you want to contribute to Roadiz project by reporting issues or "
-"hacking code, let us thank you! You are awesome!"
+msgid "If you want to contribute to Roadiz project by reporting issues or hacking code, let us thank you! You are awesome!"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:10
@@ -33,17 +30,11 @@ msgid "Reporting issues"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:12
-msgid ""
-"When you encounter an issue with Roadiz we would love to hear about it. "
-"Because thanks to you, we can make the most awesome and stable CMS! If "
-"you submit a bug report please include all informations available to you,"
-" here are some things you can do:"
+msgid "When you encounter an issue with Roadiz we would love to hear about it. Because thanks to you, we can make the most awesome and stable CMS! If you submit a bug report please include all informations available to you, here are some things you can do:"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:16
-msgid ""
-"Try to simplify the things you are doing until getting a minimal set of "
-"actions reproducing the problem."
+msgid "Try to simplify the things you are doing until getting a minimal set of actions reproducing the problem."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:17
@@ -55,69 +46,35 @@ msgid "Running tests"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:22
-msgid ""
-"If you developed a new feature or simply want to try out an installation "
-"of Roadiz you can run unit-tests. For this you will need to install the "
-"testing dependencies, this can easily be done using:"
+msgid "If you developed a new feature or simply want to try out an installation of Roadiz you can run unit-tests. For this you will need to install the testing dependencies, this can easily be done using:"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:29
-msgid ""
-"You have to run unit-tests on a dedicated database not to lose any "
-"existing Roadiz website. You can create a ``conf/config_test.yml`` YAML "
-"configuration which will be read only for this environment. Then, wire "
-"this configuration to a blank database. Unit-tests can be launched by the"
-" following command:"
+msgid "You have to run unit-tests on a dedicated database not to lose any existing Roadiz website. You can create a ``conf/config_test.yml`` YAML configuration which will be read only for this environment. Then, wire this configuration to a blank database. Unit-tests can be launched by the following command:"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:36
-msgid ""
-"If your are writing a feature, don't forget to write a unit test for it. "
-"You can find some example in the folder ``tests``. In Roadiz, there are 4"
-" types of tests:"
+msgid "If your are writing a feature, don't forget to write a unit test for it. You can find some example in the folder ``tests``. In Roadiz, there are 4 types of tests:"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:39
-msgid ""
-"Standard tests which must extend ``\\PHPUnit_Framework_TestCase``. These "
-"tests should only test simple logic methods and classes as they won’t "
-"require Roadiz kernel to boot up."
+msgid "Standard tests which must extend ``\\PHPUnit_Framework_TestCase``. These tests should only test simple logic methods and classes as they won’t require Roadiz kernel to boot up."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:40
-msgid ""
-"Kernel dependent tests which must extend "
-"`RZ\\Roadiz\\Tests\\KernelDependentCase``. These tests should only test "
-"logic classes and methods inside Roadiz kernel without any database "
-"concern."
+msgid "Kernel dependent tests which must extend `RZ\\Roadiz\\Tests\\KernelDependentCase``. These tests should only test logic classes and methods inside Roadiz kernel without any database concern."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:41
-msgid ""
-"Schema dependent tests which must extend "
-"``RZ\\Roadiz\\Tests\\SchemaDependentCase``. These tests should only test "
-"low level database methods and classes without relying on node-types or "
-"translations. Use this type of testing if you want to test Roadiz "
-"entities and repositories methods except for Nodes and NodeTypes."
+msgid "Schema dependent tests which must extend ``RZ\\Roadiz\\Tests\\SchemaDependentCase``. These tests should only test low level database methods and classes without relying on node-types or translations. Use this type of testing if you want to test Roadiz entities and repositories methods except for Nodes and NodeTypes."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:42
-msgid ""
-"DefaultTheme dependent tests which must extend "
-"``RZ\\Roadiz\\Tests\\DefaultThemeDependentCase``. These tests rely on a "
-"complete Roadiz installation with existing node-types and translation. "
-"They are longer to prepare as PHPUnit must install a fresh Roadiz with "
-"DefaultTheme at each case."
+msgid "DefaultTheme dependent tests which must extend ``RZ\\Roadiz\\Tests\\DefaultThemeDependentCase``. These tests rely on a complete Roadiz installation with existing node-types and translation. They are longer to prepare as PHPUnit must install a fresh Roadiz with DefaultTheme at each case."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:45
-msgid ""
-"Each ``SchemaDependentCase`` and ``DefaultThemeDependentCase`` will "
-"provision a fresh Roadiz database then drop it. Make sure to use a "
-"dedicated database. If you execute unit-tests from an existing Roadiz "
-"website, you’ll have to run ``bin/roadiz generate:nsentities`` at the end"
-" of your testing session to build your NodesSources classes again (every "
-"environment share the same ``gen-src`` folder)."
+msgid "Each ``SchemaDependentCase`` and ``DefaultThemeDependentCase`` will provision a fresh Roadiz database then drop it. Make sure to use a dedicated database. If you execute unit-tests from an existing Roadiz website, you’ll have to run ``bin/roadiz generate:nsentities`` at the end of your testing session to build your NodesSources classes again (every environment share the same ``gen-src`` folder)."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:48
@@ -125,12 +82,7 @@ msgid "Coding style"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:50
-msgid ""
-"The code you contributed to the project should respect the guidelines "
-"defined in PHP *PSR2* standard. If you install the requirements for devs "
-"by the command ``composer update --dev``, you can use *phpcs* to check "
-"your code. You can copy and paste the following command-lines to check "
-"easily:"
+msgid "The code you contributed to the project should respect the guidelines defined in PHP *PSR2* standard. If you install the requirements for devs by the command ``composer update --dev``, you can use *phpcs* to check your code. You can copy and paste the following command-lines to check easily:"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:58
@@ -138,10 +90,7 @@ msgid "Or you can use *phpcbf* to automatically fix code style issues."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:64
-msgid ""
-"Please take those rules into account, we aim to have a clean codebase. A "
-"coherent codestyle will contribute to Roadiz stability. Your code will be"
-" checked when we will be considering your pull requests."
+msgid "Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability. Your code will be checked when we will be considering your pull requests."
 msgstr ""
 
 #: ../../src/developer/contributing.rst:68
@@ -149,20 +98,14 @@ msgid "Static analysis"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:70
-msgid ""
-"Then we use ``phpstan`` as a static code analyzer to check bugs and "
-"misuses before they occur:"
+msgid "Then we use ``phpstan`` as a static code analyzer to check bugs and misuses before they occur:"
 msgstr ""
 
+#: ../../src/developer/contributing.rst:None
 msgid "Standard Edition"
 msgstr ""
 
 #: ../../src/developer/contributing.rst:78
-msgid ""
-"Roadiz *Standard Edition* comes with a ``Makefile`` to make it easier to "
-"test your sources and your theme. Just execute ``make test`` and "
-"``phpcbf`` and ``phpstan`` will test your theme sources. If you are using"
-" *Gitlab CI/CD* with our ``.gitlab-ci.yml`` file, those tests will be "
-"executed at each pipeline trigger."
+msgid "Roadiz *Standard Edition* comes with a ``Makefile`` to make it easier to test your sources and your theme. Just execute ``make test`` and ``phpcbf`` and ``phpstan`` will test your theme sources. If you are using *Gitlab CI/CD* with our ``.gitlab-ci.yml`` file, those tests will be executed at each pipeline trigger."
 msgstr ""
 
