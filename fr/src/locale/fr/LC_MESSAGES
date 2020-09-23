@@ -13,59 +13,123 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/index.pot\n"
-"X-Crowdin-File-ID: 150\n"
+"X-Crowdin-File: /develop/i18n/locale/extension/extending_roadiz.pot\n"
+"X-Crowdin-File-ID: 144\n"
 "Language: fr_FR\n"
 
-#: ../../src/index.rst:5
-msgid "Welcome to Roadiz's documentation!"
+#: ../../src/extension/extending_roadiz.rst:5
+msgid "Extending Roadiz"
 msgstr ""
 
-#: ../../src/index.rst:7
-msgid "Roadiz is a polymorphic CMS based on a node system that can handle many types of services. It is based on *Symfony* components, *Doctrine ORM*, *Twig* and *Pimple* for maximum performances and security."
+#: ../../src/extension/extending_roadiz.rst:7
+msgid "It is time to see how to extend Roadiz! As you read in Roadiz :ref:`philosophy` part, we won’t ship \"plugin\" or \"module\" like others CMS. But you will be able to add of lot of features using the part that really matters: Themes!"
 msgstr ""
 
-#: ../../src/index.rst:10
-msgid "Roadiz node system allows you to create your data schema and to organize your content as you want. We designed it to break technical constraints when you create tailor-made websites architectures and layouts."
+#: ../../src/extension/extending_roadiz.rst:12
+msgid "Theme powered CMS"
 msgstr ""
 
-#: ../../src/index.rst:13
-msgid "Imagine you need to display your graphic design portfolio and… sell some t-shirts. With Roadiz you will be able to create your content forms from scratch and choose the right fields you need. Images and texts for your projects. Images, texts, prices and even geolocation for your products. That’s why it’s called *polymorphic*."
+#: ../../src/extension/extending_roadiz.rst:14
+msgid "We coded the Theme system to be the core of your extending experience. You don't need to change something else than your theme. So you can use a versioning tool or backup easily your work which will be only at one place."
 msgstr ""
 
-#: ../../src/index.rst:19
-msgid "Philosophy"
+#: ../../src/extension/extending_roadiz.rst:18
+msgid "You can add new entities. If so, don't forget to add your ``Entities`` namespace in Roadiz config file. With theses additional entities, you maybe will need to create a back-office entry to manage them. It's easy! Let's see how to."
 msgstr ""
 
-#: ../../src/index.rst:21
-msgid "When discovering Roadiz back-office interface, you will notice that there aren’t any Rich text editor also called *WYSIWYG* editors. We chose to promote *Markdown* syntax in order to focus on content hierarchy and quality instead of content style. Our guideline is to preserve and respect the webdesigners' and graphic designers' work."
+#: ../../src/extension/extending_roadiz.rst:23
+msgid "Create your own database entities"
 msgstr ""
 
-#: ../../src/index.rst:24
-msgid "You’ll see that we built Roadiz as webdesigners and for webdesigners. It will allow you to create really quickly website prototypes using *Twig* templates. But as the same time you will be able to get the power of the *Symfony* and *Doctrine* core components to build complex applications."
+#: ../../src/extension/extending_roadiz.rst:25
+msgid "You can create a theme with your own entities. Just add your *Entities* folder to the global configuration file (``app/conf/config.yml``)."
 msgstr ""
 
-#: ../../src/index.rst:28
-msgid "We also decided to be really strict about Plugins and other addons modules. How many of you do not upgrade your Wordpress website because of plugin dependencies? We decided not to build Roadiz around a “Plugin” system but a **Theme system**, as every Roadiz extensions will have to serve a theme’s features. Themes will enable you to create awesome website layouts but also great back-office additions for your customers. You will be able to centralize all your custom code in one place, so you can use a versioning tool such as Git."
+#: ../../src/extension/extending_roadiz.rst:36
+msgid "Verify if everything is OK by checking migrations:"
 msgstr ""
 
-#: ../../src/index.rst:30
-msgid "Roadiz theme system will allow you to daisy-chain themes and dispatch features on multiple code. As our CMS is built on Pimple dependency injection container, Roadiz can merge every available themes on the same website. For example, you will be able to create one portfolio theme using Node-system Urls and unlimited static themes which will use a static routing scheme, for a Forum or a Blog or even both! Theme system will even allow you to create additional Doctrine entities and extend our back-office. Yes, just sit on your theme code and you can extend Roadiz to create a manager for your Forum. Cherry on the cake, you can assign each theme to a specific domain name to create mobile or media specific layouts. Believe me, this cake is not a lie."
+#: ../../src/extension/extending_roadiz.rst:42
+msgid "If you see your entities being created and no system database erased, just apply your migration with ``--force``. If Doctrine send some error, you probably need to clear metadata cache:"
 msgstr ""
 
-#: ../../src/index.rst:32
-msgid "We want Roadiz to be a great tool for designers and developers to build strong web experiences together. But we thought of editors too! Roadiz back-office theme “Rozier” has been designed to offer every back-users a great writing and administrating experience."
+#: ../../src/extension/extending_roadiz.rst:49
+msgid "Clearing cache from command line **will not empty op-code cache**. Be sure to call ``clear_cache.php`` entry point to actually clear *PHP-FPM* related caches. You can use an ``curl`` command if your website is accessible from *localhost*:"
 msgstr ""
 
-#: ../../src/index.rst:35
-msgid "User documentation"
+#: ../../src/extension/extending_roadiz.rst:59
+msgid "Add back-office entry"
 msgstr ""
 
-#: ../../src/index.rst:43
-msgid "Developer documentation"
+#: ../../src/extension/extending_roadiz.rst:61
+msgid "At first, create a controller into your theme folder, for example ``themes/MyTheme/AdminControllers/AdminController``."
 msgstr ""
 
-#: ../../src/index.rst:51
-msgid "Extension documentation"
+#: ../../src/extension/extending_roadiz.rst:63
+msgid "Example:"
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:87
+msgid "If you look at this exemple you can see the class extends ``RozierApp`` not your ``MyThemeApp`` class! This will enable you to “inject” your code into Rozier Back-stage DOM and Style. But be careful to use `MyThemeApp::getThemeDir()` as your template namespace."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:91
+msgid "Now let's have a look to your twig template file ``admin/test.html.twig``."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:121
+msgid "The first line is for inheriting from Rozier base template, you can notice that we explicitly choose `@Rozier` namespace."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:123
+msgid "The two next blocks are made for you to add some CSS or Javascript. For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ asset('static/css/customstyle.css', 'MyTheme') }}``, or add directly some CSS with \"<style>\" tag. For JS, the block ``customScripts`` work as is, just link an external JS file or write your ``<script>`` tag."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:129
+msgid "Then create your own content, do not hesitate to give a look at Rozier back-stage theme Twig files to use the right DOM structure. For simple features, you wouldn’t have to extend JS nor CSS if you follow the same HTML coding style."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:133
+msgid "Linking things together"
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:135
+msgid "Add the route in the theme ``route.yml`` file."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:137
+msgid "In this case the route will be:"
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:148
+msgid "Inject your own entries in back-stage"
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:150
+msgid "The last thing to do is to add your new admin entry in the back-office menu."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:152
+msgid "Go to your ``MyThemeApp.php`` main class and override ``setupDependencyInjection`` method, or create it if it doesn’t exist."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:178
+msgid "Do not forget to add ``use Pimple\\Container;`` in your file header."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:180
+msgid "``setupDependencyInjection`` method is called statically at boot time when Roadiz’s kernel is running all available Themes to setup services. In the code above, you will extend ``backoffice.entries`` service which define every buttons available in Rozier backstage main-menu."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:184
+msgid "If you want to have a category and sub-entries, just change the path at ``null`` value and create your ``subentries`` array as described in the next example:"
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:204
+msgid "You can restrict buttons to users with specific roles. Just replace ``'roles' => null`` with ``'roles' => array('ROLE_ACCESS_NODES')``. You can even create your own roles to take full power of Roadiz extension system."
+msgstr ""
+
+#: ../../src/extension/extending_roadiz.rst:209
+msgid "Adding roles in ``backoffice.entries`` service will only restrict buttons display in Rozier backstage interface. To really protect your controllers from unwanted users add ``$this->validateAccessForRole('ROLE_ACCESS_MY_FEATURE');`` at the first line of your back-ofice controller‘s actions. This will kick non-granted users from your custom back-office parts. Give a look at Rozier theme controllers to see how we use it."
 msgstr ""
 
