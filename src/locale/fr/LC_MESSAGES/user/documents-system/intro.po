@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:59\n"
+"PO-Revision-Date: 2020-09-23 21:14\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -43,11 +43,11 @@ msgstr "Voici la partie magique de la section Documents. Vous pouvez intégrer d
 
 #: ../../src/user/documents-system/intro.rst:30
 msgid "Random document"
-msgstr "Document aléatoire"
+msgstr "Document au hasard"
 
 #: ../../src/user/documents-system/intro.rst:32
 msgid "*Random* is a cool feature that allows to download random documents to your website from *Splashbase*."
-msgstr "*Aléatoire* est une fonctionnalité bien pratique qui permet de télécharger des documents au hasard sur votre site à partir de la base libre de *Splashbase*."
+msgstr "*J’ai de la chance* est une fonctionnalité bien pratique qui permet de télécharger des documents au hasard sur votre site à partir de la base libre de *Splashbase*."
 
 #: ../../src/user/documents-system/intro.rst:38
 msgid "Unused document"
