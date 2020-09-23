@@ -13,151 +13,31 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/themes/theme_firewall.pot\n"
-"X-Crowdin-File-ID: 134\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/themes/send_emails.pot\n"
+"X-Crowdin-File-ID: 132\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/themes/theme_firewall.rst:5
-msgid "Add a firewall in your theme"
+#: ../../src/developer/themes/send_emails.rst:5
+msgid "Sending emails from your website"
 msgstr ""
 
-#: ../../src/developer/themes/theme_firewall.rst:7
-msgid "You may need to add a secured area in your website or application, even for none-backend users. Roadiz uses *Symfony* security components to handle firewalled requests. You will be able to extend the *firewall map* in your Theme ``addDefaultFirewallEntry`` method."
+#: ../../src/developer/themes/send_emails.rst:7
+msgid "``emailManager`` factory service is available to send emails from your application. It’s already configured to use simple CSS styles and you can use an HTML and plain-text templates."
 msgstr ""
 
-#: ../../src/developer/themes/theme_firewall.rst:11
-msgid "Before create your firewall map entry, you must understand that Roadiz already has 2 firewall areas:"
+#: ../../src/developer/themes/send_emails.rst:34
+msgid "Assignation works the same way as HTML template for your website, you must assign every content and informations you’ll need to print in your emails."
 msgstr ""
 
-#: ../../src/developer/themes/theme_firewall.rst:13
-msgid "``^/rz-admin`` area, which naturally matches every back-office sections"
+#: ../../src/developer/themes/send_emails.rst:39
+msgid "Be careful, every image path or links **must be** an absolute URL, not a path as your receivers won’t be able to resolve your full domain name. Make sure you are using ``url()`` instead of ``path()`` for links and wrap with ``absolute_url()`` method your static assets (like in the example before)."
 msgstr ""
 
-#: ../../src/developer/themes/theme_firewall.rst:14
-msgid "``^/`` area which is required for previewing unpublished node and get user informations across the whole website"
+#: ../../src/developer/themes/send_emails.rst:44
+msgid "Your `emails/email.html.twig` template should inherits from Roadiz `base_email.html.twig` template."
 msgstr ""
 
-#: ../../src/developer/themes/theme_firewall.rst:16
-msgid "The last firewall request matcher can be tricky to deal with, especially if you want to add another secured area as it *listen* to every requests. When you’ll add new firewall map entry, you may call ``parent::addDefaultFirewallEntry($container);`` **before** your custom configuration to be sure that ``^/`` request matcher has **the lowest priority**. However, if you want to override ``^/`` request matcher configuration you have to omit the parent method call."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:43
-msgid "Configuring a non-root firewall map entry with FirewallEntry class"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:45
-msgid "Before copy and pasting the following lines, think about it a little time… A firewall map entry defines severals mandatory routes:"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:48
-msgid "A *base path* for your firewall to be triggered"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:49
-msgid "A *login* path, which **can** be **outside** or **inside** of your firewall map"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:50
-msgid "A *login_check* path, which **must** be **inside** of your firewall map"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:51
-msgid "A *logout* path, which **must** be **inside** of your firewall map"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:52
-msgid "A new role describing your secured area purpose (i.e. *ROLE_ACCESS_PRESS* for a private press kit area), you should create this role in Roadiz backoffice before."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:54
-msgid "If this example I will use:"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:56
-msgid "``/press`` as my base path for secured area"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:57
-msgid "``/signin`` for my login page, notice that it’s not in my firewall"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:58
-msgid "``/press/login_check``"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:59
-msgid "``/press/logout``"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:60
-msgid "*ROLE_ACCESS_PRESS*"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:62
-msgid "Here is the code to add in your theme’ addDefaultFirewallEntry method. Do not forget to add the matching *use* statement in your file header."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:117
-msgid "Add login routes"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:119
-msgid "After configuring your Firewall, you’ll need to add your routes to your theme ``routes.yml`` file. *Logout* and *login_check* won’t need any controller setup as they will be handled directly by Roadiz firewall event dispatcher. The only one you need to handle is the *login* page."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:136
-msgid "If your **login** route is *inside* your firewall **and** your access map require an other role than ``IS_AUTHENTICATED_ANONYMOUSLY`` you must add a special access map entry to enable your public visitor to access your login page."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:139
-msgid "``$this->container['accessMap']->add(new RequestMatcher('^/press/signin'), ['IS_AUTHENTICATED_ANONYMOUSLY']);``"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:141
-msgid "Add this line with your login page pattern **before** adding your firewall entry. Access map entries order is important!"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:143
-msgid "In your ``LoginController``, just add error handling from the ``securityAuthenticationUtils`` service to display a feedback on your login form:"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:164
-msgid "Then, you can create your *login* form as you want. Just use the required fields:"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:166
-msgid "``_username``"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:167
-msgid "``_password``"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:169
-msgid "And do not forget to set your form *action* to ``{{ path('themeLoginCheck') }}`` and to use *POST* method."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:195
-msgid "Configuring a root firewall map entry with FirewallEntry class"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:197
-msgid "You may want to offer authentication for every pages of your website and manage access control manually within your node-type controllers. In that case you need to override default front-end Firewall map entry with your own and defined login/logout paths."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:256
-msgid "For the moment, every pages of your website will be public. You’ll need to use ``is_granted`` *Twig* filter and ``$this->denyAccessUnlessGranted($role)`` method to manage access control to your contents."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:261
-msgid "Multi-theme website"
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:263
-msgid "If your website has more than one theme you must disable firewall entries on every non-main theme app class not to register duplicated firewall entries with the same access-map rules."
-msgstr ""
-
-#: ../../src/developer/themes/theme_firewall.rst:266
-msgid "For example, if you registered a ``MainTheme`` and a ``SecondaryTheme``, add the following lines to your ``themes/SecondaryTheme/SecondaryThemeApp.php`` class:"
+#: ../../src/developer/themes/send_emails.rst:65
+msgid "Your `emails/email.txt.twig` template should inherits from Roadiz `base_email.txt.twig` template."
 msgstr ""
 
