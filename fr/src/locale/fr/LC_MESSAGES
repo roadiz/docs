@@ -13,111 +13,223 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/case-studies/download-to-vagrant.pot\n"
-"X-Crowdin-File-ID: 74\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/requirements.pot\n"
+"X-Crowdin-File-ID: 94\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:5
-msgid "Download a website on my computer to work with Vagrant"
+#: ../../src/developer/first-steps/requirements.rst:5
+msgid "Requirements"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:7
-msgid "This case study is meant to get a fresh development environment from an **existing** Roadiz **Source edition** website and theme. Following code snippets are using some variables data, in theses examples I’ll use:"
+#: ../../src/developer/first-steps/requirements.rst:9
+msgid "Roadiz is a web application running with PHP. It requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections. Here is a short summary of mandatory elements before installing Roadiz:"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:10
-msgid "``MYUSER`` as the MySQL database user."
+#: ../../src/developer/first-steps/requirements.rst:12
+msgid "Nginx or Apache, with a dedicated virtual host as described below."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:11
-msgid "``MYPASSWORD`` as the MySQL database user password."
+#: ../../src/developer/first-steps/requirements.rst:13
+msgid "PHP 7.2+ **required**"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:12
-msgid "``MYDATABASE`` as the MySQL database name."
+#: ../../src/developer/first-steps/requirements.rst:14
+msgid "``php-gd`` extension"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:13
-msgid "``~/Documents/Websites`` as the working directory on your own computer."
+#: ../../src/developer/first-steps/requirements.rst:15
+msgid "``php-intl`` extension"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:14
-msgid "``database-YYYY-mm-dd.sql`` is the mysql dump file name, replace ``YYYY-mm-dd`` with the current date."
+#: ../../src/developer/first-steps/requirements.rst:16
+msgid "``php-xml`` extension"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:15
-msgid "``mysuperwebsite`` is your website root folder."
+#: ../../src/developer/first-steps/requirements.rst:17
+msgid "``php-curl`` extension"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:16
-msgid "``git@github.com:johndoe/SuperTheme.git`` is an example *Github* repository for your theme."
+#: ../../src/developer/first-steps/requirements.rst:18
+msgid "``php-mbstring`` extension"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:17
-msgid "``SuperTheme`` is an example theme name and folder."
+#: ../../src/developer/first-steps/requirements.rst:19
+msgid "JSON needs to be enabled"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:20
-msgid "On the production server:"
+#: ../../src/developer/first-steps/requirements.rst:20
+msgid "ctype needs to be enabled"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:22
-msgid "Generate a database dump on your production server."
+#: ../../src/developer/first-steps/requirements.rst:21
+msgid "Your php.ini needs to have the ``date.timezone`` setting"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:28
-msgid "Then download it on your computer. You can also use *phpmyadmin* web tool to export your database tables. Make sure to disable *foreign key verification* and add the *DROP IF EXISTS* directive on *phpmyadmin* export form."
+#: ../../src/developer/first-steps/requirements.rst:22
+msgid "You need to have at least version 2.6.21 of libxml"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:33
-msgid "On your computer:"
+#: ../../src/developer/first-steps/requirements.rst:23
+msgid "PHP tokenizer needs to be enabled"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:35
-msgid "Clone Roadiz on your favorite folder, choose well between master or develop branch if you want the stable version or the latest features."
+#: ../../src/developer/first-steps/requirements.rst:24
+msgid "PHP *OPcache* + *APCu* (APC 3.0.17+ or another opcode cache needs to be installed)"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:44
-msgid "Clone your website theme in Roadiz ``themes/`` folder, choose well your branch too. If you already have a *develop* branch, clone with ``-b develop`` option."
+#: ../../src/developer/first-steps/requirements.rst:25
+msgid "``php.ini`` recommended settings"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:52
-msgid "**[Optional]** Initialize *git-flow* on the theme. You should always work on *develop*. *Master* branch is only for releases. If you don’t have *git-flow* on your computer, you can find some help on the `official documentation <http://danielkummer.github.io/git-flow-cheatsheet/>`_."
+#: ../../src/developer/first-steps/requirements.rst:27
+msgid "``short_open_tag = Off``"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:64
-msgid "Install Roadiz’ *Composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)"
+#: ../../src/developer/first-steps/requirements.rst:28
+msgid "``magic_quotes_gpc = Off``"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:71
-msgid "Launch your Vagrant environment. Do not to automatically provision your VM if you want to choose what tool to install."
+#: ../../src/developer/first-steps/requirements.rst:29
+msgid "``register_globals = Off``"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:78
-msgid "Choose tools to install on your VM, ``roadiz`` provisioner is mandatory… obviously, ``devtools`` provisioner will install *Composer*, *Node.js*, *Grunt* and *Bower* commands. If you have lots of website on your computer, it’s better to install these tools directly on your host machine, they will be more effective than on the VM. And you will be able to take advantage of *Composer* and *NPM* cache between your dev websites."
+#: ../../src/developer/first-steps/requirements.rst:30
+msgid "``session.auto_start = Off``"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:91
-msgid "Import your database dump. First, you’ll need to copy it into your Roadiz website to make it available within your Vagrant VM. Then import it in your VM using the ``mysql`` tool."
+#: ../../src/developer/first-steps/requirements.rst:32
+msgid "MariaDB 10.2.4+ or MySQL 5.7+ database with `JSON_*` functions support"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:105
-msgid "Update your conf/config.yml file to fill in your mysql credentials."
+#: ../../src/developer/first-steps/requirements.rst:33
+msgid "Zip/Unzip"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:113
-msgid "Use the ``bin/roadiz generate:nsentities`` to regenerate *Doctrine* entities existing in database but not as files."
+#: ../../src/developer/first-steps/requirements.rst:34
+msgid "cUrl"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:125
-msgid "Download your production documents to your dev VM. You don’t have to do this within your VM."
+#: ../../src/developer/first-steps/requirements.rst:35
+msgid "Composer"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:133
-msgid "If you are using a Vagrant VM you have to add your IP address to the ``dev.php`` file to authorize your host computer to use the development environment."
+#: ../../src/developer/first-steps/requirements.rst:36
+msgid "Git"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:135
-msgid "11. Connect to ``http://localhost:8080/dev.php`` to begin. Every outgoing emails should be catched by *Mailcatcher*. You can see them at address ``http://localhost:1080``."
+#: ../../src/developer/first-steps/requirements.rst:39
+msgid "If you are using a *shared hosting plan*, make sure that your server’s SSH connection allows external connections. You can verify with a simple ``ping google.com``. If you get request timeouts, your hosting provider might be blocking your SSH connectivity. You should consider using at least a VPS-like hosting. If you really need to setup Roadiz on a simple shared-hosting plan, we encourage you to install it on your own computer and send it with SFTP/FTP (it might take a long time) or *rsync* it."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:45
+msgid "For Nginx users"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:47
+msgid "If you are using Nginx, you don’t have to enable any extensions. You only need to create your *virtual host* using our example file ``/samples/nginx.conf``."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:51
+msgid "For Apache users"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:53
+msgid "If you are using *Apache* do not forget to enable these mods:"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:55
+msgid "``mod_rewrite``: enabling Roadiz front-controller system."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:56
+msgid "``mod_expires``: enabling http cache headers on static assets."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:58
+msgid "And do not use built-in ``mod_php``, prefer *PHP-FPM* 😉!"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:60
+msgid "Then use ``/samples/apache.conf`` template to create your *virtual host* configuration file. It shows how to set rewrite and secure private folders from being viewed from public visitors."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:63
+msgid "If you do not have access to your Apache virtual host configuration, you can use the built-in *htaccess* generator:"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:65
+msgid "``bin/roadiz generate:htaccess``"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:67
+msgid "This command will generate ``.htaccess`` files in each critical folder to enable PHP scripts or deny public access to forbidden folders."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:None
+msgid "Standard Edition"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:71
+msgid "``bin/roadiz generate:htaccess`` is not needed anymore with *Roadiz Standard edition* as you will configure your *Apache/Nginx* root to ``web/`` folder only. No source or configuration files will be exposed anymore."
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:77
+msgid "CMS Structure"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:79
+msgid "``bin/``: Contains the Roadiz CLI executable"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:80
+msgid "``docker/``: Tools for creating development and production *Docker* image for your project"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:81
+msgid "``app/``: Contains every runtime resources from configuration to app cache and nodes-sources entities"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:83
+msgid "``cache/``: Every cache file for *Twig* templates and `Intervention Request <https://github.com/roadiz/roadiz/releases>`_ images (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:84
+msgid "``conf/``: Your setup configuration file(s) (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:85
+msgid "``gen-src/``: Generated PHP code for Doctrine and your Node-types entities (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:86
+msgid "``logs/``: *Monolog* logs folder"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:88
+msgid "``files/``: Private documents and font files root (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:89
+msgid "``samples/``: This folder contains useful configuration and example files for Apache or Nginx webservers"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:90
+msgid "``web/``: Your website root, it contains your application entry-points and your public assets"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:92
+msgid "``files/``: Public documents (this folder must be writable for PHP)"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:93
+msgid "``themes/``: public assets mirror for each theme, this folder contains symlinks to your ``themes/YourTheme/static`` folder"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:95
+msgid "``themes/``: Contains your own themes and all your website logic"
+msgstr ""
+
+#: ../../src/developer/first-steps/requirements.rst:96
+msgid "``vendor/``: Dependencies folder managed by *Composer*"
 msgstr ""
 
