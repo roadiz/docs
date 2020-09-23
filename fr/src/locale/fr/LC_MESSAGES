@@ -13,131 +13,67 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/user/users/intro.pot\n"
-"X-Crowdin-File-ID: 160\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/tags-system/index.pot\n"
+"X-Crowdin-File-ID: 122\n"
 "Language: fr_FR\n"
 
-#: ../../src/user/users/intro.rst:4
-msgid "Managing users"
+#: ../../src/developer/tags-system/index.rst:5
+msgid "Tag system"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:6
-msgid "This is a simple guide on how to create and manage users using Roadiz CLI."
+#: ../../src/developer/tags-system/index.rst:7
+msgid "Nodes are essentially hierarchical entities. So we created an entity to link nodes between them no matter where/what they are. Tags are meant as *tag* nodes, we couldn’t be more explicit. But if you didn’t understand here is a schema:"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:8
-msgid "There are two ways of adding users, via the back-office and in command-line, both will be displayed in each section."
+#: ../../src/developer/tags-system/index.rst:14
+msgid "You can see that tags can gather heterogenous nodes coming from different types (pages and projects). Tags can be used to display a category-navigation on your theme or to simply tidy your backoffice node database."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:10
-msgid "When working with Roadiz in the back-office, you can easily manage users via the *User system* icon in the toolbar."
+#: ../../src/developer/tags-system/index.rst:17
+msgid "Did you notice that ``Tags`` are related to ``Nodes`` entities, not ``NodesSources``? We thought that it would be easier to manage that way not to forget to tag a specific node translation. It means that you won’t be able to differenciate tag two ``NodesSources``, if you absolutely need to, we encourage you to create two different nodes."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:16
-msgid "Create a new user"
+#: ../../src/developer/tags-system/index.rst:22
+msgid "Translate tags"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:21
-msgid "You can add users simply by clicking *Add an user* button."
+#: ../../src/developer/tags-system/index.rst:24
+msgid "You will notice that tags work the same way as nodes do. By default, *tags names* can’t contain special characters in order to be used in URLs. So we created ``TagTranslation`` entities which stand for Tag’s sources:"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:26
-msgid "If you create an user without specifying its *password*, an email with a password reset link will sent. Make sure that you entered the right email and that your Roadiz website has a *mailer* configured. New user will be locked unless he or she resets its password first."
+#: ../../src/developer/tags-system/index.rst:30
+msgid "In that way you will be able to translate your tags for each available languages and link documents to them."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:33
-msgid "A new user without password will stay locked until he or she resets its password."
+#: ../../src/developer/tags-system/index.rst:33
+msgid "Tag hierarchy"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:35
-msgid "The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
+#: ../../src/developer/tags-system/index.rst:35
+msgid "In the same way as *Nodes* work, tags can be nested to create *tag groups*."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:39
-msgid "Delete user"
+#: ../../src/developer/tags-system/index.rst:38
+msgid "Displaying node-source tags with Twig"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:41
-msgid "You can remove users by clicking the trashcan icon."
+#: ../../src/developer/tags-system/index.rst:40
+msgid "Tag translations are already set up to track your current locale if you fetched them using ``|tags`` *Twig* filter. Simply use ``getTranslatedTags()->first()`` Tag method to use them in your templates."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:46
-msgid "The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
+#: ../../src/developer/tags-system/index.rst:56
+msgid "Tags translations documents"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:49
-msgid "Adding role"
+#: ../../src/developer/tags-system/index.rst:58
+msgid "Documents can be linked to your tag translations. They will be different for each translation, so make sure to synchronize them manually if you want to use the same document for all translations."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:51
-msgid "You can edit a users profile the same way you edit a node-type. You can add roles in the *Roles* tab."
+#: ../../src/developer/tags-system/index.rst:62
+msgid "They are available with ``getDocuments()`` method and will be ordered by **position only**."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:56
-msgid "If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would look like this in command-line:"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:65
-msgid "Other action"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:67
-msgid "It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command. If a user doesn't remember his password, you can regenerate it with the ``users:password`` command. For more informations and more actions, we invite you to check available commands with:"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:77
-msgid "Enable SSO for back-office users"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:79
-msgid "Roadiz is compatible with any **OpenID** single sign-on system (such as Google, Exchange, …) and can be configured to allow your company users to login to your back-office with several ``ROLES``."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:82
-msgid "First, make sure to generate and gather the following information from your *OpenID* provider:"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:84
-msgid "OpenID client ID"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:85
-msgid "OpenID client secret"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:86
-msgid "OpenID auto-discovery URL (i.e. for Google GSuite user https://accounts.google.com/.well-known/openid-configuration)"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:88
-msgid "Then you should decide:"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:90
-msgid "What *roles* (comma separated) you want to be automatically granted to users connected with your SSO. You always can create a more complex strategy in your website by registering a ``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy``."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:100
-msgid "What domain name to restrict users from. This is very important for *Google Suite* users because the auto-discovery is the same for everybody. You may not want to allow every Google Suite users to access your back-office 😉."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:101
-msgid "A button label for your back-office login page."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:108
-msgid "Fill all your gathered information to the right *Roadiz* settings."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:114
-msgid "Then, if your parameter are correct you should see your SSO connect button on *Roadiz* back-office login page. Pay attention that if your SSO users do not have sufficient permissions they may have a 403 error after being redirected from SSO flow."
-msgstr ""
-
-#: ../../src/user/users/intro.rst:124
-msgid "Google Suite OpenID implementation is described at https://developers.google.com/identity/protocols/oauth2/openid-connect#discovery"
-msgstr ""
-
-#: ../../src/user/users/intro.rst:126
-msgid "First, create a new OAuth2 application on https://console.cloud.google.com/ and follow instructions at https://developers.google.com/identity/protocols/oauth2/openid-connect#getcredentials"
+#: ../../src/developer/tags-system/index.rst:64
+msgid "Imagine, you want to link a PDF document for each of your tags, you can create a download link as described below:"
 msgstr ""
 
