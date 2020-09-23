@@ -13,51 +13,15 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/php_server.pot\n"
-"X-Crowdin-File-ID: 92\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/case-studies/index.pot\n"
+"X-Crowdin-File-ID: 76\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/first-steps/php_server.rst:4
-msgid "Using PHP server for development"
+#: ../../src/developer/case-studies/index.rst:4
+msgid "Case studies"
 msgstr ""
 
-#: ../../src/developer/first-steps/php_server.rst:6
-msgid "If *Vagrant* is too heavy for your purpose, you can simply use *PHP built-in server*."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:9
-msgid "Following command will launch a web-server listening on all IP addresses on port 8080. We also use a dedicated *router* file to serve static and generated resources:"
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:26
-msgid "Standard Edition has a ``Makefile`` recipe for launching internal PHP server with a chosen port and IP: ``make dev-server``."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:29
-msgid "If you want to use PHP internal server, make sure you have installed all required PHP extensions and that you have a database server:"
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:32
-msgid "You can use a local MySQL/MariaDB server"
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:33
-msgid "Or use a SQLite3 database, just use ``../app/conf/database.db3`` path during install."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:38
-msgid "PHP web server was designed to aid application development. It may also be useful for testing purposes or for application demonstrations that are run in controlled environments. It is not intended to be a full-featured web server. It should not be used on a public network."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:44
-msgid "Use Mailhog to catch outgoing emails"
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:46
-msgid "Contrary to *Vagrant*, using PHP built-in server does not provide any additional tool such as *Mailcatcher* or *Apache Solr*. You can setup `Mailhog <https://github.com/mailhog/MailHog>`__ to catch outgoing emails in a clean web interface."
-msgstr ""
-
-#: ../../src/developer/first-steps/php_server.rst:51
-msgid "On *macOS*, use *HomeBrew*: ``brew update && brew install mailhog``, then configure your PHP ``sendmail_path`` to use it."
+#: ../../src/developer/case-studies/index.rst:6
+msgid "Some step-to-step guides to work with Roadiz."
 msgstr ""
 
