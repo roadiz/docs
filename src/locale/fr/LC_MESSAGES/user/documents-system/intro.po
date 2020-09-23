@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:47\n"
+"PO-Revision-Date: 2020-09-23 20:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Gérer les documents"
 
 #: ../../src/user/documents-system/intro.rst:6
 msgid "You can manage documents via the *Document* icon in the toolbar. You can either upload, embed, randomly downloaded documents, and even have a look at unused documents in your website."
-msgstr ""
+msgstr "Vous pouvez gérer les documents via l'icône *Document* dans la barre d'outils. Vous pouvez soit téléverser, intégrer des documents externes, et même jeter un coup d'œil aux documents inutilisés de votre site Web."
 
 #: ../../src/user/documents-system/intro.rst:12
 msgid "Upload document"
@@ -31,7 +31,7 @@ msgstr "Téléverser un document"
 
 #: ../../src/user/documents-system/intro.rst:14
 msgid "Uploading a document has never been this easy: just drag and drop the document in the designated area."
-msgstr ""
+msgstr "Le téléversement d'un document n'a jamais été aussi simple : il suffit de glisser-déposer le document dans la zone désignée."
 
 #: ../../src/user/documents-system/intro.rst:21
 msgid "Embed document"
@@ -39,7 +39,7 @@ msgstr "Intégrer un document"
 
 #: ../../src/user/documents-system/intro.rst:23
 msgid "Here is the magical part of the Documents section. You can have embedded documents from *YouTube*, *SoundCloud*, *Vimeo*, *Mixcloud*, *Spotify*, *Twitch*, *TED* and *Dailymotion*, then use them as if they were images in your content blocks."
-msgstr ""
+msgstr "Voici la partie magique de la section Documents. Vous pouvez intégrer des médias depuis *YouTube*, *SoundCloud*, *Vimeo*, *Mixcloud*, *Spotify*, *Twitch*, *TED* et *Dailymotion*, puis utilisez-les comme s'il s'agissait de documents internes dans vos blocs de contenu."
 
 #: ../../src/user/documents-system/intro.rst:30
 msgid "Random document"
@@ -47,7 +47,7 @@ msgstr "Document aléatoire"
 
 #: ../../src/user/documents-system/intro.rst:32
 msgid "*Random* is a cool feature that allows to download random documents to your website from *Splashbase*."
-msgstr ""
+msgstr "*Aléatoire* est une fonctionnalité bien pratique qui permet de télécharger des documents au hasard sur votre site à partir de la base libre de *Splashbase*."
 
 #: ../../src/user/documents-system/intro.rst:38
 msgid "Unused document"
