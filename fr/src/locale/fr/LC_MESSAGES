@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:24\n"
+"PO-Revision-Date: 2020-09-23 20:22\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -13,167 +13,143 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/user/write-in-markdown/index.pot\n"
-"X-Crowdin-File-ID: 162\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/attributes/index.pot\n"
+"X-Crowdin-File-ID: 72\n"
 "Language: fr_FR\n"
 
-#: ../../src/user/write-in-markdown/index.rst:4
-msgid "Write in Markdown"
+#: ../../src/developer/attributes/index.rst:3
+msgid "Attributes"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:6
-msgid "Markdown is a lightweight markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name. […] The key design goal is readability – that the language be readable as-is, without looking like it has been marked up with tags or formatting instructions, unlike text formatted with a markup language, such as Rich Text Format (RTF) or HTML, which have obvious tags and formatting instructions."
+#: ../../src/developer/attributes/index.rst:5
+msgid "Attributes are entities meant to qualify features on other entities, such as *nodes*. The main difference between *tags* and *attributes* is that you can set a value for each attributed *node*."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:11
-msgid "Wikipedia article — https://en.wikipedia.org/wiki/Markdown"
+#: ../../src/developer/attributes/index.rst:13
+msgid "The attribute \"Color\" can be set to \"red\" for one node and set to \"green\" for an other one."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:11
-msgid "Titles"
+#: ../../src/developer/attributes/index.rst:15
+msgid "Okay, but now what is the difference between *attributes* and node-type fields? Not so much because node-type fields describe your node' features too, but they are fixed and defined by the developer. Once your node-type fields are created, you have to implement your feature in your *Twig* templates, and translate it in your XLF files too."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:13
-msgid "**Add two hashtag** ``#`` **or more according to your title importance level.** Backoffice shortcut buttons allow to directly insert your titles marks before your selected text. Make sure to leave a blank line before each new title you write."
+#: ../../src/developer/attributes/index.rst:20
+msgid "Attributes are meant to be created and added by editors so they can use them in your website lifecycle without needing any further development."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:21
-msgid "Be careful not to use only one hashtag to create a first-level title as this is usually used for pages main title."
+#: ../../src/developer/attributes/index.rst:23
+msgid "From the developer perspective, attributes are just a collection of entities to be displayed in a loop. Then your editor can create new ones and be sure they will be displayed without any additional development."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:25
-msgid "Alternate syntax"
+#: ../../src/developer/attributes/index.rst:51
+msgid "If you grouped your attributes, you can use ``grouped_attributes`` filter instead:"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:27
-msgid "Main title and second level titles can be written using ``=`` and ``-`` as underline characters."
+#: ../../src/developer/attributes/index.rst:88
+msgid "Attributes types"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:40
-msgid "Bold"
+#: ../../src/developer/attributes/index.rst:93
+msgid "*String*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:42
-msgid "**Insert two stars** ``*`` **before and after your text to set in bold.** Backoffice shortcut button allows to insert directly the 4 characters around your selected text."
+#: ../../src/developer/attributes/index.rst:94
+msgid "*Date*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:49
-msgid "Be careful not to leave whitespaces inside your stars group (in the same way you do with parenthesis) otherwise your text won’t be styled."
+#: ../../src/developer/attributes/index.rst:95
+msgid "*Date and time*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:53
-msgid "Italic"
+#: ../../src/developer/attributes/index.rst:96
+msgid "*Single choice*: choice among defined options in your attribute"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:55
-msgid "**Insert one star** ``*`` **before and after your text to set in italic.** Backoffice shortcut button allows to insert directly the 2 characters around your selected text."
+#: ../../src/developer/attributes/index.rst:97
+msgid "*Boolean*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:62
-msgid "Bold and italic marks can of course be combined using 3 stars before and after your selected text."
+#: ../../src/developer/attributes/index.rst:98
+msgid "*Integer*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:65
-msgid "What if * character is already in use"
+#: ../../src/developer/attributes/index.rst:99
+msgid "*Decimal*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:67
-msgid "Bold and italic markup can be performed using ``_`` (underscore) character too if you actually need to write a *star* character in your text."
+#: ../../src/developer/attributes/index.rst:100
+msgid "*Email*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:75
-msgid "Strike-through"
+#: ../../src/developer/attributes/index.rst:101
+msgid "*Color*"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:77
-msgid "**Insert two tildes** ``~`` **before and after your text to strike-through.**"
+#: ../../src/developer/attributes/index.rst:102
+msgid "*Country*: ISO 2-letters country code"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:84
-msgid "Ordered and unordered lists"
+#: ../../src/developer/attributes/index.rst:105
+msgid "Add attributes to nodes"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:86
-msgid "**Insert a star** ``*`` **or a dash** ``-`` **followed by a single whitespace for each of your list item.** One item per line. Leave a blank line before and after your list. For *ordered* list, use a digit followed by a dot and a whitespace instead."
+#: ../../src/developer/attributes/index.rst:107
+msgid "*Attribute* section is available for any node in any translations."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:99
-msgid "If you need to break an item into several lines, you’ll need to use the line-break markup."
+#: ../../src/developer/attributes/index.rst:113
+msgid "Twig extension"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:102
-msgid "Nested list"
+#: ../../src/developer/attributes/index.rst:115
+msgid "Several filters and tests are available to ease up templating with *attributes*:"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:104
-msgid "You can insert a second/third/… level for your list, just **by leaving four spaces before your new list-item mark.**"
+#: ../../src/developer/attributes/index.rst:118
+msgid "Filters"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:116
-msgid "New paragraph and line-break"
+#: ../../src/developer/attributes/index.rst:120
+msgid "``attributes``: same as ``node_source_attributes()`` method, get all available attributes from a ``NodesSources``."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:118
-msgid "A simple line-break is always ignored by Markdown language because it makes a difference between a **paragraph** and a **line-break**. To simply create a line-break without creating a new paragraph, **leave at least 3 spaces at the end of your text line then go to a new line.**"
+#: ../../src/developer/attributes/index.rst:121
+msgid "``grouped_attributes``: same as ``node_source_grouped_attributes()`` method, get all available attributes from a ``NodesSources`` and gather them into their **group**."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:128
-msgid "To create a new paragraph, **always leave a blank line between your text blocks.** Any additional blank line will be ignored."
+#: ../../src/developer/attributes/index.rst:122
+msgid "``attribute_label(translation)``: get attribute translated ``label`` or ``code`` if not translated."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:138
-msgid "According to your website design (CSS), new paragraphs may have no visual margins between them. Inserting more than one blank line won’t add any additional visual space as Markdown ignores it."
+#: ../../src/developer/attributes/index.rst:123
+msgid "``attribute_group_label(translation)``: get attribute group translated ``name`` or ``canonicalName`` if not translated."
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:142
-msgid "Hypertext links"
+#: ../../src/developer/attributes/index.rst:126
+msgid "Tests"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:144
-msgid "**Write link label between braces immediately followed by the URL between parenthesis.** For external links do not forget protocol prefix ``http://`` or ``https://``."
+#: ../../src/developer/attributes/index.rst:128
+msgid "``datetime``"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:151
-msgid "To create a internal link, just use relative notation:"
+#: ../../src/developer/attributes/index.rst:129
+msgid "``date``"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:157
-msgid "Then, for an email link, use ``mailto:`` prefix:"
+#: ../../src/developer/attributes/index.rst:130
+msgid "``country``"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:163
-msgid "A link title can be added by inserting it before *ending parenthesis* wrapped in quotes."
+#: ../../src/developer/attributes/index.rst:131
+msgid "``boolean``"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:170
-msgid "Block quotes"
+#: ../../src/developer/attributes/index.rst:132
+msgid "``choice``"
 msgstr ""
 
-#: ../../src/user/write-in-markdown/index.rst:172
-msgid "**Insert a** ``>`` **sign before each new paragraph and a space** to wrap your text in a quote block. You can then use all other Markdown symbols inside your quote."
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:182
-msgid "Images"
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:184
-msgid "**Images use the link syntax with an exclamation mark prefix** ``!``. For external images do not forget to write full URL with protocol ``http://`` or ``https://``."
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:193
-msgid "Be careful, images will be displayed as is, unless your webdesigner planned to adapt image size coming from Markdown fields using CSS. As links, an external image may break if its owner deletes the original image. Make sure to host critical images directly on your website and to use *relative URL*."
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:198
-msgid "Footnotes"
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:200
-msgid "Footnotes are not supported with *basic* Markdown syntax, but the *Markdown Extra* one. So before using them, **make sure your webdesigner used the right Markdown parser in your theme.**"
-msgstr ""
-
-#: ../../src/user/write-in-markdown/index.rst:211
-msgid "Markdown will *automatically generate anchor links between your footnote and its reference*. It will automatically **use numbers as footnote reference labels**, so you don’t have to bother to write numbers yourself but easy-to-remember markers labels."
+#: ../../src/developer/attributes/index.rst:133
+msgid "``enum``"
 msgstr ""
 
