@@ -13,31 +13,123 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/user/index.pot\n"
-"X-Crowdin-File-ID: 154\n"
+"X-Crowdin-File: /develop/i18n/locale/user/nodes-system/managing-node-types.pot\n"
+"X-Crowdin-File-ID: 156\n"
 "Language: fr_FR\n"
 
-#: ../../src/user/index.rst:3
-msgid "User documentation"
+#: ../../src/user/nodes-system/managing-node-types.rst:4
+msgid "Managing node-types"
 msgstr ""
 
-#: ../../src/user/index.rst:6
-msgid "**User documentation is on the way.** We invite you to send us questions on our `Gitter account <https://gitter.im/roadiz/roadiz>`_ or to leave some documentation suggestions on our `Github repository <https://github.com/roadiz/docs/issues>`_."
+#: ../../src/user/nodes-system/managing-node-types.rst:6
+msgid "This is a simple guide on how to create and manage nodes using Roadiz CLI, add and remove node fields, or even how to import nodes."
 msgstr ""
 
-#: ../../src/user/index.rst:10
-msgid "First of all, you will need to connect to Roadiz’ backoffice in order to make changes to your website contents. To connect, you just have to write ``/rz-admin`` after your website domain name, in your browser address bar. Then you will be able to enter your username and password that you chose during Roadiz installation or that you received by email."
+#: ../../src/user/nodes-system/managing-node-types.rst:8
+msgid "First and foremost, you need to create a new node-type before creating any kind of node."
 msgstr ""
 
-#: ../../src/user/index.rst:18
-msgid "Here you can choose to keep your connection active for a couple of days, if your browser accepts cookies."
+#: ../../src/user/nodes-system/managing-node-types.rst:10
+msgid "If you want to know more about what a node-type is, please visit the other section of the developer documentation."
 msgstr ""
 
-#: ../../src/user/index.rst:20
-msgid "If you forgot your credentials, the *Forgot password?* section will ask you an email to send you a password reset link."
+#: ../../src/user/nodes-system/managing-node-types.rst:12
+msgid "When working with Roadiz in the back-office, you can easily manage node-types via the *Construction* icon in the toolbar."
 msgstr ""
 
-#: ../../src/user/index.rst:24
-msgid "Table of contents"
+#: ../../src/user/nodes-system/managing-node-types.rst:18
+msgid "Add node-type"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:20
+msgid "Once you have landed on the Node-Types page (*https://mywebsite.com/rz-admin/node-types*), you can create node-types by clicking on *Add a node-type*."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:23
+msgid "You can export and import a node-type if you have a .json file. See *Other action* for more information."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:28
+msgid "Upon filling the two mandatory settings *Name* (that developpers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:31
+msgid "Be careful when you name your node-type though, *Name* field can't be changed once the node-type is created. See *Delete node-type* section to know how to delete a node-type."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:36
+msgid "Other options (*Visible*, *Newsletter node-type*, *Node-type hides its nodes* and customizable color) aren't required and can always be altered later on."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:38
+msgid "You have now created your first node-type! It now appears on the node-type page along other node-types and you can now manage its fields."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:44
+msgid "Delete node-type"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:46
+msgid "Made a typo when creating a node-type? No longer in need of a node-type ? You can delete it by simply clicking the trashcan icon on the Node Types page (*https://mywebsite.com/rz-admin/node-types*)."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:52
+msgid "Adding node-type field"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:54
+msgid "To add fields to your newly-created node-type, click the *Manage node-type fields* icon."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:59
+msgid "Then click on 'Add a node-type field' button."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:64
+msgid "Fill in the form to create a new field :"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:66
+msgid "*Name*: what developers will use"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:67
+msgid "*Label*: what back-office users will see"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:68
+msgid "*Type*: single choice option that will define the content (basic text, markdown text, documents, email, number, single or multiple choice, children nodes etc.)"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:69
+msgid "*Description*, *Group name*, *Visible*, *Indexed*, *Default values*, *Min length*, *Max length* (optional)"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:72
+msgid "*Default values* is an interesting field as you can specify what kind of node-types that can be linked to this node-type. You can also use it as a filter in the explorer, and only show those default values."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:78
+msgid "Other actions"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:80
+msgid "From one website to another, you can export node-types as .json files."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:85
+msgid "An .json file should look like this when you open it in any editor:"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:147
+msgid "Notice the four fields that have been added to this *Page* node-type."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:149
+msgid "You can write an .json file yourself if you feel like it, but it is probably easier to simply export node-types from existing website, then import it on your new website. It can be easily done by clicking on *Import node-type* button, then selecting it via your explorer."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-node-types.rst:155
+msgid "You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing."
 msgstr ""
 
