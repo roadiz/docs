@@ -13,47 +13,208 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/upgrading.pot\n"
-"X-Crowdin-File-ID: 96\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/serialization/index.pot\n"
+"X-Crowdin-File-ID: 116\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/first-steps/upgrading.rst:5
-msgid "Upgrading"
+#: ../../src/developer/serialization/index.rst:4
+msgid "Serialization"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:8
-msgid "**Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools to quickly export your database as a file."
+#: ../../src/developer/serialization/index.rst:6
+msgid "*Roadiz* CMS uses ``jms/serializer`` to perform JSON serialization over any objects, especially *Doctrine* entities."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:11
-msgid "With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder"
+#: ../../src/developer/serialization/index.rst:22
+msgid "Customize existing serialized entities"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:12
-msgid "With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``"
+#: ../../src/developer/serialization/index.rst:25
+msgid "Serialize nodes-sources URL"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:13
-msgid "With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``"
+#: ../../src/developer/serialization/index.rst:27
+msgid "Your can add data in your serialized data from your themes using ``EventSubscriberInterface`` listening on ``serializer.post_serialize`` event. For example, you may want to get your *reachable* ``NodesSources`` URL in their JSON response. Here is how to do:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:16
-msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
+#: ../../src/developer/serialization/index.rst:111
+msgid "Then register your ``NodesSourcesUriSubscriber`` in your theme services:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:24
-msgid "In order to avoid losing sensible node-sources data. You should regenerate your node-source entities classes files:"
+#: ../../src/developer/serialization/index.rst:120
+msgid "Then your JSON response will contain the additional key ``url`` :"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:31
-msgid "Then run database schema update, first review migration details to see if no data will be removed:"
+#: ../../src/developer/serialization/index.rst:129
+msgid "You can add every piece of data in your serialized responses, even node children by injecting a *tree-walker*."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:38
-msgid "Then, if migration summary is OK (no data loss), perform the following changes:"
+#: ../../src/developer/serialization/index.rst:132
+msgid "Serialize documents URL"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:52
-msgid "If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
+#: ../../src/developer/serialization/index.rst:134
+msgid "Same way for injecting your document URL (i.e. image path, or iframe source), we need to call Roadiz document URL generator for any Document serialized into our JSON response:"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:258
+msgid "Groups"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:261
+msgid "id"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:263
+msgid "Serialize every entity ``id``."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:264
+msgid "timestamps"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:266
+msgid "Serialize every date-timed entity ``createdAt`` and ``updatedAt`` fields."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:267
+msgid "position"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:269
+msgid "Serialize every entity ``position`` fields."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:270
+msgid "color"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:272
+msgid "Serialize every entity ``color`` fields."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:273
+msgid "nodes_sources"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:275
+msgid "Serialize entities in a ``NodesSources`` context (all fields)."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:276
+msgid "nodes_sources_base"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:278
+msgid "Serialize entities in a ``NodesSources`` context, but with essential information."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:279
+msgid "nodes_sources_documents"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:281
+msgid "Serialize documents linked to a ``NodesSources`` for each virtual field."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:282
+msgid "nodes_sources_default"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:284
+msgid "Serialize ``NodesSources`` fields not contained in any **group**."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:285
+msgid "nodes_sources_``group``"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:287
+msgid "Custom serialization groups are created according to your node-typ fields groups. For example, if you set a field to a ``link`` group, ``nodes_sources_link`` serialization group will be automatically generated for this field. *Be careful*, Roadiz will use groups *canonical names* to generate serialization groups, it can mix ``_`` and ``-``."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:291
+msgid "node"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:293
+msgid "Serialize entities in a ``Node`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:294
+msgid "tag"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:296
+#: ../../src/developer/serialization/index.rst:299
+msgid "Serialize entities in a ``Tag`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:297
+msgid "tag_base"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:300
+msgid "node_type"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:302
+msgid "Serialize entities in a ``NodeType`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:303
+msgid "attribute"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:305
+msgid "Serialize entities in a ``Attribute`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:306
+msgid "custom_form"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:308
+msgid "Serialize entities in a ``CustomForm`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:309
+msgid "document"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:311
+msgid "Serialize entities in a ``Document`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:312
+msgid "folder"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:314
+msgid "Serialize entities in a ``Folder`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:315
+msgid "translation"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:317
+msgid "Serialize entities in a ``Translation`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:318
+msgid "setting"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:320
+msgid "Serialize entities in a ``Setting`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:321
+msgid "setting_group"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:323
+msgid "Serialize entities in a ``SettingGroup`` context."
 msgstr ""
 
