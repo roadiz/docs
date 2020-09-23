@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Roadiz documentation 0.14.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
+"POT-Creation-Date: 2020-09-23 22:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -527,18 +527,26 @@ msgid ""
 " grab it for you. But you can specify if you want *absolute* urls or not."
 msgstr ""
 
-#: ../../src/developer/themes/using_twig.rst:312
+#: ../../src/developer/themes/using_twig.rst:311
 msgid "Standard filters and extensions are also available:"
 msgstr ""
 
-#: ../../src/developer/themes/using_twig.rst:314
+#: ../../src/developer/themes/using_twig.rst:313
 msgid "``{{ path('myRoute') }}``: for generating static routes Url."
+msgstr ""
+
+#: ../../src/developer/themes/using_twig.rst:314
+msgid ""
+"``u.truncate`` and ``u.wordwrap`` which are parts of the `UnicodeString "
+"instance <https://twig.symfony.com/doc/3.x/filters/u.html>`_ ."
 msgstr ""
 
 #: ../../src/developer/themes/using_twig.rst:315
 msgid ""
-"``truncate`` and ``wordwrap`` which are parts of the `Text Extension "
-"<http://twig.sensiolabs.org/doc/extensions/text.html>`_ ."
+"``format_date``, ``format_datetime``, ``format_currency``, "
+"``format_number``, ``country_name``  which are parts of the "
+"`IntlExtension extension "
+"<https://twig.symfony.com/doc/3.x/filters/format_currency.html>`_ ."
 msgstr ""
 
 #: ../../src/developer/themes/using_twig.rst:319
@@ -792,5 +800,11 @@ msgstr ""
 #~ "``|children`` filter, *authorization-checker* "
 #~ "is automatically passed to ``getChildren`` "
 #~ "method."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``truncate`` and ``wordwrap`` which are "
+#~ "parts of the `Text Extension "
+#~ "<http://twig.sensiolabs.org/doc/extensions/text.html>`_ ."
 #~ msgstr ""
 

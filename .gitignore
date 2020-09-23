@@ -416,7 +416,6 @@ coverage.xml
 
 # Translations
 *.mo
-*.pot
 
 # Django stuff:
 local_settings.py
@@ -486,3 +485,4 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/latex,python,phpstorm+all
+/i18n/locale/.doctrees/

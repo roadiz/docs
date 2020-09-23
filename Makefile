@@ -9,6 +9,7 @@ SPHINXINTL    = sphinx-intl
 SPHINXPROJ    = RoadizDoc
 PAPER         = a4
 BUILDDIR      = _build
+I18NDIR       = i18n
 SPHINXINTL_LANGUAGE = fr
 
 # User-friendly check for sphinx-build
@@ -175,10 +176,10 @@ info:
 	@echo "makeinfo finished; the Info files are in $(BUILDDIR)/texinfo."
 
 gettext:
-	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(BUILDDIR)/locale
-	${SPHINXINTL} -c ${SOURCEDIR}/conf.py update -p $(BUILDDIR)/locale
+	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(I18NDIR)/locale
+	${SPHINXINTL} -c ${SOURCEDIR}/conf.py update -p $(I18NDIR)/locale
 	@echo
-	@echo "Build finished. The message catalogs are in $(BUILDDIR)/locale."
+	@echo "Build finished. The message catalogs are in $(I18NDIR)/locale."
 
 changes:
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes

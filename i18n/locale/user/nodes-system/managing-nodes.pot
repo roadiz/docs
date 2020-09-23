@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../src/user/nodes-system/managing-nodes.rst:4
+msgid "Managing nodes"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:6
+msgid "Nodes are the most important part of Roadiz CMS. They are your content which can be shaped as you want according to your node-types definitions. A node can be a blog-post, a content page, a photo gallery, even a shop product. This is why we called it “Node”, it’s an abstract data container interconnected with other node in a tree."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:13
+msgid "Node-tree navigation"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:17
+msgid "Simple node-tree after installing Roadiz with *Default theme*."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:22
+msgid "Contextual menu for *home* node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:27
+msgid "Each node has a place in your website, that’s why we chose to arrange your content in a tree-shaped way. It’s intuitive and it works the same as your computer files."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:30
+msgid "To edit a node’ content, simply click on it."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:31
+msgid "To move a node across your tree, drag & drop using its handle (round or rombus shape). You can drop a node after or before an other one. You can also drop inside just by moving your mouse a bit on the right, you should see the node shadow to shift right."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:32
+msgid "Other actions are available from each node’ contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:35
+msgid "Contextual menu actions"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:37
+msgid "*Add child node:* to create a content inside the current node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:38
+msgid "*Edit node:* links to the current node “edit content” page."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:39
+msgid "*Move to first position:* to move a node at the first position inside its parent node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:40
+msgid "*Move to last position:* basically the same for the last position."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:41
+msgid "*Delete node:* to move current node to the trashcan. A confirmation page will be prompt before really deleting a node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:42
+msgid "*Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed in Urls and your website, even if you are an administrator."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:43
+msgid "*Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users using ``preview.php`` entry point."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:44
+msgid "*Publish offspring:* Publish a node and all its children nodes recursively."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:45
+msgid "*Duplicate:* Copy all current node’ content and relationships into a new node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:48
+msgid "Creating a node"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:None
+msgid "Add buttons"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:55
+msgid "“Add node” button located at the top of your *node-tree*."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:60
+msgid "“Add a *child* node” button, which is located at the top of each node’ contextual menu."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:62
+msgid "To add a blank node to your node-tree, you will need to choose your location. In Roadiz you can add a content at the root of your tree or choose a “parent-node”. In both cases you will be asked to choose a *node-type* and a *node-name* before creating your node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:67
+msgid "*Node name* is the global identifier for your node. It must be unique and won’t change from one translation to an other. It can be changed later except if your developer locked it up. *Node name* is usually used to build your pages URL."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:68
+msgid "*Node-type* defines what fields will be available in your content. Choose well as you won’t be able to change it later, you ’ll have to delete and recreate an other node."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:72
+msgid "Edit an existing node"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:74
+msgid "Node edition page is composed in several tabs."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:76
+msgid ":ref:`Node content <node-content-tab>`"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:77
+msgid ":ref:`Node parameters <node-parameters-tab>`"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:78
+msgid ":ref:`Tags <node-tags-tab>`"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:79
+msgid ":ref:`SEO <node-seo-tab>`"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:80
+msgid ":ref:`Tree <node-tree-tab>`, if your node is set up as a :ref:`stack <side-actions-parameters>`"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:85
+msgid "Node content"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:90
+msgid "Contents tab is basically the main part where you will edit your node specific data, using node-type fields such as *text* fields, or *documents* fields, etc."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:93
+msgid "This tab will display different content over translations depending on which fields are marked as *universal* or not."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:98
+msgid "Node parameters"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:103
+msgid "Parameters are global data such as your *node name*. They are used for managing your node visibility according to each user role and node back-office’ settings. This section should not be used so often as parameters will be set once by your developer."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:107
+#: ../../src/user/nodes-system/managing-nodes.rst:133
+msgid "*This tab will display the same content over translations.*"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:112
+msgid "Side actions and parameters"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:114
+msgid "Additional parameters are available on the right action-menu. These parameters are node-wide, they will apply on each node translations."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:120
+msgid "**Visibility**: Hide or show current node (according to your theme)"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:121
+msgid "**Hide children**: Switch current node to a **stack**, children nodes won’t appear in the global Node-Tree anymore. You will be able to add *Stack type* buttons in the :ref:`node parameters tab <node-parameters-tab>`."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:122
+msgid "**Lock status**: Prevent users to delete current node or rename it. You should switch it on if your rely on some nodes in your themes."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:123
+msgid "**Forbid children**: Prevent users to create children nodes."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:128
+msgid "Tags"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:138
+msgid "SEO"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:143
+msgid "*This tab will display different content over translations.*"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:148
+msgid "Tree"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:150
+msgid "When a node is defined as a :ref:`stack <side-actions-parameters>`, *Tree* becomes its default view. You can set the default ordering in the *Edit tab*. And node-types set as *publishable* will display their publication date before its name."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:156
+msgid "Tree view becomes very interesting if you have many many children nodes, when you have blog posts or portfolio projects for example."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:162
+msgid "Then you can add *stack type* in *Edit tab* to make some handy quick-add buttons to this view."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:171
+msgid "Nodes publication system"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:173
+msgid "During its lifecycle, every nodes can have a different publication status. When you create a new content, it will be automatically set as **Draft** by Roadiz so that you can edit it without bothering your visitors and sharing unfinished work."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:178
+msgid "Available statuses:"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:180
+msgid "**Draft**: First status for new nodes"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:181
+msgid "**Pending validation**: It’s a medium status for user that do not have permission to publish nodes"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:182
+msgid "**Published**: That’s the most important status, it will set the green light to your visitor to view your content"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:183
+msgid "**Archived**: When you don’t want to publish a node but you don’t want to delete it either"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:184
+msgid "**Deleted**: It’s the last status for your nodes. Before emptying your node trashcan, every content will wait with this status."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:186
+msgid "To improve status visibility, *draft* and *pending* nodes have a rhombus shape and *published* nodes have a circle shape."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:189
+msgid "Preview unpublished nodes"
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:191
+msgid "As unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them using a dedicated *entry point* called ``preview.php``, yes this is not very original. We decided to create a different entry point not to share the same URL with your public website as it could create confusing errors if your website is hosted behing a reverse proxy engine."
+msgstr ""
+
+#: ../../src/user/nodes-system/managing-nodes.rst:196
+msgid "For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to ``http://mywebsite.com/preview.php/my-news``. This URL will only allow authentified backend users, other people will be blocked."
+msgstr ""

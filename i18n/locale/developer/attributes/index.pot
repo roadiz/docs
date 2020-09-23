@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../src/developer/attributes/index.rst:3
+msgid "Attributes"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:5
+msgid "Attributes are entities meant to qualify features on other entities, such as *nodes*. The main difference between *tags* and *attributes* is that you can set a value for each attributed *node*."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:13
+msgid "The attribute \"Color\" can be set to \"red\" for one node and set to \"green\" for an other one."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:15
+msgid "Okay, but now what is the difference between *attributes* and node-type fields? Not so much because node-type fields describe your node' features too, but they are fixed and defined by the developer. Once your node-type fields are created, you have to implement your feature in your *Twig* templates, and translate it in your XLF files too."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:20
+msgid "Attributes are meant to be created and added by editors so they can use them in your website lifecycle without needing any further development."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:23
+msgid "From the developer perspective, attributes are just a collection of entities to be displayed in a loop. Then your editor can create new ones and be sure they will be displayed without any additional development."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:51
+msgid "If you grouped your attributes, you can use ``grouped_attributes`` filter instead:"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:88
+msgid "Attributes types"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:93
+msgid "*String*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:94
+msgid "*Date*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:95
+msgid "*Date and time*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:96
+msgid "*Single choice*: choice among defined options in your attribute"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:97
+msgid "*Boolean*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:98
+msgid "*Integer*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:99
+msgid "*Decimal*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:100
+msgid "*Email*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:101
+msgid "*Color*"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:102
+msgid "*Country*: ISO 2-letters country code"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:105
+msgid "Add attributes to nodes"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:107
+msgid "*Attribute* section is available for any node in any translations."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:113
+msgid "Twig extension"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:115
+msgid "Several filters and tests are available to ease up templating with *attributes*:"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:118
+msgid "Filters"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:120
+msgid "``attributes``: same as ``node_source_attributes()`` method, get all available attributes from a ``NodesSources``."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:121
+msgid "``grouped_attributes``: same as ``node_source_grouped_attributes()`` method, get all available attributes from a ``NodesSources`` and gather them into their **group**."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:122
+msgid "``attribute_label(translation)``: get attribute translated ``label`` or ``code`` if not translated."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:123
+msgid "``attribute_group_label(translation)``: get attribute group translated ``name`` or ``canonicalName`` if not translated."
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:126
+msgid "Tests"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:128
+msgid "``datetime``"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:129
+msgid "``date``"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:130
+msgid "``country``"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:131
+msgid "``boolean``"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:132
+msgid "``choice``"
+msgstr ""
+
+#: ../../src/developer/attributes/index.rst:133
+msgid "``enum``"
+msgstr ""
