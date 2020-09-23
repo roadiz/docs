@@ -13,175 +13,123 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/services/index.pot\n"
-"X-Crowdin-File-ID: 120\n"
+"X-Crowdin-File: /develop/i18n/locale/extension/extending_roadiz.pot\n"
+"X-Crowdin-File-ID: 144\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/services/index.rst:4
-msgid "Services"
+#: ../../src/extension/extending_roadiz.rst:5
+msgid "Extending Roadiz"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:6
-msgid "Roadiz is built upon `Pimple <http://pimple.sensiolabs.org>`_ dependency injection container. Thanks to this architecture, all Core and Backoffice services are available from any controller in your themes."
+#: ../../src/extension/extending_roadiz.rst:7
+msgid "It is time to see how to extend Roadiz! As you read in Roadiz :ref:`philosophy` part, we won’t ship \"plugin\" or \"module\" like others CMS. But you will be able to add of lot of features using the part that really matters: Themes!"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:15
-msgid "Doctrine entity manager: ``$this->get('em')``"
+#: ../../src/extension/extending_roadiz.rst:12
+msgid "Theme powered CMS"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:16
-msgid "Twig rendering environment: ``$this->get('twig.environment')``"
+#: ../../src/extension/extending_roadiz.rst:14
+msgid "We coded the Theme system to be the core of your extending experience. You don't need to change something else than your theme. So you can use a versioning tool or backup easily your work which will be only at one place."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:17
-msgid "Translator: ``$this->get('translator')``"
+#: ../../src/extension/extending_roadiz.rst:18
+msgid "You can add new entities. If so, don't forget to add your ``Entities`` namespace in Roadiz config file. With theses additional entities, you maybe will need to create a back-office entry to manage them. It's easy! Let's see how to."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:18
-msgid "Url matcher: ``$this->get('urlMatcher')``"
+#: ../../src/extension/extending_roadiz.rst:23
+msgid "Create your own database entities"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:19
-msgid "Url generator: ``$this->get('urlGenerator')``"
+#: ../../src/extension/extending_roadiz.rst:25
+msgid "You can create a theme with your own entities. Just add your *Entities* folder to the global configuration file (``app/conf/config.yml``)."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:20
-msgid "Authorization checker: ``$this->get('securityAuthorizationChecker')``"
+#: ../../src/extension/extending_roadiz.rst:36
+msgid "Verify if everything is OK by checking migrations:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:21
-msgid "User token storage: ``$this->get('securityTokenStorage')``"
+#: ../../src/extension/extending_roadiz.rst:42
+msgid "If you see your entities being created and no system database erased, just apply your migration with ``--force``. If Doctrine send some error, you probably need to clear metadata cache:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:22
-msgid "Firewall: ``$this->get('firewall')``"
+#: ../../src/extension/extending_roadiz.rst:49
+msgid "Clearing cache from command line **will not empty op-code cache**. Be sure to call ``clear_cache.php`` entry point to actually clear *PHP-FPM* related caches. You can use an ``curl`` command if your website is accessible from *localhost*:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:23
-msgid "Assets packages: ``$this->get('assetPackages')``"
+#: ../../src/extension/extending_roadiz.rst:59
+msgid "Add back-office entry"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:24
-msgid "Email manager: ``$this->get('emailManager')``"
+#: ../../src/extension/extending_roadiz.rst:61
+msgid "At first, create a controller into your theme folder, for example ``themes/MyTheme/AdminControllers/AdminController``."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:25
-msgid "Contact form manager: ``$this->get('contactFormManager')``"
+#: ../../src/extension/extending_roadiz.rst:63
+msgid "Example:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:26
-msgid "Accessing global settings *ParameterBag*: ``$this->get('settingsBag')``"
+#: ../../src/extension/extending_roadiz.rst:87
+msgid "If you look at this exemple you can see the class extends ``RozierApp`` not your ``MyThemeApp`` class! This will enable you to “inject” your code into Rozier Back-stage DOM and Style. But be careful to use `MyThemeApp::getThemeDir()` as your template namespace."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:27
-msgid "Accessing global node-types *ParameterBag*: ``$this->get('nodeTypesBag')``"
+#: ../../src/extension/extending_roadiz.rst:91
+msgid "Now let's have a look to your twig template file ``admin/test.html.twig``."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:28
-msgid "Getting an entity handler: ``$this->get('factory.handler')->getHandler($myEntity)``"
+#: ../../src/extension/extending_roadiz.rst:121
+msgid "The first line is for inheriting from Rozier base template, you can notice that we explicitly choose `@Rozier` namespace."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:29
-msgid "…"
+#: ../../src/extension/extending_roadiz.rst:123
+msgid "The two next blocks are made for you to add some CSS or Javascript. For CSS, the block ``customStyle`` can be use to link an external file with a ``<link>`` tag, the path must be something like that ``{{ asset('static/css/customstyle.css', 'MyTheme') }}``, or add directly some CSS with \"<style>\" tag. For JS, the block ``customScripts`` work as is, just link an external JS file or write your ``<script>`` tag."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:32
-msgid "Entity APIs"
+#: ../../src/extension/extending_roadiz.rst:129
+msgid "Then create your own content, do not hesitate to give a look at Rozier back-stage theme Twig files to use the right DOM structure. For simple features, you wouldn’t have to extend JS nor CSS if you follow the same HTML coding style."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:34
-msgid "All these services are Doctrine repository wrappers meant to ease querying entities inside your themes and according to ``AuthorizationChecker``. This will implicitely check if nodes or node-sources are published when you request them without bothering to insert the right criteria in your *findBy* calls."
+#: ../../src/extension/extending_roadiz.rst:133
+msgid "Linking things together"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:39
-msgid "Each of these implements ``AbstractApi`` methods ``getBy`` and ``getOneBy``"
+#: ../../src/extension/extending_roadiz.rst:135
+msgid "Add the route in the theme ``route.yml`` file."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:41
-msgid "`nodeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeApi.html>`_"
+#: ../../src/extension/extending_roadiz.rst:137
+msgid "In this case the route will be:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:42
-msgid "`nodeTypeApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeTypeApi.html>`_"
+#: ../../src/extension/extending_roadiz.rst:148
+msgid "Inject your own entries in back-stage"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:43
-msgid "`nodeSourceApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/NodeSourceApi.html>`_"
+#: ../../src/extension/extending_roadiz.rst:150
+msgid "The last thing to do is to add your new admin entry in the back-office menu."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:44
-msgid "`tagApi <http://api.roadiz.io/RZ/Roadiz/CMS/Utils/TagApi.html>`_"
+#: ../../src/extension/extending_roadiz.rst:152
+msgid "Go to your ``MyThemeApp.php`` main class and override ``setupDependencyInjection`` method, or create it if it doesn’t exist."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:47
-msgid "Using Solr API"
+#: ../../src/extension/extending_roadiz.rst:178
+msgid "Do not forget to add ``use Pimple\\Container;`` in your file header."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:49
-msgid "Solr is a really powerful tool to search over your node database with a clever plain-text search engine and the ability to highlight your criteria in the search results. Before going further, make sure that a Solr server is available and that it is well configured in your ``config.yml``. You can use the ``bin/roadiz solr:check`` command to verify and then ``bin/roadiz solr:reindex`` command to force synchronizing your node database with Solr index."
+#: ../../src/extension/extending_roadiz.rst:180
+msgid "``setupDependencyInjection`` method is called statically at boot time when Roadiz’s kernel is running all available Themes to setup services. In the code above, you will extend ``backoffice.entries`` service which define every buttons available in Rozier backstage main-menu."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:56
-msgid "You can use the ``solr.search.nodeSource`` service and its two methods to get node-sources from a search query."
+#: ../../src/extension/extending_roadiz.rst:184
+msgid "If you want to have a category and sub-entries, just change the path at ``null`` value and create your ``subentries`` array as described in the next example:"
 msgstr ""
 
-#: ../../src/developer/services/index.rst:60
-msgid "Simple search results"
+#: ../../src/extension/extending_roadiz.rst:204
+msgid "You can restrict buttons to users with specific roles. Just replace ``'roles' => null`` with ``'roles' => array('ROLE_ACCESS_NODES')``. You can even create your own roles to take full power of Roadiz extension system."
 msgstr ""
 
-#: ../../src/developer/services/index.rst:62
-msgid "``$this->get('solr.search.nodeSource')->search()`` method will return a ``SolrSearchResults`` *traversable* object listing ``NodesSources``:"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:85
-msgid "Search results with highlighting"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:87
-msgid "``$this->get('solr.search.nodeSource')->searchWithHighlight()`` method will return a ``SolrSearchResults`` *traversable* object with arrays with a simple structure: ``nodeSource`` for the NodesSources object and ``highlighting`` for the *html* data with highlighted text wrapped in ``span.solr-highlight`` html tag."
-msgstr ""
-
-#: ../../src/developer/services/index.rst:114
-msgid "Count search results"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:116
-msgid "``$this->get('solr.search.nodeSource')->search()`` and ``$this->get('solr.search.nodeSource')->searchWithHighlight()``methods will return a ``SolrSearchResults`` *traversable* object. You can use ``SolrSearchResults::getResultCount()`` to get results count."
-msgstr ""
-
-#: ../../src/developer/services/index.rst:139
-msgid "Search criteria"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:141
-msgid "Solr will search in *NodesSources* index by default, but it will not filter by translation, type or visibility. You can add your own search criteria using similar filter names as ``nodeSourceApi``."
-msgstr ""
-
-#: ../../src/developer/services/index.rst:144
-msgid "``visible``: boolean"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:145
-msgid "``translation``: a ``Translation`` object"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:146
-msgid "``_locale``: string"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:147
-msgid "``tags``: a ``Tag`` object or ``Tag`` array"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:148
-msgid "``nodeType``: a ``NodeType`` object"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:149
-msgid "``status``: defaults to ``Node::PUBLISHED``"
-msgstr ""
-
-#: ../../src/developer/services/index.rst:150
-msgid "``publishedAt``: ``\\DateTime`` or array like ``EntityRepository::findBy`` method."
+#: ../../src/extension/extending_roadiz.rst:209
+msgid "Adding roles in ``backoffice.entries`` service will only restrict buttons display in Rozier backstage interface. To really protect your controllers from unwanted users add ``$this->validateAccessForRole('ROLE_ACCESS_MY_FEATURE');`` at the first line of your back-ofice controller‘s actions. This will kick non-granted users from your custom back-office parts. Give a look at Rozier theme controllers to see how we use it."
 msgstr ""
 
