@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:47\n"
+"PO-Revision-Date: 2020-09-23 21:14\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -115,19 +115,19 @@ msgstr "Autres actions"
 
 #: ../../src/user/nodes-system/managing-node-types.rst:80
 msgid "From one website to another, you can export node-types as .json files."
-msgstr ""
+msgstr "D'un site à un autre, vous pouvez exporter les types de nœuds au format JSON."
 
 #: ../../src/user/nodes-system/managing-node-types.rst:85
 msgid "An .json file should look like this when you open it in any editor:"
-msgstr ""
+msgstr "Un fichier .json devrait ressembler à cela lorsque vous l'ouvrez dans n'importe quel éditeur de code:"
 
 #: ../../src/user/nodes-system/managing-node-types.rst:147
 msgid "Notice the four fields that have been added to this *Page* node-type."
-msgstr ""
+msgstr "Notez les quatre champs qui ont été ajoutés à ce type de nœud *Page*."
 
 #: ../../src/user/nodes-system/managing-node-types.rst:149
 msgid "You can write an .json file yourself if you feel like it, but it is probably easier to simply export node-types from existing website, then import it on your new website. It can be easily done by clicking on *Import node-type* button, then selecting it via your explorer."
-msgstr ""
+msgstr "Vous pouvez écrire un fichier JSON vous-même, si vous en avez envie, mais il est probablement plus facile d'exporter simplement des types de noeuds à partir du back-office, puis d'importer sur votre nouveau site web. Vous pouvez le faire facilement en cliquant sur le bouton *Importer le type de nœud*, puis en le sélectionnant via votre explorateur de fichiers."
 
 #: ../../src/user/nodes-system/managing-node-types.rst:155
 msgid "You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing."
