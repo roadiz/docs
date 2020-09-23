@@ -13,47 +13,111 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/upgrading.pot\n"
-"X-Crowdin-File-ID: 96\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/case-studies/download-to-vagrant.pot\n"
+"X-Crowdin-File-ID: 74\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/first-steps/upgrading.rst:5
-msgid "Upgrading"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:5
+msgid "Download a website on my computer to work with Vagrant"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:8
-msgid "**Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools to quickly export your database as a file."
+#: ../../src/developer/case-studies/download-to-vagrant.rst:7
+msgid "This case study is meant to get a fresh development environment from an **existing** Roadiz **Source edition** website and theme. Following code snippets are using some variables data, in theses examples I’ll use:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:11
-msgid "With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:10
+msgid "``MYUSER`` as the MySQL database user."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:12
-msgid "With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:11
+msgid "``MYPASSWORD`` as the MySQL database user password."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:13
-msgid "With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:12
+msgid "``MYDATABASE`` as the MySQL database name."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:16
-msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:13
+msgid "``~/Documents/Websites`` as the working directory on your own computer."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:24
-msgid "In order to avoid losing sensible node-sources data. You should regenerate your node-source entities classes files:"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:14
+msgid "``database-YYYY-mm-dd.sql`` is the mysql dump file name, replace ``YYYY-mm-dd`` with the current date."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:31
-msgid "Then run database schema update, first review migration details to see if no data will be removed:"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:15
+msgid "``mysuperwebsite`` is your website root folder."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:38
-msgid "Then, if migration summary is OK (no data loss), perform the following changes:"
+#: ../../src/developer/case-studies/download-to-vagrant.rst:16
+msgid "``git@github.com:johndoe/SuperTheme.git`` is an example *Github* repository for your theme."
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:52
-msgid "If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
+#: ../../src/developer/case-studies/download-to-vagrant.rst:17
+msgid "``SuperTheme`` is an example theme name and folder."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:20
+msgid "On the production server:"
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:22
+msgid "Generate a database dump on your production server."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:28
+msgid "Then download it on your computer. You can also use *phpmyadmin* web tool to export your database tables. Make sure to disable *foreign key verification* and add the *DROP IF EXISTS* directive on *phpmyadmin* export form."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:33
+msgid "On your computer:"
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:35
+msgid "Clone Roadiz on your favorite folder, choose well between master or develop branch if you want the stable version or the latest features."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:44
+msgid "Clone your website theme in Roadiz ``themes/`` folder, choose well your branch too. If you already have a *develop* branch, clone with ``-b develop`` option."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:52
+msgid "**[Optional]** Initialize *git-flow* on the theme. You should always work on *develop*. *Master* branch is only for releases. If you don’t have *git-flow* on your computer, you can find some help on the `official documentation <http://danielkummer.github.io/git-flow-cheatsheet/>`_."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:64
+msgid "Install Roadiz’ *Composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)"
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:71
+msgid "Launch your Vagrant environment. Do not to automatically provision your VM if you want to choose what tool to install."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:78
+msgid "Choose tools to install on your VM, ``roadiz`` provisioner is mandatory… obviously, ``devtools`` provisioner will install *Composer*, *Node.js*, *Grunt* and *Bower* commands. If you have lots of website on your computer, it’s better to install these tools directly on your host machine, they will be more effective than on the VM. And you will be able to take advantage of *Composer* and *NPM* cache between your dev websites."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:91
+msgid "Import your database dump. First, you’ll need to copy it into your Roadiz website to make it available within your Vagrant VM. Then import it in your VM using the ``mysql`` tool."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:105
+msgid "Update your conf/config.yml file to fill in your mysql credentials."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:113
+msgid "Use the ``bin/roadiz generate:nsentities`` to regenerate *Doctrine* entities existing in database but not as files."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:125
+msgid "Download your production documents to your dev VM. You don’t have to do this within your VM."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:133
+msgid "If you are using a Vagrant VM you have to add your IP address to the ``dev.php`` file to authorize your host computer to use the development environment."
+msgstr ""
+
+#: ../../src/developer/case-studies/download-to-vagrant.rst:135
+msgid "11. Connect to ``http://localhost:8080/dev.php`` to begin. Every outgoing emails should be catched by *Mailcatcher*. You can see them at address ``http://localhost:1080``."
 msgstr ""
 
