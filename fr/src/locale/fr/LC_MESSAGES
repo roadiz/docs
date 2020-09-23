@@ -13,55 +13,151 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/troubleshooting.pot\n"
-"X-Crowdin-File-ID: 140\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/themes/create_theme.pot\n"
+"X-Crowdin-File-ID: 124\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/troubleshooting.rst:3
-msgid "Troubleshooting"
+#: ../../src/developer/themes/create_theme.rst:5
+msgid "Creating a theme"
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:6
-msgid "Empty caches manually for an environment"
+#: ../../src/developer/themes/create_theme.rst:7
+msgid "Roadiz themes are one of the main parts of the CMS. They allow you to create your really personal website. You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:8
-msgid "If you experience errors only on a dedicated environment such as ``prod``, ``dev`` or ``install``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/roadiz cache:clear -e prod;`` (replace *prod* by your environment) in command line."
+#: ../../src/developer/themes/create_theme.rst:11
+msgid "Each theme is a folder which must be placed in ``themes/`` folder. Roadiz *Sources* comes with 3 default themes :"
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:14
-msgid "If you still get errors from a specific env and you are using an *OPcode* cache or *var cache* (*APC*, *XCache*), call ``clear_cache.php`` entry point *from your browser* or execute ``curl http://localhost/clear_cache.php`` from your command line."
+#: ../../src/developer/themes/create_theme.rst:13
+msgid "*Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:20
-msgid "Problem with entities and Doctrine cache?"
+#: ../../src/developer/themes/create_theme.rst:14
+msgid "*Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:22
-msgid "After each Roadiz **upgrade** you should always upgrade your node-sources entity classes and upgrade database schema."
+#: ../../src/developer/themes/create_theme.rst:15
+msgid "*DefaultTheme* : It’s a demo theme which is mainly used to demonstrate basic Roadiz features and to try the back-office editing capabilities."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:31
-msgid "If you are using a *OPCode var cache* like *APC*, *XCache*, you should purge it as Roadiz stores doctrine configuration there for better performances, call ``clear_cache.php`` entry point from your browser or ``curl http://localhost/clear_cache.php`` from your command line."
+#: ../../src/developer/themes/create_theme.rst:17
+msgid "As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:39
-msgid "Running Roadiz behind a reverse proxy"
+#: ../../src/developer/themes/create_theme.rst:None
+msgid "Source Edition"
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:41
-msgid "If you are behind a reverse-proxy like *Varnish* or *Nginx proxy* on a *Docker* environment, IP addresses, domain name and proto (https/http) could not be correctly set. So you will have to `tell Roadiz to trust your proxy <https://symfony.com/doc/3.4/deployment/proxies.html#solution-settrustedproxies>`_ in order to use ``X_FORWARDED_*`` env vars."
+#: ../../src/developer/themes/create_theme.rst:22
+msgid "If you are using Roadiz *Source edition*, we configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder. So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:46
-msgid "Add this line to your ``index.php`` and ``preview.php`` files after ``$request = Request::createFromGlobals();`` line."
+#: ../../src/developer/themes/create_theme.rst:26
+msgid "Preparing your own frontend theme"
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:60
-msgid "Find help before posting an issue on Github"
+#: ../../src/developer/themes/create_theme.rst:28
+msgid "To start from a fresh and clean foundation, we built a `BaseTheme <https://github.com/roadiz/BaseTheme>`_ to fit our needs with many starter node-types and a front-end framework using *ES6* and *Webpack*."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:62
-msgid "Join us on Gitter: https://gitter.im/roadiz/roadiz"
+#: ../../src/developer/themes/create_theme.rst:36
+msgid "Your theme will be generated as ``/themes/MyAwesomeTheme`` with ``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php`` class."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:None
+msgid "Standard Edition"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:41
+msgid "Roadiz *Standard edition* will create a symbolic link into ``web/`` folder to publish your new theme public assets as ``/web/themes/MyAwesomeTheme/static``. Make sure that your system supports *symbolic links*."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:44
+msgid "Edit your main class informations (``MyAwesomeThemeApp.php``)"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:80
+msgid "Then you will be able to add your fresh new theme into Roadiz backoffice or through Roadiz install."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:83
+msgid "Static routing"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:85
+msgid "Before searching for a node’s Url (Dynamic routing), Roadiz will parse your theme ``route.yml`` to find static controllers and actions to execute. Static actions just have to comply with the ``Request`` / ``Response`` scheme. It is advised to add ``$_locale`` and ``$_route`` optional arguments to better handle multilingual pages."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:130
+msgid "Dynamic routing"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:134
+msgid "Every node-types will be handled by a specific ``Controller``. If your created a “Page” type, Roadiz will search for a ``…\\Controllers\\PageController`` class and it will try to execute the ``indexAction`` method."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:138
+msgid "An indexAction method must comply with the following signature. It will take the HttpFoundation’s Request as first then a ``Node`` and a ``Translation`` instances. These two last arguments will be useful to generate your page information and to render your current node."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:167
+msgid "As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object. This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_ purpose which will generate a standard *html* response using a *Twig* template and an assignation array."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:173
+msgid "It’s very easy to create *JSON* responses for your API with Roadiz. You just have to replace ``$this->render($template, $assignation);`` method with ``$this->renderJson($data);``. This method is a shortcut for ``new JsonResponse($data);``."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:178
+msgid "Home page case"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:180
+msgid "Homepage is always a special page to handle. With Roadiz you have the choice to handle it as a static page or as a dynamic page. In both case you’ll need to setup a static route in your theme ``Resources/routes.yml`` file."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:198
+msgid "Now you can code your ``homeAction`` method in ``MyAwesomeThemeApp`` class. It will need 2 arguments:"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:200
+msgid "A ``Request`` object: ``$request``"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:201
+msgid "An optional locale string variable ``$_locale = null``"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:204
+msgid "Dynamic home"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:206
+msgid "If your home page is built with a node. You can tell Roadiz to handle home request as a *Page* request (if your home is a *page* type node) using ``$this->handle($request);`` method. This method will use the ``PageController`` class and ``page.html.twig`` template to render your home. This can be useful when you need to switch your home page to an other page, there is no need to make special ajustments."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:234
+msgid "Static home"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:236
+msgid "Imagine now that your home page has a totally different look than other pages. Instead of letting ``handle()`` method returning your Response object, you can create it directly and use a dedicated ``home.html.twig`` template. The fourth argument `static::getThemeDir()` is optional, it explicits the namespace to look into. It becames useful when you mix several themes with the same templates names."
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:264
+msgid "Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice a dynamic or a static home handling:"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:267
+msgid "``node``"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:268
+msgid "``nodeSource``"
+msgstr ""
+
+#: ../../src/developer/themes/create_theme.rst:269
+msgid "``translation``"
 msgstr ""
 
