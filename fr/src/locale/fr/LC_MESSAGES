@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:22\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -13,143 +13,55 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/attributes/index.pot\n"
-"X-Crowdin-File-ID: 72\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/troubleshooting.pot\n"
+"X-Crowdin-File-ID: 140\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/attributes/index.rst:3
-msgid "Attributes"
+#: ../../src/developer/troubleshooting.rst:3
+msgid "Troubleshooting"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:5
-msgid "Attributes are entities meant to qualify features on other entities, such as *nodes*. The main difference between *tags* and *attributes* is that you can set a value for each attributed *node*."
+#: ../../src/developer/troubleshooting.rst:6
+msgid "Empty caches manually for an environment"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:13
-msgid "The attribute \"Color\" can be set to \"red\" for one node and set to \"green\" for an other one."
+#: ../../src/developer/troubleshooting.rst:8
+msgid "If you experience errors only on a dedicated environment such as ``prod``, ``dev`` or ``install``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/roadiz cache:clear -e prod;`` (replace *prod* by your environment) in command line."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:15
-msgid "Okay, but now what is the difference between *attributes* and node-type fields? Not so much because node-type fields describe your node' features too, but they are fixed and defined by the developer. Once your node-type fields are created, you have to implement your feature in your *Twig* templates, and translate it in your XLF files too."
+#: ../../src/developer/troubleshooting.rst:14
+msgid "If you still get errors from a specific env and you are using an *OPcode* cache or *var cache* (*APC*, *XCache*), call ``clear_cache.php`` entry point *from your browser* or execute ``curl http://localhost/clear_cache.php`` from your command line."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:20
-msgid "Attributes are meant to be created and added by editors so they can use them in your website lifecycle without needing any further development."
+#: ../../src/developer/troubleshooting.rst:20
+msgid "Problem with entities and Doctrine cache?"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:23
-msgid "From the developer perspective, attributes are just a collection of entities to be displayed in a loop. Then your editor can create new ones and be sure they will be displayed without any additional development."
+#: ../../src/developer/troubleshooting.rst:22
+msgid "After each Roadiz **upgrade** you should always upgrade your node-sources entity classes and upgrade database schema."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:51
-msgid "If you grouped your attributes, you can use ``grouped_attributes`` filter instead:"
+#: ../../src/developer/troubleshooting.rst:31
+msgid "If you are using a *OPCode var cache* like *APC*, *XCache*, you should purge it as Roadiz stores doctrine configuration there for better performances, call ``clear_cache.php`` entry point from your browser or ``curl http://localhost/clear_cache.php`` from your command line."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:88
-msgid "Attributes types"
+#: ../../src/developer/troubleshooting.rst:39
+msgid "Running Roadiz behind a reverse proxy"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:93
-msgid "*String*"
+#: ../../src/developer/troubleshooting.rst:41
+msgid "If you are behind a reverse-proxy like *Varnish* or *Nginx proxy* on a *Docker* environment, IP addresses, domain name and proto (https/http) could not be correctly set. So you will have to `tell Roadiz to trust your proxy <https://symfony.com/doc/3.4/deployment/proxies.html#solution-settrustedproxies>`_ in order to use ``X_FORWARDED_*`` env vars."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:94
-msgid "*Date*"
+#: ../../src/developer/troubleshooting.rst:46
+msgid "Add this line to your ``index.php`` and ``preview.php`` files after ``$request = Request::createFromGlobals();`` line."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:95
-msgid "*Date and time*"
+#: ../../src/developer/troubleshooting.rst:60
+msgid "Find help before posting an issue on Github"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:96
-msgid "*Single choice*: choice among defined options in your attribute"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:97
-msgid "*Boolean*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:98
-msgid "*Integer*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:99
-msgid "*Decimal*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:100
-msgid "*Email*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:101
-msgid "*Color*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:102
-msgid "*Country*: ISO 2-letters country code"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:105
-msgid "Add attributes to nodes"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:107
-msgid "*Attribute* section is available for any node in any translations."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:113
-msgid "Twig extension"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:115
-msgid "Several filters and tests are available to ease up templating with *attributes*:"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:118
-msgid "Filters"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:120
-msgid "``attributes``: same as ``node_source_attributes()`` method, get all available attributes from a ``NodesSources``."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:121
-msgid "``grouped_attributes``: same as ``node_source_grouped_attributes()`` method, get all available attributes from a ``NodesSources`` and gather them into their **group**."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:122
-msgid "``attribute_label(translation)``: get attribute translated ``label`` or ``code`` if not translated."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:123
-msgid "``attribute_group_label(translation)``: get attribute group translated ``name`` or ``canonicalName`` if not translated."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:126
-msgid "Tests"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:128
-msgid "``datetime``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:129
-msgid "``date``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:130
-msgid "``country``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:131
-msgid "``boolean``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:132
-msgid "``choice``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:133
-msgid "``enum``"
+#: ../../src/developer/troubleshooting.rst:62
+msgid "Join us on Gitter: https://gitter.im/roadiz/roadiz"
 msgstr ""
 
