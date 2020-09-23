@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:22\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -13,143 +13,47 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/attributes/index.pot\n"
-"X-Crowdin-File-ID: 72\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/first-steps/upgrading.pot\n"
+"X-Crowdin-File-ID: 96\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/attributes/index.rst:3
-msgid "Attributes"
+#: ../../src/developer/first-steps/upgrading.rst:5
+msgid "Upgrading"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:5
-msgid "Attributes are entities meant to qualify features on other entities, such as *nodes*. The main difference between *tags* and *attributes* is that you can set a value for each attributed *node*."
+#: ../../src/developer/first-steps/upgrading.rst:8
+msgid "**Always do a database backup before upgrading.** You can use the *mysqldump* or *pg_dump* tools to quickly export your database as a file."
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:13
-msgid "The attribute \"Color\" can be set to \"red\" for one node and set to \"green\" for an other one."
+#: ../../src/developer/first-steps/upgrading.rst:11
+msgid "With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:15
-msgid "Okay, but now what is the difference between *attributes* and node-type fields? Not so much because node-type fields describe your node' features too, but they are fixed and defined by the developer. Once your node-type fields are created, you have to implement your feature in your *Twig* templates, and translate it in your XLF files too."
+#: ../../src/developer/first-steps/upgrading.rst:12
+msgid "With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:20
-msgid "Attributes are meant to be created and added by editors so they can use them in your website lifecycle without needing any further development."
+#: ../../src/developer/first-steps/upgrading.rst:13
+msgid "With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:23
-msgid "From the developer perspective, attributes are just a collection of entities to be displayed in a loop. Then your editor can create new ones and be sure they will be displayed without any additional development."
+#: ../../src/developer/first-steps/upgrading.rst:16
+msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:51
-msgid "If you grouped your attributes, you can use ``grouped_attributes`` filter instead:"
+#: ../../src/developer/first-steps/upgrading.rst:24
+msgid "In order to avoid losing sensible node-sources data. You should regenerate your node-source entities classes files:"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:88
-msgid "Attributes types"
+#: ../../src/developer/first-steps/upgrading.rst:31
+msgid "Then run database schema update, first review migration details to see if no data will be removed:"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:93
-msgid "*String*"
+#: ../../src/developer/first-steps/upgrading.rst:38
+msgid "Then, if migration summary is OK (no data loss), perform the following changes:"
 msgstr ""
 
-#: ../../src/developer/attributes/index.rst:94
-msgid "*Date*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:95
-msgid "*Date and time*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:96
-msgid "*Single choice*: choice among defined options in your attribute"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:97
-msgid "*Boolean*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:98
-msgid "*Integer*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:99
-msgid "*Decimal*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:100
-msgid "*Email*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:101
-msgid "*Color*"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:102
-msgid "*Country*: ISO 2-letters country code"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:105
-msgid "Add attributes to nodes"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:107
-msgid "*Attribute* section is available for any node in any translations."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:113
-msgid "Twig extension"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:115
-msgid "Several filters and tests are available to ease up templating with *attributes*:"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:118
-msgid "Filters"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:120
-msgid "``attributes``: same as ``node_source_attributes()`` method, get all available attributes from a ``NodesSources``."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:121
-msgid "``grouped_attributes``: same as ``node_source_grouped_attributes()`` method, get all available attributes from a ``NodesSources`` and gather them into their **group**."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:122
-msgid "``attribute_label(translation)``: get attribute translated ``label`` or ``code`` if not translated."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:123
-msgid "``attribute_group_label(translation)``: get attribute group translated ``name`` or ``canonicalName`` if not translated."
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:126
-msgid "Tests"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:128
-msgid "``datetime``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:129
-msgid "``date``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:130
-msgid "``country``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:131
-msgid "``boolean``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:132
-msgid "``choice``"
-msgstr ""
-
-#: ../../src/developer/attributes/index.rst:133
-msgid "``enum``"
+#: ../../src/developer/first-steps/upgrading.rst:52
+msgid "If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
 msgstr ""
 
