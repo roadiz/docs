@@ -13,151 +13,191 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/themes/create_theme.pot\n"
-"X-Crowdin-File-ID: 124\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/themes/custom_assignations.pot\n"
+"X-Crowdin-File-ID: 126\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/themes/create_theme.rst:5
-msgid "Creating a theme"
+#: ../../src/developer/themes/custom_assignations.rst:5
+msgid "Extending your Twig assignation"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:7
-msgid "Roadiz themes are one of the main parts of the CMS. They allow you to create your really personal website. You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it."
+#: ../../src/developer/themes/custom_assignations.rst:7
+msgid "For a simple website theme, base assignation will work for almost every cases. Using ``node`` or ``nodeSource`` data from your Twig template, you will be able to render all your page fields."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:11
-msgid "Each theme is a folder which must be placed in ``themes/`` folder. Roadiz *Sources* comes with 3 default themes :"
+#: ../../src/developer/themes/custom_assignations.rst:11
+msgid "Now imagine you need to load data from another node than the one being requested. Or imagine that you want to create a complex homepage which displays a summary of your latest news. You will need to extend existing assignated variables."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:13
-msgid "*Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time."
+#: ../../src/developer/themes/custom_assignations.rst:15
+msgid "For example, create a simple node-type called *Page*. Add several basic fields inside it such as *content* and *images*. If you well-understood :ref:`how to create a theme <create-theme>` section you will create a *PageController.php* which look like this:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:14
-msgid "*Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall."
+#: ../../src/developer/themes/custom_assignations.rst:54
+msgid "You will be able to render your page using ``themes/MyTheme/Resources/views/types/page.html.twig`` template file:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:15
-msgid "*DefaultTheme* : It’s a demo theme which is mainly used to demonstrate basic Roadiz features and to try the back-office editing capabilities."
+#: ../../src/developer/themes/custom_assignations.rst:75
+msgid "Use theme-wide assignation"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:17
-msgid "As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands."
+#: ../../src/developer/themes/custom_assignations.rst:77
+msgid "Custom assignations are great but what can I do if I have to use the same variables in several controllers? We added a special ``extendAssignation`` method which is called at the end of your theme preparation process (``prepareThemeAssignation`` and ``prepareNodeSourceAssignation``). Just override it in your ``MyThemeApp`` main class, then every theme controllers and templates will be able to use these variables."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:None
-msgid "Source Edition"
+#: ../../src/developer/themes/custom_assignations.rst:84
+msgid "For example, you can use this method to make ``<head>`` variables available for each of your website pages."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:22
-msgid "If you are using Roadiz *Source edition*, we configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder. So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates."
+#: ../../src/developer/themes/custom_assignations.rst:108
+msgid "Use *Page / Block* data pattern"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:26
-msgid "Preparing your own frontend theme"
+#: ../../src/developer/themes/custom_assignations.rst:110
+msgid "At REZO ZERO, we often use complex page design which need removable and movable parts. At first we used to create long node-types with a lot of fields, and when editors needed to move content to an other position, they had to cut and paste text to another field. It was long and not very sexy."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:28
-msgid "To start from a fresh and clean foundation, we built a `BaseTheme <https://github.com/roadiz/BaseTheme>`_ to fit our needs with many starter node-types and a front-end framework using *ES6* and *Webpack*."
+#: ../../src/developer/themes/custom_assignations.rst:115
+msgid "So we thought about a modulable way to build pages. We decided to use one master node-type and several slave node-types instead of a single big type. Here is what we call **Page/Block pattern**."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:36
-msgid "Your theme will be generated as ``/themes/MyAwesomeTheme`` with ``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php`` class."
+#: ../../src/developer/themes/custom_assignations.rst:118
+msgid "This pattern takes advantage of Roadiz node hierarchy. We create a very light *Page* node-type, with an *excerpt* and a *thumbnail* fields, then we create an other node-type that we will call *BasicBlock*. This block node-type will have a *content* and *image* fields."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:None
-msgid "Standard Edition"
+#: ../../src/developer/themes/custom_assignations.rst:122
+msgid "The magic comes when we add a last field into *Page* master node-type called *children_nodes*. This special field will display a node-tree inside your edit page. In this field parameter, we add *BasicBlock* name as a default value to tell Roadiz that each *Page* nodes will be able to contain *BasicBlock* nodes."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:41
-msgid "Roadiz *Standard edition* will create a symbolic link into ``web/`` folder to publish your new theme public assets as ``/web/themes/MyAwesomeTheme/static``. Make sure that your system supports *symbolic links*."
+#: ../../src/developer/themes/custom_assignations.rst:126
+msgid "So you understood that all your page data will be allocated in several *BasicBlock* nodes. Then your editor will just have to change block order to re-arrange your page content. That’s not all! With this pattern you can join images to each block so that each paragraph can be pictured with a *Document* field. No need to insert image tags right into your Markdown text as you would do in a Wordpress article."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:44
-msgid "Edit your main class informations (``MyAwesomeThemeApp.php``)"
+#: ../../src/developer/themes/custom_assignations.rst:132
+msgid "How to template *Page / Block* pattern"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:80
-msgid "Then you will be able to add your fresh new theme into Roadiz backoffice or through Roadiz install."
+#: ../../src/developer/themes/custom_assignations.rst:134
+msgid "Now that you’ve structured your data with a *Page* node-type and a *BasicBlock*, how do render your data in only one page and only one URL request? We will use custom assignations!"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:83
-msgid "Static routing"
+#: ../../src/developer/themes/custom_assignations.rst:137
+msgid "You can directly assign your children blocks at the beginning of your *Twig* template. Make sure the global ``bags`` service is available and reachable."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:85
-msgid "Before searching for a node’s Url (Dynamic routing), Roadiz will parse your theme ``route.yml`` to find static controllers and actions to execute. Static actions just have to comply with the ``Request`` / ``Response`` scheme. It is advised to add ``$_locale`` and ``$_route`` optional arguments to better handle multilingual pages."
+#: ../../src/developer/themes/custom_assignations.rst:147
+msgid "You can use different *block* types in the same *page*. Just create as many node-types as you need and add their name to your *Page* ``children_node`` default values. Then add each node-type into ``children`` criteria using an array instead of a single value: ``node.nodeType : [bags.nodeTypes.get('BasicBlock'), bags.nodeTypes.get('AnotherBlock')]``. That way, you will be able to create awesome pages with different looks but with the same template (basic blocks, gallery blocks, etc)."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:130
-msgid "Dynamic routing"
+#: ../../src/developer/themes/custom_assignations.rst:153
+msgid "Now we can update your ``types/page.html.twig`` template to use your assignated blocks."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:134
-msgid "Every node-types will be handled by a specific ``Controller``. If your created a “Page” type, Roadiz will search for a ``…\\Controllers\\PageController`` class and it will try to execute the ``indexAction`` method."
+#: ../../src/developer/themes/custom_assignations.rst:175
+msgid "*Whaaat? What is that include?* This trick will save you a lot of time! We ask Twig to include a sub-template according to each block type name. Eg. for a *BasicBlock* node, Twig will include a ``blocks/basicblock.html.twig`` file. It’s even more powerful when you are using multiple block types because Twig will automatically choose the right template to render each part of your page."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:138
-msgid "An indexAction method must comply with the following signature. It will take the HttpFoundation’s Request as first then a ``Node`` and a ``Translation`` instances. These two last arguments will be useful to generate your page information and to render your current node."
+#: ../../src/developer/themes/custom_assignations.rst:181
+msgid "Then create each of your blocks templates files in ``blocks`` folder:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:167
-msgid "As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object. This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_ purpose which will generate a standard *html* response using a *Twig* template and an assignation array."
+#: ../../src/developer/themes/custom_assignations.rst:204
+msgid "*Voilà!* This is the simplest example to demonstrate you the power of *Page / Block* pattern. If you managed to reproduce this example you can now try it using multiple *block* node-types, combining multiple sub-templates."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:173
-msgid "It’s very easy to create *JSON* responses for your API with Roadiz. You just have to replace ``$this->render($template, $assignation);`` method with ``$this->renderJson($data);``. This method is a shortcut for ``new JsonResponse($data);``."
+#: ../../src/developer/themes/custom_assignations.rst:210
+msgid "Use block rendering"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:178
-msgid "Home page case"
+#: ../../src/developer/themes/custom_assignations.rst:212
+msgid "A few times, using *Page / Block* pattern won’t be enough to display your page blocks. For example, you will occasionally need to create a form inside a block, or you will need to process some data before using them in your Twig template."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:180
-msgid "Homepage is always a special page to handle. With Roadiz you have the choice to handle it as a static page or as a dynamic page. In both case you’ll need to setup a static route in your theme ``Resources/routes.yml`` file."
+#: ../../src/developer/themes/custom_assignations.rst:217
+msgid "For this we added a ``render`` filter which basically create a sub-request to render your block. This new request make possible to create a dedicated ``Controller`` for your block."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:198
-msgid "Now you can code your ``homeAction`` method in ``MyAwesomeThemeApp`` class. It will need 2 arguments:"
+#: ../../src/developer/themes/custom_assignations.rst:221
+msgid "Let’s take the previous example about a page with several *basic blocks* inside. Imagine you have a new *contact block* to insert in your page, then how would you create your form? The following code shows how to “embed” a sub-request inside your block template."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:200
-msgid "A ``Request`` object: ``$request``"
+#: ../../src/developer/themes/custom_assignations.rst:250
+msgid "Then Roadiz will look for a ``Themes\\MyTheme\\Controllers\\Blocks\\ContactBlockController.php`` file and a ``blockAction`` method inside."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:201
-msgid "An optional locale string variable ``$_locale = null``"
+#: ../../src/developer/themes/custom_assignations.rst:292
+msgid "Then create your template ``form-blocks/contactblock.html.twig``:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:204
-msgid "Dynamic home"
+#: ../../src/developer/themes/custom_assignations.rst:307
+msgid "Use controller rendering"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:206
-msgid "If your home page is built with a node. You can tell Roadiz to handle home request as a *Page* request (if your home is a *page* type node) using ``$this->handle($request);`` method. This method will use the ``PageController`` class and ``page.html.twig`` template to render your home. This can be useful when you need to switch your home page to an other page, there is no need to make special ajustments."
+#: ../../src/developer/themes/custom_assignations.rst:309
+msgid "Roadiz implements the standard *Symfony* fragment rendering too. Use ``render()`` Twig function with ``controller()`` function to initiate a Roadiz sub-request and embed complex contents into your templates."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:234
-msgid "Static home"
+#: ../../src/developer/themes/custom_assignations.rst:325
+msgid "Then use regular Roadiz controllers and actions to handle your sub-request:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:236
-msgid "Imagine now that your home page has a totally different look than other pages. Instead of letting ``handle()`` method returning your Response object, you can create it directly and use a dedicated ``home.html.twig`` template. The fourth argument `static::getThemeDir()` is optional, it explicits the namespace to look into. It becames useful when you mix several themes with the same templates names."
+#: ../../src/developer/themes/custom_assignations.rst:352
+msgid "See https://symfony.com/doc/current/templating/embedding_controllers.html for more details about *Symfony* render extension."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:264
-msgid "Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice a dynamic or a static home handling:"
+#: ../../src/developer/themes/custom_assignations.rst:356
+msgid "Paginate entities using EntityListManager"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:267
-msgid "``node``"
+#: ../../src/developer/themes/custom_assignations.rst:358
+msgid "Roadiz implements a powerful tool to display lists and paginate them. Each ``Controller`` class allows developer to use ``createEntityListManager`` method."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:268
-msgid "``nodeSource``"
+#: ../../src/developer/themes/custom_assignations.rst:362
+msgid "In ``FrontendController`` inheriting classes, such as your theme ones, this method is overriden to automatically use the current ``authorizationChecker`` to filter entities by status when entities are *nodes*."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:269
-msgid "``translation``"
+#: ../../src/developer/themes/custom_assignations.rst:366
+msgid "``createEntityListManager`` method takes 3 arguments:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:368
+msgid "**Entity classname**, i.e. ``RZ\\Roadiz\\Core\\Entities\\Nodes`` or ``GeneratedNodeSources\\NSArticle``. The great thing is that you can use it on a precise ``NodesSources`` class instead of using *Nodes* or *NodesSources* then filtering on *node-type*. Using a ``NS`` entity allows you to filter on your own custom fields too."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:369
+msgid "**Criteria array**, (optional)"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:370
+msgid "**Ordering array**, (optional)"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:372
+msgid "*EntityListManager* will automatically grab the current page looking for your Request parameters. If ``?page=2`` is set or ``?search=foo``, it will use them to filter your list and choose the right page."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:375
+msgid "If you want to handle pagination manually, you always can set it with ``setPage(page)`` method, which must be called **after** handling *EntityListManager*. It is useful to bind page parameter in your *routing* configuration."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:388
+msgid "Then, build your ``listAction`` method."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:427
+msgid "Then create your ``articles-feed.html.twig`` template to display each entity paginated."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:459
+msgid "Alter your Roadiz queries with events"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:461
+msgid "The ``FilterQueryBuilderEvent`` can be used when *EntityListManager* criteria or *API* services won’t offer enough parameters to select your entities. This event will be dispatched when just before *Doctrine* QueryBuilder will execute the DQL query so that you can add more DQL statements. This can be very powerful if you need, for example, to force an ``INNER JOIN`` or to use complexe DQL commands."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:508
+msgid "QueryBuilder events are a powerful tool to alter **all Roadiz entities pipeline**. Make sure to remove your listener from the dispatcher **before rendering your Twig templates** or to only support the ``entityClass`` you need. This could alter every queries such as ``|children`` Twig filters or your main navigation loop."
 msgstr ""
 
