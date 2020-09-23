@@ -13,151 +13,67 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/themes/create_theme.pot\n"
-"X-Crowdin-File-ID: 124\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/tags-system/index.pot\n"
+"X-Crowdin-File-ID: 122\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/themes/create_theme.rst:5
-msgid "Creating a theme"
+#: ../../src/developer/tags-system/index.rst:5
+msgid "Tag system"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:7
-msgid "Roadiz themes are one of the main parts of the CMS. They allow you to create your really personal website. You can duplicate an existing theme to customize stylesheets and images. Or you can start from ground and build your very own theme using our API. Every visible part of Roadiz is a theme. Even backoffice interface is a theme, and it’s called *Rozier* according to the street name where REZO ZERO created it."
+#: ../../src/developer/tags-system/index.rst:7
+msgid "Nodes are essentially hierarchical entities. So we created an entity to link nodes between them no matter where/what they are. Tags are meant as *tag* nodes, we couldn’t be more explicit. But if you didn’t understand here is a schema:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:11
-msgid "Each theme is a folder which must be placed in ``themes/`` folder. Roadiz *Sources* comes with 3 default themes :"
+#: ../../src/developer/tags-system/index.rst:14
+msgid "You can see that tags can gather heterogenous nodes coming from different types (pages and projects). Tags can be used to display a category-navigation on your theme or to simply tidy your backoffice node database."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:13
-msgid "*Install* : It’s the first page theme you see when you launch Roadiz in your browser for the first time."
+#: ../../src/developer/tags-system/index.rst:17
+msgid "Did you notice that ``Tags`` are related to ``Nodes`` entities, not ``NodesSources``? We thought that it would be easier to manage that way not to forget to tag a specific node translation. It means that you won’t be able to differenciate tag two ``NodesSources``, if you absolutely need to, we encourage you to create two different nodes."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:14
-msgid "*Rozier* : Here is the REZO ZERO designed backoffice for Roadiz, it’s available from ``rz-admin/`` url and protected by firewall."
+#: ../../src/developer/tags-system/index.rst:22
+msgid "Translate tags"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:15
-msgid "*DefaultTheme* : It’s a demo theme which is mainly used to demonstrate basic Roadiz features and to try the back-office editing capabilities."
+#: ../../src/developer/tags-system/index.rst:24
+msgid "You will notice that tags work the same way as nodes do. By default, *tags names* can’t contain special characters in order to be used in URLs. So we created ``TagTranslation`` entities which stand for Tag’s sources:"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:17
-msgid "As these 3 themes come bundled with Roadiz, you can’t edit or update their files. Your changes would be overrode the next time you update Roadiz via Git or direct download. If you want to create your own Backoffice, you can. Just name it differently and hook it in backoffice or using CLI commands."
+#: ../../src/developer/tags-system/index.rst:30
+msgid "In that way you will be able to translate your tags for each available languages and link documents to them."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:None
-msgid "Source Edition"
+#: ../../src/developer/tags-system/index.rst:33
+msgid "Tag hierarchy"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:22
-msgid "If you are using Roadiz *Source edition*, we configured *Git* versioning tool to ignore every additional theme you create in ``/themes`` folder. So you can **initialize your a new git repository per custom theme you create.** That way you can use code versioning independently from Roadiz updates."
+#: ../../src/developer/tags-system/index.rst:35
+msgid "In the same way as *Nodes* work, tags can be nested to create *tag groups*."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:26
-msgid "Preparing your own frontend theme"
+#: ../../src/developer/tags-system/index.rst:38
+msgid "Displaying node-source tags with Twig"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:28
-msgid "To start from a fresh and clean foundation, we built a `BaseTheme <https://github.com/roadiz/BaseTheme>`_ to fit our needs with many starter node-types and a front-end framework using *ES6* and *Webpack*."
+#: ../../src/developer/tags-system/index.rst:40
+msgid "Tag translations are already set up to track your current locale if you fetched them using ``|tags`` *Twig* filter. Simply use ``getTranslatedTags()->first()`` Tag method to use them in your templates."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:36
-msgid "Your theme will be generated as ``/themes/MyAwesomeTheme`` with ``/themes/MyAwesomeTheme/MyAwesomeThemeApp.php`` class."
+#: ../../src/developer/tags-system/index.rst:56
+msgid "Tags translations documents"
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:None
-msgid "Standard Edition"
+#: ../../src/developer/tags-system/index.rst:58
+msgid "Documents can be linked to your tag translations. They will be different for each translation, so make sure to synchronize them manually if you want to use the same document for all translations."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:41
-msgid "Roadiz *Standard edition* will create a symbolic link into ``web/`` folder to publish your new theme public assets as ``/web/themes/MyAwesomeTheme/static``. Make sure that your system supports *symbolic links*."
+#: ../../src/developer/tags-system/index.rst:62
+msgid "They are available with ``getDocuments()`` method and will be ordered by **position only**."
 msgstr ""
 
-#: ../../src/developer/themes/create_theme.rst:44
-msgid "Edit your main class informations (``MyAwesomeThemeApp.php``)"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:80
-msgid "Then you will be able to add your fresh new theme into Roadiz backoffice or through Roadiz install."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:83
-msgid "Static routing"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:85
-msgid "Before searching for a node’s Url (Dynamic routing), Roadiz will parse your theme ``route.yml`` to find static controllers and actions to execute. Static actions just have to comply with the ``Request`` / ``Response`` scheme. It is advised to add ``$_locale`` and ``$_route`` optional arguments to better handle multilingual pages."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:130
-msgid "Dynamic routing"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:134
-msgid "Every node-types will be handled by a specific ``Controller``. If your created a “Page” type, Roadiz will search for a ``…\\Controllers\\PageController`` class and it will try to execute the ``indexAction`` method."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:138
-msgid "An indexAction method must comply with the following signature. It will take the HttpFoundation’s Request as first then a ``Node`` and a ``Translation`` instances. These two last arguments will be useful to generate your page information and to render your current node."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:167
-msgid "As *Symfony* controllers do, every Roadiz controllers actions have to return a valid ``Response`` object. This is the `render method <http://api.roadiz.io/RZ/Roadiz/CMS/Controllers/AppController.html#method_render>`_ purpose which will generate a standard *html* response using a *Twig* template and an assignation array."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:173
-msgid "It’s very easy to create *JSON* responses for your API with Roadiz. You just have to replace ``$this->render($template, $assignation);`` method with ``$this->renderJson($data);``. This method is a shortcut for ``new JsonResponse($data);``."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:178
-msgid "Home page case"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:180
-msgid "Homepage is always a special page to handle. With Roadiz you have the choice to handle it as a static page or as a dynamic page. In both case you’ll need to setup a static route in your theme ``Resources/routes.yml`` file."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:198
-msgid "Now you can code your ``homeAction`` method in ``MyAwesomeThemeApp`` class. It will need 2 arguments:"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:200
-msgid "A ``Request`` object: ``$request``"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:201
-msgid "An optional locale string variable ``$_locale = null``"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:204
-msgid "Dynamic home"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:206
-msgid "If your home page is built with a node. You can tell Roadiz to handle home request as a *Page* request (if your home is a *page* type node) using ``$this->handle($request);`` method. This method will use the ``PageController`` class and ``page.html.twig`` template to render your home. This can be useful when you need to switch your home page to an other page, there is no need to make special ajustments."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:234
-msgid "Static home"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:236
-msgid "Imagine now that your home page has a totally different look than other pages. Instead of letting ``handle()`` method returning your Response object, you can create it directly and use a dedicated ``home.html.twig`` template. The fourth argument `static::getThemeDir()` is optional, it explicits the namespace to look into. It becames useful when you mix several themes with the same templates names."
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:264
-msgid "Keep in ming that ``prepareThemeAssignation`` method will assign for you some useful variables no matter you choice a dynamic or a static home handling:"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:267
-msgid "``node``"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:268
-msgid "``nodeSource``"
-msgstr ""
-
-#: ../../src/developer/themes/create_theme.rst:269
-msgid "``translation``"
+#: ../../src/developer/tags-system/index.rst:64
+msgid "Imagine, you want to link a PDF document for each of your tags, you can create a download link as described below:"
 msgstr ""
 
