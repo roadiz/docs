@@ -13,111 +13,208 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/case-studies/download-to-vagrant.pot\n"
-"X-Crowdin-File-ID: 74\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/serialization/index.pot\n"
+"X-Crowdin-File-ID: 116\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:5
-msgid "Download a website on my computer to work with Vagrant"
+#: ../../src/developer/serialization/index.rst:4
+msgid "Serialization"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:7
-msgid "This case study is meant to get a fresh development environment from an **existing** Roadiz **Source edition** website and theme. Following code snippets are using some variables data, in theses examples I’ll use:"
+#: ../../src/developer/serialization/index.rst:6
+msgid "*Roadiz* CMS uses ``jms/serializer`` to perform JSON serialization over any objects, especially *Doctrine* entities."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:10
-msgid "``MYUSER`` as the MySQL database user."
+#: ../../src/developer/serialization/index.rst:22
+msgid "Customize existing serialized entities"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:11
-msgid "``MYPASSWORD`` as the MySQL database user password."
+#: ../../src/developer/serialization/index.rst:25
+msgid "Serialize nodes-sources URL"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:12
-msgid "``MYDATABASE`` as the MySQL database name."
+#: ../../src/developer/serialization/index.rst:27
+msgid "Your can add data in your serialized data from your themes using ``EventSubscriberInterface`` listening on ``serializer.post_serialize`` event. For example, you may want to get your *reachable* ``NodesSources`` URL in their JSON response. Here is how to do:"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:13
-msgid "``~/Documents/Websites`` as the working directory on your own computer."
+#: ../../src/developer/serialization/index.rst:111
+msgid "Then register your ``NodesSourcesUriSubscriber`` in your theme services:"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:14
-msgid "``database-YYYY-mm-dd.sql`` is the mysql dump file name, replace ``YYYY-mm-dd`` with the current date."
+#: ../../src/developer/serialization/index.rst:120
+msgid "Then your JSON response will contain the additional key ``url`` :"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:15
-msgid "``mysuperwebsite`` is your website root folder."
+#: ../../src/developer/serialization/index.rst:129
+msgid "You can add every piece of data in your serialized responses, even node children by injecting a *tree-walker*."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:16
-msgid "``git@github.com:johndoe/SuperTheme.git`` is an example *Github* repository for your theme."
+#: ../../src/developer/serialization/index.rst:132
+msgid "Serialize documents URL"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:17
-msgid "``SuperTheme`` is an example theme name and folder."
+#: ../../src/developer/serialization/index.rst:134
+msgid "Same way for injecting your document URL (i.e. image path, or iframe source), we need to call Roadiz document URL generator for any Document serialized into our JSON response:"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:20
-msgid "On the production server:"
+#: ../../src/developer/serialization/index.rst:258
+msgid "Groups"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:22
-msgid "Generate a database dump on your production server."
+#: ../../src/developer/serialization/index.rst:261
+msgid "id"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:28
-msgid "Then download it on your computer. You can also use *phpmyadmin* web tool to export your database tables. Make sure to disable *foreign key verification* and add the *DROP IF EXISTS* directive on *phpmyadmin* export form."
+#: ../../src/developer/serialization/index.rst:263
+msgid "Serialize every entity ``id``."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:33
-msgid "On your computer:"
+#: ../../src/developer/serialization/index.rst:264
+msgid "timestamps"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:35
-msgid "Clone Roadiz on your favorite folder, choose well between master or develop branch if you want the stable version or the latest features."
+#: ../../src/developer/serialization/index.rst:266
+msgid "Serialize every date-timed entity ``createdAt`` and ``updatedAt`` fields."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:44
-msgid "Clone your website theme in Roadiz ``themes/`` folder, choose well your branch too. If you already have a *develop* branch, clone with ``-b develop`` option."
+#: ../../src/developer/serialization/index.rst:267
+msgid "position"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:52
-msgid "**[Optional]** Initialize *git-flow* on the theme. You should always work on *develop*. *Master* branch is only for releases. If you don’t have *git-flow* on your computer, you can find some help on the `official documentation <http://danielkummer.github.io/git-flow-cheatsheet/>`_."
+#: ../../src/developer/serialization/index.rst:269
+msgid "Serialize every entity ``position`` fields."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:64
-msgid "Install Roadiz’ *Composer* dependencies (after cloning the theme to be sure that all *composer* dependencies are loaded)"
+#: ../../src/developer/serialization/index.rst:270
+msgid "color"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:71
-msgid "Launch your Vagrant environment. Do not to automatically provision your VM if you want to choose what tool to install."
+#: ../../src/developer/serialization/index.rst:272
+msgid "Serialize every entity ``color`` fields."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:78
-msgid "Choose tools to install on your VM, ``roadiz`` provisioner is mandatory… obviously, ``devtools`` provisioner will install *Composer*, *Node.js*, *Grunt* and *Bower* commands. If you have lots of website on your computer, it’s better to install these tools directly on your host machine, they will be more effective than on the VM. And you will be able to take advantage of *Composer* and *NPM* cache between your dev websites."
+#: ../../src/developer/serialization/index.rst:273
+msgid "nodes_sources"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:91
-msgid "Import your database dump. First, you’ll need to copy it into your Roadiz website to make it available within your Vagrant VM. Then import it in your VM using the ``mysql`` tool."
+#: ../../src/developer/serialization/index.rst:275
+msgid "Serialize entities in a ``NodesSources`` context (all fields)."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:105
-msgid "Update your conf/config.yml file to fill in your mysql credentials."
+#: ../../src/developer/serialization/index.rst:276
+msgid "nodes_sources_base"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:113
-msgid "Use the ``bin/roadiz generate:nsentities`` to regenerate *Doctrine* entities existing in database but not as files."
+#: ../../src/developer/serialization/index.rst:278
+msgid "Serialize entities in a ``NodesSources`` context, but with essential information."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:125
-msgid "Download your production documents to your dev VM. You don’t have to do this within your VM."
+#: ../../src/developer/serialization/index.rst:279
+msgid "nodes_sources_documents"
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:133
-msgid "If you are using a Vagrant VM you have to add your IP address to the ``dev.php`` file to authorize your host computer to use the development environment."
+#: ../../src/developer/serialization/index.rst:281
+msgid "Serialize documents linked to a ``NodesSources`` for each virtual field."
 msgstr ""
 
-#: ../../src/developer/case-studies/download-to-vagrant.rst:135
-msgid "11. Connect to ``http://localhost:8080/dev.php`` to begin. Every outgoing emails should be catched by *Mailcatcher*. You can see them at address ``http://localhost:1080``."
+#: ../../src/developer/serialization/index.rst:282
+msgid "nodes_sources_default"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:284
+msgid "Serialize ``NodesSources`` fields not contained in any **group**."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:285
+msgid "nodes_sources_``group``"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:287
+msgid "Custom serialization groups are created according to your node-typ fields groups. For example, if you set a field to a ``link`` group, ``nodes_sources_link`` serialization group will be automatically generated for this field. *Be careful*, Roadiz will use groups *canonical names* to generate serialization groups, it can mix ``_`` and ``-``."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:291
+msgid "node"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:293
+msgid "Serialize entities in a ``Node`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:294
+msgid "tag"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:296
+#: ../../src/developer/serialization/index.rst:299
+msgid "Serialize entities in a ``Tag`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:297
+msgid "tag_base"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:300
+msgid "node_type"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:302
+msgid "Serialize entities in a ``NodeType`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:303
+msgid "attribute"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:305
+msgid "Serialize entities in a ``Attribute`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:306
+msgid "custom_form"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:308
+msgid "Serialize entities in a ``CustomForm`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:309
+msgid "document"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:311
+msgid "Serialize entities in a ``Document`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:312
+msgid "folder"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:314
+msgid "Serialize entities in a ``Folder`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:315
+msgid "translation"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:317
+msgid "Serialize entities in a ``Translation`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:318
+msgid "setting"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:320
+msgid "Serialize entities in a ``Setting`` context."
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:321
+msgid "setting_group"
+msgstr ""
+
+#: ../../src/developer/serialization/index.rst:323
+msgid "Serialize entities in a ``SettingGroup`` context."
 msgstr ""
 
