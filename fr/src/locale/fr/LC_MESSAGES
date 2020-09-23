@@ -13,160 +13,244 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/nodes-system/nodes.pot\n"
-"X-Crowdin-File-ID: 114\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/nodes-system/node_type_fields.pot\n"
+"X-Crowdin-File-ID: 112\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/nodes-system/nodes.rst:5
-msgid "Handling nodes and their hierarchy"
+#: ../../src/developer/nodes-system/node_type_fields.rst:5
+msgid "Node-type fields"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:7
-msgid "By default, if you use Entities API methods or trasversing Twig filters, Roadiz will automatically handle security parameters such as ``node.status`` and ``preview`` mode."
+#: ../../src/developer/nodes-system/node_type_fields.rst:7
+msgid "Roadiz can handle many types of node-type fields. Here is a complete list:"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:22
-msgid "This first code snippet is using *Node-source API*. This will automatically check if current user is logged-in and if preview mode is *ON* to display or not *unpublished nodes*."
+#: ../../src/developer/nodes-system/node_type_fields.rst:10
+msgid "*Title*, *meta-title*, *meta-description* and *keywords* are always available since they are stored directly inside ``NodesSources`` entity. Then you will be sure to always have a *title* no matter the node-type you are using."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:34
-msgid "This second code snippet uses standard Doctrine *Entity Manager* to directly grab node-sources by their entity class. This method does not check any security and will return every node-sources, **even unpublished, archived and deleted ones**."
+#: ../../src/developer/nodes-system/node_type_fields.rst:15
+msgid "Simple data"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:39
-msgid "Hierarchy"
+#: ../../src/developer/nodes-system/node_type_fields.rst:17
+msgid "This following fields stores simple data in your custom node-source database table."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:41
-msgid "To trasverse node-sources hierarchy, the easier method is to use *Twig* filters on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from origin node-source."
+#: ../../src/developer/nodes-system/node_type_fields.rst:19
+msgid "Single-line text"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:58
-msgid "All these filters will take care of publication status and translation, **but not publication date-time neither visibility**."
+#: ../../src/developer/nodes-system/node_type_fields.rst:20
+msgid "Date"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:73
-msgid "If you need to traverse node-source graph from your controllers you can use the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom criteria if you choose a specific ``NodeType``."
+#: ../../src/developer/nodes-system/node_type_fields.rst:21
+msgid "Date and time"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:89
-msgid "Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria."
+#: ../../src/developer/nodes-system/node_type_fields.rst:22
+msgid "Basic text"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:105
-#: ../../src/developer/nodes-system/nodes.rst:110
-msgid "Visibility"
+#: ../../src/developer/nodes-system/node_type_fields.rst:23
+msgid "Markdown text"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:107
-msgid "There are two parametres that you must take care of in your themes and your controllers, because they are not mandatory in all website cases:"
+#: ../../src/developer/nodes-system/node_type_fields.rst:24
+msgid "Boolean"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:111
-msgid "Publication date and time"
+#: ../../src/developer/nodes-system/node_type_fields.rst:25
+msgid "Integer number"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:113
-msgid "For example, *publication date and time* won’t be necessary in plain text pages and not timestampable contents. But we decided to add it directly in ``NodesSources`` entity to be able to filter and order with this field in Roadiz back-office. This was not possible if you manually create your own ``publishedAt`` as a node-type field."
+#: ../../src/developer/nodes-system/node_type_fields.rst:26
+msgid "Decimal number"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:120
-msgid "Pay attention that *publication date and time* (``publishedAt``) and visibility (``node.visible``) **does not prevent** your node-source from being viewed if you did not explicitly forbid access to its controller. This field is not deeply set into Roadiz security mechanics."
+#: ../../src/developer/nodes-system/node_type_fields.rst:27
+msgid "Email"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:125
-msgid "If you need so, make sure that your node-type controller checks these two fields and throws a ``ResourceNotFoundException`` if they’re not satisfied."
+#: ../../src/developer/nodes-system/node_type_fields.rst:28
+msgid "Color"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:153
-msgid "Publication workflow"
+#: ../../src/developer/nodes-system/node_type_fields.rst:29
+msgid "Single geographic coordinates"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:155
-msgid "Each Node state is handled by a *Workflow* to switch between the following 5 states:"
+#: ../../src/developer/nodes-system/node_type_fields.rst:30
+msgid "JSON code"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:158
-msgid "States"
+#: ../../src/developer/nodes-system/node_type_fields.rst:31
+msgid "CSS code"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:159
-msgid "``Node::DRAFT``"
+#: ../../src/developer/nodes-system/node_type_fields.rst:32
+msgid "Country code (ISO 3166-1 alpha-2)"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:160
-msgid "``Node::PENDING``"
+#: ../../src/developer/nodes-system/node_type_fields.rst:33
+msgid "YAML code"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:161
-msgid "``Node::PUBLISHED``"
+#: ../../src/developer/nodes-system/node_type_fields.rst:34
+msgid "Many to many join"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:162
-msgid "``Node::ARCHIVED``"
+#: ../../src/developer/nodes-system/node_type_fields.rst:35
+msgid "Many to one join"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:163
-msgid "``Node::DELETED``"
+#: ../../src/developer/nodes-system/node_type_fields.rst:36
+msgid "Single relationship using a provider"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:166
-msgid "Transitions"
+#: ../../src/developer/nodes-system/node_type_fields.rst:37
+msgid "Multiple relationship using a provider"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:167
-msgid "review"
+#: ../../src/developer/nodes-system/node_type_fields.rst:38
+#: ../../src/developer/nodes-system/node_type_fields.rst:182
+msgid "Custom collection"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:168
-msgid "reject"
+#: ../../src/developer/nodes-system/node_type_fields.rst:41
+msgid "*Single geographic coordinates* field stores its data in JSON format. Make sure you don’t have manually written data in its input field."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:169
-msgid "publish"
+#: ../../src/developer/nodes-system/node_type_fields.rst:45
+msgid "To use *Single geographic coordinates* you must create a *Google API Console* account with *Maps API v3* activated. Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings to enable *geographic* node-type fields. If you didn't do it, a simple text input will be display instead of *Roadiz Map Widget*."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:170
-msgid "archive"
+#: ../../src/developer/nodes-system/node_type_fields.rst:55
+msgid "Virtual data"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:171
-msgid "unarchive"
+#: ../../src/developer/nodes-system/node_type_fields.rst:57
+msgid "Virtual types do not really store data in node-source table. They display custom widgets in your editing page to link documents, nodes or custom-forms with your node-source."
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:172
-msgid "delete"
+#: ../../src/developer/nodes-system/node_type_fields.rst:61
+msgid "Documents"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:173
-msgid "undelete"
+#: ../../src/developer/nodes-system/node_type_fields.rst:62
+msgid "Nodes references"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:175
-msgid "You cannot changes a Node status directly using its *setter*, you must use Roadiz main *registry* to perform transition. This can prevent unwanted behaviours and you can track changes with events and guards:"
+#: ../../src/developer/nodes-system/node_type_fields.rst:63
+msgid "Custom form"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:188
-msgid "Generating paths and url"
+#: ../../src/developer/nodes-system/node_type_fields.rst:66
+msgid "Complex data"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:190
-msgid "You can use ``generateUrl()`` in your controllers to get a node-source’ path or url. In your Twig template, you can use ``path`` method as described in Twig section: :ref:`twig-generate-paths`."
+#: ../../src/developer/nodes-system/node_type_fields.rst:68
+msgid "These fields types must be created with *default values* (comma separated) in order to display available default choices for “select-box” types:"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:223
-msgid "Overriding default node-source path generation"
+#: ../../src/developer/nodes-system/node_type_fields.rst:71
+msgid "Single choice"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:225
-msgid "You can override default node-source path generation in order to use ``{{ path() }}`` method in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type which purpose only is to link to an other node in your website. When you call *path* or *URL* generation on it, you should prefer getting its linked node path, so you can listen to ``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return your linked node path instead of your *link* node path."
+#: ../../src/developer/nodes-system/node_type_fields.rst:72
+msgid "Multiple choices"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:296
-msgid "Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:"
+#: ../../src/developer/nodes-system/node_type_fields.rst:73
+msgid "Children nodes"
 msgstr ""
 
-#: ../../src/developer/nodes-system/nodes.rst:304
-msgid "This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache provider, instead of generating your custom URL inside your Twig templates or PHP controllers."
+#: ../../src/developer/nodes-system/node_type_fields.rst:75
+msgid "*Children node* field type is a special virtual field that will display a custom node-tree inside your editing page. You can add *quick-create* buttons by listing your node-types names in *default values* input, comma separated."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:80
+msgid "Universal fields"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:82
+msgid "If you need a field to hold exactly the same data for all translations, you can set it as *universal*. For example for documents, numeric and boolean data that do not change from one language to another."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:86
+msgid "It will duplicate data at each save time from default translation to others. It will also hide the edit field from non-default translation to avoid confusion."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:91
+msgid "YAML field"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:93
+msgid "When you use YAML field type, you get an additional method to return your code already parsed. If your field is named ``data``, your methods will be generated in your *NSEntity* as ``getData()`` and ``getDataAsObject()``."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:96
+msgid "``getData()`` method will return your YAML code as *string*."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:97
+msgid "``getDataAsObject()`` will return a mixed data,array or ``stdObject`` according to your code formatting. This method will throw a ``\\Symfony\\Component\\Yaml\\Exception\\ParseException`` if your YAML code is not valid."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:100
+msgid "Many to many and Many to one joins"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:102
+msgid "You can create custom relations between your node-source and whatever Doctrine entities in *Roadiz* or in your theme."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:105
+msgid "You must fill the *default values* field for these two types."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:124
+msgid "Single and multiple provider"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:126
+msgid "The generic provider type allow you to fetch every data you want through a ``Provider`` class in your theme. This can be really useful if you need to fetch items from an external API and to reference them in your nodes-sources."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:130
+msgid "Imagine that you want to link your page with an *Instagram* post. You’ll have to create a class that extends ``Themes\\Rozier\\Explorer\\AbstractExplorerProvider`` and configure it in your field:"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:137
+msgid "This provider will implement ``getItems``, ``getItemsById`` and other methods from ``ExplorerProviderInterface`` in order to be able to display your *Instagram* posts in Roadiz explorer widget and to find your selected items back. Each *Instagram* post will be wrapped in a ``Themes\\Rozier\\Explorer\\AbstractExplorerItem`` that will map your custom data to the right fields to be showed in Roadiz back-office."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:143
+msgid "You’ll find an implementation example in Roadiz with ``Themes\\Rozier\\Explorer\\SettingsProvider`` and ``Themes\\Rozier\\Explorer\\SettingExplorerItem``. These classes do not fetch data from an API but from your database using ``EntityListManager``."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:147
+msgid "Single and multiple provider types can accept additional options too. If you want to make your provider configurable at runtime you can pass ``options`` in your field configuration."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:159
+msgid "Then you must override your provider’ ``configureOptions`` method to add which options are allowed."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:184
+msgid "Last but not least, you can create a custom collection field to store read-only data using a dedicated *Symfony* ``AbstractType``."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:187
+msgid "You must fill the *default values* field for this type:"
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:194
+msgid "You must understand that *custom collection* data will be stored as JSON array in your database. So you won’t be able to query your node-source using this data."
+msgstr ""
+
+#: ../../src/developer/nodes-system/node_type_fields.rst:197
+msgid "In your ``FooBarType``, you’ll be able to use *Symfony* standard fields types and **Roadiz** non-virtual fields too such as ``MarkdownType``, ``JsonType``, ``YamlType``."
 msgstr ""
 
