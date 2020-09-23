@@ -1,32 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/services/glossary.pot\n"
+"X-Crowdin-File-ID: 118\n"
+"Language: fr_FR\n"
 
 #: ../../src/developer/services/glossary.rst:4
 msgid "Services list"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:6
-msgid ""
-"Here is the current list of Roadiz services registered into ``Kernel`` "
-"container. These can be overridden or used from any Controller with "
-"``$this->get()`` method."
+msgid "Here is the current list of Roadiz services registered into ``Kernel`` container. These can be overridden or used from any Controller with ``$this->get()`` method."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:9
@@ -238,9 +234,7 @@ msgid "em"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:108
-msgid ""
-"``Doctrine\\ORM\\EntityManager``, you can access it using "
-"``$this->get(EntityManagerInterface::class)``."
+msgid "``Doctrine\\ORM\\EntityManager``, you can access it using ``$this->get(EntityManagerInterface::class)``."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:109
@@ -260,10 +254,7 @@ msgid "CacheProvider::class"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:117
-msgid ""
-":sup:`Factory` Creates a ``CacheProvider::class`` using Roadiz "
-"configuration, , you can access it using "
-"``$this->get(CacheProvider::class)``."
+msgid ":sup:`Factory` Creates a ``CacheProvider::class`` using Roadiz configuration, , you can access it using ``$this->get(CacheProvider::class)``."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:120
@@ -399,9 +390,7 @@ msgid "NodeFactory::class"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:181
-msgid ""
-"``RZ\\Roadiz\\Utils\\Node\\NodeFactory``. Factory to create new nodes "
-"from a title, a node-type and translation."
+msgid "``RZ\\Roadiz\\Utils\\Node\\NodeFactory``. Factory to create new nodes from a title, a node-type and translation."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:182
@@ -409,9 +398,7 @@ msgid "TagFactory::class"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:184
-msgid ""
-"``RZ\\Roadiz\\Utils\\Tag\\TagFactory``. Factory to create new tags from a"
-" title, a parent tag and a translation."
+msgid "``RZ\\Roadiz\\Utils\\Tag\\TagFactory``. Factory to create new tags from a title, a parent tag and a translation."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:185
@@ -419,9 +406,7 @@ msgid "factory.handler"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:187
-msgid ""
-"``RZ\\Roadiz\\Core\\Handlers\\HandlerFactory`` Creates any Handler based "
-"on entity class."
+msgid "``RZ\\Roadiz\\Core\\Handlers\\HandlerFactory`` Creates any Handler based on entity class."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:189
@@ -533,9 +518,7 @@ msgid "document.viewer"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:230
-msgid ""
-":sup:`Factory` ``RZ\\Roadiz\\Core\\Viewers\\DocumentViewer`` "
-"**Deprecated**:"
+msgid ":sup:`Factory` ``RZ\\Roadiz\\Core\\Viewers\\DocumentViewer`` **Deprecated**:"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:232
@@ -611,9 +594,7 @@ msgid "Rollerworks\\\\Component\\\\PasswordStrength\\\\Validator\\\\Constraints\
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:266
-msgid ""
-"Blacklist form validator to be used and instanciated by Symfony "
-"ContainerConstraintValidatorFactory."
+msgid "Blacklist form validator to be used and instanciated by Symfony ContainerConstraintValidatorFactory."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:269
@@ -625,9 +606,7 @@ msgid "RZ\\\\Roadiz\\\\CMS\\\\Importers\\\\ChainImporter"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:274
-msgid ""
-":sup:`Factory` Creates an chained importer that will import serialized "
-"data based on required entity class."
+msgid ":sup:`Factory` Creates an chained importer that will import serialized data based on required entity class."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:275
@@ -1222,9 +1201,7 @@ msgid "defaultTranslation"
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:536
-msgid ""
-"``RZ\\Roadiz\\Core\\Entities\\Translation`` or ``null`` if you don’t have"
-" any default translation."
+msgid "``RZ\\Roadiz\\Core\\Entities\\Translation`` or ``null`` if you don’t have any default translation."
 msgstr ""
 
 #: ../../src/developer/services/glossary.rst:537

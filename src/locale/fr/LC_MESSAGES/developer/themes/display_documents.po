@@ -1,42 +1,32 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/themes/display_documents.pot\n"
+"X-Crowdin-File-ID: 128\n"
+"Language: fr_FR\n"
 
 #: ../../src/developer/themes/display_documents.rst:5
 msgid "Displaying documents"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:7
-msgid ""
-"Did you noticed that *images* relation is available directly in "
-"nodeSource object? That’s a little shortcut to "
-"``(nodeSource|handler).documentFromFieldName('images')``. Cool, isn’t it?"
-" When you create your *documents* field in your node-type, Roadiz "
-"generate a shortcut method for each document relation in your "
-"``GeneratedNodesSources/NSxxxx`` class."
+msgid "Did you noticed that *images* relation is available directly in nodeSource object? That’s a little shortcut to ``(nodeSource|handler).documentFromFieldName('images')``. Cool, isn’t it? When you create your *documents* field in your node-type, Roadiz generate a shortcut method for each document relation in your ``GeneratedNodesSources/NSxxxx`` class."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:11
-msgid ""
-"Now, you can use the ``DocumentViewer`` service to generate HTML view for"
-" your documents no matter they are *images*, *videos* or *embed*. Two "
-"*Twig* filters are available with ``Documents``:"
+msgid "Now, you can use the ``DocumentViewer`` service to generate HTML view for your documents no matter they are *images*, *videos* or *embed*. Two *Twig* filters are available with ``Documents``:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:13
@@ -48,9 +38,7 @@ msgid "``|url`` generates a public URL to reach your document."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:15
-msgid ""
-"``|embedFinder`` gets the EmbedFinder for current document according to "
-"the embed-platform type (Youtube, Vimeo, Soundcloud…)."
+msgid "``|embedFinder`` gets the EmbedFinder for current document according to the embed-platform type (Youtube, Vimeo, Soundcloud…)."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:34
@@ -58,16 +46,11 @@ msgid "HTML output options"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:36
-msgid ""
-"**absolute** (true|false, default: ``false``), generates an *absolute* "
-"URL with protocol, domain-name and base-url. This must be used for social"
-" network images."
+msgid "**absolute** (true|false, default: ``false``), generates an *absolute* URL with protocol, domain-name and base-url. This must be used for social network images."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:37
-msgid ""
-"**embed** (true|false, default: ``false``), display an embed as iframe "
-"instead of its thumbnail"
+msgid "**embed** (true|false, default: ``false``), display an embed as iframe instead of its thumbnail"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:38
@@ -79,58 +62,35 @@ msgid "**class**"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:40
-msgid ""
-"**alt**: If not filled, it will get the document name, then the document "
-"filename"
+msgid "**alt**: If not filled, it will get the document name, then the document filename"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:41
-msgid ""
-"**lazyload** (true|false, default: ``false``), fill image src in a "
-"``data-src`` attribute instead of ``src`` to prevent it from loading. It "
-"will add automatically ``lazyload_class`` class to your HTML image."
+msgid "**lazyload** (true|false, default: ``false``), fill image src in a ``data-src`` attribute instead of ``src`` to prevent it from loading. It will add automatically ``lazyload_class`` class to your HTML image."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:42
-msgid ""
-"**lazyload_class** (default: ``lazyload``) Class name to be added when "
-"enabling lazyloading."
+msgid "**lazyload_class** (default: ``lazyload``) Class name to be added when enabling lazyloading."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:43
-msgid ""
-"**fallback** (URL|data-uri) Defines a custom fallback image URL or *data-"
-"uri* when using ``lazyload`` option in order to fill ``src`` attribute "
-"and validate against W3C"
+msgid "**fallback** (URL|data-uri) Defines a custom fallback image URL or *data-uri* when using ``lazyload`` option in order to fill ``src`` attribute and validate against W3C"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:44
-msgid ""
-"**blurredFallback** (false|true, default: ``false``) Generated a very low"
-" quality image version for lazyload fallback to better control image size"
-" and better experience."
+msgid "**blurredFallback** (false|true, default: ``false``) Generated a very low quality image version for lazyload fallback to better control image size and better experience."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:45
-msgid ""
-"**picture** (false|true, default: ``false``), use ``<picture>`` element "
-"instead of image and allow serving WebP image to compatibles browsers. "
-"**Only use if your server support WebP**."
+msgid "**picture** (false|true, default: ``false``), use ``<picture>`` element instead of image and allow serving WebP image to compatibles browsers. **Only use if your server support WebP**."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:46
-msgid ""
-"**inline** (true|false, default: ``true``), **for SVG**, display SVG "
-"inline code in html instead of using an ``<object>`` tag. Default "
-"``true``."
+msgid "**inline** (true|false, default: ``true``), **for SVG**, display SVG inline code in html instead of using an ``<object>`` tag. Default ``true``."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:47
-msgid ""
-"**loading** (auto|lazy|eager|null, default: ``null``), for next-gen "
-"browser only that will support native lazy-loading. This will be applied "
-"only on `img`, `picture` and `iframe` elements. *This can fail W3C "
-"validation*."
+msgid "**loading** (auto|lazy|eager|null, default: ``null``), for next-gen browser only that will support native lazy-loading. This will be applied only on `img`, `picture` and `iframe` elements. *This can fail W3C validation*."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:50
@@ -150,16 +110,11 @@ msgid "**crop** (ratio: ``{w}:{h}``, for example : ``16:9``)"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:55
-msgid ""
-"**fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if "
-"you are using *fit* option, Roadiz will be able to add ``width`` and "
-"``height`` attributes to your ``<img>`` tag."
+msgid "**fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:64
-msgid ""
-"**align**, to use along with ``fit`` parameter to choose which part of "
-"the picture to fit. Allowed options:"
+msgid "**align**, to use along with ``fit`` parameter to choose which part of the picture to fit. Allowed options:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:57
@@ -227,15 +182,11 @@ msgid "**background** (hexadecimal color without #)"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:73
-msgid ""
-"**progressive** (boolean, default: ``false``), it will interlace the "
-"image if it’s a *PNG* file."
+msgid "**progressive** (boolean, default: ``false``), it will interlace the image if it’s a *PNG* file."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:74
-msgid ""
-"**noProcess** (boolean, default: ``false``): Disable image processing, "
-"useful if you want to keep animated GIF"
+msgid "**noProcess** (boolean, default: ``false``): Disable image processing, useful if you want to keep animated GIF"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:77
@@ -339,9 +290,7 @@ msgid "**autopause** (boolean, default: ``false``)"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:110
-msgid ""
-"For *Youtube* `embeds "
-"<https://developers.google.com/youtube/player_parameters>`_"
+msgid "For *Youtube* `embeds <https://developers.google.com/youtube/player_parameters>`_"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:112
@@ -373,20 +322,11 @@ msgid "**playlist** (boolean, default: ``false``)"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:119
-msgid ""
-"**playsinline** (boolean, default: ``false``): Allow iframe to play "
-"inline on iOS"
+msgid "**playsinline** (boolean, default: ``false``): Allow iframe to play inline on iOS"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:121
-msgid ""
-"You can use **multiple source files** for one video document or audio "
-"document. Just upload a file using tge same filename name but with a "
-"different extension. Use this method to add a poster image to your video "
-"too. For example: for ``my-video.mp4`` file, upload ``my-video.webm``, "
-"``my-video.ogg`` and ``my-video.jpeg`` documents. *Roadiz* will "
-"automatically generate a ``<video>`` tag using all these files as "
-"*source* and *poster* attribute."
+msgid "You can use **multiple source files** for one video document or audio document. Just upload a file using tge same filename name but with a different extension. Use this method to add a poster image to your video too. For example: for ``my-video.mp4`` file, upload ``my-video.webm``, ``my-video.ogg`` and ``my-video.jpeg`` documents. *Roadiz* will automatically generate a ``<video>`` tag using all these files as *source* and *poster* attribute."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:129
@@ -394,24 +334,15 @@ msgid "Using src-set attribute for responsive images"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:131
-msgid ""
-"Roadiz can generate a ``srcset`` attribute to create a responsive image "
-"tag like the one you can find `on these examples "
-"<https://responsiveimages.org/>`_."
+msgid "Roadiz can generate a ``srcset`` attribute to create a responsive image tag like the one you can find `on these examples <https://responsiveimages.org/>`_."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:134
-msgid ""
-"**srcset** (Array) Define for each rule an Array of format. "
-"`Specifications "
-"<https://www.w3.org/html/wg/drafts/html/master/semantics.html#attr-img-"
-"srcset>`_"
+msgid "**srcset** (Array) Define for each rule an Array of format. `Specifications <https://www.w3.org/html/wg/drafts/html/master/semantics.html#attr-img-srcset>`_"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:135
-msgid ""
-"**media** (Array) Define one ``srcset`` for each media-query. You cannot "
-"use ``media`` without ``picture`` option."
+msgid "**media** (Array) Define one ``srcset`` for each media-query. You cannot use ``media`` without ``picture`` option."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:167
@@ -423,9 +354,7 @@ msgid "Generate <picture> elements"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:179
-msgid ""
-"If you want to combine ``srcset`` for media queries **and** device ratio,"
-" use ``picture`` element with ``media`` option:"
+msgid "If you want to combine ``srcset`` for media queries **and** device ratio, use ``picture`` element with ``media`` option:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:232
@@ -433,9 +362,7 @@ msgid "This will output a ``picture`` element supporting :"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:234
-msgid ""
-"*WebP* image format (*Roadiz* will automatically generate a ``.webp`` "
-"image if your PHP is compiled with *webp* support)"
+msgid "*WebP* image format (*Roadiz* will automatically generate a ``.webp`` image if your PHP is compiled with *webp* support)"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:235
@@ -455,36 +382,23 @@ msgid "More document details"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:264
-msgid ""
-"You can find more details in `our API documentation "
-"<http://api.roadiz.io/RZ/Roadiz/Core/Viewers/DocumentViewer.html#method_getDocumentByArray>`_."
+msgid "You can find more details in `our API documentation <http://api.roadiz.io/RZ/Roadiz/Core/Viewers/DocumentViewer.html#method_getDocumentByArray>`_."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:266
-msgid ""
-"If document is an **image**: ``getDocumentByArray`` method will generate "
-"an ``<img />`` tag with a ``src`` and ``alt`` attributes."
+msgid "If document is an **image**: ``getDocumentByArray`` method will generate an ``<img />`` tag with a ``src`` and ``alt`` attributes."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:267
-msgid ""
-"If it’s a **video**, it will generate a ``<video />`` tag with as many "
-"sources as available in your document database. Roadiz will look for same"
-" filename with each HTML5 video extensions (filename.mp4, filename.ogv, "
-"filename.webm)."
+msgid "If it’s a **video**, it will generate a ``<video />`` tag with as many sources as available in your document database. Roadiz will look for same filename with each HTML5 video extensions (filename.mp4, filename.ogv, filename.webm)."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:268
-msgid ""
-"Then if document is an external media **and** if you set the ``embed`` "
-"flag to ``true``, it will generate an iframe according to its platform "
-"implementation (*Youtube*, *Vimeo*, *Soundcloud*)."
+msgid "Then if document is an external media **and** if you set the ``embed`` flag to ``true``, it will generate an iframe according to its platform implementation (*Youtube*, *Vimeo*, *Soundcloud*)."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:269
-msgid ""
-"Get the external document URI (the one used for creating iframe for "
-"example) with ``(document|embedFinder).source(options…)`` twig command."
+msgid "Get the external document URI (the one used for creating iframe for example) with ``(document|embedFinder).source(options…)`` twig command."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:272
@@ -492,11 +406,7 @@ msgid "Displaying document metas"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:274
-msgid ""
-"Documents can have *name*, *description* and *copyright* (which can be "
-"translated), just access them using ``documentTranslations`` multiple "
-"relation (``documentTranslations.first`` should always contain current "
-"context’ translation):"
+msgid "Documents can have *name*, *description* and *copyright* (which can be translated), just access them using ``documentTranslations`` multiple relation (``documentTranslations.first`` should always contain current context’ translation):"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:292
@@ -504,18 +414,11 @@ msgid "Displaying document thumbnails"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:294
-msgid ""
-"Embed and non-HTML documents will not display automatically their "
-"thumbnails, even if they got one. Native videos and audios will always "
-"try to display ``<video>`` or ``<audio>`` elements, so if you need to "
-"force display their thumbnail image you’ll need to write it manually:"
+msgid "Embed and non-HTML documents will not display automatically their thumbnails, even if they got one. Native videos and audios will always try to display ``<video>`` or ``<audio>`` elements, so if you need to force display their thumbnail image you’ll need to write it manually:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:313
-msgid ""
-"Non-viewable document types, such as *PDF*, *Word*, *Excel*, *Archives*…,"
-" will always use their thumbnail image, if there is one, when you call "
-"``{{ document|display }}``."
+msgid "Non-viewable document types, such as *PDF*, *Word*, *Excel*, *Archives*…, will always use their thumbnail image, if there is one, when you call ``{{ document|display }}``."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:317
@@ -523,19 +426,11 @@ msgid "Manage global documents"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:319
-msgid ""
-"You can store documents inside *settings* for global images such as "
-"header images or website logo. Simply create a new *setting* in Roadiz "
-"back-office choosing *Document* type, then a file selector will appear in"
-" settings list to upload your picture."
+msgid "You can store documents inside *settings* for global images such as header images or website logo. Simply create a new *setting* in Roadiz back-office choosing *Document* type, then a file selector will appear in settings list to upload your picture."
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:322
-msgid ""
-"To use this document setting in your theme, you can assign it globally in"
-" your ``MyThemeApp::extendAssignation`` method. Use ``getDocument`` "
-"method instead of ``get`` to fetch a ``Document`` object  that you’ll be "
-"able to display in your Twig templates:"
+msgid "To use this document setting in your theme, you can assign it globally in your ``MyThemeApp::extendAssignation`` method. Use ``getDocument`` method instead of ``get`` to fetch a ``Document`` object  that you’ll be able to display in your Twig templates:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:330
@@ -543,103 +438,6 @@ msgid "Or in a Twig template:"
 msgstr ""
 
 #: ../../src/developer/themes/display_documents.rst:336
-msgid ""
-"This way is the easiest to fetch a global document, but it needs you to "
-"upload it once in *Settings* section. If this does not suit you, you can "
-"always fetch a *Document* manually using its *Doctrine* repository and a "
-"hard-coded ``filename``."
+msgid "This way is the easiest to fetch a global document, but it needs you to upload it once in *Settings* section. If this does not suit you, you can always fetch a *Document* manually using its *Doctrine* repository and a hard-coded ``filename``."
 msgstr ""
-
-#~ msgid ""
-#~ "Now, you can use ``DocumentViewer`` to"
-#~ " generate HTML view for your "
-#~ "documents no matter they are *images*,"
-#~ " *videos* or *embed*. Two *Twig* "
-#~ "filters are available with ``Documents``:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``|display`` is a shortcut for "
-#~ "``getViewer()->getDocumentByArray($options)``. It "
-#~ "generates an HTML tag to display "
-#~ "your document."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``|url`` is a shortcut for "
-#~ "``getViewer()->getDocumentUrlByArray($options)``. It "
-#~ "generates an Url to reach your "
-#~ "document."
-#~ msgstr ""
-
-#~ msgid "**grayscale** / **greyscale** (boolean)"
-#~ msgstr ""
-
-#~ msgid "**autoplay**"
-#~ msgstr ""
-
-#~ msgid "**controls**"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**absolute** (true|false), generates an "
-#~ "*absolute* URL with protocol, domain-"
-#~ "name and base-url. This must be"
-#~ " used for social network images."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**embed** (true|false), display an embed "
-#~ "as iframe instead of its thumbnail"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**lazyload** (true|false), fill image src "
-#~ "in a ``data-src`` attribute instead "
-#~ "of ``src`` to prevent it from "
-#~ "loading."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**inline** (true|false), **for SVG**, display"
-#~ " SVG inline code in html instead "
-#~ "of using an ``<object>`` tag. Default"
-#~ " ``true``."
-#~ msgstr ""
-
-#~ msgid "**grayscale** (boolean)"
-#~ msgstr ""
-
-#~ msgid "**quality** (1-100)"
-#~ msgstr ""
-
-#~ msgid "**blur** (1-100) *(can be really slow to process)*"
-#~ msgstr ""
-
-#~ msgid "**sharpen** (1-100)"
-#~ msgstr ""
-
-#~ msgid "**contrast** (1-100)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**progressive** (boolean), it will interlace"
-#~ " the image if it’s a *PNG* "
-#~ "file."
-#~ msgstr ""
-
-#~ msgid "**noProcess** (boolean): Disable image processing"
-#~ msgstr ""
-
-#~ msgid "**autoplay** (boolean)"
-#~ msgstr ""
-
-#~ msgid "**controls** (boolean)"
-#~ msgstr ""
-
-#~ msgid "**loop** (boolean)"
-#~ msgstr ""
-
-#~ msgid "Then in a Twig template:"
-#~ msgstr ""
 

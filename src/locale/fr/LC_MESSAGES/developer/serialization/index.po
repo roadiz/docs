@@ -1,31 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 11:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:23\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/serialization/index.pot\n"
+"X-Crowdin-File-ID: 116\n"
+"Language: fr_FR\n"
 
 #: ../../src/developer/serialization/index.rst:4
 msgid "Serialization"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:6
-msgid ""
-"*Roadiz* CMS uses ``jms/serializer`` to perform JSON serialization over "
-"any objects, especially *Doctrine* entities."
+msgid "*Roadiz* CMS uses ``jms/serializer`` to perform JSON serialization over any objects, especially *Doctrine* entities."
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:22
@@ -37,11 +34,7 @@ msgid "Serialize nodes-sources URL"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:27
-msgid ""
-"Your can add data in your serialized data from your themes using "
-"``EventSubscriberInterface`` listening on ``serializer.post_serialize`` "
-"event. For example, you may want to get your *reachable* ``NodesSources``"
-" URL in their JSON response. Here is how to do:"
+msgid "Your can add data in your serialized data from your themes using ``EventSubscriberInterface`` listening on ``serializer.post_serialize`` event. For example, you may want to get your *reachable* ``NodesSources`` URL in their JSON response. Here is how to do:"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:111
@@ -53,9 +46,7 @@ msgid "Then your JSON response will contain the additional key ``url`` :"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:129
-msgid ""
-"You can add every piece of data in your serialized responses, even node "
-"children by injecting a *tree-walker*."
+msgid "You can add every piece of data in your serialized responses, even node children by injecting a *tree-walker*."
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:132
@@ -63,10 +54,7 @@ msgid "Serialize documents URL"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:134
-msgid ""
-"Same way for injecting your document URL (i.e. image path, or iframe "
-"source), we need to call Roadiz document URL generator for any Document "
-"serialized into our JSON response:"
+msgid "Same way for injecting your document URL (i.e. image path, or iframe source), we need to call Roadiz document URL generator for any Document serialized into our JSON response:"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:258
@@ -118,9 +106,7 @@ msgid "nodes_sources_base"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:278
-msgid ""
-"Serialize entities in a ``NodesSources`` context, but with essential "
-"information."
+msgid "Serialize entities in a ``NodesSources`` context, but with essential information."
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:279
@@ -144,12 +130,7 @@ msgid "nodes_sources_``group``"
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:287
-msgid ""
-"Custom serialization groups are created according to your node-typ fields"
-" groups. For example, if you set a field to a ``link`` group, "
-"``nodes_sources_link`` serialization group will be automatically "
-"generated for this field. *Be careful*, Roadiz will use groups *canonical"
-" names* to generate serialization groups, it can mix ``_`` and ``-``."
+msgid "Custom serialization groups are created according to your node-typ fields groups. For example, if you set a field to a ``link`` group, ``nodes_sources_link`` serialization group will be automatically generated for this field. *Be careful*, Roadiz will use groups *canonical names* to generate serialization groups, it can mix ``_`` and ``-``."
 msgstr ""
 
 #: ../../src/developer/serialization/index.rst:291

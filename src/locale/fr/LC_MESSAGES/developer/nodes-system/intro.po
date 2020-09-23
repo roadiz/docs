@@ -1,156 +1,91 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015, Ambroise Maupate & Julien Blanchet
-# This file is distributed under the same license as the Roadiz
-# documentation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 0.14.1\n"
+"Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 13:17+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:24\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/developer/nodes-system/intro.pot\n"
+"X-Crowdin-File-ID: 110\n"
+"Language: fr_FR\n"
 
-#: ../../developer/nodes-system/intro.rst:5
+#: ../../src/developer/nodes-system/intro.rst:5
 msgid "Node-types, nodes-sources and nodes"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:7
-msgid ""
-"This part is the most important part of Roadiz. Quite everything in your "
-"website will be a node."
+#: ../../src/developer/nodes-system/intro.rst:7
+msgid "This part is the most important part of Roadiz. Quite everything in your website will be a node."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:9
+#: ../../src/developer/nodes-system/intro.rst:9
 msgid "Let's check this simple node schema before explain it."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:13
+#: ../../src/developer/nodes-system/intro.rst:13
 msgid "Now, it's time to explain how it's working!"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:18
+#: ../../src/developer/nodes-system/intro.rst:18
 msgid "What is a Node-type"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:20
-msgid ""
-"A node-type is the blueprint for your node-source. It will contain all "
-"fields that Roadiz will use to generate an extended node-source class."
+#: ../../src/developer/nodes-system/intro.rst:20
+msgid "A node-type is the blueprint for your node-source. It will contain all fields that Roadiz will use to generate an extended node-source class."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:27
-msgid ""
-"For example, a node-type \"Page\" will contain \"content\" and \"header "
-"image\" fields. The \"title\" field is always available as it is hard-"
-"coded in ``NodesSources`` class. After saving your node-type, Roadiz "
-"generates a ``NSPage`` class which extends the ``NodesSources`` class. "
-"You will find it in the ``gen-src/GeneratedNodeSources`` (or ``app/gen-"
-"src/GeneratedNodeSources`` with *Roadiz Standard edition*). Then Roadiz "
-"calls *Doctrine* update tool to migrate your database schema. **Do not "
-"modify the generated class.** You’ll have to update it by the backend "
-"interface."
+#: ../../src/developer/nodes-system/intro.rst:27
+msgid "For example, a node-type \"Page\" will contain \"content\" and \"header image\" fields. The \"title\" field is always available as it is hard-coded in ``NodesSources`` class. After saving your node-type, Roadiz generates a ``NSPage`` class which extends the ``NodesSources`` class. You will find it in the ``gen-src/GeneratedNodeSources`` (or ``app/gen-src/GeneratedNodeSources`` with *Roadiz Standard edition*). Then Roadiz calls *Doctrine* update tool to migrate your database schema. **Do not modify the generated class.** You’ll have to update it by the backend interface."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:34
-msgid ""
-"Here is a schema to understand how node-types can define custom fields "
-"into node-sources:"
+#: ../../src/developer/nodes-system/intro.rst:34
+msgid "Here is a schema to understand how node-types can define custom fields into node-sources:"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:40
-msgid ""
-"Most of node-types management will be done in your backoffice interface. "
-"You will be able to create, update node-types objects and each of their "
-"node-type fields independently. But if you prefer, you can use CLI "
-"commands to create types and fields. With Roadiz CLI commands you get "
-"several tools to manage node-types. We really encourage you to check the "
-"commands with ``--help`` argument, as following:"
+#: ../../src/developer/nodes-system/intro.rst:40
+msgid "Most of node-types management will be done in your backoffice interface. You will be able to create, update node-types objects and each of their node-type fields independently. But if you prefer, you can use CLI commands to create types and fields. With Roadiz CLI commands you get several tools to manage node-types. We really encourage you to check the commands with ``--help`` argument, as following:"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:52
-msgid ""
-"Keep in mind that each node-type or node-type fields operation require a "
-"database update as Doctrine have to create a specific table per node-"
-"type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` "
-"tools to perform updates. It’s very important to understand that "
-"*Doctrine* needs to see your node-types generated classes **before** "
-"upgrading database schema. If they don’t exist, it won’t able to create "
-"your custom types tables, or worst, it could delete existing data since "
-"*Doctrine* won’t recognize specific tables."
+#: ../../src/developer/nodes-system/intro.rst:52
+msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:58
+#: ../../src/developer/nodes-system/intro.rst:58
 msgid "Now let's have a look on node-sources."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:64
+#: ../../src/developer/nodes-system/intro.rst:64
 msgid "Node-sources and translations"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:66
-msgid ""
-"Once your node-type created, its definition is stored in database in "
-"``node_types`` and ``node_type_fields`` tables. This informations will be"
-" only used to build your node-sources edition forms in backoffice and to "
-"build a custom database table."
+#: ../../src/developer/nodes-system/intro.rst:66
+msgid "Once your node-type created, its definition is stored in database in ``node_types`` and ``node_type_fields`` tables. This informations will be only used to build your node-sources edition forms in backoffice and to build a custom database table."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:70
+#: ../../src/developer/nodes-system/intro.rst:70
 msgid "Inheritance mapping"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:72
-msgid ""
-"With Roadiz, each node-types data (called node-sources) is stored in a "
-"different table prefixed with ``ns_``. When you create a *Page* node-type"
-" with 2 fields (*content* and *excerpt*), Roadiz tells Doctrine to build "
-"a ``ns_page`` table with 2 columns and one primary key column inherited "
-"from ``nodes_sources`` table. It’s called *inheritance mapping*: your "
-"``ns_page`` table extends ``nodes_sources`` table and when you are "
-"querying a *Page* from database, Doctrine mix the data coming from these "
-"2 tables to create a complete node-source."
+#: ../../src/developer/nodes-system/intro.rst:72
+msgid "With Roadiz, each node-types data (called node-sources) is stored in a different table prefixed with ``ns_``. When you create a *Page* node-type with 2 fields (*content* and *excerpt*), Roadiz tells Doctrine to build a ``ns_page`` table with 2 columns and one primary key column inherited from ``nodes_sources`` table. It’s called *inheritance mapping*: your ``ns_page`` table extends ``nodes_sources`` table and when you are querying a *Page* from database, Doctrine mix the data coming from these 2 tables to create a complete node-source."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:75
-msgid ""
-"At the end your node-source *Page* won’t contain only 2 fields but many "
-"more as ``NodesSources`` entity offers ``title``, ``metaTitle``, "
-"``metaDescription``, ``metaKeywords`` and others useful data-fields which"
-" can be used among all node-types."
+#: ../../src/developer/nodes-system/intro.rst:75
+msgid "At the end your node-source *Page* won’t contain only 2 fields but many more as ``NodesSources`` entity offers ``title``, ``metaTitle``, ``metaDescription``, ``metaKeywords`` and others useful data-fields which can be used among all node-types."
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:79
+#: ../../src/developer/nodes-system/intro.rst:79
 msgid "Translations"
 msgstr ""
 
-#: ../../developer/nodes-system/intro.rst:81
-msgid ""
-"Node-sources inheritance mapping is not only used to customize data but "
-"to make data translations available. As you saw in the first picture, "
-"each nodes can handle many node-sources, one per translation."
+#: ../../src/developer/nodes-system/intro.rst:81
+msgid "Node-sources inheritance mapping is not only used to customize data but to make data translations available. As you saw in the first picture, each nodes can handle many node-sources, one per translation."
 msgstr ""
-
-#~ msgid ""
-#~ "For example, a node-type \"Page\" "
-#~ "will contain \"content\" and \"header "
-#~ "image\" fields. The \"title\" field is"
-#~ " always available as it is hard-"
-#~ "coded in ``NodesSources`` class. After "
-#~ "saving your node-type, Roadiz generates"
-#~ " a ``NSPage`` class which extends the"
-#~ " ``NodesSources`` class. You will find "
-#~ "it in the ``gen-src/GeneratedNodeSources``."
-#~ " Then Roadiz calls *Doctrine* schema "
-#~ "to update. Don’t modify the generated"
-#~ " class! You’ll have to update it "
-#~ "by the backend interface."
-#~ msgstr ""
 
