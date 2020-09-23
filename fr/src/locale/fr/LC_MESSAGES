@@ -13,11 +13,215 @@ msgstr ""
 "X-Crowdin-Project: roadiz-cms-documentation\n"
 "X-Crowdin-Project-ID: 421742\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /develop/i18n/locale/developer/translation/intro.pot\n"
-"X-Crowdin-File-ID: 138\n"
+"X-Crowdin-File: /develop/i18n/locale/extension/events/intro.pot\n"
+"X-Crowdin-File-ID: 142\n"
 "Language: fr_FR\n"
 
-#: ../../src/developer/translation/intro.rst:5
-msgid "Managing Translation"
+#: ../../src/extension/events/intro.rst:4
+msgid "Events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:6
+msgid "Roadiz node system implements several events. So you will be able to create and inject your own event subscribers inside *Roadiz* dispatcher."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:9
+msgid "To understand how the event dispatcher works, you should read the `Symfony documentation at <http://symfony.com/doc/current/components/event_dispatcher/introduction.html>`_ before."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:14
+msgid "Nodes events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:16
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:17
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:18
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:19
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUndeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:20
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDuplicatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:21
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodePathChangedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:22
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeTaggedEvent::class``: This event is triggered for tag and un-tag action."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:23
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeVisibilityChangedEvent::class``: This event is triggered each time a node becomes visible or unvisible."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:24
+msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeStatusChangedEvent::class``: This event is triggered each time a node status changes."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:26
+msgid "Each node event object contains the current ``Node`` entity. You will get it using ``$event->getNode()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:29
+msgid "NodesSources events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:31
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSourcesEvents``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:33
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:34
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPreUpdatedEvent::class``: This event is dispatched BEFORE entity manager FLUSHED."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:35
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesUpdatedEvent::class``: This event is dispatched AFTER entity manager FLUSHED."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:36
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:38
+msgid "Each node-source event object contains the current ``NodesSources`` entity. You will get it using ``$event->getNodeSource()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:40
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesIndexingEvent::class``: This event type is dispatched during Solr indexation. Your event will be ``\\RZ\\Roadiz\\Core\\Events\\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:43
+msgid "You will find a simple subscriber example in Roadiz back-office theme which is called ``Themes\\Rozier\\Events\\SolariumSubscriber``. This subscriber is useful to update or delete your *Solr* index documents against your node-source database."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:46
+msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent::class``: This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name)."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:49
+msgid "Tags events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:51
+msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:52
+msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:53
+msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:55
+msgid "Each tag event object contains the current ``Tag`` entity. You will get it using ``$event->getTag()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:58
+msgid "Folders events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:60
+msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:61
+msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:62
+msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:64
+msgid "Each folder event object contains the current ``Folder`` entity. You will get it using ``$event->getFolder()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:67
+msgid "Translations events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:69
+msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:70
+msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:71
+msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:73
+msgid "Each folder event object contains the current ``Translation`` entity. You will get it using ``$event->getTranslation()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:76
+msgid "UrlAlias events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:78
+msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:79
+msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:80
+msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:82
+msgid "Each folder event object contains the current ``UrlAlias`` entity. You will get it using ``$event->getUrlAlias()``."
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:85
+msgid "User events"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:87
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserCreatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:88
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserUpdatedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:89
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDeletedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:90
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDisabledEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:91
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserEnabledEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:92
+msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserPasswordChangedEvent::class``"
+msgstr ""
+
+#: ../../src/extension/events/intro.rst:94
+msgid "Each folder event object contains the current ``User`` entity. You will get it using ``$event->getUser()``."
 msgstr ""
 
