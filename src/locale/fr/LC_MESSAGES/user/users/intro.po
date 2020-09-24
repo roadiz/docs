@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 21:14\n"
+"PO-Revision-Date: 2020-09-23 21:23\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Il s'agit d'un guide simple sur la façon de créer et de gérer les uti
 
 #: ../../src/user/users/intro.rst:8
 msgid "There are two ways of adding users, via the back-office and in command-line, both will be displayed in each section."
-msgstr ""
+msgstr "Il y a deux façons d'ajouter des utilisateurs, via le back-office et en ligne de commande."
 
 #: ../../src/user/users/intro.rst:10
 msgid "When working with Roadiz in the back-office, you can easily manage users via the *User system* icon in the toolbar."
