@@ -177,7 +177,6 @@ info:
 
 gettext:
 	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(I18NDIR)/locale
-	${SPHINXINTL} -c ${SOURCEDIR}/conf.py update -p $(I18NDIR)/locale
 	@echo
 	@echo "Build finished. The message catalogs are in $(I18NDIR)/locale."
 
