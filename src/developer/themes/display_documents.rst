@@ -23,7 +23,6 @@ Now, you can use the ``DocumentViewer`` service to generate HTML view for your 
     {% if image %}
     {{ image|display({
         'width':200,
-        'height':200,
         'crop':"1:1",
         'quality':75,
         'embed':true
@@ -51,7 +50,7 @@ Images resampling options
 
 * **width**
 * **height**
-* **crop** (ratio: ``{w}:{h}``, for example : ``16:9``)
+* **crop** (ratio: ``{w}:{h}``, for example : ``16:9``), defines a ratio for cropping images. **You must combine ``crop`` option with ``width`` or ``height`` option**, otherwise you’ll end with a cyclic dependency to compute output image size. We recommend you to use ``fit`` option with *final image size* to better control output: ``crop`` may lose precision on width or height especially on small sizes.
 * **fit** (fixed dimensions: ``{w}x{h}``, for example : ``100x200``), if you are using *fit* option, Roadiz will be able to add ``width`` and ``height`` attributes to your ``<img>`` tag.
 * **align**, to use along with ``fit`` parameter to choose which part of the picture to fit. Allowed options:
     * top-left
@@ -171,6 +170,8 @@ This will output an ``img`` tag like the following one:
     <img src="/assets/f600x600-q75/image.jpg"
          srcset="/assets/f600x600-q75/image.jpg 1200w, /assets/f200x200-q90/image.jpg 780w"
          sizes="(max-width: 780px) 200px, (max-width: 1200px) 600px"
+         data-ratio="1"
+         width="600" height="600"
          alt="A responsive image">
 
 Generate <picture> elements
@@ -255,6 +256,7 @@ This will output a ``picture`` element supporting :
 
         <img alt="file.jpg"
              src="/assets/f640x400-q75/folder/file.jpg"
+             data-ratio="1.6"
              width="640" height="400" />
     </picture>
 

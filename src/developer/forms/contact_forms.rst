@@ -23,7 +23,7 @@ Here is an example to create your contact form in your controller action.
     use Symfony\Component\Form\Extension\Core\Type\FileType;
     use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-    …
+    // …
     // Create contact-form manager and add 3 default fields.
     $contactFormManager = $this->createContactFormManager()
                                ->withDefaultFields();
@@ -174,14 +174,21 @@ Do not forget to add recaptcha form-template and to embed google’s javascript.
 
 .. code-block:: html
 
+    {# Recaptcha v2 #}
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
 .. code-block:: html+jinja
 
     {# In your theme’ forms.html.twig file #}
     {% block recaptcha_widget -%}
+        {# Recaptcha v2 #}
         <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
     {%- endblock recaptcha_widget %}
+
+.. note::
+
+   Backend logic with Google Recaptcha is compatible with v2 **and** v3. You’ll need to adapt your
+   frontend logic.
 
 Sending contact form and accept application/json
 ------------------------------------------------

@@ -112,7 +112,7 @@ parts. At first we used to create long node-types with a lot of fields, and when
 editors needed to move content to an other position, they had to cut and paste text
 to another field. It was long and not very sexy.
 
-So we thought about a modulable way to build pages. We decided to use one master node-type and
+So we thought about a modular way to build pages. We decided to use one master node-type and
 several slave node-types instead of a single big type. Here is what we call **Page/Block pattern**.
 
 This pattern takes advantage of Roadiz node hierarchy. We create a very light *Page* node-type, with
@@ -139,8 +139,14 @@ Make sure the global ``bags`` service is available and reachable.
 
 .. code-block:: html+jinja
 
+    {# Fetch only BasicBlock nodes inside #}
     {% set blocks = nodeSource|children({
         node.nodeType : bags.nodeTypes.get('BasicBlock'),
+    }) %}
+
+    {# Fetch ALL non-reachable nodes inside #}
+    {% set blocks = nodeSource|children({
+        node.nodeType.reachable : false,
     }) %}
 
 .. note::
@@ -157,7 +163,7 @@ Now we can update your ``types/page.html.twig`` template to use your assignated 
     {% if blocks %}
     <section class="page-blocks">
     {% for pageBlock in blocks %}
-        {% include '@MyTheme/blocks/' ~ pageBlock.node.nodeType.name|lower ~ '.html.twig' with {
+        {% include '@MyTheme/blocks/' ~ pageBlock.nodeTypeName|u.snake ~ '.html.twig' with {
             'nodeSource': pageBlock,
             'parentNodeSource': nodeSource,
             'themeServices': themeServices,
@@ -205,6 +211,52 @@ Then create each of your blocks templates files in ``blocks`` folder:
 This is the simplest example to demonstrate you the power of *Page / Block*
 pattern. If you managed to reproduce this example you can now try it using
 multiple *block* node-types, combining multiple sub-templates.
+
+Use a TreeWalker to control your node hierarchy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Page/Block* pattern is really powerful and is the foundation for almost every Rezo Zero websites. But this
+approach can lead to performance issues if developers do not specify each available node-types for each child.
+Thus, we wanted to remove this ORM logic from your Twig templates, in order to comply with MVC pattern, but more important,
+in order to expose node hierarchy into a REST JSON API.
+
+Rezo Zero developed a `third-party library <https://github.com/rezozero/tree-walker>`_: ``rezozero/tree-walker`` which aims to abstract node hierarchy from the context and the CMS where it is used.
+
+.. code-block:: shell
+
+    composer require rezozero/tree-walker
+
+A ``TreeWalker`` is a traversable object you will be able to loop on in your Twig template, but also to serialize into
+a JSON object. This TreeWalker object can be configured with *definitions* in order to fetch next-level objects
+from your *database*, your CMS, or even an external API. That way you instantiate a new TreeWalker with a *root* object
+and by simply traversing it, it will trigger a fetch operation (``getChildren``) which will look for
+the right definition for the *root* object ``class``. Then "tree walking" operation goes on for each of your *root*
+object children until your definitions list is empty or when you reached the max-level limit.
+
+Here is an example of what the *Page/Block* pattern looks like using a *block tree-walker*:
+
+.. code-block:: html+jinja
+
+    {% if blockWalker %}
+        <div class="page-blocks">
+            {% for subWalker in blockWalker %}
+                {% include '@MyTheme/blocks/' ~ subWalker.item.nodeTypeName|u.snake ~ '.html.twig' ignore missing with {
+                    'nodeSource': subWalker.item,
+                    'parentNodeSource': nodeSource,
+                    'themeServices': themeServices,
+                    'head': head,
+                    'node': subWalker.item.node,
+                    'nodeType': subWalker.item.node.nodeType,
+                    'loop': loop,
+                    'blockWalker': subWalker,
+                    'blocksLength': blockWalker|length
+                } only %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+Frontend developers do not need to know how to fetch children blocks anymore, they just need to loop over the *tree-walker*
+at each template level.
 
 Use block rendering
 -------------------
