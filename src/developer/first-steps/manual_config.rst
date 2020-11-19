@@ -131,6 +131,7 @@ Available handler types:
 
 - ``default``: Reproduce the Roadiz default handler which writes to ``app/logs/`` folder in a file named after your running environment
 - ``stream``: Defines a log file stream on your local system. **Your path must be writable!**
+- ``rotating_file``: Defines a log file stream on your local system which will be rotated to avoid large files. **Your path must be writable!**
 - ``syslog``: Writes to system *syslog*.
 - ``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down.
 - ``sentry``: Send logs to your *Sentry* instance. **Requires sentry/sentry PHP library**: ``composer require sentry/sentry php-http/curl-client guzzlehttp/psr7``. It’s a good idea to combine a *sentry* handler with a local logging system if your external entry point is down.
@@ -149,8 +150,13 @@ Here is an example configuration:
             file:
                 type: stream
                 # Be careful path must be writable by PHP
-                path: /var/log/roadiz.log
+                path: '%kernel.log_dir%/roadiz.log'
                 level: INFO
+                level: INFO
+            rotate:
+                type: rotating_file
+                path: '%kernel.log_dir%/roadiz.log'
+                level: DEBUG
             syslog:
                 type: syslog
                 # Use a custom identifier
