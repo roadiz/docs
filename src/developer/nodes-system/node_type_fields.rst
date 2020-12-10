@@ -120,6 +120,36 @@ You must fill the *default values* field for these two types.
         - field: slug
           direction: ASC
 
+You can use a custom proxy entity to support persisting ``position`` on your relation. Roadiz will generate a one-to-many
+relationship with proxy entity instead of a many-to-many.
+In this scenario you are responsible for creating and migrating ``Themes\MyTheme\Entities\PositionedCity`` entity. If you are migrating from a non-proxied many-to-many relation, you should keep the same table and field names to keep data intact.
+
+.. code-block:: YAML
+
+    # Entity class name
+    classname: Themes\MyTheme\Entities\City
+    # Displayable is the method used to display entity name
+    displayable: getName
+    # Same as Displayable but for a secondary information
+    alt_displayable: getZipCode
+    # Searchable entity fields
+    searchable:
+        - name
+        - slug
+    # This order will only be used for explorer
+    orderBy:
+        - field: slug
+          direction: ASC
+    # Use a proxy entity
+    proxy:
+        classname: Themes\MyTheme\Entities\PositionedCity
+        self: nodeSource
+        relation: city
+        # This order will preserve position
+        orderBy:
+            - field: position
+              direction: ASC
+
 Single and multiple provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
