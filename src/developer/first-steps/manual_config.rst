@@ -17,6 +17,42 @@ Your ``app/conf/config.yml`` file is built using YAML syntax. Each part matches 
 
     *Roadiz Source edition* stores configuration files in ``conf/`` folder.
 
+DotEnv
+------
+
+``app/conf/config.yml`` can resolve ``.env`` variables if you want to add this file to your Git repository or Docker
+images. For example:
+
+.. code-block:: yaml
+
+    doctrine:
+        driver: "pdo_mysql"
+        host: '%env(string:MYSQL_HOST)%'
+        user: '%env(string:MYSQL_USER)%'
+        password: '%env(string:MYSQL_PASSWORD)%'
+        dbname: '%env(string:MYSQL_DATABASE)%'
+        server_version: '%env(string:MYSQL_VERSION)%'
+        # "utf8mb4" charset requires at least mysql 5.7
+        # due to large index requirement.
+        # otherwise change it to "utf8"
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+
+This configuration will be resolved against ``.env``:
+
+.. code-block:: bash
+
+    # MySQL
+    MYSQL_ROOT_PASSWORD=root
+    MYSQL_HOST=db
+    MYSQL_DATABASE=roadiz
+    MYSQL_USER=roadiz
+    MYSQL_PASSWORD=roadiz
+    MYSQL_VERSION=8.0
+
+
 Doctrine
 --------
 

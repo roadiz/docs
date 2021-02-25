@@ -10,7 +10,7 @@ Roadiz is a web application running with PHP. It requires an HTTP server for sta
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 7.2+ **required**
+* PHP 7.4+ **required**
 * ``php-gd`` extension
 * ``php-intl`` extension
 * ``php-xml`` extension
@@ -73,7 +73,7 @@ This command will generate ``.htaccess`` files in each critical folder to enable
     exposed anymore.
 
 
-CMS Structure
+CMS Structure
 -------------
 
 * ``bin/``: Contains the Roadiz CLI executable

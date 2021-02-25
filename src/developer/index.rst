@@ -13,6 +13,7 @@ skills.
    nodes-system/index.rst
    tags-system/index.rst
    attributes/index.rst
+   headless/index.rst
    themes/index.rst
    forms/index.rst
    services/index.rst

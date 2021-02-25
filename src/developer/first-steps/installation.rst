@@ -71,6 +71,8 @@ Preview environment
 The *preview* environment is not a real one as it only adds a flag to Roadiz’ Kernel to enable
 back-office users to see unpublished nodes. By default, it is available using ``preview.php``
 entry point, unless you decide to remove it.
+Since Roadiz v1.6, preview environment is deprecated in favor of ``?_preview=1`` query param which
+allow preview in any environment, especially for API responses (JSON).
 
 Production environment
 ^^^^^^^^^^^^^^^^^^^^^^
