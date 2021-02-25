@@ -11,7 +11,7 @@ extend the *firewall map* in your Theme ``addDefaultFirewallEntry`` method.
 Before create your firewall map entry, you must understand that Roadiz already has 2 firewall areas:
 
 - ``^/rz-admin`` area, which naturally matches every back-office sections
-- ``^/`` area which is required for previewing unpublished node and get user informations across the whole website
+- ``^/`` area which is required for previewing unpublished node and get user information across the whole website
 
 The last firewall request matcher can be tricky to deal with, especially if you want to add
 another secured area as it *listen* to every requests. When you’ll add new firewall map entry,

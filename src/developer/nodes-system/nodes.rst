@@ -4,7 +4,7 @@
 Handling nodes and their hierarchy
 ==================================
 
-By default, if you use Entities API methods or trasversing Twig filters,
+By default, if you use Entities API methods or traversing Twig filters,
 Roadiz will automatically handle security parameters such as ``node.status`` and
 ``preview`` mode.
 
