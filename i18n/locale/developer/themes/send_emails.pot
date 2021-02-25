@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../src/developer/themes/send_emails.rst:5
+msgid "Sending emails from your website"
+msgstr ""
+
+#: ../../src/developer/themes/send_emails.rst:7
+msgid "``emailManager`` factory service is available to send emails from your application. It’s already configured to use simple CSS styles and you can use an HTML and plain-text templates."
+msgstr ""
+
+#: ../../src/developer/themes/send_emails.rst:34
+msgid "Assignation works the same way as HTML template for your website, you must assign every content and informations you’ll need to print in your emails."
+msgstr ""
+
+#: ../../src/developer/themes/send_emails.rst:39
+msgid "Be careful, every image path or links **must be** an absolute URL, not a path as your receivers won’t be able to resolve your full domain name. Make sure you are using ``url()`` instead of ``path()`` for links and wrap with ``absolute_url()`` method your static assets (like in the example before)."
+msgstr ""
+
+#: ../../src/developer/themes/send_emails.rst:44
+msgid "Your `emails/email.html.twig` template should inherits from Roadiz `base_email.html.twig` template."
+msgstr ""
+
+#: ../../src/developer/themes/send_emails.rst:65
+msgid "Your `emails/email.txt.twig` template should inherits from Roadiz `base_email.txt.twig` template."
+msgstr ""

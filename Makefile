@@ -2,23 +2,28 @@
 #
 
 # You can set these variables from the command line.
+SOURCEDIR     = src
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
+SPHINXINTL    = sphinx-intl
 SPHINXPROJ    = RoadizDoc
 PAPER         = a4
 BUILDDIR      = _build
+I18NDIR       = i18n
+SPHINXINTL_LANGUAGE = fr
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
 $(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx installed, then set the SPHINXBUILD environment variable to point to the full path of the '$(SPHINXBUILD)' executable. Alternatively you can add the directory with the executable to your PATH. If you don't have Sphinx installed, grab it from http://sphinx-doc.org/)
 endif
 
-# Internal variables.
+# Internal variables
+
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(SOURCEDIR)
 # the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(SOURCEDIR)
 
 .PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
@@ -66,7 +71,17 @@ singlehtml:
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 livehtml:
-	sphinx-autobuild -B --ignore "*/$(BUILDDIR)/*" --ignore "*/.git/*" --ignore "*/roadiz_rtd_theme/*" --ignore "*.pickle" --ignore "*.doctree" --ignore "*HEAD" --ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) ${SOURCEDIR} $(BUILDDIR)/html
+	sphinx-autobuild -B --ignore "*/$(BUILDDIR)/*" \
+						--ignore "*/_static/*" \
+						--ignore "*/Makefile" \
+						--ignore "*/.idea/*" \
+						--ignore "*/.git/*" \
+						--ignore "*/roadiz_rtd_theme/*" \
+						--ignore "*rst~" \
+						--ignore "*.pickle" \
+						--ignore "*.doctree" \
+						--ignore "*HEAD" \
+						--ignore "*FETCH_HEAD" -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
 pickle:
 	$(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
@@ -161,9 +176,9 @@ info:
 	@echo "makeinfo finished; the Info files are in $(BUILDDIR)/texinfo."
 
 gettext:
-	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(BUILDDIR)/locale
+	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(I18NDIR)/locale
 	@echo
-	@echo "Build finished. The message catalogs are in $(BUILDDIR)/locale."
+	@echo "Build finished. The message catalogs are in $(I18NDIR)/locale."
 
 changes:
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes

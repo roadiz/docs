@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: roadiz-cms-documentation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: 2020-09-23 20:47\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: roadiz-cms-documentation\n"
+"X-Crowdin-Project-ID: 421742\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /develop/i18n/locale/user/index.pot\n"
+"X-Crowdin-File-ID: 154\n"
+"Language: fr_FR\n"
+
+#: ../../src/user/index.rst:3
+msgid "User documentation"
+msgstr "Utilisateur - Documentation"
+
+#: ../../src/user/index.rst:6
+msgid "**User documentation is on the way.** We invite you to send us questions on our `Gitter account <https://gitter.im/roadiz/roadiz>`_ or to leave some documentation suggestions on our `Github repository <https://github.com/roadiz/docs/issues>`_."
+msgstr "**La documentation utilisateur est en cours de rédaction.** Nous vous invitons à envoyer vos questions sur notre `compte Gitter <https://gitter.im/roadiz/roadiz>`_ ou bien de nous faire part de vos suggestions sur `le dépôt Github <https://github.com/roadiz/docs/issues>`_."
+
+#: ../../src/user/index.rst:10
+msgid "First of all, you will need to connect to Roadiz’ backoffice in order to make changes to your website contents. To connect, you just have to write ``/rz-admin`` after your website domain name, in your browser address bar. Then you will be able to enter your username and password that you chose during Roadiz installation or that you received by email."
+msgstr "Tout d’abord, vous allez avoir besoin de vous connecter au back-office de Roadiz pour effectuer n’importe quel changement sur votre site-web. Pour vous connecter, il vous suffit de taper ``/rz-admin`` à la suite du nom de domaine de votre site, dans la barre d’adresse de votre navigateur. Ensuite, un formulaire vous invitera à entrer votre nom d’utilisateur et votre mot de passe. Ceux-ci vous ont été transmis par email, ou bien vous les avez créé si vous avez installé Roadiz vous-même."
+
+#: ../../src/user/index.rst:18
+msgid "Here you can choose to keep your connection active for a couple of days, if your browser accepts cookies."
+msgstr "Ici vous pouvez choisir de garder votre connexion active pour quelques jours si vous n’avez pas bloqué les cookies de votre navigateur."
+
+#: ../../src/user/index.rst:20
+msgid "If you forgot your credentials, the *Forgot password?* section will ask you an email to send you a password reset link."
+msgstr "Si vous avez oublié vos identifiants, la section *Mot de passe oublié ?* vous permettra de le charger après avoir suivi un lien temporaire envoyé à votre adresse email."
+
+#: ../../src/user/index.rst:24
+msgid "Table of contents"
+msgstr "Table des matières"
+

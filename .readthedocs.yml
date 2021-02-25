@@ -6,3 +6,5 @@ formats:
 python:
     version: 3.5
 requirements_file: ./stable-req.txt
+sphinx:
+    configuration: src/conf.py

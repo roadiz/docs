@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../src/developer/themes/custom_assignations.rst:5
+msgid "Extending your Twig assignation"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:7
+msgid "For a simple website theme, base assignation will work for almost every cases. Using ``node`` or ``nodeSource`` data from your Twig template, you will be able to render all your page fields."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:11
+msgid "Now imagine you need to load data from another node than the one being requested. Or imagine that you want to create a complex homepage which displays a summary of your latest news. You will need to extend existing assignated variables."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:15
+msgid "For example, create a simple node-type called *Page*. Add several basic fields inside it such as *content* and *images*. If you well-understood :ref:`how to create a theme <create-theme>` section you will create a *PageController.php* which look like this:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:54
+msgid "You will be able to render your page using ``themes/MyTheme/Resources/views/types/page.html.twig`` template file:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:75
+msgid "Use theme-wide assignation"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:77
+msgid "Custom assignations are great but what can I do if I have to use the same variables in several controllers? We added a special ``extendAssignation`` method which is called at the end of your theme preparation process (``prepareThemeAssignation`` and ``prepareNodeSourceAssignation``). Just override it in your ``MyThemeApp`` main class, then every theme controllers and templates will be able to use these variables."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:84
+msgid "For example, you can use this method to make ``<head>`` variables available for each of your website pages."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:108
+msgid "Use *Page / Block* data pattern"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:110
+msgid "At REZO ZERO, we often use complex page design which need removable and movable parts. At first we used to create long node-types with a lot of fields, and when editors needed to move content to an other position, they had to cut and paste text to another field. It was long and not very sexy."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:115
+msgid "So we thought about a modulable way to build pages. We decided to use one master node-type and several slave node-types instead of a single big type. Here is what we call **Page/Block pattern**."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:118
+msgid "This pattern takes advantage of Roadiz node hierarchy. We create a very light *Page* node-type, with an *excerpt* and a *thumbnail* fields, then we create an other node-type that we will call *BasicBlock*. This block node-type will have a *content* and *image* fields."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:122
+msgid "The magic comes when we add a last field into *Page* master node-type called *children_nodes*. This special field will display a node-tree inside your edit page. In this field parameter, we add *BasicBlock* name as a default value to tell Roadiz that each *Page* nodes will be able to contain *BasicBlock* nodes."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:126
+msgid "So you understood that all your page data will be allocated in several *BasicBlock* nodes. Then your editor will just have to change block order to re-arrange your page content. That’s not all! With this pattern you can join images to each block so that each paragraph can be pictured with a *Document* field. No need to insert image tags right into your Markdown text as you would do in a Wordpress article."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:132
+msgid "How to template *Page / Block* pattern"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:134
+msgid "Now that you’ve structured your data with a *Page* node-type and a *BasicBlock*, how do render your data in only one page and only one URL request? We will use custom assignations!"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:137
+msgid "You can directly assign your children blocks at the beginning of your *Twig* template. Make sure the global ``bags`` service is available and reachable."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:147
+msgid "You can use different *block* types in the same *page*. Just create as many node-types as you need and add their name to your *Page* ``children_node`` default values. Then add each node-type into ``children`` criteria using an array instead of a single value: ``node.nodeType : [bags.nodeTypes.get('BasicBlock'), bags.nodeTypes.get('AnotherBlock')]``. That way, you will be able to create awesome pages with different looks but with the same template (basic blocks, gallery blocks, etc)."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:153
+msgid "Now we can update your ``types/page.html.twig`` template to use your assignated blocks."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:175
+msgid "*Whaaat? What is that include?* This trick will save you a lot of time! We ask Twig to include a sub-template according to each block type name. Eg. for a *BasicBlock* node, Twig will include a ``blocks/basicblock.html.twig`` file. It’s even more powerful when you are using multiple block types because Twig will automatically choose the right template to render each part of your page."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:181
+msgid "Then create each of your blocks templates files in ``blocks`` folder:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:204
+msgid "*Voilà!* This is the simplest example to demonstrate you the power of *Page / Block* pattern. If you managed to reproduce this example you can now try it using multiple *block* node-types, combining multiple sub-templates."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:210
+msgid "Use block rendering"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:212
+msgid "A few times, using *Page / Block* pattern won’t be enough to display your page blocks. For example, you will occasionally need to create a form inside a block, or you will need to process some data before using them in your Twig template."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:217
+msgid "For this we added a ``render`` filter which basically create a sub-request to render your block. This new request make possible to create a dedicated ``Controller`` for your block."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:221
+msgid "Let’s take the previous example about a page with several *basic blocks* inside. Imagine you have a new *contact block* to insert in your page, then how would you create your form? The following code shows how to “embed” a sub-request inside your block template."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:250
+msgid "Then Roadiz will look for a ``Themes\\MyTheme\\Controllers\\Blocks\\ContactBlockController.php`` file and a ``blockAction`` method inside."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:292
+msgid "Then create your template ``form-blocks/contactblock.html.twig``:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:307
+msgid "Use controller rendering"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:309
+msgid "Roadiz implements the standard *Symfony* fragment rendering too. Use ``render()`` Twig function with ``controller()`` function to initiate a Roadiz sub-request and embed complex contents into your templates."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:325
+msgid "Then use regular Roadiz controllers and actions to handle your sub-request:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:352
+msgid "See https://symfony.com/doc/current/templating/embedding_controllers.html for more details about *Symfony* render extension."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:356
+msgid "Paginate entities using EntityListManager"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:358
+msgid "Roadiz implements a powerful tool to display lists and paginate them. Each ``Controller`` class allows developer to use ``createEntityListManager`` method."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:362
+msgid "In ``FrontendController`` inheriting classes, such as your theme ones, this method is overriden to automatically use the current ``authorizationChecker`` to filter entities by status when entities are *nodes*."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:366
+msgid "``createEntityListManager`` method takes 3 arguments:"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:368
+msgid "**Entity classname**, i.e. ``RZ\\Roadiz\\Core\\Entities\\Nodes`` or ``GeneratedNodeSources\\NSArticle``. The great thing is that you can use it on a precise ``NodesSources`` class instead of using *Nodes* or *NodesSources* then filtering on *node-type*. Using a ``NS`` entity allows you to filter on your own custom fields too."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:369
+msgid "**Criteria array**, (optional)"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:370
+msgid "**Ordering array**, (optional)"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:372
+msgid "*EntityListManager* will automatically grab the current page looking for your Request parameters. If ``?page=2`` is set or ``?search=foo``, it will use them to filter your list and choose the right page."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:375
+msgid "If you want to handle pagination manually, you always can set it with ``setPage(page)`` method, which must be called **after** handling *EntityListManager*. It is useful to bind page parameter in your *routing* configuration."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:388
+msgid "Then, build your ``listAction`` method."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:427
+msgid "Then create your ``articles-feed.html.twig`` template to display each entity paginated."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:459
+msgid "Alter your Roadiz queries with events"
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:461
+msgid "The ``FilterQueryBuilderEvent`` can be used when *EntityListManager* criteria or *API* services won’t offer enough parameters to select your entities. This event will be dispatched when just before *Doctrine* QueryBuilder will execute the DQL query so that you can add more DQL statements. This can be very powerful if you need, for example, to force an ``INNER JOIN`` or to use complexe DQL commands."
+msgstr ""
+
+#: ../../src/developer/themes/custom_assignations.rst:508
+msgid "QueryBuilder events are a powerful tool to alter **all Roadiz entities pipeline**. Make sure to remove your listener from the dispatcher **before rendering your Twig templates** or to only support the ``entityClass`` you need. This could alter every queries such as ``|children`` Twig filters or your main navigation loop."
+msgstr ""

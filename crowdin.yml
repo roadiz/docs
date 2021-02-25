@@ -1,0 +1,5 @@
+files:
+  - source: /i18n/locale/**/*.pot
+    translation: /src/locale/%two_letters_code%/LC_MESSAGES/**/%original_file_name%
+    translation_replace:
+      ".pot": ".po"
