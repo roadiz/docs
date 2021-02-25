@@ -4,7 +4,7 @@ formats:
     - epub
     - pdf
 python:
-    version: 3.5
+    version: 3.8
 requirements_file: ./stable-req.txt
 sphinx:
     configuration: src/conf.py
