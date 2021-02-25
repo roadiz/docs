@@ -1,0 +1,11 @@
+include *.txt
+include LICENSE
+recursive-include roadiz_rtd_theme *.conf
+recursive-include roadiz_rtd_theme *.css
+recursive-include roadiz_rtd_theme *.eot
+recursive-include roadiz_rtd_theme *.html
+recursive-include roadiz_rtd_theme *.js
+recursive-include roadiz_rtd_theme *.svg
+recursive-include roadiz_rtd_theme *.ttf
+recursive-include roadiz_rtd_theme *.woff
+recursive-include roadiz_rtd_theme *.png
