@@ -1,0 +1,315 @@
++font-face('RoadizSans', '#{$font-awesome-dir}roadizsans-light-webfont', 300, normal)
++font-face('RoadizSans', '#{$font-awesome-dir}roadizsans-regular-webfont', normal, normal)
++font-face('RoadizSans', '#{$font-awesome-dir}roadizsans-medium-webfont', 600, normal)
++font-face('RoadizSans Mono', '#{$font-awesome-dir}roadizsans-mono-webfont')
+
+.wy-affix
+  position: fixed
+  top: $gutter
+
+.wy-menu
+  a:hover
+    text-decoration: none
+
+.wy-menu-horiz
+  +clearfix
+  ul, li
+    display: inline-block
+  li:hover
+    background: rgba(255,255,255,.1)
+  li
+    &.divide-left
+      border-left: solid 1px hsl(0, 0%, 25%)
+    &.divide-right
+      border-right: solid 1px hsl(0, 0%, 25%)
+  a
+    height: $base-font-size * 2
+    display: inline-block
+    line-height: $base-font-size * 2
+    padding: 0 $base-font-size
+
+.wy-menu-vertical
+  header
+    height: $base-font-size * 2
+    display: inline-block
+    line-height: $base-font-size * 2
+    padding: 0 $gutter
+    display: block
+    font-weight: bold
+    text-transform: uppercase
+    font-size: 80%
+    color: $menu-logo-color
+    white-space: nowrap
+
+  ul
+    margin-bottom: 0
+  li
+    &.toctree-l1
+      border-bottom: 1px solid #c8c8c8
+    &.divide-top
+      border-top: solid 1px hsl(0, 0%, 25%)
+    &.divide-bottom
+      border-bottom: solid 1px hsl(0, 0%, 25%)
+    &.current
+      background: darken($section-background-color, 10%)
+      a
+        color: $text-medium
+        border-right: solid 1px darken($section-background-color, 20%)
+        padding: $gutter / 2 $gutter * 1.5
+        &:hover
+          background: darken($section-background-color, 15%)
+      ul
+        li
+          ul
+            margin-left: 20px
+            li a
+              font-size: 11px
+
+  // On state for the first level
+  li.on a, li.current > a
+    color: $text-color
+    padding: $gutter / 1.5 $gutter
+    font-weight: bold
+    position: relative
+    background: $section-background-color
+    border: none
+    border-bottom: solid 1px darken($section-background-color, 20%)
+    padding-left: $gutter -4px
+    +font-smooth
+    &:hover
+      background: $section-background-color
+  // This is the on state for pages beyond second level
+  li.toctree-l2.current > a
+    background: darken($section-background-color, 20%)
+    padding: $gutter / 2 $gutter * 1.5
+  li.toctree-l3.current > a,
+  li.toctree-l4.current > a
+    background: #E6E6E6
+    padding: $gutter / 2 $gutter * 1.5
+  li.current > ul
+    display: block
+  li ul
+    margin-bottom: 0
+    display: none
+  .local-toc
+    li ul
+      display: block
+  li ul li a
+    margin-bottom: 0
+    color: $menu-left-link-color
+    font-size: 94%
+    font-weight: normal
+    padding: $gutter / 1.5 $gutter
+  a
+    display: inline-block
+    line-height: 16px
+    padding: $gutter / 2 $gutter
+    display: block
+    position: relative
+    font-size: 100%
+    color: $menu-left-link-color
+    &:hover
+      background-color: darken($section-background-color, 15%)
+      cursor: pointer
+    &:active
+      background-color: $menu-logo-color
+      cursor: pointer
+      color: $white
+
+.wy-side-nav-search
+  z-index: $z-index-popover
+  background-color: darken($link-color, 5%)
+  text-align: center
+  padding: 1.7em
+  display: block
+  color: $section-background-color
+  margin-bottom: 0
+  input[type=text]
+    width: 100%
+    border-radius: 50px
+    padding: 6px 12px
+    border-color: darken($link-color, 10%)
+  img
+    display: block
+    margin: auto auto $gutter / 2 auto
+    height: 45px
+    width: 45px
+    background-color: $menu-logo-color
+    padding: 5px
+    border-radius: 100%
+  > a, .wy-dropdown > a
+    color: $section-background-color
+    font-size: 120%
+    font-weight: bold
+    display: inline-block
+    padding: $base-line-height / 6 $base-line-height / 4
+    margin-bottom: $gutter / 2
+    +font-smooth
+    &:hover
+      background: rgba(255,255,255,.1)
+
+.wy-nav .wy-menu-vertical
+  header
+    color: $link-color
+  a
+    color: $text-light
+    &:hover
+      background-color: $link-color
+      color: $white
+
+[data-menu-wrap]
+  +transition(all .2s ease-in)
+  position: absolute
+  opacity: 1
+  width: 100%
+  opacity: 0
+  &.move-center
+    left: 0
+    right: auto
+    opacity: 1
+  &.move-left
+    right: auto
+    left: -100%
+    opacity: 0
+  &.move-right
+    right: -100%
+    left: auto
+    opacity: 0
+
+
+.wy-body-for-nav
+  font-size: 14px
+  background: $menu-background-color
+
+
+.wy-grid-for-nav
+  position: absolute
+  width: 100%
+  height: 100%
+
+.wy-nav-side
+  position: absolute
+  top: $header-height
+  left: 0
+  width: $nav-desktop-width
+  overflow: hidden
+  min-height: 100%
+  background: $menu-background-color
+  z-index: $z-index-popover
+
+.wy-nav-top
+  display: none
+  background: $link-color
+  color: $white
+  padding: $gutter / 4 $gutter / 2
+  position: relative
+  line-height: 50px
+  text-align: center
+  font-size: 100%
+  +clearfix
+  a
+    color: $white
+    font-weight: bold
+    +font-smooth
+  img
+    margin-right: $base-line-height / 2
+    height: 45px
+    width: 45px
+    background-color: $menu-logo-color
+    padding: 5px
+    border-radius: 100%
+  i
+    font-size: 30px
+    float: left
+    cursor: pointer
+
+.wy-nav-content-wrap
+  margin-left: $nav-desktop-width
+  background: $section-background-color
+  min-height: 100%
+  padding-top: $header-height
+
+.wy-nav-content
+  padding: $gutter $gutter * 2
+  height: 100%
+  max-width: 800px
+  margin: auto
+
+.wy-body-mask
+  position: fixed
+  width: 100%
+  height: 100%
+  background: rgba(0,0,0,.2)
+  display: none
+  z-index: $z-index-modal - 1
+  &.on
+    display: block
+footer
+  color: $gray-light
+  p
+    margin-bottom: $base-line-height / 2
+
+.rst-footer-buttons
+  +clearfix
+
+#search-results
+  .search li
+    margin-bottom: $base-line-height
+    border-bottom: solid 1px $table_border_color
+    padding-bottom: $base-line-height
+  .search li:first-child
+    border-top: solid 1px $table_border_color
+    padding-top: $base-line-height
+  .search li a
+    font-size: 120%
+    margin-bottom: $base-line-height / 2
+    display: inline-block
+  .context
+    color: $text-medium
+    font-size: 90%
+
+
++media($tablet)
+  .wy-body-for-nav
+    background: $menu-background-color
+  .wy-nav-top
+    display: block
+    line-height: 30px
+    +box-sizing()
+  .wy-nav-side
+    @if $nav-desktop-position == left
+      left: -$nav-desktop-width
+    @else
+      right: -$nav-desktop-width
+    &.shift
+      width: 85%
+      top: 0px
+      left: 0
+  .wy-nav-content-wrap
+    margin-left: 0
+    .wy-nav-content
+      padding: $gutter
+    &.shift
+      position: fixed
+      min-width: 100%
+      left: 85%
+      top: 0
+      height: 100%
+      overflow: hidden
+
++media($desktop-wider)
+  .wy-nav-content-wrap
+    background: #f2f2f2
+  .wy-nav-content
+    margin: 0
+    background: $section-background-color
+
+@media print
+  .rst-versions, footer, .wy-nav-side
+    display: none
+  .wy-nav-content-wrap
+    margin-left: 0
+
+nav.stickynav
+  position: fixed
+  top: $header-height
