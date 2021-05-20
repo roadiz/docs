@@ -29,7 +29,7 @@ Here is a short summary of mandatory elements before installing Roadiz:
     - ``register_globals = Off``
     - ``session.auto_start = Off``
 
-* MariaDB 10.2.4+ or MySQL 5.7+ database with `JSON_*` functions support
+* MariaDB 10.5.2+ or MySQL 5.7+ database with `JSON_*` functions support
 * Zip/Unzip
 * cUrl
 * Composer
@@ -76,7 +76,7 @@ This command will generate ``.htaccess`` files in each critical folder to enable
 CMS Structure
 -------------
 
-* ``bin/``: Contains the Roadiz CLI executable
+* ``bin/``: Contains the Roadiz CLI executable
 * ``docker/``: Tools for creating development and production *Docker* image for your project
 * ``app/``: Contains every runtime resources from configuration to app cache and nodes-sources entities
 
