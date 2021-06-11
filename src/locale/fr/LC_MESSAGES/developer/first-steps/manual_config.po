@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2021-06-11 12:13\n"
+"PO-Revision-Date: 2021-06-11 12:24\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -291,21 +291,21 @@ msgstr "Roadiz peut être exécuté comme un simple outil CLI en utilisant votre
 
 #: ../../src/developer/first-steps/manual_config.rst:369
 msgid "If your system is not configured to have *php* located in ``/usr/bin/php`` use it this way:"
-msgstr ""
+msgstr "Si votre système n'est pas configuré pour avoir *php* situé dans ``/usr/bin/php`` utilisez-le de cette façon :"
 
 #: ../../src/developer/first-steps/manual_config.rst:375
 msgid "Default command with no arguments will show you the available commands list. Each command has its own parameters. You can use the argument ``--help`` to get more informations about each tool:"
-msgstr ""
+msgstr "La commande par défaut sans argument vous montrera la liste des commandes disponibles. Chaque commande a ses propres paramètres. Vous pouvez utiliser l'argument ``--help`` pour obtenir plus d'informations sur chaque outil :"
 
 #: ../../src/developer/first-steps/manual_config.rst:383
 msgid "We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful commands which can alter your database and make you lose precious data. Especially when you will need to update your database schema after a Theme or a Core update. **Always make a database back-up before any Doctrine operation**."
-msgstr ""
+msgstr "Nous avons même rendu les outils CLI *Doctrine* directement disponibles à partir de Roadiz Console. Attention, ce sont des commandes puissantes qui peuvent modifier votre base de données et vous faire perdre des données précieuses. Surtout lorsque vous aurez besoin de mettre à jour votre schéma de base de données auprès d'un thème ou suite à une mise à jour du noyau. **Faites toujours une sauvegarde de la base de données avant toute opération Doctrine**."
 
 #: ../../src/developer/first-steps/manual_config.rst:388
 msgid "Additional commands"
-msgstr ""
+msgstr "Commandes supplémentaires"
 
 #: ../../src/developer/first-steps/manual_config.rst:390
 msgid "If you are developing your own theme, you might need to create some custom CLI commands. Roadiz can handle additional commands if you add them in your ``app/conf/config.yml`` as you would do for any additional *entities*. Make sure that every additional commands extend ``Symfony\\Component\\Console\\Command\\Command`` class."
-msgstr ""
+msgstr "Si vous développez votre propre thème, vous devrez peut-être créer des commandes CLI personnalisées. Roadiz peut gérer des commandes supplémentaires si vous les ajoutez dans votre ``app/conf/config.yml`` comme vous le feriez pour n'importe quelle *entités* additionnelle. Assurez-vous que toutes les commandes supplémentaires étendent la classe ``Symfony\\Component\\Console\\Command\\Command``."
 
