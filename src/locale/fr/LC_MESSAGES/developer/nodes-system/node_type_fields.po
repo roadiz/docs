@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:24\n"
+"PO-Revision-Date: 2021-06-11 12:24\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:5
 msgid "Node-type fields"
-msgstr ""
+msgstr "Champs de type de nœud"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:7
 msgid "Roadiz can handle many types of node-type fields. Here is a complete list:"
-msgstr ""
+msgstr "Roadiz peut gérer de nombreux champs de type de nœud. Voici une liste complète :"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:10
 msgid "*Title*, *meta-title*, *meta-description* and *keywords* are always available since they are stored directly inside ``NodesSources`` entity. Then you will be sure to always have a *title* no matter the node-type you are using."
