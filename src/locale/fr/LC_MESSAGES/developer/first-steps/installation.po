@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2021-06-11 11:38\n"
+"PO-Revision-Date: 2021-06-11 11:44\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -27,69 +27,69 @@ msgstr "Pour les nouveaux projets **Roadiz** peut être facilement configuré en
 
 #: ../../src/developer/first-steps/installation.rst:24
 msgid "*Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files in your projects and save them using Git, not only your theme. Of course we added a default ``.gitignore`` file to prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have different configuration on development and on your production server without bothering about merge conflicts."
-msgstr ""
+msgstr "*Composer* vous demandera si vous voulez conserver l'historique Git. Choisissez la réponse par défaut ``no`` car nous voulons absolument remplacer l'historique Git de la *standard-edition* par notre propre dépôt. Vous serez alors en mesure de personnaliser tous les fichiers de vos projets et de les enregistrer en utilisant Git, pas seulement votre thème. Bien sûr, nous avons ajouté un fichier ``.gitignore`` par défaut pour empêcher que vos paramètres de configuration et vos points d'entrée ne soient ajoutés dans votre historique *Git*. De cette façon, vous pouvez avoir une configuration différente sur l'environement de développement et sur votre serveur de production sans vous soucier des conflits de fusion."
 
 #: ../../src/developer/first-steps/installation.rst:32
 msgid "For *Windows* users, ``bin/roadiz themes:generate --symlink --relative FooBar`` command can be used without ``--relative`` option to create **absolute symlinks**. You can even install your theme assets as *hard copies* without ``--symlink`` option. Make sure that you call regularly ``bin/roadiz themes:assets:install FooBar`` when using *hard copy* mode to update your assets. You should use *symlinks* if possible to prevent update issues."
-msgstr ""
+msgstr "Pour les utilisateurs de *Windows*, la commande ``bin/roadiz themes:generate --symlink --relative FooBar`` peut être utilisée sans l'option ``--relative`` pour créer des **liens symboliques absolus**. Vous pouvez même installer les ressources de votre thème en tant que *hard copy* sans option ``--symlink``. Assurez-vous d'exécuter régulièrement ``bin/roadiz themes:assets:install FooBar`` lorsque vous utilisez le mode *hard copy* pour mettre à jour vos ressources. Vous devriez utiliser des *liens symboliques* dès que possible pour éviter les problèmes de mise à jour."
 
 #: ../../src/developer/first-steps/installation.rst:40
 msgid "Dealing with Roadiz environments"
-msgstr ""
+msgstr "Travailler avec les environnements Roadiz"
 
 #: ../../src/developer/first-steps/installation.rst:45
 msgid "Installation environment"
-msgstr ""
+msgstr "Environnement d'installation"
 
 #: ../../src/developer/first-steps/installation.rst:47
 msgid "Once you’ve succeeded to download Roadiz and its dependencies. You’ll have to setup its database and every information needed to begin your website."
-msgstr ""
+msgstr "Une fois que vous avez réussi à télécharger Roadiz et ses dépendances, vous devrez configurer sa base de données et toutes les informations nécessaires pour démarrer votre site Web."
 
 #: ../../src/developer/first-steps/installation.rst:50
 msgid "As every *Symfony* applications do, *Roadiz* works using environments. By default, there is a *production* environment which is handled by ``index.php`` entry point. At this moment, if you try to connect to your fresh new Roadiz website, you will get an error as we did not install its database and its essential data."
-msgstr ""
+msgstr "Comme toutes les applications *Symfony*, *Roadiz* fonctionne en utilisant des environnements. Par défaut, il y a un environnement *production* qui est géré par le point d'entrée ``index.php``. En ce moment, si vous essayez de vous connecter à votre nouveau site web Roadiz, vous obtiendrez une erreur car nous n'avons pas installé sa base de données et ses données essentielles."
 
 #: ../../src/developer/first-steps/installation.rst:54
 msgid "To be able to use Roadiz *install interface*, you’ll need to call the *install* entry point. An ``install.php`` file has been generated when you executed ``composer install`` command. This environment will be reachable at the Url ``http://mywebsite.com/install.php``."
-msgstr ""
+msgstr "Pour pouvoir utiliser l'interface d'installation de Roadiz *installation*, vous devrez appeler le point d'entrée ``install.php``. Ce fichier a été généré lorsque vous avez exécuté la commande ``composer install``. Cet environnement sera accessible à l'adresse ``http://mywebsite.com/install.php``."
 
 #: ../../src/developer/first-steps/installation.rst:57
 msgid "For security reasons, we added an IP filtering in this entry point, you can add your own IP address in the following array: ``array('127.0.0.1', 'fe80::1', '::1', ':ffff:127.0.0.1', '::ffff:127.0.0.1')``. This IP filtering is very important if you are working on a public server, no one except you should be able to access *install* entry point."
-msgstr ""
+msgstr "Pour des raisons de sécurité, nous avons activé un filtrage d'IP pour ce point d'entrée, vous pouvez ajouter votre propre adresse IP dans le tableau suivant : ``array('127. .0.1', 'fe80::1', '::1', ':ffff:127. .0.1', '::ffff:127.0.0.1')``. Ce filtrage IP est très important si vous travaillez sur un serveur public, personne à part vous ne devrait pouvoir accéder au point d'entrée *install*."
 
 #: ../../src/developer/first-steps/installation.rst:59
 msgid "At the end of the install process, you will be invited to remove the ``install.php`` file and to connect to your website final URL."
-msgstr ""
+msgstr "À la fin du processus d'installation, vous serez invité à supprimer le fichier ``install.php`` et à vous connecter à l'URL finale de votre site."
 
 #: ../../src/developer/first-steps/installation.rst:63
 msgid "Development environment"
-msgstr ""
+msgstr "Environnement de développement"
 
 #: ../../src/developer/first-steps/installation.rst:64
 msgid "Roadiz *production* environment is not made for developing your own themes and extending back-office features. As the same way as *install* environment, we prepared a *dev* environment to disable resources caching and enable debug features. You’ll find a ``dev.php`` file at your website root which was generated at ``composer install`` command. As well as *install.php* entry point, you’ll need to add your own IP address to filter who can access to your *dev* environment."
-msgstr ""
+msgstr "L'environnement de *production* de Roadiz n'est pas conçu pour développer vos propres thèmes et étendre les fonctionnalités du back-office. De la même manière que l'environnement *install*, nous avons préparé un environnement *dev* pour désactiver la mise en cache des ressources et activer les fonctionnalités de débogage. Vous trouverez un fichier ``dev.php`` à la racine de votre site web qui a été généré à la commande ``composer install``. De la même manière que pour *install.php*, vous devrez ajouter votre propre adresse IP pour filtrer qui peut accéder à votre environnement *dev*."
 
 #: ../../src/developer/first-steps/installation.rst:70
 msgid "Preview environment"
-msgstr ""
+msgstr "Environnement de prévisualisation"
 
 #: ../../src/developer/first-steps/installation.rst:71
 msgid "The *preview* environment is not a real one as it only adds a flag to Roadiz’ Kernel to enable back-office users to see unpublished nodes. By default, it is available using ``preview.php`` entry point, unless you decide to remove it."
-msgstr ""
+msgstr "L'environnement *preview* n'est pas un vrai car il ajoute seulement un drapeau au noyau de Roadiz pour permettre aux utilisateurs du back-office de voir les nœuds non publiés. Par défaut, il est disponible en utilisant le point d'entrée ``preview.php``, sauf si vous décidez de le supprimer."
 
 #: ../../src/developer/first-steps/installation.rst:76
 msgid "Production environment"
-msgstr ""
+msgstr "Environnement de production"
 
 #: ../../src/developer/first-steps/installation.rst:77
 msgid "This is the default ``index.php`` entry point which will be called by all your visitors. There is no restriction on it and it will wake up Roadiz application using the strongest caching policies. So it’s not recommended for development usage (you would have to flush caches each time your change something in the code)."
-msgstr ""
+msgstr "C'est le point d'entrée ``index.php`` par défaut qui sera appelé par tous vos visiteurs. Il n'y a pas de restriction à ce sujet et il lancera l'application Roadiz en utilisant les politiques de mise en cache les plus fortes. Il n'est donc pas recommandé d'utiliser pour le développement (vous devrez vider les caches chaque fois que vous changez quelque chose dans le code)."
 
 #: ../../src/developer/first-steps/installation.rst:83
 msgid "Clear cache environment"
-msgstr ""
+msgstr "Environnement pour le vidage du cache"
 
 #: ../../src/developer/first-steps/installation.rst:84
 msgid "The *clear_cache* environment is only meant to empty Roadiz cache without waking up the whole application. It can be useful if you are using a op-code cache like *APC* or native PHP *OPcache*. These special caches can’t be purged from command line utilities, so you need to call a PHP script from your browser or via ``curl`` to empty them. Like *install* and *dev* environment, ``clear_cache.php`` is IP-restricted not to allow everyone to flush your dear caches. You’ll need to add your own IP address to filter who can access it."
-msgstr ""
+msgstr "L'environnement *clear_cache* est uniquement destiné à vider le cache Roadiz sans exécuter toute l'application. Il peut être utile si vous utilisez un cache op-code comme *APC* ou PHP natif *OPcache*. Ces caches spécials ne peuvent pas être purgées depuis utilitaires en ligne de commande, donc vous devez appeler un script PHP depuis votre navigateur ou via ``curl`` pour les vider. Comme l'environnement *install* et *dev*, ``clear_cache.php`` est restreint par IP pour ne pas permettre à tout le monde de vider vos caches applicatifs. Vous devrez ajouter votre propre adresse IP pour filtrer qui peut y accéder."
 
