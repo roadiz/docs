@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"PO-Revision-Date: 2021-06-11 11:38\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../src/developer/first-steps/installation.rst:5
 msgid "Install Roadiz Standard Edition"
-msgstr ""
+msgstr "Installer Roadiz Standard Edition"
 
 #: ../../src/developer/first-steps/installation.rst:7
 msgid "For new projects **Roadiz** can be easily setup using ``create-project`` command."
-msgstr ""
+msgstr "Pour les nouveaux projets **Roadiz** peut être facilement configuré en utilisant la commande ``create-project``."
 
 #: ../../src/developer/first-steps/installation.rst:24
 msgid "*Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files in your projects and save them using Git, not only your theme. Of course we added a default ``.gitignore`` file to prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have different configuration on development and on your production server without bothering about merge conflicts."
