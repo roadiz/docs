@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"PO-Revision-Date: 2021-06-11 12:13\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,275 +19,275 @@ msgstr ""
 
 #: ../../src/developer/first-steps/manual_config.rst:4
 msgid "Manual configuration"
-msgstr ""
+msgstr "Configuration manuelle"
 
 #: ../../src/developer/first-steps/manual_config.rst:6
 msgid "This section explains how main configuration file ``app/conf/config.yml`` works. It is way more more convenient than launching Install theme for each configuration update."
-msgstr ""
+msgstr "Cette section explique comment le fichier de configuration principal ``app/conf/config.yml`` fonctionne. C'est beaucoup plus pratique que de lancer le thème d'installation pour chaque mise à jour de configuration."
 
 #: ../../src/developer/first-steps/manual_config.rst:9
 msgid "Your ``app/conf/config.yml`` file is built using YAML syntax. Each part matches a Roadiz *service* configuration."
-msgstr ""
+msgstr "Votre fichier ``app/conf/config.yml`` est construit en utilisant la syntaxe YAML. Chaque partie correspond à la configuration d'un *service* de Roadiz."
 
 #: ../../src/developer/first-steps/manual_config.rst:12
 msgid "By default, every Roadiz environment read ``app/conf/config.yml`` configuration file. But you can specify different files for ``dev`` and ``test`` environments. Just create a ``app/conf/config_dev.yml`` or ``app/conf/config_test.yml`` file to override default parameters. You will be able to use a different database, mailer or *Solr* instance not to pollute your production environment."
-msgstr ""
+msgstr "Par défaut, chaque environnement Roadiz lit le fichier de configuration ``app/conf/config.yml``. Mais vous pouvez spécifier différents fichiers pour les environnements ``dev`` et ``test``. Il suffit de créer un fichier ``app/conf/config_dev.yml`` ou ``app/conf/config_test.yml`` pour remplacer les paramètres par défaut. Vous pourrez utiliser une base de données différente, un mailer ou une instance *Solr* pour ne pas polluer votre environnement de production."
 
 #: ../../src/developer/first-steps/manual_config.rst:None
 msgid "Source Edition"
-msgstr ""
+msgstr "Source Edition"
 
 #: ../../src/developer/first-steps/manual_config.rst:18
 msgid "*Roadiz Source edition* stores configuration files in ``conf/`` folder."
-msgstr ""
+msgstr "*Roadiz Source edition* stocke les fichiers de configuration dans le dossier ``conf/``."
 
 #: ../../src/developer/first-steps/manual_config.rst:21
 msgid "Doctrine"
-msgstr ""
+msgstr "Doctrine"
 
 #: ../../src/developer/first-steps/manual_config.rst:23
 msgid "The most important configuration section deals with database connection which is handled by *Doctrine*:"
-msgstr ""
+msgstr "La section de configuration la plus importante traite de la connexion à la base de données qui est gérée par *Doctrine* :"
 
 #: ../../src/developer/first-steps/manual_config.rst:34
 msgid "Roadiz uses *Doctrine ORM* to store your data. It will directly pass this YAML configuration to *Doctrine* so you can use every available drivers and options from its documentation at http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html"
-msgstr ""
+msgstr "Roadiz utilise *Doctrine ORM* pour stocker vos données. Il passera directement cette configuration YAML à *Doctrine* afin que vous puissiez utiliser tous les pilotes et options disponibles que vous trouverez dans la documentation officielle : http://doctrine-dbal.readthedocs.org/en/latest/reference/configuration.html"
 
 #: ../../src/developer/first-steps/manual_config.rst:39
 msgid "Choose your inheritance model"
-msgstr ""
+msgstr "Choisissez votre modèle d'héritage"
 
 #: ../../src/developer/first-steps/manual_config.rst:41
 msgid "*Roadiz’* main feature is all about its polymorphic document model which is mapped on a relational database. This requires a challenging structure which can be lead to some performance bottlenecks when dealing with more than 20-30 node-types. So we made the data inheritance model configurable to allow switching to `single_table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#single-table-inheritance>`_ scheme which will be more performant if you need lots of node-types. However *Single class* model will drop support for indexable fields and you won’t be able to create fields with the *same name but not the same type* because all node-type fields will be created in the **same SQL table**."
-msgstr ""
+msgstr "La caractéristique principale de *Roadiz* concerne son modèle de données polymorphique qui est stocké sur une base de données relationnelle. Cela nécessite une structure complexe qui peut conduire à des soucis de performance lorsque vous créez plus de 20-30 types de nœuds. Nous avons donc rendu le modèle d'héritage de données configurable pour permettre le passage au schéma `single_table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#single-table-inheritance>`_ qui sera plus performant si vous avez besoin de beaucoup de types de nœuds. Cependant ce modèle de *classe unique* désactivera le support des champs indexables et vous ne pourrez pas créer de champs avec le *même nom mais pas le même type* car tous les champs de type de nœud seront créés dans la **même table SQL**."
 
 #: ../../src/developer/first-steps/manual_config.rst:47
 msgid "If you really need to create indexable fields and to mix field types, we advise you to keep the original `joined table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#class-table-inheritance>`_ inheritance type which creates a dedicated SQL table for each node-type. *Joined table* inheritance can be very useful with a small number of node-type (max. 20) and very different fields. But its main drawback is that Roadiz needs to *LEFT JOIN* every node-type table for each node-source query, **unless you specify one node-type criteria**."
-msgstr ""
+msgstr "Si vous avez vraiment besoin de créer des champs indexables et de mélanger les types de champs, nous vous conseillons de conserver le type d'héritage original `joined table <https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/inheritance-mapping.html#class-table-inheritance>`_ qui crée une table SQL dédiée pour chaque type de nœud. L'héritage basé sur des *tables jointes* peut être très utile avec un petit nombre de types de nœud (max. 20) et des champs très différents. Mais son principal inconvénient est que Roadiz a besoin de *LEFT JOIN* chaque table de type de nœud pour chaque requête générique avec les node-source, **sauf si vous spécifiez un critère de type de nœud**."
 
 #: ../../src/developer/first-steps/manual_config.rst:52
 msgid "You can configure *Doctrine* strategy for NodesSources inheritance classes in ``app/conf/config.yml``:"
-msgstr ""
+msgstr "Vous pouvez configurer la stratégie *Doctrine* pour les classes d'héritage NodesSources dans ``app/conf/config.yml`` :"
 
 #: ../../src/developer/first-steps/manual_config.rst:60
 msgid "Joined class inheritance: ``joined``"
-msgstr ""
+msgstr "Héritage par tables jointes : ``joined``"
 
 #: ../../src/developer/first-steps/manual_config.rst:61
 msgid "Single table inheritance: ``single_table``"
-msgstr ""
+msgstr "Héritage à l'aide d'une seule table : ``single_table``"
 
 #: ../../src/developer/first-steps/manual_config.rst:65
 msgid "If you change this setting after creating content in your website, all node-sources data will be lost."
-msgstr ""
+msgstr "Si vous modifiez ce paramètre après avoir créé du contenu dans votre site Web, toutes les données des sources de nœud seront perdues."
 
 #: ../../src/developer/first-steps/manual_config.rst:68
 msgid "Themes"
-msgstr ""
+msgstr "Thèmes"
 
 #: ../../src/developer/first-steps/manual_config.rst:70
 msgid "Since *Roadiz v1.0*, themes are statically registered into Roadiz configuration for better performances and delaying database usage. You have to register any front-end theme in your ``app/conf/config.yml`` file. Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;"
-msgstr ""
+msgstr "Depuis *Roadiz v1.0*, les thèmes sont statiquement enregistrés dans la configuration de Roadiz pour de meilleures performances et retarder au maximum la connexion à la base de données. Vous pouvez enregistrer n'importe quel thème front-end dans votre fichier ``app/conf/config.yml``. La priorité du thème n'est pas gérée ici mais dans chacun de vos thèmes en écrasant la valeur statique ``$priority``;"
 
 #: ../../src/developer/first-steps/manual_config.rst:86
 msgid "You can define hostname specific themes and add a route-prefix for your routing. Defaults values are ``'*'`` for the *hostname* and ``''`` (empty string) for the route-prefix."
-msgstr ""
+msgstr "Vous pouvez définir des thèmes spécifiques au nom d'hôte et ajouter un préfixe de routage. Les valeurs par défaut sont ``'*'`` pour *hostname* et ``''`` (chaîne vide) pour le préfixe de route."
 
 #: ../../src/developer/first-steps/manual_config.rst:91
 msgid "No theme configuration will lead into a 404 error on your website home page. But you will still have access to the back-office which is now hard-registered into Roadiz configuration."
-msgstr ""
+msgstr "Si vous ne configurez aucun thème, cela mènera à une erreur 404 sur la page d'accueil de votre site. Mais vous aurez toujours accès au back-office qui est enregistré en dur dans la configuration de Roadiz."
 
 #: ../../src/developer/first-steps/manual_config.rst:95
 msgid "Cache drivers"
-msgstr ""
+msgstr "Pilotes de cache"
 
 #: ../../src/developer/first-steps/manual_config.rst:97
 msgid "When set as *null*, cache drivers will be automatically chosen by Roadiz according to your PHP setup and available extensions."
-msgstr ""
+msgstr "Lorsqu'il est défini en tant que *null*, les pilotes de cache seront automatiquement choisis par Roadiz en fonction de votre configuration PHP et des extensions disponibles."
 
 #: ../../src/developer/first-steps/manual_config.rst:100
 msgid "Sometimes, if a cache extension is available but you don’t want to use it, you’ll have to specify a cache driver type (use ``array`` to disable caches). This is a known case when using *OVH* shared hosting plans which provide *memcached* PHP extension but does not let you log in."
-msgstr ""
+msgstr "Parfois, si une extension de cache est disponible mais que vous ne voulez pas l'utiliser, vous devrez spécifier un autre type de pilote de cache (utilisez ``array`` pour désactiver les caches). C'est un cas connu lorsque vous utilisez des plans d'hébergement mutualisé *OVH* qui fournissent une extension PHP *memcached* mais ne vous permet pas de vous y connecter."
 
 #: ../../src/developer/first-steps/manual_config.rst:111
 msgid "Available cache types are:"
-msgstr ""
+msgstr "Les types de cache disponibles sont :"
 
 #: ../../src/developer/first-steps/manual_config.rst:113
 msgid "*apc*"
-msgstr ""
+msgstr "*apc*"
 
 #: ../../src/developer/first-steps/manual_config.rst:114
 msgid "*xcache*"
-msgstr ""
+msgstr "*xcache*"
 
 #: ../../src/developer/first-steps/manual_config.rst:115
 msgid "*memcache* (requires ``host`` and ``port`` configuration)"
-msgstr ""
+msgstr "*memcache* (nécessite la configuration ``host`` et ``port``)"
 
 #: ../../src/developer/first-steps/manual_config.rst:116
 msgid "*memcached* (requires ``host`` and ``port`` configuration)"
-msgstr ""
+msgstr "*memcached* (nécessite la configuration ``host`` et ``port``)"
 
 #: ../../src/developer/first-steps/manual_config.rst:117
 msgid "*redis* (requires ``host`` and ``port`` configuration)"
-msgstr ""
+msgstr "*redis* (nécessite la configuration ``host`` et ``port``)"
 
 #: ../../src/developer/first-steps/manual_config.rst:118
 msgid "*array*"
-msgstr ""
+msgstr "*array*"
 
 #: ../../src/developer/first-steps/manual_config.rst:123
 msgid "Monolog handlers"
-msgstr ""
+msgstr "Gestionnaires Monolog"
 
 #: ../../src/developer/first-steps/manual_config.rst:125
 msgid "By default, Roadiz writes its logs to ``app/logs/`` folder in a file named after your running environment (eg. ``roadiz_prod.log``). But you can also customize *Monolog* to use three different handlers. Pay attention that using custom log handlers will disable default Roadiz logging (except for *Doctrine* one) so it could be better to always use *default* handler along a custom one."
-msgstr ""
+msgstr "Par défaut, Roadiz écrit ses logs dans le dossier ``app/logs/`` dans un fichier nommé d'après votre environnement d'exécution (par exemple. ``roadiz_prod.log``). Mais vous pouvez aussi personnaliser *Monolog* pour utiliser trois gestionnaires différents. Attention : l'utilisation de gestionnaires de logs personnalisés désactivera la journalisation Roadiz par défaut (sauf pour la journalisation via *Doctrine*), il est donc préférable d'utiliser toujours le gestionnaire *default* en plus de votre gestionnaire personnalisé."
 
 #: ../../src/developer/first-steps/manual_config.rst:130
 msgid "Available handler types:"
-msgstr ""
+msgstr "Types de gestionnaire disponibles :"
 
 #: ../../src/developer/first-steps/manual_config.rst:132
 msgid "``default``: Reproduce the Roadiz default handler which writes to ``app/logs/`` folder in a file named after your running environment"
-msgstr ""
+msgstr "``default`` :  gestionnaire par défaut de Roadiz qui écrit dans le dossier ``app/logs/`` dans un fichier nommé d'après votre environnement en cours d'exécution"
 
 #: ../../src/developer/first-steps/manual_config.rst:133
 msgid "``stream``: Defines a log file stream on your local system. **Your path must be writable!**"
-msgstr ""
+msgstr "``stream``: Définit un flux de fichiers journaux sur votre système. **Votre chemin doit être accessible en écriture !**"
 
 #: ../../src/developer/first-steps/manual_config.rst:134
 msgid "``syslog``: Writes to system *syslog*."
-msgstr ""
+msgstr "``syslog`` : Écrit dans le système *syslog*."
 
 #: ../../src/developer/first-steps/manual_config.rst:135
 msgid "``gelf``: Send GELF formatted messages to an external entry point defined by *url* value. Roadiz uses a fault tolerant handler which **won’t trigger any error** if your path is not reachable, so make sure it’s correct. It’s a good idea to combine a *gelf* handler with a local logging system if your external entry point is down."
-msgstr ""
+msgstr "``gelf`` : Envoie des messages formatés GELF à un point d'entrée externe défini par la valeur *url*. Roadiz utilise un gestionnaire qui **ne déclenchera aucune erreur** si votre point d'entrée externe n'est pas joignable, assurez-vous qu'il est correct. C'est une bonne idée de combiner le gestionnaire *gelf* avec un système de journalisation local si votre point d'entrée externe est en panne."
 
 #: ../../src/developer/first-steps/manual_config.rst:136
 msgid "``sentry``: Send logs to your *Sentry* instance. **Requires sentry/sentry PHP library**: ``composer require sentry/sentry php-http/curl-client guzzlehttp/psr7``. It’s a good idea to combine a *sentry* handler with a local logging system if your external entry point is down."
-msgstr ""
+msgstr "``sentry``: Envoyer les logs à votre instance *Sentry*. **Nécessite une bibliothèque PHP sentry/sentry** : ``composer require sentry/sentry php-http/curl-client guzzlehttp/psr7``. C'est une bonne idée de combiner un gestionnaire *sentry* avec un système de journalisation local si votre point d'entrée externe est en panne."
 
 #: ../../src/developer/first-steps/manual_config.rst:138
 msgid "``type`` and ``level`` values are mandatory for each handlers."
-msgstr ""
+msgstr "Les valeurs ``type`` et ``level`` sont obligatoires pour chaque gestionnaire."
 
 #: ../../src/developer/first-steps/manual_config.rst:140
 msgid "Here is an example configuration:"
-msgstr ""
+msgstr "Voici un exemple de configuration :"
 
 #: ../../src/developer/first-steps/manual_config.rst:173
 msgid "Solr endpoint"
-msgstr ""
+msgstr "Point d'entrée Solr"
 
 #: ../../src/developer/first-steps/manual_config.rst:175
 msgid "Roadiz can use an *Apache Solr* search-engine to index nodes-sources. Add this to your `config.yml` to link your CMS to your *Solr* server:"
-msgstr ""
+msgstr "Roadiz peut utiliser un moteur de recherche *Apache Solr* pour indexer les nodes-sources. Ajoutez-le à votre `config.yml` pour lier votre CMS à votre serveur *Solr* :"
 
 #: ../../src/developer/first-steps/manual_config.rst:191
 msgid "Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr:check`` to get more informations."
-msgstr ""
+msgstr "La commande CLI Roadiz peut facilement gérer l'index Solr. Il suffit de taper ``bin/roadiz solr:check`` pour obtenir plus d'informations."
 
 #: ../../src/developer/first-steps/manual_config.rst:195
 msgid "Reverse proxy cache invalidation"
-msgstr ""
+msgstr "Invalidation du cache des reverse-proxies"
 
 #: ../../src/developer/first-steps/manual_config.rst:197
 msgid "Roadiz can request cache invalidation to external and internal cache proxies such as internal *Symfony* AppCache or a *Varnish* instance. If configured, Roadiz will create a ``BAN`` request to each configured proxy **when user clears back-office caches**, and it will create a ``PURGE`` request **on each node-source** *update event* using first reachable node-source URL."
-msgstr ""
+msgstr "Roadiz peut demander l'invalidation du cache à des reverse-proxies externes et internes tels que *Symfony* AppCache ou bien une instance *Varnish*. Si configuré, Roadiz créera une requête ``BAN`` pour chaque proxy configuré **quand l'utilisateur efface les caches depuis le back-office**, et il va créer une requête ``PURGE`` **sur chaque node-source** *mis-à-jour* en utilisant la première URL de node-source accessible."
 
 #: ../../src/developer/first-steps/manual_config.rst:215
 msgid "Make sure you `configured your external reverse proxy <https://github.com/roadiz/roadiz/blob/develop/samples/varnish_default.vcl>`_ in order to receive and handle ``BAN`` and ``PURGE`` HTTP requests."
-msgstr ""
+msgstr "Assurez-vous que vous `avez configuré votre reverse-proxy externe <https://github.com/roadiz/roadiz/blob/develop/samples/varnish_default.vcl>`_ pour recevoir et gérer les requêtes HTTP ``BAN`` et ``PURGE``."
 
 #: ../../src/developer/first-steps/manual_config.rst:220
 msgid "Cloudflare proxy cache"
-msgstr ""
+msgstr "Cache proxy Cloudflare"
 
 #: ../../src/developer/first-steps/manual_config.rst:222
 msgid "If you are using Cloudflare as a reverse proxy cache, you can configure Roadiz to send requests to Cloudflare to purge all items or files (when editing a node-source). You need to gather following information:"
-msgstr ""
+msgstr "Si vous utilisez Cloudflare comme un reverse-proxy cache, vous pouvez configurer Roadiz pour envoyer des requêtes à Cloudflare pour purger tous les éléments ou fichiers (lors de l'édition d'un node-source). Vous devez renseignez les informations suivantes :"
 
 #: ../../src/developer/first-steps/manual_config.rst:225
 msgid "Cloudflare zone identifier"
-msgstr ""
+msgstr "Identifiant de la zone Cloudflare"
 
 #: ../../src/developer/first-steps/manual_config.rst:226
 msgid "Cloudflare API credentials (Bearer token or email + auth-key)"
-msgstr ""
+msgstr "Identifiants de l'API Cloudflare (Bearer token ou email + clé d'identification)"
 
 #: ../../src/developer/first-steps/manual_config.rst:228
 msgid "Then you can configure Roadiz with Bearer token:"
-msgstr ""
+msgstr "Ensuite, vous pouvez configurer Roadiz avec le Bearer token :"
 
 #: ../../src/developer/first-steps/manual_config.rst:238
 msgid "Or with your Email and AuthKey:"
-msgstr ""
+msgstr "Ou avec votre E-mail et votre AuthKey :"
 
 #: ../../src/developer/first-steps/manual_config.rst:251
 msgid "Roadiz uses *Purge all files* and *Purge Files by URL* entry points: https://api.cloudflare.com/#zone-purge-all-files which are available on all Cloudflare plans."
-msgstr ""
+msgstr "Roadiz utilise les points d'entrée *Purge all files* et *Purge Files by URL*  : https://api.cloudflare.com/#zone-purge-all-files qui sont disponibles sur tous les plans Cloudflare."
 
 #: ../../src/developer/first-steps/manual_config.rst:255
 msgid "Entities paths"
-msgstr ""
+msgstr "Chemins des entités"
 
 #: ../../src/developer/first-steps/manual_config.rst:257
 msgid "Roadiz uses *Doctrine* to map object entities to database tables. In order to make Roadiz more extensible, you can add your own paths to the ``entities`` part."
-msgstr ""
+msgstr "Roadiz utilise *Doctrine* pour synchroniser les entités aux tables de votre base de données. Afin de rendre Roadiz extensible, vous pouvez ajouter vos propres chemins à la section ``entities``."
 
 #: ../../src/developer/first-steps/manual_config.rst:269
 msgid "Configure mailer"
-msgstr ""
+msgstr "Configurer le mailer"
 
 #: ../../src/developer/first-steps/manual_config.rst:271
 msgid "Roadiz uses *Swift Mailer* to send emails. This awesome library is built to enable different kinds of mail transports and protocols. By default, Roadiz uses your PHP ``sendmail`` configuration but you can tell it to use another transport (such as an external SMTP server) in your ``app/conf/config.yml`` file."
-msgstr ""
+msgstr "Roadiz utilise *Swift Mailer* pour envoyer des emails. Cette bibliothèque géniale est construite pour gérer différents types de transports de courrier et de protocoles. Par défaut, Roadiz utilise votre configuration locale avec ``sendmail`` mais il est fortement recommandé d'utiliser un autre transport (comme un serveur SMTP externe) dans votre fichier ``app/conf/config.yml``."
 
 #: ../../src/developer/first-steps/manual_config.rst:275
 msgid "You can use *SSL*, *TLS* or no encryption at all."
-msgstr ""
+msgstr "Vous pouvez utiliser *SSL*, *TLS* ou aucun chiffrement."
 
 #: ../../src/developer/first-steps/manual_config.rst:288
 msgid "Pay attention that many external SMTP services (*Mandrill*, *Mailjet*…) only accept email from validated domains. So make sure that your application uses a known ``From:`` email sender not to be blacklisted or blocked by these services. If you need your emails to be replied to an anonymous address, use ``ReplyTo:`` header instead."
-msgstr ""
+msgstr "Faites attention au fait que de nombreux services SMTP externes (*Mandrill*, *Mailjet*…) n'acceptent que les emails provenant de domaines validés. Assurez-vous donc que votre application utilise un expéditeur connu d'email ``From:`` pour ne pas être blacklisté ou bloqué par ces services. Si vous avez besoin de répondre à vos e-mails à une adresse anonyme, utilisez plutôt l'en-tête ``ReplyTo:``."
 
 #: ../../src/developer/first-steps/manual_config.rst:294
 msgid "Images processing"
-msgstr ""
+msgstr "Traitement des images"
 
 #: ../../src/developer/first-steps/manual_config.rst:296
 msgid "Roadiz use `Image Intervention <http://image.intervention.io/>`_ library to automatically create a lower quality version of your image if they are too big. You can define this threshold value in the ``assetsProcessing`` section. ``driver`` and ``defaultQuality`` will be also use for the on-the-fly image processing with `Intervention Request <https://github.com/ambroisemaupate/intervention-request>`_ library."
-msgstr ""
+msgstr "Roadiz utilise la bibliothèque `Image Intervention <http://image.intervention.io/>`_ pour créer automatiquement une version optimisée de votre image si elle est trop grande. Vous pouvez définir les seuils dans la section ``assetsProcessing``. ``driver`` et ``defaultQuality`` seront également utilisés pour le traitement d'images à la volée avec la bibliothèque `Intervention Request <https://github.com/ambroisemaupate/intervention-request>`_."
 
 #: ../../src/developer/first-steps/manual_config.rst:318
 msgid "Additional *Intervention Request* subscribers"
-msgstr ""
+msgstr "Extensions supplémentaires *Intervention Request*"
 
 #: ../../src/developer/first-steps/manual_config.rst:320
 msgid "Any *Intervention Request* subscriber can be added to configuration with its ``classname`` and its constructor arguments. Here is an example with ``WatermarkListener`` which will print some text on all your images."
-msgstr ""
+msgstr "N'importe quelle extension *Intervention Request* peut être ajoutée à la configuration avec l'aide de son ``classname`` et ses arguments constructeurs. Voici un exemple avec ``WatermarkListener`` qui imprimera du texte sur toutes vos images."
 
 #: ../../src/developer/first-steps/manual_config.rst:337
 msgid "Use kraken.io to reduce drastically image sizes"
-msgstr ""
+msgstr "Utilisez kraken.io pour réduire considérablement la taille des images"
 
 #: ../../src/developer/first-steps/manual_config.rst:339
 msgid "Since you can add *Intervention Request* subscribers, we created a useful one that sends every images to `kraken.io <https://kraken.io/>`_ services to shrink them. Once you’ve configured it, do not forget to empty your caches **and** image caches to see changes."
-msgstr ""
+msgstr "Puisque vous pouvez ajouter des extension à *Intervention Request*, nous avons créé une qui envoie toutes vos images au service `kraken.io <https://kraken.io/>`_  pour les optimiser. Une fois que vous l'avez configuré, n'oubliez pas de vider vos caches pour voir les changements."
 
 #: ../../src/developer/first-steps/manual_config.rst:356
 msgid "Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead time on the first time you request an image."
-msgstr ""
+msgstr "Notez que chaque image générée est envoyée aux serveurs *kraken.io*. Cela peut prendre du temps pour la première génération d'image."
 
 #: ../../src/developer/first-steps/manual_config.rst:360
 msgid "Console commands"
-msgstr ""
+msgstr "Commandes de console"
 
 #: ../../src/developer/first-steps/manual_config.rst:362
 msgid "Roadiz can be executed as a simple CLI tool using your SSH connection. This is useful to handle basic administration tasks with no need of backoffice administration."
-msgstr ""
+msgstr "Roadiz peut être exécuté comme un simple outil CLI en utilisant votre connexion SSH. Ceci est utile pour gérer les tâches d'administration de base sans avoir besoin d'une administration graphique."
 
 #: ../../src/developer/first-steps/manual_config.rst:369
 msgid "If your system is not configured to have *php* located in ``/usr/bin/php`` use it this way:"
