@@ -389,8 +389,11 @@ Security
     accessMap
         ``Symfony\Component\Security\Http\AccessMap``
 
-    userProvider
-        ``RZ\Roadiz\Core\Handlers\UserProvider``
+    Symfony\Component\Security\Core\User\UserProviderInterface
+        ``Symfony\Component\Security\Core\User\ChainUserProvider``
+
+    userProviders
+        ``array<Symfony\Component\Security\Core\User\UserProviderInterface>``
 
     userChecker
         ``Symfony\Component\Security\Core\User\UserChecker``
