@@ -54,7 +54,7 @@ This following fields stores simple data in your custom node-source database tab
 Markdown options
 ^^^^^^^^^^^^^^^^
 
-You can restrict Markdown fields button using the following YAML configuration:
+You can restrict Markdown fields buttons using the following YAML configuration:
 
 .. code-block:: YAML
 
