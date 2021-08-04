@@ -24,8 +24,28 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
 *Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
 want to replace *standard-edition* *Git* with our own versioning. Then you will be able to customize every files
 in your projects and save them using Git, not only your theme. Of course we added a default ``.gitignore`` file to
-prevent your configuration setting and entry points to be commited in your *Git* history. That way you can have
+prevent your configuration setting and entry points to be committed in your *Git* history. That way you can have
 different configuration on development and on your production server without bothering about merge conflicts.
+
+Register theme services
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**Do not forget** to add the following lines to your ``app/AppKernel.php`` file once you generated a new theme:
+
+.. code:: php
+
+   // app/AppKernel.php
+
+   public function register(\Pimple\Container $container)
+   {
+       parent::register($container);
+
+       /*
+        * Add your own service providers.
+        */
+       $container->register(new \Themes\FooBarTheme\Services\FooBarThemeServiceProvider());
+   }
+
 
 .. note::
 
