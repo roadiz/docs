@@ -27,19 +27,14 @@ in your projects and save them using Git, not only your theme. Of course we adde
 prevent your configuration setting and entry points to be committed in your *Git* history. That way you can have
 different configuration on development and on your production server without bothering about merge conflicts.
 
-Register theme services
-^^^^^^^^^^^^^^^^^^^^^^^
-
 **Do not forget** to add the following lines to your ``app/AppKernel.php`` file once you generated a new theme:
 
-.. code:: php
+.. code-block:: php
 
    // app/AppKernel.php
-
    public function register(\Pimple\Container $container)
    {
        parent::register($container);
-
        /*
         * Add your own service providers.
         */
