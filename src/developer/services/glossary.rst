@@ -104,6 +104,9 @@ Doctrine
     em.config
         ``Doctrine\ORM\Configuration``
 
+    Doctrine\Persistence\ManagerRegistry
+        ``Doctrine\Persistence\ManagerRegistry``, you should use this service instead of ``em`` whenever possible.
+
     em
         ``Doctrine\ORM\EntityManager``, you can access it using ``$this->get(EntityManagerInterface::class)``.
 
@@ -115,6 +118,9 @@ Doctrine
 
     CacheProvider::class
          :sup:`Factory` Creates a ``CacheProvider::class`` using Roadiz configuration, , you can access it using ``$this->get(CacheProvider::class)``.
+
+    ResolveTargetEntityListener::class
+        ``Doctrine\ORM\Tools\ResolveTargetEntityListener``, to resolve ``interface`` names into real entities ``class``.
 
 Embed documents
 ^^^^^^^^^^^^^^^
@@ -652,3 +658,14 @@ OpenId
 
     oauth2AuthenticationProvider.validators:
         ``array<RZ\Roadiz\OpenId\Authentication\Validator\JwtValidator>``
+
+Message
+^^^^^^^
+
+.. glossary::
+
+    MessageBusInterface::class
+        ``Symfony\Component\Messenger\RoutableMessageBus``
+
+    logger.messenger
+        ``Monolog\Logger``

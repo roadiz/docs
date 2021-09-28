@@ -26,7 +26,7 @@ current user is logged-in and if preview mode is *ON* to display or not *unpubli
 
     // Insecure method to get node-sources
     // Doctrine raw method will get all node-sources
-    $this->get('em')->getRepository('GeneratedNodeSources\NSBlogPost')->findBy([], [
+    $this->get(ManagerRegistry::class)->getRepository('GeneratedNodeSources\NSBlogPost')->findBy([], [
         'publishedAt' => 'DESC',
         'translation' => $translation,
     ]);
@@ -38,7 +38,7 @@ return every node-sources, **even unpublished, archived and deleted ones**.
 Hierarchy
 ^^^^^^^^^
 
-To trasverse node-sources hierarchy, the easier method is to use *Twig* filters
+To traverse node-sources hierarchy, the easier method is to use *Twig* filters
 on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from
 origin node-source.
 
@@ -132,7 +132,7 @@ field.
         public function indexAction(
             Request $request,
             Node $node = null,
-            Translation $translation = null
+            TranslationInterface $translation = null
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
@@ -198,7 +198,7 @@ You can use ``generateUrl()`` in your controllers to get a node-source’ path o
         public function indexAction(
             Request $request,
             Node $node = null,
-            Translation $translation = null
+            TranslationInterface $translation = null
         ) {
             $this->prepareThemeAssignation($node, $translation);
 

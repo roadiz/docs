@@ -51,8 +51,6 @@ JSON response. Here is how to do:
         use ContainerAwareTrait;
 
         /**
-         * DocumentUriSubscriber constructor.
-         *
          * @param Container $container
          */
         public function __construct(Container $container)
@@ -60,9 +58,6 @@ JSON response. Here is how to do:
             $this->container = $container;
         }
 
-        /**
-         * @inheritDoc
-         */
         public static function getSubscribedEvents()
         {
             return [[
@@ -158,8 +153,6 @@ generator for any Document serialized into our JSON response:
         use ContainerAwareTrait;
 
         /**
-         * DocumentUriSubscriber constructor.
-         *
          * @param Container $container
          */
         public function __construct(Container $container)
@@ -167,9 +160,6 @@ generator for any Document serialized into our JSON response:
             $this->container = $container;
         }
 
-        /**
-         * @inheritDoc
-         */
         public static function getSubscribedEvents()
         {
             return [[

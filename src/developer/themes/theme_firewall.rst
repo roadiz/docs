@@ -43,7 +43,7 @@ Configuring a non-root firewall map entry with FirewallEntry class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before copy and pasting the following lines, think about it a little time…
-A firewall map entry defines severals mandatory routes:
+A firewall map entry defines several mandatory routes:
 
 - A *base path* for your firewall to be triggered
 - A *login* path, which **can** be **outside** or **inside** of your firewall map
@@ -95,7 +95,7 @@ add the matching *use* statement in your file header.
             $firewallBaseRole
             // You can add a special AuthenticationSuccessHandler
             // if you need to do some stuff for your theme at visitor login
-            //'Themes\YourTheme\Authentification\AuthenticationSuccessHandler'
+            //'Themes\YourTheme\Authentication\AuthenticationSuccessHandler'
         );
         // Allow anonymous authentication
         $firewallEntry->withAnonymousAuthenticationListener();
