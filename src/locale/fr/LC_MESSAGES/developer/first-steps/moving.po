@@ -26,11 +26,11 @@ msgid "Before moving your website, make sure you have backed up your data:"
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:8
-msgid "Dump your database, using classic ``mysqldump`` or ``pg_dump`` tools. If you’re using *MySQL* ``bin/roadiz database:dump -c`` command can speed-up the process by naming automatically your file against your *app-namespace*."
+msgid "Dump your database, using classic ``mysqldump`` or ``pg_dump`` tools. If you’re using *MySQL* ``bin/console database:dump -c`` command can speed-up the process by naming automatically your file against your *app-namespace*."
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:9
-msgid "Archive your files using ``bin/roadiz files:export``, Roadiz will create a ZIP file with your public/private documents and fonts."
+msgid "Archive your files using ``bin/console files:export``, Roadiz will create a ZIP file with your public/private documents and fonts."
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:12
@@ -70,7 +70,7 @@ msgid "Install assets"
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:52
-msgid "By default, web theme assets are not tracked by *Git*. Make sure that you installed every theme assets using ``bin/roadiz themes:assets:install`` command. You should use ``--symlink --relative`` options when possible to prevent updating assets manually. For Windows users, remove ``--relative`` option to create *absolute* symlinks."
+msgid "By default, web theme assets are not tracked by *Git*. Make sure that you installed every theme assets using ``bin/console themes:assets:install`` command. You should use ``--symlink --relative`` options when possible to prevent updating assets manually. For Windows users, remove ``--relative`` option to create *absolute* symlinks."
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:65
@@ -110,7 +110,7 @@ msgid "If you can ZIP on your production server or if you are going to push your
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:112
-msgid "Before transferring your website, make sure you have ``.htaccess`` file in every sensitive folders. You can use the ``bin/roadiz generate:htaccess`` on your computer."
+msgid "Before transferring your website, make sure you have ``.htaccess`` file in every sensitive folders. You can use the ``bin/console generate:htaccess`` on your computer."
 msgstr ""
 
 #: ../../src/developer/first-steps/moving.rst:113

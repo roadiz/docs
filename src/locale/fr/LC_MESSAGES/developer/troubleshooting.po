@@ -26,7 +26,7 @@ msgid "Empty caches manually for an environment"
 msgstr ""
 
 #: ../../src/developer/troubleshooting.rst:8
-msgid "If you experience errors only on a dedicated environment such as ``prod``, ``dev`` or ``install``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/roadiz cache:clear -e prod;`` (replace *prod* by your environment) in command line."
+msgid "If you experience errors only on a dedicated environment such as ``prod``, ``dev`` or ``install``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/console cache:clear -e prod;`` (replace *prod* by your environment) in command line."
 msgstr ""
 
 #: ../../src/developer/troubleshooting.rst:14

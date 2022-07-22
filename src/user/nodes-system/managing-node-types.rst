@@ -25,7 +25,7 @@ Once you have landed on the Node-Types page (*https://mywebsite.com/rz-admin/nod
 .. image:: ./img/create_nodetype_button.png
     :align: center
 
-Upon filling the two mandatory settings *Name* (that developpers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type.
+Upon filling the two mandatory settings *Name* (that developers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type.
 
 .. warning ::
     Be careful when you name your node-type though, *Name* field can't be changed once the node-type is created. See *Delete node-type* section to know how to delete a node-type.
@@ -152,4 +152,4 @@ It can be easily done by clicking on *Import node-type* button, then selecting i
 .. image:: ./img/import_nodetype.png
     :align: center
 
-You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing.
+You are close to fully master Roadiz back-office powers! Keep referring to this documentation if you have any problem, and let us know if any information goes missing.

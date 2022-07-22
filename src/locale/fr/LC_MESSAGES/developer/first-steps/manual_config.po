@@ -186,8 +186,8 @@ msgid "Roadiz can use an *Apache Solr* search-engine to index nodes-sources. Add
 msgstr "Roadiz peut utiliser un moteur de recherche *Apache Solr* pour indexer les nodes-sources. Ajoutez-le à votre `config.yml` pour lier votre CMS à votre serveur *Solr* :"
 
 #: ../../src/developer/first-steps/manual_config.rst:191
-msgid "Roadiz CLI command can easily handle Solr index. Just type ``./bin/roadiz solr:check`` to get more informations."
-msgstr "La commande CLI Roadiz peut facilement gérer l'index Solr. Il suffit de taper ``bin/roadiz solr:check`` pour obtenir plus d'informations."
+msgid "Roadiz CLI command can easily handle Solr index. Just type ``./bin/console solr:check`` to get more informations."
+msgstr "La commande CLI Roadiz peut facilement gérer l'index Solr. Il suffit de taper ``bin/console solr:check`` pour obtenir plus d'informations."
 
 #: ../../src/developer/first-steps/manual_config.rst:195
 msgid "Reverse proxy cache invalidation"

@@ -42,7 +42,7 @@ msgid "https://www.vagrantup.com/"
 msgstr ""
 
 #: ../../src/developer/first-steps/vagrant.rst:19
-msgid "Once you’ve created your Roadiz project, *Composer* should has copied ``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your project root. Then do a ``vagrant up`` in Roadiz’ folder. Then `Vagrant <https://www.vagrantup.com/>`_ will run your code in ``/var/www`` and you will be able to completely use ``bin/roadiz`` commands without bloating your computer with lots of binaries."
+msgid "Once you’ve created your Roadiz project, *Composer* should has copied ``samples/Vagrantfile.sample`` file as ``Vagrantfile`` at your project root. Then do a ``vagrant up`` in Roadiz’ folder. Then `Vagrant <https://www.vagrantup.com/>`_ will run your code in ``/var/www`` and you will be able to completely use ``bin/console`` commands without bloating your computer with lots of binaries."
 msgstr ""
 
 #: ../../src/developer/first-steps/vagrant.rst:24

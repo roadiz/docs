@@ -106,7 +106,7 @@ msgid "Update your conf/config.yml file to fill in your mysql credentials."
 msgstr ""
 
 #: ../../src/developer/case-studies/download-to-vagrant.rst:113
-msgid "Use the ``bin/roadiz generate:nsentities`` to regenerate *Doctrine* entities existing in database but not as files."
+msgid "Use the ``bin/console generate:nsentities`` to regenerate *Doctrine* entities existing in database but not as files."
 msgstr ""
 
 #: ../../src/developer/case-studies/download-to-vagrant.rst:125

@@ -42,7 +42,7 @@ In Roadiz, there are 4 types of tests:
 - DefaultTheme dependent tests which must extend ``RZ\Roadiz\Tests\DefaultThemeDependentCase``. These tests rely on a complete Roadiz installation with existing node-types and translation. They are longer to prepare as PHPUnit must install a fresh Roadiz with DefaultTheme at each case.
 
 .. note::
-    Each ``SchemaDependentCase`` and ``DefaultThemeDependentCase`` will provision a fresh Roadiz database then drop it. Make sure to use a dedicated database. If you execute unit-tests from an existing Roadiz website, you’ll have to run ``bin/roadiz generate:nsentities`` at the end of your testing session to build your NodesSources classes again (every environment share the same ``gen-src`` folder).
+    Each ``SchemaDependentCase`` and ``DefaultThemeDependentCase`` will provision a fresh Roadiz database then drop it. Make sure to use a dedicated database. If you execute unit-tests from an existing Roadiz website, you’ll have to run ``bin/console generate:nsentities`` at the end of your testing session to build your NodesSources classes again (every environment share the same ``gen-src`` folder).
 
 Coding style
 ------------

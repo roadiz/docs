@@ -61,9 +61,6 @@ Here is an example to create your contact form in your controller action.
 
     $form = $contactFormManager->getForm();
 
-    // Assign your form view to display it in Twig.
-    $this->assignation['contactForm'] = $form->createView();
-
 In this example, we used ``withDefaultFields`` method which add automatically ``email``, ``name`` and ``message``
 fields with right validation constraints. This method is optional and you can add any field you want manually, just
 keep in mind that you should always ask for an ``email``.
@@ -97,17 +94,17 @@ to make your redirection response **bubble** through *Twig* render. The only way
 Twig is to **throw an exception** and to pass your Redirect or Json response within your
 Exception.
 
-Roadiz makes this possible with ``RZ\Roadiz\Core\Exceptions\ForceResponseException``.
-For example, in a ``Themes\MyAwesomeTheme\Controllers\Blocks\ContactBlockController``, instead of
+Roadiz makes this possible with ``RZ\Roadiz\CoreBundle\Exception\ForceResponseException``.
+For example, in a ``App/Controllers/ContactBlockController``, instead of
 returning the ``contactFormManager`` response, you will have to throw a ``ForceResponseException``
 with it as an argument.
 
 .. code-block:: php
    :linenos:
 
-    // ./themes/MyAwesomeTheme/Controllers/Blocks/ContactBlockController.php
+    // ./src/Controllers/ContactBlockController.php
 
-    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+    use RZ\Roadiz\CoreBundle\Exception\ForceResponseException;
 
     …
     // Create contact-form manager and add 3 default fields.
@@ -122,11 +119,6 @@ with it as an argument.
     }
 
     $form = $contactFormManager->getForm();
-
-    // Assign your form view to display it in Twig.
-    $this->assignation['contactForm'] = $form->createView();
-
-    return $this->render('blocks/contactformblock.html.twig', $this->assignation);
 
 Then, in your *master* controller (i.e. ``PageController``), ``render`` method will automatically
 catch your *ForceResponseException* exception in order to extract the forced response object. Then

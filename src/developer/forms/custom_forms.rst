@@ -31,11 +31,11 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
 .. code-block:: php
    :linenos:
 
-    use RZ\Roadiz\Core\Entities\CustomForm;
-    use RZ\Roadiz\Core\Exceptions\EntityAlreadyExistsException;
-    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+    use RZ\Roadiz\CoreBundle\Entity\CustomForm;
+    use RZ\Roadiz\CoreBundle\Exception\EntityAlreadyExistsException;
+    use RZ\Roadiz\CoreBundle\Exception\ForceResponseException;
     use Symfony\Cmf\Component\Routing\RouteObjectInterface;
-    use RZ\Roadiz\Utils\CustomForm\CustomFormHelper;
+    use RZ\Roadiz\CoreBundle\CustomForm\CustomFormHelper;
     use Symfony\Component\Form\FormError;
     use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -60,12 +60,8 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
              * Roadiz custom form entity.
              * You can add a Google Recaptcha passing following options.
              */
-            $helper = new CustomFormHelper($this->get('em'), $customForm);
-            $form = $helper->getFormFromAnswer($this->get('formFactory'), null, true, [
-                'recaptcha_public_key' => $this->get('settingsBag')->get('recaptcha_public_key'),
-                'recaptcha_private_key' => $this->get('settingsBag')->get('recaptcha_private_key'),
-                'request' => $request,
-            ]);
+            $helper = $this->customFormHelperFactory->createHelper($customForm);
+            $form = $helper->getForm($request, false, true);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
@@ -99,7 +95,6 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
                 }
             }
 
-            $this->assignation['session']['messages'] = $this->get('session')->getFlashBag()->all();
             $this->assignation['form'] = $form->createView();
         }
     }
