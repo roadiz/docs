@@ -1,8 +1,8 @@
 .. Roadiz documentation master file, created by Ambroise Maupate
 
-==================================
-Welcome to Roadiz's documentation!
-==================================
+================================
+Welcome to Roadiz documentation!
+================================
 
 Roadiz is a polymorphic CMS based on a node system that can handle many types of services.
 It is based on *Symfony* components, *Doctrine ORM*, *Twig* and *Pimple* for maximum performances and security.
