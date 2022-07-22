@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:24\n"
+"PO-Revision-Date: 2022-07-22 13:55\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,238 +19,238 @@ msgstr ""
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:5
 msgid "Node-type fields"
-msgstr ""
+msgstr "Champs de type de nœud"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:7
 msgid "Roadiz can handle many types of node-type fields. Here is a complete list:"
-msgstr ""
+msgstr "Roadiz peut gérer de nombreux champs de type de nœud. Voici une liste complète :"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:10
 msgid "*Title*, *meta-title*, *meta-description* and *keywords* are always available since they are stored directly inside ``NodesSources`` entity. Then you will be sure to always have a *title* no matter the node-type you are using."
-msgstr ""
+msgstr "*Titre*, *méta-title*, *méta-description* et *mots clés* sont toujours disponibles puisqu'ils sont stockés directement dans l'entité ``NodesSources``. Vous serez sûr d'avoir toujours un *titre* quel que soit le type de nœud que vous utilisez."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:15
 msgid "Simple data"
-msgstr ""
+msgstr "Données simples"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:17
 msgid "This following fields stores simple data in your custom node-source database table."
-msgstr ""
+msgstr "Les champs suivants stockent des données simples dans votre table de base de données de nœuds."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:19
 msgid "Single-line text"
-msgstr ""
+msgstr "Chaîne de caractères"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:20
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:21
 msgid "Date and time"
-msgstr ""
+msgstr "Date et heure"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:22
 msgid "Basic text"
-msgstr ""
+msgstr "Texte basic"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:23
 msgid "Markdown text"
-msgstr ""
+msgstr "Texte Markdown"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:24
 msgid "Boolean"
-msgstr ""
+msgstr "Booléen"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:25
 msgid "Integer number"
-msgstr ""
+msgstr "Nombre entier"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:26
 msgid "Decimal number"
-msgstr ""
+msgstr "Nombre décimal"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:27
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:28
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:29
 msgid "Single geographic coordinates"
-msgstr ""
+msgstr "Coordonnées géographiques uniques"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:30
 msgid "JSON code"
-msgstr ""
+msgstr "JSON code"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:31
 msgid "CSS code"
-msgstr ""
+msgstr "Code CSS"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:32
 msgid "Country code (ISO 3166-1 alpha-2)"
-msgstr ""
+msgstr "Code pays (ISO 3166-1 alpha-2)"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:33
 msgid "YAML code"
-msgstr ""
+msgstr "Code YAML"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:34
 msgid "Many to many join"
-msgstr ""
+msgstr "Jointure Many to many"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:35
 msgid "Many to one join"
-msgstr ""
+msgstr "Jointure Many to One"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:36
 msgid "Single relationship using a provider"
-msgstr ""
+msgstr "Relation unique en utilisant un Provider"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:37
 msgid "Multiple relationship using a provider"
-msgstr ""
+msgstr "Relation multiple en utilisant un Provider"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:38
 #: ../../src/developer/nodes-system/node_type_fields.rst:182
 msgid "Custom collection"
-msgstr ""
+msgstr "Collection personnalisée"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:41
 msgid "*Single geographic coordinates* field stores its data in JSON format. Make sure you don’t have manually written data in its input field."
-msgstr ""
+msgstr "Le champ *coordonnées géographiques uniques* stocke ses données au format JSON. Assurez-vous que vous n'avez pas de données déjà inscrite à la main dans la base de donnée."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:45
 msgid "To use *Single geographic coordinates* you must create a *Google API Console* account with *Maps API v3* activated. Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings to enable *geographic* node-type fields. If you didn't do it, a simple text input will be display instead of *Roadiz Map Widget*."
-msgstr ""
+msgstr "Pour utiliser les *coordonnées géographiques uniques*, vous devez créer un compte *Google API Console* avec *Maps API v3* activé. Ensuite, créez une *clé de navigateur* et collez-la dans le paramètre “Google Client ID” dans les paramètres Roadiz pour activer les champs de type de nœud *géographique*. Si vous ne l'avez pas fait, une simple entrée de texte sera affichée au lieu de *Widget Roadiz*."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:55
 msgid "Virtual data"
-msgstr ""
+msgstr "Données virtuelles"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:57
 msgid "Virtual types do not really store data in node-source table. They display custom widgets in your editing page to link documents, nodes or custom-forms with your node-source."
-msgstr ""
+msgstr "Les types virtuels ne stockent pas vraiment les données dans la table node-source. Ils affichent des widgets personnalisés dans votre page d'édition pour lier des documents, des nœuds ou des formulaires personnalisés à votre node-source."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:61
 msgid "Documents"
-msgstr ""
+msgstr "Documents"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:62
 msgid "Nodes references"
-msgstr ""
+msgstr "Références de nœuds"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:63
 msgid "Custom form"
-msgstr ""
+msgstr "Formulaires personnalisés"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:66
 msgid "Complex data"
-msgstr ""
+msgstr "Données complexes"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:68
 msgid "These fields types must be created with *default values* (comma separated) in order to display available default choices for “select-box” types:"
-msgstr ""
+msgstr "Ces types de champs doivent être créés avec des *valeurs par défaut* (séparées par des virgules) afin de les afficher sous la forme d'une “boîte de sélection”:"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:71
 msgid "Single choice"
-msgstr ""
+msgstr "Choix simple"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:72
 msgid "Multiple choices"
-msgstr ""
+msgstr "Choix multiple"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:73
 msgid "Children nodes"
-msgstr ""
+msgstr "Nœuds enfants"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:75
 msgid "*Children node* field type is a special virtual field that will display a custom node-tree inside your editing page. You can add *quick-create* buttons by listing your node-types names in *default values* input, comma separated."
-msgstr ""
+msgstr "Le type de champ *Nœuds enfant* est un champ virtuel spécial qui affichera une arborescence personnalisée à l'intérieur de votre page. Vous pouvez ajouter des boutons *création rapide* en listant les noms de vos types de nœuds dans les *valeurs par défaut*."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:80
 msgid "Universal fields"
-msgstr ""
+msgstr "Champs universels"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:82
 msgid "If you need a field to hold exactly the same data for all translations, you can set it as *universal*. For example for documents, numeric and boolean data that do not change from one language to another."
-msgstr ""
+msgstr "Si vous avez besoin que votre champ contienne exactement les mêmes données pour toutes les traductions, vous pouvez le définir comme *universel*. Par exemple, pour les documents, les données numéraires et booléennes qui ne changent pas d'une langue à une autre."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:86
 msgid "It will duplicate data at each save time from default translation to others. It will also hide the edit field from non-default translation to avoid confusion."
-msgstr ""
+msgstr "Cela va dupliquer les données à chaque fois depuis la traduction par défaut vers les autres pour vous faire gagnez du temps. Cela masquera également les champs d'édition sur les autres traductions pour éviter toute confusion lors du remplissage."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:91
 msgid "YAML field"
-msgstr ""
+msgstr "Champ YAML"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:93
 msgid "When you use YAML field type, you get an additional method to return your code already parsed. If your field is named ``data``, your methods will be generated in your *NSEntity* as ``getData()`` and ``getDataAsObject()``."
-msgstr ""
+msgstr "Lorsque vous utilisez le type de champ YAML, vous obtenez une méthode supplémentaire pour retourner votre code déjà analysé. Si votre champ est nommé ``data``, vos méthodes seront générées dans votre *NSEntity* en tant que ``getData()`` et ``getDataAsObject()``."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:96
 msgid "``getData()`` method will return your YAML code as *string*."
-msgstr ""
+msgstr "La méthode ``getData()`` retournera votre code YAML en tant que *string*."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:97
 msgid "``getDataAsObject()`` will return a mixed data,array or ``stdObject`` according to your code formatting. This method will throw a ``\\Symfony\\Component\\Yaml\\Exception\\ParseException`` if your YAML code is not valid."
-msgstr ""
+msgstr "``getDataAsObject()`` retournera des données mixtes, un tableau ou un ``stdObject`` selon le formatage de votre code. Cette méthode peut lancer une ``\\Symfony\\Component\\Yaml\\Exception\\ParseException`` si votre code YAML n'est pas valide."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:100
 msgid "Many to many and Many to one joins"
-msgstr ""
+msgstr "Jointures Many to Many et Many to One"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:102
 msgid "You can create custom relations between your node-source and whatever Doctrine entities in *Roadiz* or in your theme."
-msgstr ""
+msgstr "Vous pouvez créer des relations personnalisées entre votre source et toutes les entités Doctrine disponible dans *Roadiz* ou dans votre thème."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:105
 msgid "You must fill the *default values* field for these two types."
-msgstr ""
+msgstr "Vous devez remplir le champ *valeurs par défaut* pour ces deux types."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:124
 msgid "Single and multiple provider"
-msgstr ""
+msgstr "Provider simple et multiple"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:126
 msgid "The generic provider type allow you to fetch every data you want through a ``Provider`` class in your theme. This can be really useful if you need to fetch items from an external API and to reference them in your nodes-sources."
-msgstr ""
+msgstr "Le type de Provider générique vous permet de récupérer toutes les données que vous voulez à travers une classe ``Provider`` depuis votre thème. Cela peut être très utile si vous avez besoin de récupérer des éléments depuis une API externe et de les référencer dans vos nodes-sources."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:130
 msgid "Imagine that you want to link your page with an *Instagram* post. You’ll have to create a class that extends ``Themes\\Rozier\\Explorer\\AbstractExplorerProvider`` and configure it in your field:"
-msgstr ""
+msgstr "Imaginez que vous voulez lier votre page avec un post *Instagram*. Vous devrez créer une classe qui hérite de ``Themes\\Rozier\\Explorer\\AbstractExplorerProvider`` et la configurer dans votre champ:"
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:137
 msgid "This provider will implement ``getItems``, ``getItemsById`` and other methods from ``ExplorerProviderInterface`` in order to be able to display your *Instagram* posts in Roadiz explorer widget and to find your selected items back. Each *Instagram* post will be wrapped in a ``Themes\\Rozier\\Explorer\\AbstractExplorerItem`` that will map your custom data to the right fields to be showed in Roadiz back-office."
-msgstr ""
+msgstr "Ce Provider va implémenter ``getItems``, ``getItemsById`` et d'autres méthodes de ``ExplorerProviderInterface`` afin de pouvoir afficher vos posts *Instagram* dans le widget Roadiz et retrouver les éléments sélectionnés. Chaque post *Instagram* sera encapsulé dans un ``Themes\\Rozier\\Explorer\\AbstractExplorerItem`` qui exposera vos données personnalisées de la bonne manière pour être affichées dans le back-office de Roadiz."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:143
 msgid "You’ll find an implementation example in Roadiz with ``Themes\\Rozier\\Explorer\\SettingsProvider`` and ``Themes\\Rozier\\Explorer\\SettingExplorerItem``. These classes do not fetch data from an API but from your database using ``EntityListManager``."
-msgstr ""
+msgstr "Vous trouverez un exemple d'implémentation dans Roadiz avec ``Themes\\Rozier\\Explorer\\SettingsProvider`` et ``Themes\\Rozier\\Explorer\\SettingExplorerItem``. Ces classes ne récupèrent pas les données d'une API mais de votre base de données en utilisant ``EntityListManager``."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:147
 msgid "Single and multiple provider types can accept additional options too. If you want to make your provider configurable at runtime you can pass ``options`` in your field configuration."
-msgstr ""
+msgstr "Les types de Provider simple et multiple peuvent également accepter des options supplémentaires. Si vous voulez rendre votre provider configurable à l'exécution, vous pouvez passer des ``options`` dans la configuration de votre champ."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:159
 msgid "Then you must override your provider’ ``configureOptions`` method to add which options are allowed."
-msgstr ""
+msgstr "Ensuite, vous devez remplacer la méthode ``configureOptions`` de votre Provider pour définir quelles options sont autorisées."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:184
 msgid "Last but not least, you can create a custom collection field to store read-only data using a dedicated *Symfony* ``AbstractType``."
-msgstr ""
+msgstr "Enfin, vous pouvez créer une collection de champs personnalisée pour y stocker des données en lecture seule en utilisant un ``AbstractType`` *Symfony* personnalisé."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:187
 msgid "You must fill the *default values* field for this type:"
-msgstr ""
+msgstr "Vous devez remplir le champ *valeurs par défaut* pour ce type."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:194
 msgid "You must understand that *custom collection* data will be stored as JSON array in your database. So you won’t be able to query your node-source using this data."
-msgstr ""
+msgstr "Veuillez noter que les données de *collection personnalisée* seront stockées en tant que tableau JSON dans votre base de données. Vous ne pourrez donc pas interroger votre source de noeud en utilisant ces données ou créer de filtres."
 
 #: ../../src/developer/nodes-system/node_type_fields.rst:197
 msgid "In your ``FooBarType``, you’ll be able to use *Symfony* standard fields types and **Roadiz** non-virtual fields too such as ``MarkdownType``, ``JsonType``, ``YamlType``."
-msgstr ""
+msgstr "Dans votre ``FooBarType``, vous pourrez utiliser des types de champs standards *Symfony* et des champs non-virtuels **Roadiz** tels que ``MarkdownType``, ``JsonType``, ``YamlType``."
 
