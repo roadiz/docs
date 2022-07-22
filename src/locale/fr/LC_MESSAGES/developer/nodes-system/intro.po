@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:24\n"
+"PO-Revision-Date: 2021-06-11 12:24\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,73 +19,73 @@ msgstr ""
 
 #: ../../src/developer/nodes-system/intro.rst:5
 msgid "Node-types, nodes-sources and nodes"
-msgstr ""
+msgstr "Types de nœuds, nodes-sources et nœuds"
 
 #: ../../src/developer/nodes-system/intro.rst:7
 msgid "This part is the most important part of Roadiz. Quite everything in your website will be a node."
-msgstr ""
+msgstr "Cette partie est la partie la plus importante de Roadiz. Presque tous les contenus de votre site seront créés sous la forme d'un nœud."
 
 #: ../../src/developer/nodes-system/intro.rst:9
 msgid "Let's check this simple node schema before explain it."
-msgstr ""
+msgstr "Regardons ce simple schéma de nœud avant de l'expliquer."
 
 #: ../../src/developer/nodes-system/intro.rst:13
 msgid "Now, it's time to explain how it's working!"
-msgstr ""
+msgstr "Maintenant, il est temps d'expliquer comment ça marche !"
 
 #: ../../src/developer/nodes-system/intro.rst:18
 msgid "What is a Node-type"
-msgstr ""
+msgstr "Qu'est-ce qu'un type de nœud"
 
 #: ../../src/developer/nodes-system/intro.rst:20
 msgid "A node-type is the blueprint for your node-source. It will contain all fields that Roadiz will use to generate an extended node-source class."
-msgstr ""
+msgstr "Un type de nœud est le gabarit de votre node-source. Il contiendra tous les champs que Roadiz utilisera pour générer une classe de node-source étendue."
 
 #: ../../src/developer/nodes-system/intro.rst:27
 msgid "For example, a node-type \"Page\" will contain \"content\" and \"header image\" fields. The \"title\" field is always available as it is hard-coded in ``NodesSources`` class. After saving your node-type, Roadiz generates a ``NSPage`` class which extends the ``NodesSources`` class. You will find it in the ``gen-src/GeneratedNodeSources`` (or ``app/gen-src/GeneratedNodeSources`` with *Roadiz Standard edition*). Then Roadiz calls *Doctrine* update tool to migrate your database schema. **Do not modify the generated class.** You’ll have to update it by the backend interface."
-msgstr ""
+msgstr "Par exemple, un type de nœud \"page\" contiendra les champs \"content\" et \"header image\". Le champ \"title\" est toujours disponible car il est codé en dur dans la classe ``NodesSources``. Après avoir sauvegardé votre type de nœud, Roadiz génère une classe PHP ``NSPage`` qui étend la classe ``NodesSources``. Vous le trouverez dans ``gen-src/GeneratedNodeSources`` (ou ``app/gen-src/GeneratedNodeSources`` avec *Roadiz Standard edition*). Roadiz appelle alors l'outil de mise à jour *Doctrine* pour migrer votre schéma de base de données. **Ne modifiez pas la classe générée.** Vous devrez la mettre à jour par l'interface d'administration."
 
 #: ../../src/developer/nodes-system/intro.rst:34
 msgid "Here is a schema to understand how node-types can define custom fields into node-sources:"
-msgstr ""
+msgstr "Voici un schéma pour comprendre comment les types de noeuds peuvent définir des champs personnalisés dans les node-sources:"
 
 #: ../../src/developer/nodes-system/intro.rst:40
 msgid "Most of node-types management will be done in your backoffice interface. You will be able to create, update node-types objects and each of their node-type fields independently. But if you prefer, you can use CLI commands to create types and fields. With Roadiz CLI commands you get several tools to manage node-types. We really encourage you to check the commands with ``--help`` argument, as following:"
-msgstr ""
+msgstr "Le plus gros de la gestion des types de nœud sera effectués dans l'interface du back-office. Vous serez en mesure de créer, de mettre à jour les types de nœud et chacun de leurs champs de manière indépendante. Mais si vous préférez, vous pouvez utiliser les commandes CLI pour créer des types et des champs. Avec les commandes CLI de Roadiz, vous obtenez plusieurs outils pour gérer les types de nœuds. Nous vous encourageons vraiment à vérifier les commandes avec l'argument ``--help``, comme suit:"
 
 #: ../../src/developer/nodes-system/intro.rst:52
 msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
-msgstr ""
+msgstr "Gardez à l'esprit que chaque opération de type de nœud ou de type de nœud nécessite une mise à jour de la base de données car Doctrine doit créer une table spécifique par type de noeud. N'oubliez pas d'exécuter les outils ``bin/roadiz orm:schema-tool:update`` pour effectuer des mises à jour. Il est très important de comprendre que *Doctrine* a besoin de voir les classes générées par vos types de nœuds **avant** la mise à jour du schéma de base de données. S'ils n'existent pas, il ne pourra pas créer vos tables de types personnalisés ou pire, il pourrait supprimer des données existantes, car *Doctrine* ne reconnaîtra pas ces tables spécifiques."
 
 #: ../../src/developer/nodes-system/intro.rst:58
 msgid "Now let's have a look on node-sources."
-msgstr ""
+msgstr "Jetons maintenant un œil sur les sources de nœud."
 
 #: ../../src/developer/nodes-system/intro.rst:64
 msgid "Node-sources and translations"
-msgstr ""
+msgstr "Sources de nœuds et traductions"
 
 #: ../../src/developer/nodes-system/intro.rst:66
 msgid "Once your node-type created, its definition is stored in database in ``node_types`` and ``node_type_fields`` tables. This informations will be only used to build your node-sources edition forms in backoffice and to build a custom database table."
-msgstr ""
+msgstr "Une fois votre type de nœud créé, sa définition est stockée dans la base de données dans les tables ``node_types`` et ``node_type_fields``. Ces informations ne seront utilisées que pour construire vos formulaires d'édition de node-sources dans le back-office et pour construire une table de base de données personnalisée."
 
 #: ../../src/developer/nodes-system/intro.rst:70
 msgid "Inheritance mapping"
-msgstr ""
+msgstr "Héritage des données"
 
 #: ../../src/developer/nodes-system/intro.rst:72
 msgid "With Roadiz, each node-types data (called node-sources) is stored in a different table prefixed with ``ns_``. When you create a *Page* node-type with 2 fields (*content* and *excerpt*), Roadiz tells Doctrine to build a ``ns_page`` table with 2 columns and one primary key column inherited from ``nodes_sources`` table. It’s called *inheritance mapping*: your ``ns_page`` table extends ``nodes_sources`` table and when you are querying a *Page* from database, Doctrine mix the data coming from these 2 tables to create a complete node-source."
-msgstr ""
+msgstr "Avec Roadiz, chaque donnée basée sur un type de nœud (appelée node-sources) est stockée dans une table différente préfixée par ``ns_``. Lorsque vous créez un type de nœud *Page* avec 2 champs (*content* et *excerpt*), Roadiz dit à Doctrine de construire une table ``ns_page`` avec 2 colonnes et une clé primaire héritée de la table ``nodes_sources``. Cela s'appelle : *Inheritance mapping*, votre table ``ns_page`` hérite de la table ``nodes_sources`` et lorsque vous interrogez une *Page* depuis la base de données, Doctrine combine les données provenant de ces 2 tables pour créer une source de nœud complète."
 
 #: ../../src/developer/nodes-system/intro.rst:75
 msgid "At the end your node-source *Page* won’t contain only 2 fields but many more as ``NodesSources`` entity offers ``title``, ``metaTitle``, ``metaDescription``, ``metaKeywords`` and others useful data-fields which can be used among all node-types."
-msgstr ""
+msgstr "À la fin, votre node-source *Page* ne contiendra pas que 2 champs, mais bien plus, puisque l'entité ``NodesSources`` définit les ``title``, ``metaTitle``, ``metaDescription``, ``metaKeywords`` et d'autres champs de données génériques qui peuvent être utilisés sur tous les types de nœuds."
 
 #: ../../src/developer/nodes-system/intro.rst:79
 msgid "Translations"
-msgstr ""
+msgstr "Traductions"
 
 #: ../../src/developer/nodes-system/intro.rst:81
 msgid "Node-sources inheritance mapping is not only used to customize data but to make data translations available. As you saw in the first picture, each nodes can handle many node-sources, one per translation."
-msgstr ""
+msgstr "L'héritage des données des Node-sources est non seulement utilisé pour personnaliser les données, mais aussi pour les traduire. Comme vous l'avez vu dans la première image, chaque nœud peut possèder de nombreuses sources, à savoir une par langue."
 

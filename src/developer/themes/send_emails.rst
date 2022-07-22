@@ -32,7 +32,7 @@ templates.
     $emailManager->send();
 
 Assignation works the same way as HTML template for your website, you must assign every
-content and informations you’ll need to print in your emails.
+content and information you’ll need to print in your emails.
 
 .. note::
 

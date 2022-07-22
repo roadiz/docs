@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"PO-Revision-Date: 2021-06-11 12:13\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -19,37 +19,37 @@ msgstr ""
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:5
 msgid "Install Standard Edition on shared hosting"
-msgstr ""
+msgstr "Installer Standard Edition sur un hébergement mutualisé"
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:7
 msgid "**… without SSH commands and FTP 🤢.**"
-msgstr ""
+msgstr "**… sans commandes SSH et FTP 🤢**"
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:9
 msgid "Modern CMS built on *Composer* and *CLI* commands can't be deployed easily on shared hosting environments on which only FTP is available. Here are some handy tools to deploy a *Roadiz* with FTP."
-msgstr ""
+msgstr "Les CMS modernes basés sur les commandes *Composer* et *CLI* ne peuvent pas être déployés facilement sur des environnements d'hébergement mutualisés sur lesquels seul FTP est disponible. Voici quelques outils pratiques pour déployer un *Roadiz* avec FTP."
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:13
 msgid "The first condition is that you'll have to setup a local environment which will be mirrored to your shared hosting FTP, ``vendor/`` included… yes. Grab a very long cup of coffee when you initiate the first FTP push, it will be long, very long. Next pushes will only push newer files."
-msgstr ""
+msgstr "La première condition est que vous devrez configurer un environnement local qui sera un miroir des fichiers de votre FTP le dossier, ``vendor/`` inclus… oui. Prenez une très longue tasse de café lorsque vous initiez le premier envoi FTP, ce sera long, très long. Les envois suivants ne feront que pousser les nouveaux fichiers."
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:18
 msgid "The second condition is that you must create all your node-type entities on your local env first to be able to mirror all ``GeneratedNodeSources\\*`` classes as you won't be able to generate them on your production env."
-msgstr ""
+msgstr "La seconde condition est que vous devez créer toutes vos entités de type de nœud sur votre environnement local d'abord pour pouvoir faire un miroir de toutes les classes ``GeneratedNodeSources\\*`` car vous ne serez pas en mesure de les générer sur votre hébergement mutualisé."
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:23
 msgid "Prepare your local env with Makefile"
-msgstr ""
+msgstr "Préparez votre environnement local avec Makefile"
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:25
 msgid "*Standard-edition* comes with a sample ``Makefile`` so you can write a ``push-prod`` recipe to automatize all process using ``lftp`` command. Make sure it’s installed on your computer:"
-msgstr ""
+msgstr "*Standard-edition* est fourni avec un exemple de ``Makefile`` afin que vous puissiez écrire une recette ``push-prod`` pour automatiser tous les processus en utilisant le paquet ``lftp``. Assurez-vous qu'il est bien installé sur votre ordinateur :"
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:37
 msgid "This recipe will clear your cache files, generate Apache ``.htaccess`` files, copy your theme assets as real files, mirror all necessary files without all exceptions (list can be improved) then copy your theme assets back to symlinks."
-msgstr ""
+msgstr "Cette recette effacera vos fichiers de cache, elle générera les fichiers Apache ``.htaccess``, copiera les ressources de votre thème en tant que vrais fichiers, miroir de tous les fichiers nécessaires sans toutes les exceptions (la liste peut être améliorée) puis copiera les ressources de votre thème à l'aide de liens symboliques."
 
 #: ../../src/developer/first-steps/installation-on-shared-hosting.rst:62
 msgid "Make sure your configuration matches your shared hosting plan, for example, adjust your cache driver to ``file``, ``php`` to get decent performances."
-msgstr ""
+msgstr "Assurez-vous que votre configuration correspond à votre plan d'hébergement partagé, par exemple, ajustez votre driver de cache sur ``file`` ou ``php`` pour obtenir des performances décentes."
 

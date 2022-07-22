@@ -11,7 +11,7 @@ Reporting issues
 
 When you encounter an issue with Roadiz we would love to hear about it.
 Because thanks to you, we can make the most awesome and stable CMS!
-If you submit a bug report please include all informations available to you, here are some things you can do:
+If you submit a bug report please include all information available to you, here are some things you can do:
 
 - Try to simplify the things you are doing until getting a minimal set of actions reproducing the problem.
 - Do not forget to join a screenshot or a trace of your error.
@@ -61,7 +61,7 @@ Or you can use *phpcbf* to automatically fix code style issues.
 
     php bin/phpcbf --report=full --report-file=./report.txt -p ./
 
-Please take those rules into account, we aim to have a clean codebase. A coherent codestyle will contribute to Roadiz stability.
+Please take those rules into account, we aim to have a clean codebase. A coherent code-style will contribute to Roadiz stability.
 Your code will be checked when we will be considering your pull requests.
 
 Static analysis
@@ -71,7 +71,7 @@ Then we use ``phpstan`` as a static code analyzer to check bugs and misuses befo
 
 .. code-block:: console
 
-    php bin/phpstan analyse -c phpstan.neon -l 1 src themes/Rozier themes/Install
+    php bin/phpstan analyse -c phpstan.neon -l 3 src
 
 .. topic:: Standard Edition
 

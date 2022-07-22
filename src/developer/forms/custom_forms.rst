@@ -43,9 +43,9 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
 
     /*
      * Get your custom form instance from your node-source
-     * only if you added a *custom-form reference field*.
+     * only if you added a *custom_form reference field*.
      */
-    $customForms = $this->nodeSource->getCustomformReference();
+    $customForms = $this->nodeSource->getCustomFormReference();
     if (isset($customForms[0]) && $customForms[0] instanceof CustomForm) {
         /** @var CustomForm $customForm */
         $customForm = $customForms[0];

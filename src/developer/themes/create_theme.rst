@@ -41,19 +41,10 @@ class.
     Roadiz *Standard edition* will create a symbolic link into ``web/`` folder to publish your new theme
     public assets as ``/web/themes/MyAwesomeTheme/static``. Make sure that your system supports *symbolic links*.
 
-Edit your main class informations (``MyAwesomeThemeApp.php``)
+Edit your main class information (``MyAwesomeThemeApp.php``)
 
 .. code-block:: php
 
-    /*
-     * Copyright REZO ZERO 2016
-     *
-     * Description
-     *
-     * @file MyAwesomeThemeApp.php
-     * @copyright REZO ZERO 2014
-     * @author Ambroise Maupate
-     */
     namespace Themes\MyAwesomeTheme;
 
     use RZ\Roadiz\CMS\Controllers\FrontendController;
@@ -67,12 +58,11 @@ Edit your main class informations (``MyAwesomeThemeApp.php``)
      */
     class MyAwesomeThemeApp extends FrontendController
     {
-
-        protected static $themeName =      'My awesome theme';
-        protected static $themeAuthor =    'Ambroise Maupate';
-        protected static $themeCopyright = 'REZO ZERO';
-        protected static $themeDir =       'MyAwesomeTheme';
-        protected static $backendTheme =    false;
+        protected static string $themeName =      'My awesome theme';
+        protected static string $themeAuthor =    'Ambroise Maupate';
+        protected static string $themeCopyright = 'REZO ZERO';
+        protected static string $themeDir =       'MyAwesomeTheme';
+        protected static bool $backendTheme =    false;
 
         //…
     }
@@ -154,7 +144,7 @@ render your current node.
     public function indexAction(
         Request $request,
         Node $node = null,
-        Translation $translation = null
+        TranslationInterface $translation = null
     ) {
         $this->prepareThemeAssignation($node, $translation);
 

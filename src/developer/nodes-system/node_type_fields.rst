@@ -51,6 +51,30 @@ This following fields stores simple data in your custom node-source database tab
    :align: center
    :width: 300
 
+Markdown options
+^^^^^^^^^^^^^^^^
+
+You can restrict Markdown fields buttons using the following YAML configuration:
+
+.. code-block:: YAML
+
+    allow_h2: false
+    allow_h3: false
+    allow_h4: false
+    allow_h5: false
+    allow_h6: false
+    allow_bold: false
+    allow_italic: false
+    allow_blockquote: false
+    allow_list: false
+    allow_nbsp: false
+    allow_nb_hyphen: false
+    allow_image: false
+    allow_return: false
+    allow_link: false
+    allow_hr: false
+    allow_preview: false
+
 Virtual data
 ^^^^^^^^^^^^
 

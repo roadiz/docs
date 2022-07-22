@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-23 23:36+0200\n"
-"PO-Revision-Date: 2020-09-23 21:40\n"
+"PO-Revision-Date: 2021-06-11 11:38\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -35,23 +35,23 @@ msgstr "Le téléversement d'un document n'a jamais été aussi simple : il suff
 
 #: ../../src/user/documents-system/intro.rst:19
 msgid "When you upload files, Roadiz will try to reduce any image larger than 2500 pixels (width or height) in order to ease up further transformations on it. The CMS will always keep a *raw* version of your uploaded document if you decide to increase this limit over 2500 pixels. Keep in mind that Roadiz won’t be able to optimize your image to a better format: for example if you uploaded a PNG image containing no transparent area, the CMS won’t convert it to JPEG format and you will end up with a heavy file even if you resize it."
-msgstr ""
+msgstr "Lorsque vous téléchargez des fichiers, Roadiz essaie de réduire toute image de plus de 2500 pixels (largeur ou hauteur) afin de faciliter les transformations ultérieures. Si vous décidez d'augmenter cette limite au-delà de 2500 pixels, le CMS conservera toujours une version *naturelle* de votre document téléchargé. Gardez à l'esprit que Roadiz ne sera pas en mesure d'optimiser votre image dans un meilleur format : par exemple, si vous avez téléchargé une image PNG ne contenant pas de zone transparente, le CMS ne pourra pas la convertir au format JPEG et vous vous retrouverez avec un fichier lourd même si vous la redimensionnez."
 
 #: ../../src/user/documents-system/intro.rst:22
 msgid "Photographs, complex images with no transparency: *use JPEG*"
-msgstr ""
+msgstr "Photographies, images complexes sans transparence: *utiliser JPEG*"
 
 #: ../../src/user/documents-system/intro.rst:23
 msgid "Logos, icons, complex images with transparency: *use PNG*"
-msgstr ""
+msgstr "Logos, icônes, images complexes avec transparence : *utiliser PNG*"
 
 #: ../../src/user/documents-system/intro.rst:25
 msgid "Using an image optimizer (such as *tinyjpg*, *kraken.io*, *jpgoptim*, …) **before** uploading onto Roadiz is useless because, the CMS will lose these optimizations when it processes transformations (crop, resizing, contrast and quality)."
-msgstr ""
+msgstr "Utiliser un optimiseur d'image (comme *tinyjpg*, *kraken. o*, *jpgoptim*, …) **avant** l'envoi sur Roadiz est inutile parce que, le CMS perdra ces optimisations lorsqu'il traitera les transformations (recadrage, redimensionnement, contraste et qualité)."
 
 #: ../../src/user/documents-system/intro.rst:27
 msgid "On the other hand, if your website has been developed with ``picture`` support, Roadiz will be able to serve any images in the new WEBP format which is 30% lighter than JPEG and supports transparency (alpha channel). So any user browsing your website with a Chrome, Firefox or Edge will see only WEBP images and will save up minimum 30% of bandwidth usage. In the near future, AVIF image format will be more supported by major browsers, and Roadiz will be able to generate optimized image with this format too."
-msgstr ""
+msgstr "D'un autre côté, si votre site web a été développé avec le support ``picture``, Roadiz sera en mesure de servir toutes les images dans le nouveau format WEBP qui est 30% plus léger que le JPEG et supporte la transparence (canal alpha). Donc tout utilisateur navigant sur votre site web avec un Chrome, Firefox ou Edge ne verra que des images WEBP et économisera au moins 30% de la consommation de bande passante. Dans un avenir proche, le format d'image AVIF sera mieux supporté par les principaux navigateurs, et Roadiz pourra également générer une image optimisée avec ce format."
 
 #: ../../src/user/documents-system/intro.rst:31
 msgid "Embed document"

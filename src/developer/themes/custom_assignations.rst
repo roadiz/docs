@@ -23,7 +23,7 @@ create a *PageController.php* which look like this:
 
     use Themes\MyTheme\MyThemeApp;
     use RZ\Roadiz\Core\Entities\Node;
-    use RZ\Roadiz\Core\Entities\Translation;
+    use RZ\Roadiz\Core\AbstractEntities\TranslationInterface;
     use Symfony\Component\HttpFoundation\Request;
 
     /**
@@ -34,16 +34,16 @@ create a *PageController.php* which look like this:
         /**
          * Default action for any Page node.
          *
-         * @param Symfony\Component\HttpFoundation\Request $request
-         * @param RZ\Roadiz\Core\Entities\Node              $node
-         * @param RZ\Roadiz\Core\Entities\Translation       $translation
+         * @param Request $request
+         * @param Node|null $node
+         * @param TranslationInterface $translation
          *
          * @return Symfony\Component\HttpFoundation\Response
          */
         public function indexAction(
             Request $request,
             Node $node = null,
-            Translation $translation = null
+            TranslationInterface $translation = null
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
@@ -313,13 +313,13 @@ and a ``blockAction`` method inside.
 
     class ContactBlockController extends MyThemeApp
     {
-        function blockAction(Request $request, NodesSources $source, $assignation)
+        public function blockAction(Request $request, NodesSources $source, $assignation)
         {
             $this->prepareNodeSourceAssignation($source, $source->getTranslation());
 
             $this->assignation = array_merge($this->assignation, $assignation);
 
-            // If you assignate session messages here, do not assignate it in your
+            // If you assign session messages here, do not assign it in your
             // MyThemeApp::extendAssignation() method before.
             $this->assignation['session']['messages'] = $this->get('session')->getFlashBag()->all();
 
@@ -330,7 +330,7 @@ and a ``blockAction`` method inside.
                                               ->add('send_name', 'submit')
                                               ->getForm();
             $form->handleRequest($request);
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 // some stuff
                 throw new ForceResponseException($this->redirect($request->getUri()));
             }
@@ -385,7 +385,7 @@ Then use regular Roadiz controllers and actions to handle your sub-request:
 
     class ArticleController extends MyThemeApp
     {
-        public function recentArticlesAction(Request $request, $max = 3, $_locale = 'en')
+        public function recentArticlesAction(Request $request, int $max = 3, string $_locale = 'en')
         {
             $translation = $this->bindLocaleFromRoute($request, $_locale);
             $this->prepareThemeAssignation(null, $translation);
@@ -412,7 +412,7 @@ Each ``Controller`` class allows developer to use ``createEntityListManager``
 method.
 
 In ``FrontendController`` inheriting classes, such as your theme ones, this method
-is overriden to automatically use the current ``authorizationChecker`` to filter entities
+is overridden to automatically use the current ``authorizationChecker`` to filter entities
 by status when entities are *nodes*.
 
 ``createEntityListManager`` method takes 3 arguments:

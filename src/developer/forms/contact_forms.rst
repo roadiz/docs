@@ -61,11 +61,11 @@ Here is an example to create your contact form in your controller action.
 
     $form = $contactFormManager->getForm();
 
-    // Assignate your form view to display it in Twig.
+    // Assign your form view to display it in Twig.
     $this->assignation['contactForm'] = $form->createView();
 
 In this example, we used ``withDefaultFields`` method which add automatically ``email``, ``name`` and ``message``
-fields with right validation contraints. This method is optional and you can add any field you want manually, just
+fields with right validation constraints. This method is optional and you can add any field you want manually, just
 keep in mind that you should always ask for an ``email``.
 
 Then in your contact page Twig template:
