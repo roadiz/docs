@@ -36,10 +36,10 @@ You can configure *Doctrine* strategy for NodesSources inheritance classes in ``
 
     If you change this setting after creating content in your website, all node-sources data will be lost.
 
-Themes
-------
+Themes (compatibility with v1.x)
+--------------------------------
 
-Since *Roadiz v1.0*, themes are statically registered into Roadiz configuration for better performances
+Themes are statically registered into Roadiz configuration for better performances
 and delaying database usage. You have to register any front-end theme in your ``config/packages/roadiz_compat.yaml`` file.
 Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;
 
