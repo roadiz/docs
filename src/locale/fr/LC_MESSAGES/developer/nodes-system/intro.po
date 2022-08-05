@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2022-07-22 13:55\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -54,8 +54,8 @@ msgid "Most of node-types management will be done in your backoffice interface. 
 msgstr "Le plus gros de la gestion des types de nœud sera effectués dans l'interface du back-office. Vous serez en mesure de créer, de mettre à jour les types de nœud et chacun de leurs champs de manière indépendante. Mais si vous préférez, vous pouvez utiliser les commandes CLI pour créer des types et des champs. Avec les commandes CLI de Roadiz, vous obtenez plusieurs outils pour gérer les types de nœuds. Nous vous encourageons vraiment à vérifier les commandes avec l'argument ``--help``, comme suit:"
 
 #: ../../src/developer/nodes-system/intro.rst:52
-msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
-msgstr "Gardez à l'esprit que chaque opération de type de nœud ou de type de nœud nécessite une mise à jour de la base de données car Doctrine doit créer une table spécifique par type de noeud. N'oubliez pas d'exécuter les outils ``bin/roadiz orm:schema-tool:update`` pour effectuer des mises à jour. Il est très important de comprendre que *Doctrine* a besoin de voir les classes générées par vos types de nœuds **avant** la mise à jour du schéma de base de données. S'ils n'existent pas, il ne pourra pas créer vos tables de types personnalisés ou pire, il pourrait supprimer des données existantes, car *Doctrine* ne reconnaîtra pas ces tables spécifiques."
+msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/console doctrine:schema:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
+msgstr ""
 
 #: ../../src/developer/nodes-system/intro.rst:58
 msgid "Now let's have a look on node-sources."
