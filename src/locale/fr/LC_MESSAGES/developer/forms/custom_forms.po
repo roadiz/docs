@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:24\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,11 @@ msgstr ""
 msgid "First you must create a dedicated action for your node or your block if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter."
 msgstr ""
 
-#: ../../src/developer/forms/custom_forms.rst:108
+#: ../../src/developer/forms/custom_forms.rst:103
 msgid "If you didn’t do it yet, create a custom form theme in your ``views/`` folder:"
 msgstr ""
 
-#: ../../src/developer/forms/custom_forms.rst:140
+#: ../../src/developer/forms/custom_forms.rst:135
 msgid "In your main view, add your form and use your custom form theme:"
 msgstr ""
 
