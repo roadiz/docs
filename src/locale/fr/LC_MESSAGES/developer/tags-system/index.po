@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -22,15 +22,15 @@ msgid "Tag system"
 msgstr ""
 
 #: ../../src/developer/tags-system/index.rst:7
-msgid "Nodes are essentially hierarchical entities. So we created an entity to link nodes between them no matter where/what they are. Tags are meant as *tag* nodes, we couldn’t be more explicit. But if you didn’t understand here is a schema:"
+msgid "Nodes are essentially hierarchical entities. So we created an entity to link nodes between them no matter where/what they are. Tags are meant as *tag* nodes, we couldn't be more explicit. But if you didn't understand here is a schema:"
 msgstr ""
 
 #: ../../src/developer/tags-system/index.rst:14
-msgid "You can see that tags can gather heterogenous nodes coming from different types (pages and projects). Tags can be used to display a category-navigation on your theme or to simply tidy your backoffice node database."
+msgid "You can see that tags can gather heterogeneous nodes coming from different types (pages and projects). Tags can be used to display a category-navigation on your theme or to simply tidy your backoffice node database."
 msgstr ""
 
 #: ../../src/developer/tags-system/index.rst:17
-msgid "Did you notice that ``Tags`` are related to ``Nodes`` entities, not ``NodesSources``? We thought that it would be easier to manage that way not to forget to tag a specific node translation. It means that you won’t be able to differenciate tag two ``NodesSources``, if you absolutely need to, we encourage you to create two different nodes."
+msgid "Did you notice that ``Tags`` are related to ``Nodes`` entities, not ``NodesSources``? We thought that it would be easier to manage that way not to forget to tag a specific node translation. It means that you won’t be able to differentiate tag two ``NodesSources``, if you absolutely need to, we encourage you to create two different nodes."
 msgstr ""
 
 #: ../../src/developer/tags-system/index.rst:22
