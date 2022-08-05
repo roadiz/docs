@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -34,39 +34,39 @@ msgid "Nodes events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:16
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:17
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:18
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:19
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeUndeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeUndeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:20
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeDuplicatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeDuplicatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:21
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodePathChangedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodePathChangedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:22
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeTaggedEvent::class``: This event is triggered for tag and un-tag action."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeTaggedEvent::class``: This event is triggered for tag and un-tag action."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:23
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeVisibilityChangedEvent::class``: This event is triggered each time a node becomes visible or unvisible."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeVisibilityChangedEvent::class``: This event is triggered each time a node becomes visible or unvisible."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:24
-msgid "``RZ\\Roadiz\\Core\\Events\\Node\\NodeStatusChangedEvent::class``: This event is triggered each time a node status changes."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Node\\NodeStatusChangedEvent::class``: This event is triggered each time a node status changes."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:26
@@ -78,23 +78,23 @@ msgid "NodesSources events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:31
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSourcesEvents``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSourcesEvents``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:33
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:34
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPreUpdatedEvent::class``: This event is dispatched BEFORE entity manager FLUSHED."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesPreUpdatedEvent::class``: This event is dispatched BEFORE entity manager FLUSHED."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:35
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesUpdatedEvent::class``: This event is dispatched AFTER entity manager FLUSHED."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesUpdatedEvent::class``: This event is dispatched AFTER entity manager FLUSHED."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:36
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:38
@@ -102,7 +102,7 @@ msgid "Each node-source event object contains the current ``NodesSources`` entit
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:40
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesIndexingEvent::class``: This event type is dispatched during Solr indexation. Your event will be ``\\RZ\\Roadiz\\Core\\Events\\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesIndexingEvent::class``: This event type is dispatched during Solr indexation. Your event will be ``\\RZ\\Roadiz\\CoreBundle\\Event\\FilterSolariumNodeSourceEvent`` and it will allow you to alter or improve your Solr index according to your node-source type."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:43
@@ -110,7 +110,7 @@ msgid "You will find a simple subscriber example in Roadiz back-office theme whi
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:46
-msgid "``RZ\\Roadiz\\Core\\Events\\NodesSources\\NodesSourcesPathGeneratingEvent::class``: This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->get('urlGenerator')->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name)."
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\NodesSources\\NodesSourcesPathGeneratingEvent::class``: This event type is dispatched when the node-router generate a path for your node-source using ``{{ path() }}`` Twig method or ``$this->urlGenerator->generate()`` controller method. The default subscriber will generate the complete hierarchical path for any node-source using their identifier (available url-alias or node’ name)."
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:49
@@ -118,15 +118,15 @@ msgid "Tags events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:51
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Tag\\TagCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:52
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Tag\\TagUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:53
-msgid "``RZ\\Roadiz\\Core\\Events\\Tag\\TagDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Tag\\TagDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:55
@@ -138,15 +138,15 @@ msgid "Folders events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:60
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Folder\\FolderCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:61
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Folder\\FolderUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:62
-msgid "``RZ\\Roadiz\\Core\\Events\\Folder\\FolderDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Folder\\FolderDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:64
@@ -158,15 +158,15 @@ msgid "Translations events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:69
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Translation\\TranslationCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:70
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Translation\\TranslationUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:71
-msgid "``RZ\\Roadiz\\Core\\Events\\Translation\\TranslationDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\Translation\\TranslationDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:73
@@ -178,15 +178,15 @@ msgid "UrlAlias events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:78
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\UrlAlias\\UrlAliasCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:79
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\UrlAlias\\UrlAliasUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:80
-msgid "``RZ\\Roadiz\\Core\\Events\\UrlAlias\\UrlAliasDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\UrlAlias\\UrlAliasDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:82
@@ -198,27 +198,27 @@ msgid "User events"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:87
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserCreatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserCreatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:88
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserUpdatedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserUpdatedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:89
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDeletedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserDeletedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:90
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserDisabledEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserDisabledEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:91
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserEnabledEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserEnabledEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:92
-msgid "``RZ\\Roadiz\\Core\\Events\\User\\UserPasswordChangedEvent::class``"
+msgid "``RZ\\Roadiz\\CoreBundle\\Event\\User\\UserPasswordChangedEvent::class``"
 msgstr ""
 
 #: ../../src/extension/events/intro.rst:94
