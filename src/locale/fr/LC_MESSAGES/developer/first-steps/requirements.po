@@ -158,7 +158,7 @@ msgid "If you do not have access to your Apache virtual host configuration, you 
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:65
-msgid "``bin/roadiz generate:htaccess``"
+msgid "``bin/console generate:htaccess``"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:67
@@ -170,7 +170,7 @@ msgid "Standard Edition"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:71
-msgid "``bin/roadiz generate:htaccess`` is not needed anymore with *Roadiz Standard edition* as you will configure your *Apache/Nginx* root to ``web/`` folder only. No source or configuration files will be exposed anymore."
+msgid "``bin/console generate:htaccess`` is not needed anymore with *Roadiz Standard edition* as you will configure your *Apache/Nginx* root to ``web/`` folder only. No source or configuration files will be exposed anymore."
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:77

@@ -50,8 +50,8 @@ msgid "A new user without password will stay locked until he or she resets its p
 msgstr "Un nouvel utilisateur sans mot de passe aura son compte verrouillé jusqu'à ce qu'il réinitialise son mot de passe."
 
 #: ../../src/user/users/intro.rst:35
-msgid "The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
-msgstr "La ligne de commande ``bin/roadiz users:create loginname`` démarre une nouvelle session interactive de création d'un utilisateur. Vous allez créer un nouvel utilisateur avec son nom d’utilisateur et son email, vous pouvez aussi choisir si il s’agit d’un utilisateur backend ou bien super-admin."
+msgid "The command-line ``bin/console users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
+msgstr "La ligne de commande ``bin/console users:create loginname`` démarre une nouvelle session interactive de création d'un utilisateur. Vous allez créer un nouvel utilisateur avec son nom d’utilisateur et son email, vous pouvez aussi choisir si il s’agit d’un utilisateur backend ou bien super-admin."
 
 #: ../../src/user/users/intro.rst:39
 msgid "Delete user"
@@ -62,8 +62,8 @@ msgid "You can remove users by clicking the trashcan icon."
 msgstr "Vous pouvez supprimer des utilisateurs en cliquant sur l'icône de la corbeille."
 
 #: ../../src/user/users/intro.rst:46
-msgid "The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
-msgstr "La commande ``bin/roadiz users:delete loginname`` supprime l'utilisateur \"loginname\"."
+msgid "The command ``bin/console users:delete loginname`` delete the user \"loginname\"."
+msgstr "La commande ``bin/console users:delete loginname`` supprime l'utilisateur \"loginname\"."
 
 #: ../../src/user/users/intro.rst:49
 msgid "Adding role"

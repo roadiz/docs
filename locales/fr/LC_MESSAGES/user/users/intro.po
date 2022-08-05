@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../src/user/users/intro.rst:4
+msgid "Managing users"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:6
+msgid "This is a simple guide on how to create and manage users using Roadiz CLI."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:8
+msgid ""
+"There are two ways of adding users, via the back-office and in command-"
+"line, both will be displayed in each section."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:10
+msgid ""
+"When working with Roadiz in the back-office, you can easily manage users "
+"via the *User system* icon in the toolbar."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:16
+msgid "Create a new user"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:21
+msgid "You can add users simply by clicking *Add an user* button."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:26
+msgid ""
+"If you create an user without specifying its *password*, an email with a "
+"password reset link will sent. Make sure that you entered the right email"
+" and that your Roadiz website has a *mailer* configured. New user will be"
+" locked unless he or she resets its password first."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:33
+msgid ""
+"A new user without password will stay locked until he or she resets its "
+"password."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:35
+msgid ""
+"The command-line ``bin/roadiz users:create loginname`` starts a new "
+"interactive user creation session. You will create a new user with login "
+"and email, you can also choose if it's a backend user and if it's a "
+"superadmin."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:39
+msgid "Delete user"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:41
+msgid "You can remove users by clicking the trashcan icon."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:46
+msgid ""
+"The command ``bin/roadiz users:delete loginname`` delete the user "
+"\"loginname\"."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:49
+msgid "Adding role"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:51
+msgid ""
+"You can edit a users profile the same way you edit a node-type. You can "
+"add roles in the *Roles* tab."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:56
+msgid ""
+"If you want to add ``ROLE_SUPERADMIN`` role to \"test\" user, it would "
+"look like this in command-line:"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:65
+msgid "Other action"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:67
+msgid ""
+"It is possible to enable or disable users with ``users:enable`` or "
+"``users:disable`` command. If a user doesn't remember his password, you "
+"can regenerate it with the ``users:password`` command. For more "
+"informations and more actions, we invite you to check available commands "
+"with:"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:77
+msgid "Enable SSO for back-office users"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:79
+msgid ""
+"Roadiz is compatible with any **OpenID** single sign-on system (such as "
+"Google, Exchange, …) and can be configured to allow your company users to"
+" login to your back-office with several ``ROLES``."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:82
+msgid ""
+"First, make sure to generate and gather the following information from "
+"your *OpenID* provider:"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:84
+msgid "OpenID client ID"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:85
+msgid "OpenID client secret"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:86
+msgid ""
+"OpenID auto-discovery URL (i.e. for Google GSuite user "
+"https://accounts.google.com/.well-known/openid-configuration)"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:88
+msgid "Then you should decide:"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:90
+msgid ""
+"What *roles* (comma separated) you want to be automatically granted to "
+"users connected with your SSO. You always can create a more complex "
+"strategy in your website by registering a "
+"``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy``."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:100
+msgid ""
+"What domain name to restrict users from. This is very important for "
+"*Google Suite* users because the auto-discovery is the same for "
+"everybody. You may not want to allow every Google Suite users to access "
+"your back-office 😉."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:101
+msgid "A button label for your back-office login page."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:108
+msgid "Fill all your gathered information to the right *Roadiz* settings."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:114
+msgid ""
+"Then, if your parameter are correct you should see your SSO connect "
+"button on *Roadiz* back-office login page. Pay attention that if your SSO"
+" users do not have sufficient permissions they may have a 403 error after"
+" being redirected from SSO flow."
+msgstr ""
+
+#: ../../src/user/users/intro.rst:124
+msgid ""
+"Google Suite OpenID implementation is described at "
+"https://developers.google.com/identity/protocols/oauth2/openid-"
+"connect#discovery"
+msgstr ""
+
+#: ../../src/user/users/intro.rst:126
+msgid ""
+"First, create a new OAuth2 application on "
+"https://console.cloud.google.com/ and follow instructions at "
+"https://developers.google.com/identity/protocols/oauth2/openid-"
+"connect#getcredentials"
+msgstr ""
+

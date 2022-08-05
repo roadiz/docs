@@ -44,13 +44,13 @@ We really encourage you to check the commands with ``--help`` argument, as follo
 
 .. code-block:: console
 
-    bin/roadiz nodetypes:add-fields
-    bin/roadiz nodetypes:create
-    bin/roadiz nodetypes:delete
-    bin/roadiz nodetypes:list
+    bin/console nodetypes:add-fields
+    bin/console nodetypes:create
+    bin/console nodetypes:delete
+    bin/console nodetypes:list
 
 Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create
-a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform
+a specific table per node-type. Do not forget to execute ``bin/console doctrine:schema:update`` tools to perform
 updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before**
 upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could
 delete existing data since *Doctrine* won’t recognize specific tables.

@@ -34,6 +34,38 @@ Tag hierarchy
 
 In the same way as *Nodes* work, tags can be nested to create *tag groups*.
 
+
+Exposing tags in API
+--------------------
+
+When using API Platform data transfer objects, Tags are ready-to-use with translations set-up on
+``name`` and ``description`` fields:
+
+..  code-block:: json
+
+    {
+        "@type": "Tag",
+        "@id": "/api/tags/6",
+        "slug": "event",
+        "name": "Event",
+        "description": null,
+        "color": "#000000",
+        "visible": true,
+        "documents": [],
+        "parent": {
+            "@type": "Tag",
+            "@id": "/api/tags/3",
+            "slug": "type",
+            "name": "Type",
+            "description": null,
+            "color": "#000000",
+            "visible": true,
+            "documents": [],
+            "parent": null
+        }
+    }
+
+
 Displaying node-source tags with Twig
 -------------------------------------
 

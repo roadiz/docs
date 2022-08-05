@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:5
+msgid "Install Standard Edition on shared hosting"
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:7
+msgid "**… without SSH commands and FTP 🤢.**"
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:9
+msgid ""
+"Modern CMS built on *Composer* and *CLI* commands can't be deployed "
+"easily on shared hosting environments on which only FTP is available. "
+"Here are some handy tools to deploy a *Roadiz* with FTP."
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:13
+msgid ""
+"The first condition is that you'll have to setup a local environment "
+"which will be mirrored to your shared hosting FTP, ``vendor/`` included… "
+"yes. Grab a very long cup of coffee when you initiate the first FTP push,"
+" it will be long, very long. Next pushes will only push newer files."
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:18
+msgid ""
+"The second condition is that you must create all your node-type entities "
+"on your local env first to be able to mirror all "
+"``GeneratedNodeSources\\*`` classes as you won't be able to generate them"
+" on your production env."
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:23
+msgid "Prepare your local env with Makefile"
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:25
+msgid ""
+"*Standard-edition* comes with a sample ``Makefile`` so you can write a "
+"``push-prod`` recipe to automatize all process using ``lftp`` command. "
+"Make sure it’s installed on your computer:"
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:37
+msgid ""
+"This recipe will clear your cache files, generate Apache ``.htaccess`` "
+"files, copy your theme assets as real files, mirror all necessary files "
+"without all exceptions (list can be improved) then copy your theme assets"
+" back to symlinks."
+msgstr ""
+
+#: ../../src/developer/first-steps/installation-on-shared-hosting.rst:62
+msgid ""
+"Make sure your configuration matches your shared hosting plan, for "
+"example, adjust your cache driver to ``file``, ``php`` to get decent "
+"performances."
+msgstr ""
+

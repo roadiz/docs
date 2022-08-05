@@ -296,7 +296,7 @@ msgstr ""
 
 # d353b4c1b28c474bbb85ca0fba6e8469
 #: ../../developer/first-steps/getting_started.rst:82
-msgid "``bin/roadiz generate:htaccess``"
+msgid "``bin/console generate:htaccess``"
 msgstr ""
 
 # ad21c69736704a1ca6a5fb4b34bb80ec

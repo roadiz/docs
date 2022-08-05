@@ -29,7 +29,7 @@ in a tree-shaped way. It’s intuitive and it works the same as your computer fi
 
 - To edit a node’ content, simply click on it.
 - To move a node across your tree, drag & drop using its handle (round or rombus shape). You can drop a node after or before an other one. You can also drop inside just by moving your mouse a bit on the right, you should see the node shadow to shift right.
-- Other actions are available from each node’ contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over.
+- Other actions are available from each node contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over.
 
 Contextual menu actions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -154,12 +154,12 @@ default ordering in the *Edit tab*. And node-types set as *publishable* will dis
     :align: center
 
 Tree view becomes very interesting if you have many many children nodes, when you have blog posts
-or portfolio projects for example. 
+or portfolio projects for example.
 
 .. image:: ./img/add-stack-type.png
     :align: center
 
-Then you can add *stack type* in *Edit tab* to make some handy 
+Then you can add *stack type* in *Edit tab* to make some handy
 quick-add buttons to this view.
 
 .. image:: ./img/quick-add-button.png

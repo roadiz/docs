@@ -26,7 +26,7 @@ msgid "**Always do a database backup before upgrading.** You can use the *mysqld
 msgstr ""
 
 #: ../../src/developer/first-steps/upgrading.rst:11
-msgid "With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will generate a SQL file in ``app/`` folder"
+msgid "With Roadiz command (MySQL only): ``bin/console database:dump -c`` will generate a SQL file in ``app/`` folder"
 msgstr ""
 
 #: ../../src/developer/first-steps/upgrading.rst:12
