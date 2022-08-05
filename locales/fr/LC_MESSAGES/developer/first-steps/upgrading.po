@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../src/developer/first-steps/upgrading.rst:5
+msgid "Upgrading"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:8
+msgid ""
+"**Always do a database backup before upgrading.** You can use the "
+"*mysqldump* or *pg_dump* tools to quickly export your database as a file."
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:11
+msgid ""
+"With Roadiz command (MySQL only): ``bin/roadiz database:dump -c`` will "
+"generate a SQL file in ``app/`` folder"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:12
+msgid ""
+"With a MySQL server: ``mysqldump -u[user] -p[user_password] "
+"[database_name] > dumpfilename.sql``"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:13
+msgid ""
+"With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f "
+"dumpfilename.sql``"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:16
+msgid ""
+"Use *Composer* to update dependencies or Roadiz itself with *Standard "
+"edition*, make sure that your Roadiz *version constraint* is set in your "
+"project ``composer.json`` file, then:"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:24
+msgid ""
+"In order to avoid losing sensible node-sources data. You should "
+"regenerate your node-source entities classes files:"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:31
+msgid ""
+"Then run database schema update, first review migration details to see if"
+" no data will be removed:"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:38
+msgid ""
+"Then, if migration summary is OK (no data loss), perform the following "
+"changes:"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:52
+msgid ""
+"If you are using an OPcode cache like XCache or APC, you’ll need to purge"
+" cache manually because it can't be done from a CLI interface as they are"
+" shared cache engines. As a last chance try, you can restart your ``php-"
+"fpm`` service."
+msgstr ""
+

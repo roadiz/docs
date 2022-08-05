@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# Copyright (C) 2022, Ambroise Maupate & Julien Blanchet
 # This file is distributed under the same license as the Roadiz documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: Roadiz documentation 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgid "A new user without password will stay locked until he or she resets its p
 msgstr ""
 
 #: ../../src/user/users/intro.rst:35
-msgid "The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
+msgid "The command-line ``bin/console users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
 msgstr ""
 
 #: ../../src/user/users/intro.rst:39
@@ -61,7 +61,7 @@ msgid "You can remove users by clicking the trashcan icon."
 msgstr ""
 
 #: ../../src/user/users/intro.rst:46
-msgid "The command ``bin/roadiz users:delete loginname`` delete the user \"loginname\"."
+msgid "The command ``bin/console users:delete loginname`` delete the user \"loginname\"."
 msgstr ""
 
 #: ../../src/user/users/intro.rst:49
@@ -81,7 +81,7 @@ msgid "Other action"
 msgstr ""
 
 #: ../../src/user/users/intro.rst:67
-msgid "It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command. If a user doesn't remember his password, you can regenerate it with the ``users:password`` command. For more informations and more actions, we invite you to check available commands with:"
+msgid "It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command. If a user doesn't remember his password, you can regenerate it with the ``users:password`` command. For more information and more actions, we invite you to check available commands with:"
 msgstr ""
 
 #: ../../src/user/users/intro.rst:77
@@ -113,29 +113,29 @@ msgid "Then you should decide:"
 msgstr ""
 
 #: ../../src/user/users/intro.rst:90
-msgid "What *roles* (comma separated) you want to be automatically granted to users connected with your SSO. You always can create a more complex strategy in your website by registering a ``RZ\\Roadiz\\OpenId\\Authentication\\Provider\\JwtRoleStrategy``."
+msgid "What *roles* (comma separated) you want to be automatically granted to users connected with your SSO."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:100
+#: ../../src/user/users/intro.rst:91
 msgid "What domain name to restrict users from. This is very important for *Google Suite* users because the auto-discovery is the same for everybody. You may not want to allow every Google Suite users to access your back-office 😉."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:101
+#: ../../src/user/users/intro.rst:92
 msgid "A button label for your back-office login page."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:108
-msgid "Fill all your gathered information to the right *Roadiz* settings."
+#: ../../src/user/users/intro.rst:119
+msgid "Fill all your gathered information to the right *Roadiz* dotenv variables."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:114
+#: ../../src/user/users/intro.rst:128
 msgid "Then, if your parameter are correct you should see your SSO connect button on *Roadiz* back-office login page. Pay attention that if your SSO users do not have sufficient permissions they may have a 403 error after being redirected from SSO flow."
 msgstr ""
 
-#: ../../src/user/users/intro.rst:124
+#: ../../src/user/users/intro.rst:138
 msgid "Google Suite OpenID implementation is described at https://developers.google.com/identity/protocols/oauth2/openid-connect#discovery"
 msgstr ""
 
-#: ../../src/user/users/intro.rst:126
+#: ../../src/user/users/intro.rst:140
 msgid "First, create a new OAuth2 application on https://console.cloud.google.com/ and follow instructions at https://developers.google.com/identity/protocols/oauth2/openid-connect#getcredentials"
 msgstr ""

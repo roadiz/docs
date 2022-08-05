@@ -22,10 +22,3 @@ node-sources entity classes and upgrade database schema.
     bin/console generate:nsentities;
     bin/console doctrine:schema:update --dump-sql --force;
     bin/console cache:clear;
-
-
-Find help before posting an issue on Github
--------------------------------------------
-
-Join us on Gitter: https://gitter.im/roadiz/roadiz
-

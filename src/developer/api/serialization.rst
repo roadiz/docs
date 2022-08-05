@@ -1,12 +1,10 @@
 .. _serialization:
 
-Serialization
-=============
+Serialization groups
+--------------------
 
 *Roadiz* CMS uses ``symfony/serializer`` to perform JSON serialization over any objects, especially *Doctrine* entities.
 
-Groups
-------
 
 .. glossary::
 
@@ -60,6 +58,15 @@ Groups
 
     document
         Serialize entities in a ``Document`` context.
+
+    document_display
+        Serialize ``Document`` information required for displaying them.
+
+    document_display_sources
+        Serialize ``Document`` information required for displaying alternative sources (audio, video).
+
+    document_folders
+        Serialize ``Document`` information required for displaying attached folders.
 
     folder
         Serialize entities in a ``Folder`` context.

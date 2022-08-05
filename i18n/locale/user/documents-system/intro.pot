@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# Copyright (C) 2022, Ambroise Maupate & Julien Blanchet
 # This file is distributed under the same license as the Roadiz documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: Roadiz documentation 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 23:36+0200\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"

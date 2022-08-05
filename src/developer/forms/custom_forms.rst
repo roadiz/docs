@@ -129,8 +129,33 @@ If you didn’t do it yet, create a custom form theme in your ``views/`` folder:
     {%- endblock form_row %}
 
     {% block recaptcha_widget -%}
-        <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
-    {%- endblock recaptcha_widget %}
+       <input id="my-form-recaptcha" type="hidden" name="{{ form.vars.name }}" />
+       <script src="https://www.google.com/recaptcha/api.js?render={{ configs.publicKey }}"></script>
+       <script>
+           /*
+            * Google Recaptcha v3
+            * @see https://developers.google.com/recaptcha/docs/v3
+            */
+           (function() {
+               if (!window.grecaptcha) {
+                   console.warn('Recaptcha is not loaded');
+               }
+               var form = document.getElementById('my-form');
+               form.addEventListener('submit', function (event) {
+                   event.preventDefault();
+                   window.grecaptcha.ready(function() {
+                       window.grecaptcha.execute('{{ configs.publicKey }}', {action: 'submit'}).then(function(token) {
+                           var input = document.getElementById('my-form-recaptcha');
+                           if (input) {
+                               input.value = token;
+                           }
+                           form.submit()
+                       });
+                   });
+               });
+           })();
+       </script>
+   {%- endblock recaptcha_widget %}
 
 In your main view, add your form and use your custom form theme:
 

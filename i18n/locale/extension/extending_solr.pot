@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# Copyright (C) 2022, Ambroise Maupate & Julien Blanchet
 # This file is distributed under the same license as the Roadiz documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: Roadiz documentation 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,18 +20,14 @@ msgstr ""
 msgid "Extending Solr indexation"
 msgstr ""
 
-#: ../../src/extension/extending_solr.rst:8
+#: ../../src/extension/extending_solr.rst:7
 msgid "How to index page blocks contents"
 msgstr ""
 
-#: ../../src/extension/extending_solr.rst:10
+#: ../../src/extension/extending_solr.rst:9
 msgid "If all your text content is written in *block nodes* instead of reachable *pages*, you should index them into your page Solr documents to improve your search engine relevancy."
 msgstr ""
 
-#: ../../src/extension/extending_solr.rst:13
+#: ../../src/extension/extending_solr.rst:12
 msgid "You can use the ``NodesSourcesIndexingEvent::class`` event to enhance your node indexing data before it’s persisted into *Solr* engine (especially ``collection_txt`` field):"
-msgstr ""
-
-#: ../../src/extension/extending_solr.rst:88
-msgid "Then register this subscriber to your event-dispatcher:"
 msgstr ""
