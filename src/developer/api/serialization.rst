@@ -107,3 +107,9 @@ Serialization groups
     user_role
         Serialize User entity with its roles.
 
+    user_personal
+        Serialize User entity with its personal information.
+
+    user_identifier
+        Serialize User entity with its identifier (may be a personal information).
+
