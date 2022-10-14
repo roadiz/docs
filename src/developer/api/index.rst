@@ -17,4 +17,5 @@ API Resources using `DTO (data transfer objects) <https://api-platform.com/docs/
 
    web_response
    exposing_node_types
+   extending_serialization
    serialization
