@@ -13,11 +13,20 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     cd my-website
     # Create a local Dotenv to store your secrets
     cp .env .env.local
-    # Edit your docker-compose parameter in .env.local or .env to
-    # fit your development environment (OS, UID)
+    # Edit your docker-compose parameter in .env to
+    # fit your development environment (OS, UID).
+    # .env file will be tracked by Git
+    #
     # Initialize your Docker environment
     docker-compose build
     docker-compose up -d --force-recreate
+
+.. warning::
+
+    **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
+    and `docker-compose <https://docs.docker.com/compose/>`_. We recommend you to learn these awesome tools if you're not
+    using them yet.
+
 
 *Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
 want to replace *roadiz/skeleton* *Git* with our own versioning. Then you will be able to customize every files
@@ -42,11 +51,11 @@ Install database
 
 .. code-block:: bash
 
-    # Create Roadiz database schema
+    # Create and migrate Roadiz database schema
     docker-compose exec -u www-data app bin/console doctrine:migrations:migrate
     # Migrate any existing data types
     docker-compose exec -u www-data app bin/console themes:migrate ./src/Resources/config.yml
-    # Install base Roadiz fixtures, roles and settings
+    # Install base Roadiz fixtures, default translation, roles and settings
     docker-compose exec -u www-data app bin/console install
     # Clear cache
     docker-compose exec -u www-data app bin/console cache:clear
@@ -54,4 +63,11 @@ Install database
     docker-compose exec -u www-data app bin/console users:create -m username@roadiz.io -b -s username
 
 
-Then connect to ``http://localhost:YOUR_PORT/rz-admin`` to access your freshly-created Roadiz backoffice.
+Then connect to ``http://localhost:${YOUR_PORT}/rz-admin`` to access your freshly-created Roadiz backoffice.
+
+.. note::
+
+    If you setup `Traefik <https://doc.traefik.io/traefik/>`_ on your local environment, you can reach your Roadiz app using your ``domain.test``
+    test domain name without specifying a non-default port. You have to change ``HOSTNAME`` dot-env variable and
+    change your local DNS to point ``domain.test`` to ``127.0.0.1``.
+    The easiest way is to add ``127.0.0.1 domain.test`` to your ``/etc/hosts`` file.
