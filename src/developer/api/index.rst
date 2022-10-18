@@ -19,3 +19,6 @@ API Resources using `DTO (data transfer objects) <https://api-platform.com/docs/
    exposing_node_types
    extending_serialization
    serialization
+
+We recommend using `Rezo Zero Nuxt starter <https://github.com/rezozero/nuxt-starter>`_ to build your frontend applications.
+This starter is built to use Roadiz API and relies on dynamic routing and supports API redirections.
