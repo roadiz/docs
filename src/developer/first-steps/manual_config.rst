@@ -167,29 +167,30 @@ Roadiz uses *Doctrine* to map object entities to database tables.
             mappings:
                 App:
                     is_bundle: false
-                    type: annotation
+                    type: attribute
                     dir: '%kernel.project_dir%/src/Entity'
                     prefix: 'App\Entity'
                     alias: App
                 RoadizCoreBundle:
                     is_bundle: true
-                    type: annotation
+                    type: attribute
                     dir: 'src/Entity'
                     prefix: 'RZ\Roadiz\CoreBundle\Entity'
                     alias: RoadizCoreBundle
                 RZ\Roadiz\Core:
                     is_bundle: false
-                    type: annotation
+                    type: attribute
                     dir: '%kernel.project_dir%/vendor/roadiz/models/src/Roadiz/Core/AbstractEntities'
                     prefix: 'RZ\Roadiz\Core\AbstractEntities'
                     alias: AbstractEntities
                 App\GeneratedEntity:
                     is_bundle: false
-                    type: annotation
+                    type: attribute
                     dir: '%kernel.project_dir%/src/GeneratedEntity'
                     prefix: 'App\GeneratedEntity'
                     alias: App\GeneratedEntity
 
+Use ``type: attribute`` or ``type: annotation`` according to your Doctrine mapping type.
 
 Configure mailer
 ----------------

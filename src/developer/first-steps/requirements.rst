@@ -27,3 +27,12 @@ Here is a short summary of mandatory elements before installing Roadiz:
 * MariaDB 10.5.2+ or MySQL 5.7+ database with `JSON_*` functions support
 * Install `Composer <https://getcomposer.org/download/>`_, which is used to install PHP packages.
 * Git
+
+.. warning::
+
+    **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
+    and `docker-compose <https://docs.docker.com/compose/>`_. We recommend you to learn these awesome tools if you're not
+    using them yet.
+
+    You can use our `official Docker image <https://hub.docker.com/r/roadiz/php81-nginx-alpine>`_ with *Nginx* and *PHP* already setup for you.
+    We recommend that you create your own Docker image based on this official one.

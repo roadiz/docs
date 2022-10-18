@@ -41,17 +41,32 @@ Serialization groups
     node
         Serialize entities in a ``Node`` context.
 
+    node_children
+        Serialize Nodes with their ``children``.
+
+    node_attributes
+        Serialize Nodes with their ``attribute values``.
+
     tag
-        Serialize entities in a ``Tag`` context.
+        Serialize Tag.
 
     tag_base
-        Serialize entities in a ``Tag`` context.
+        Serialize Tags with minimum information.
+
+    tag_parent
+        Serialize Tags with their ``parent``.
+
+    tag_children
+        Serialize Tags with their ``children``, do not use with ``tag_parent`` group.
 
     node_type
         Serialize entities in a ``NodeType`` context.
 
     attribute
         Serialize entities in a ``Attribute`` context.
+
+    attribute_documents
+        Serialize documents linked to a ``Attribute`` for each virtual field.
 
     custom_form
         Serialize entities in a ``CustomForm`` context.
@@ -74,9 +89,27 @@ Serialization groups
     translation
         Serialize entities in a ``Translation`` context.
 
+    translation_base
+        Serialize ``Translation`` information required for displaying them.
+
     setting
         Serialize entities in a ``Setting`` context.
 
     setting_group
         Serialize entities in a ``SettingGroup`` context.
+
+    user
+        Serialize entities in a ``User`` context.
+
+    user_group
+        Serialize User entity with its groups.
+
+    user_role
+        Serialize User entity with its roles.
+
+    user_personal
+        Serialize User entity with its personal information.
+
+    user_identifier
+        Serialize User entity with its identifier (may be a personal information).
 

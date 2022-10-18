@@ -22,6 +22,11 @@ API will expose a WebResponse single item containing:
 * Item realms
 * and if blocks are hidden by Realm configuration
 
+.. note::
+
+    Roadiz *WebResponse* is used in `Rezo Zero Nuxt Starter <https://github.com/rezozero/nuxt-starter#dynamic-page-data-based-on-requestpath>`_
+    to populate all data during the ``asyncData()`` routine in ``_.vue`` page
+
 .. code-block:: json
 
     {
