@@ -77,6 +77,9 @@ Serialization groups
     document_display
         Serialize ``Document`` information required for displaying them.
 
+    document_private
+        Serialize ``Document`` privacy information
+
     document_display_sources
         Serialize ``Document`` information required for displaying alternative sources (audio, video).
 
