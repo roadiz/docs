@@ -27,6 +27,7 @@ This following fields stores simple data in your custom node-source database tab
 - Email
 - Color
 - Single geographic coordinates
+- Multiple geographic coordinates
 - JSON code
 - CSS code
 - Country code (ISO 3166-1 alpha-2)
@@ -37,19 +38,19 @@ This following fields stores simple data in your custom node-source database tab
 - Multiple relationship using a provider
 - Custom collection
 
-.. note ::
-    *Single geographic coordinates* field stores its data in JSON format. Make sure you
-    don’t have manually written data in its input field.
-
-.. warning ::
-    To use *Single geographic coordinates* you must create a *Google API Console* account with *Maps API v3* activated.
-    Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings
-    to enable *geographic* node-type fields. If you didn't do it, a simple text input will
-    be display instead of *Roadiz Map Widget*.
-
 .. image:: ./img/field-types.*
    :align: center
    :width: 300
+
+Single and multiple geographic coordinates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Geographic coordinates are stored in JSON format in your database using `GeoJSON <https://geojson.org/>`_ schema:
+
+- A single point will be stored as a GeoJSON *feature* in order to hold additional properties such as *zoom*,
+- Multiple points will be stored as a GeoJSON *feature collection*
+
+By default, Roadiz back-office uses *Leaflet* library with *Open Street Map* for tiles rendering and basic geo-coding features.
 
 Markdown options
 ^^^^^^^^^^^^^^^^
