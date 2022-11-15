@@ -83,6 +83,9 @@ Serialization groups
     document_display_sources
         Serialize ``Document`` information required for displaying alternative sources (audio, video).
 
+    document_thumbnails
+        Serialize ``Document`` first available thumbnail.
+
     document_folders
         Serialize ``Document`` information required for displaying attached folders.
 
