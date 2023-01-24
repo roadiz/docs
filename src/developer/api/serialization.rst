@@ -87,7 +87,10 @@ Serialization groups
         Serialize ``Document`` first available thumbnail.
 
     document_folders
-        Serialize ``Document`` information required for displaying attached folders.
+        Serialize ``Document`` information required for displaying attached **visible** folders.
+
+    document_folders_all
+        Serialize **all** ``Document`` attached folders, even not visible ones.
 
     folder
         Serialize entities in a ``Folder`` context.
