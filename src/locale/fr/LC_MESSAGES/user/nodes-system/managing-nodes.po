@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 21:14\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -50,8 +50,8 @@ msgid "To move a node across your tree, drag & drop using its handle (round or r
 msgstr "Pour déplacer un nœud dans votre arborescence, réalisez un \"cliquer-déposer\" grâce à la poignée (en forme de rond ou de losange). Vous pouvez déposer un nœud avant ou après un autre élément. Vous pouvez également le déposer à l'intérieur d'un autre nœud, en décalant légèrement votre souris vers la droite de ce dernier pour déplacer l'ombre du nœud à l’intérieur."
 
 #: ../../src/user/nodes-system/managing-nodes.rst:32
-msgid "Other actions are available from each node’ contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over."
-msgstr "D'autres options sont disponibles à partir du menu contextuel de chaque nœud. Faites un clic-droit sur le nœud ou cliquez sur la flèche droite qui apparaît au survol."
+msgid "Other actions are available from each node contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over."
+msgstr ""
 
 #: ../../src/user/nodes-system/managing-nodes.rst:35
 msgid "Contextual menu actions"
@@ -82,8 +82,8 @@ msgid "*Hide/Show:* Change a node’ visibility. A hidden node won’t be displa
 msgstr "*Cacher/Afficher* : Changer la visibilité d'un nœud. Un nœud caché ne sera pas indexé dans votre site et n'aura pas d'url, même si vous êtes connecté en tant qu'administrateur."
 
 #: ../../src/user/nodes-system/managing-nodes.rst:43
-msgid "*Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users using ``preview.php`` entry point."
-msgstr "*Publier/Dépublier* : Modifier le statut de publication d'un nœud. Les nœuds non publiés ne sont pas visibles par les visiteurs anonymes, mais sont accessibles aux utilisateurs du back-office utilisant le chemin d'accès ``preview.php``."
+msgid "*Publish/Unpublish:* Change a node’ publication status. Unpublished nodes are not visible to anonymous visitors, but visible for back-office users using ``?_preview=1`` query parameter."
+msgstr ""
 
 #: ../../src/user/nodes-system/managing-nodes.rst:44
 msgid "*Publish offspring:* Publish a node and all its children nodes recursively."
@@ -97,7 +97,7 @@ msgstr "*Dupliquer* : Copier l'intégralité du contenu et des interactions du n
 msgid "Creating a node"
 msgstr "Création d'un nœud"
 
-#: ../../src/user/nodes-system/managing-nodes.rst:None
+#: ../../src/user/nodes-system/managing-nodes.rst:-1
 msgid "Add buttons"
 msgstr "Boutons d’ajout de nœud"
 
@@ -267,10 +267,10 @@ msgid "Preview unpublished nodes"
 msgstr "Prévisualiser les nœuds en attente de validation"
 
 #: ../../src/user/nodes-system/managing-nodes.rst:191
-msgid "As unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them using a dedicated *entry point* called ``preview.php``, yes this is not very original. We decided to create a different entry point not to share the same URL with your public website as it could create confusing errors if your website is hosted behing a reverse proxy engine."
-msgstr "Puisqu'un nœud non-publié n'est pas visible par vos visiteurs anonymes, Roadiz permet aux utilisateurs du back-office de les prévisualiser en utilisant un *chemin d'accès* appelé ``preview.php``. Nous avons décidé de créer un chemin d'accès spécifique afin de bien différencier son URL de votre site public et d'éviter ainsi erreurs et confusions si votre site est hébergé par un proxy inverse."
+msgid "Unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them adding a dedicated *query parameter* called ``?_preview=1`` in your website URLs. Using a different URL than your public website is very important as it could lead to errors or to expose unpublished content if your website is hosted behind a reverse proxy cache like *Varnish*."
+msgstr ""
 
 #: ../../src/user/nodes-system/managing-nodes.rst:196
-msgid "For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to ``http://mywebsite.com/preview.php/my-news``. This URL will only allow authentified backend users, other people will be blocked."
-msgstr "Par exemple, si votre page ``actualités`` n'est pas encore publiée, la relier à ``http://mywebsite.com/actualites`` aboutira à une page d'erreur 404 pour tous les visiteurs anonymes ou connectés (vous compris). Cependant, si vous souhaitez la prévisualiser, vous devrez vous connecter à ``http://mywebsite.com/preview.php/actualites``. Cette URL autorisera l'accès aux visiteurs connectés au back-office uniquement, bloquant la page aux internautes anonymes."
+msgid "For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to ``http://mywebsite.com/my-news?_preview=1``. This URL will only allow authenticated backend users, other people will be denied."
+msgstr ""
 

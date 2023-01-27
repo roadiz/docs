@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 21:14\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -50,8 +50,8 @@ msgid "You can export and import a node-type if you have a .json file. See *Othe
 msgstr "À savoir, vous pouvez exporter et importer un type de nœud avec un fichier .json. Rendez-vous sur *Autre action* pour plus d'informations."
 
 #: ../../src/user/nodes-system/managing-node-types.rst:28
-msgid "Upon filling the two mandatory settings *Name* (that developpers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type."
-msgstr "Une fois les deux paramètres obligatoires remplis - *Nom* (que les développeurs utiliseront) et *Nom d'affichage* (que les utilisateurs de back-office verront) - , vous pourrez créer votre premier type de nœud."
+msgid "Upon filling the two mandatory settings *Name* (that developers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type."
+msgstr ""
 
 #: ../../src/user/nodes-system/managing-node-types.rst:31
 msgid "Be careful when you name your node-type though, *Name* field can't be changed once the node-type is created. See *Delete node-type* section to know how to delete a node-type."
@@ -130,6 +130,6 @@ msgid "You can write an .json file yourself if you feel like it, but it is proba
 msgstr "Vous pouvez écrire un fichier JSON vous-même, si vous en avez envie, mais il est probablement plus facile d'exporter simplement des types de noeuds à partir du back-office, puis d'importer sur votre nouveau site web. Vous pouvez le faire facilement en cliquant sur le bouton *Importer le type de nœud*, puis en le sélectionnant via votre explorateur de fichiers."
 
 #: ../../src/user/nodes-system/managing-node-types.rst:155
-msgid "You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing."
-msgstr "Vous êtes proche de la maîtrise complète des pouvoirs du back-office de Roadiz ! Continuez à vous référer à cette documentation si vous rencontrez des difficultés et faites-nous signe pour toute question ou complément d'information."
+msgid "You are close to fully master Roadiz back-office powers! Keep referring to this documentation if you have any problem, and let us know if any information goes missing."
+msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -26,42 +26,14 @@ msgid "Empty caches manually for an environment"
 msgstr ""
 
 #: ../../src/developer/troubleshooting.rst:8
-msgid "If you experience errors only on a dedicated environment such as ``prod``, ``dev`` or ``install``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/console cache:clear -e prod;`` (replace *prod* by your environment) in command line."
+msgid "If you experience errors only on a dedicated environment such as ``prod``or ``dev``, it means that cache is not fresh for these environments. As a first try, you should always call ``bin/console cache:clear;`` (replace *prod* by your environment) in command line."
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:14
-msgid "If you still get errors from a specific env and you are using an *OPcode* cache or *var cache* (*APC*, *XCache*), call ``clear_cache.php`` entry point *from your browser* or execute ``curl http://localhost/clear_cache.php`` from your command line."
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:20
+#: ../../src/developer/troubleshooting.rst:15
 msgid "Problem with entities and Doctrine cache?"
 msgstr ""
 
-#: ../../src/developer/troubleshooting.rst:22
+#: ../../src/developer/troubleshooting.rst:17
 msgid "After each Roadiz **upgrade** you should always upgrade your node-sources entity classes and upgrade database schema."
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:31
-msgid "If you are using a *OPCode var cache* like *APC*, *XCache*, you should purge it as Roadiz stores doctrine configuration there for better performances, call ``clear_cache.php`` entry point from your browser or ``curl http://localhost/clear_cache.php`` from your command line."
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:39
-msgid "Running Roadiz behind a reverse proxy"
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:41
-msgid "If you are behind a reverse-proxy like *Varnish* or *Nginx proxy* on a *Docker* environment, IP addresses, domain name and proto (https/http) could not be correctly set. So you will have to `tell Roadiz to trust your proxy <https://symfony.com/doc/3.4/deployment/proxies.html#solution-settrustedproxies>`_ in order to use ``X_FORWARDED_*`` env vars."
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:46
-msgid "Add this line to your ``index.php`` and ``preview.php`` files after ``$request = Request::createFromGlobals();`` line."
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:60
-msgid "Find help before posting an issue on Github"
-msgstr ""
-
-#: ../../src/developer/troubleshooting.rst:62
-msgid "Join us on Gitter: https://gitter.im/roadiz/roadiz"
 msgstr ""
 
