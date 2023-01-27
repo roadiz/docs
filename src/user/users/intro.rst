@@ -32,7 +32,7 @@ unless he or she resets its password first.
 
     A new user without password will stay locked until he or she resets its password.
 
-The command-line ``bin/roadiz users:create loginname`` starts a new interactive user creation session.
+The command-line ``bin/console users:create loginname`` starts a new interactive user creation session.
 You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin.
 
 Delete user
@@ -43,7 +43,7 @@ You can remove users by clicking the trashcan icon.
 .. image:: ./img/remove_user.png
     :align: center
 
-The command ``bin/roadiz users:delete loginname`` delete the user "loginname".
+The command ``bin/console users:delete loginname`` delete the user "loginname".
 
 Adding role
 -----------
@@ -57,7 +57,7 @@ If you want to add ``ROLE_SUPERADMIN`` role to "test" user, it would look like t
 
 .. code-block:: console
 
-    bin/roadiz users:roles --add loginname
+    bin/console users:roles --add loginname
     # You will be prompted to choose the ROLE with auto-complete feature.
 
 
@@ -66,11 +66,11 @@ Other action
 
 It is possible to enable or disable users with ``users:enable`` or ``users:disable`` command.
 If a user doesn't remember his password, you can regenerate it with the ``users:password`` command.
-For more informations and more actions, we invite you to check available commands with:
+For more information and more actions, we invite you to check available commands with:
 
 .. code-block:: console
 
-    bin/roadiz list users
+    bin/console list users
 
 
 Enable SSO for back-office users
@@ -87,29 +87,43 @@ First, make sure to generate and gather the following information from your *Ope
 
 Then you should decide:
 
-- What *roles* (comma separated) you want to be automatically granted to users connected with your SSO. You always can create a more complex strategy in your website by registering a ``RZ\Roadiz\OpenId\Authentication\Provider\JwtRoleStrategy``.
-
-.. code-block:: php
-
-    $container->extend('jwtRoleStrategies', function (array $strategies, Container $c) {
-        return array_merge($strategies, [
-            new MyWebsiteRoleStrategy($c['em'])
-        ]);
-    });
-
+- What *roles* (comma separated) you want to be automatically granted to users connected with your SSO.
 - What domain name to restrict users from. This is very important for *Google Suite* users because the auto-discovery is the same for everybody. You may not want to allow every Google Suite users to access your back-office 😉.
 - A button label for your back-office login page.
+
+.. code-block:: yaml
+
+    # config/packages/roadiz_rozier.yaml
+    roadiz_rozier:
+        open_id:
+            # Verify User info in JWT at each login
+            verify_user_info: false
+            # Standard OpenID autodiscovery URL, required to enable OpenId login in Roadiz CMS.
+            discovery_url: '%env(string:OPEN_ID_DISCOVERY_URL)%'
+            # For public identity providers (such as Google), restrict users emails by their domain.
+            hosted_domain: '%env(string:OPEN_ID_HOSTED_DOMAIN)%'
+            # OpenID identity provider OAuth2 client ID
+            oauth_client_id: '%env(string:OPEN_ID_CLIENT_ID)%'
+            # OpenID identity provider OAuth2 client secret
+            oauth_client_secret: '%env(string:OPEN_ID_CLIENT_SECRET)%'
+            granted_roles:
+                - ROLE_USER
+                - ROLE_BACKEND_USER
+                - ROLE_SUPERADMIN
 
 
 .. image:: ./img/roadiz_openid_settings.jpg
     :align: center
     :width: 300px
 
-Fill all your gathered information to the right *Roadiz* settings.
+Fill all your gathered information to the right *Roadiz* dotenv variables.
 
-.. image:: ./img/roadiz_openid_settings_list.jpg
-    :align: center
-    :width: 700px
+.. code-block:: dotenv
+
+    OPEN_ID_DISCOVERY_URL=https://accounts.google.com/.well-known/openid-configuration
+    OPEN_ID_HOSTED_DOMAIN=my-google-workspace-domain.com
+    OPEN_ID_CLIENT_ID=xxxxxxx
+    OPEN_ID_CLIENT_SECRET=xxxxxxx
 
 Then, if your parameter are correct you should see your SSO connect button on *Roadiz* back-office login page.
 Pay attention that if your SSO users do not have sufficient permissions they may have a 403 error after being redirected

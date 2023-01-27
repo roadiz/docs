@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# This file is distributed under the same license as the Roadiz
+# documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-23 22:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../src/developer/first-steps/moving.rst:4
+msgid "Moving a website to another server"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:6
+msgid "Before moving your website, make sure you have backed up your data:"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:8
+msgid ""
+"Dump your database, using classic ``mysqldump`` or ``pg_dump`` tools. If "
+"you’re using *MySQL* ``bin/roadiz database:dump -c`` command can speed-up"
+" the process by naming automatically your file against your *app-"
+"namespace*."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:9
+msgid ""
+"Archive your files using ``bin/roadiz files:export``, Roadiz will create "
+"a ZIP file with your public/private documents and fonts."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:12
+msgid "Moving to a SSH+Git hosting plan or an other development machine"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:14
+msgid ""
+"From this point you can install your new web-server, as described in "
+":ref:`Install section <installation>`. Pay attention that if your theme "
+"needs some additional *composer* dependencies you should *clone/copy* it "
+"into your *themes/* folder **before** running ``composer install --no-"
+"dev``."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:18
+msgid "Then import your dump and files into your new server."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:20
+msgid ""
+"Once you’ve imported your database, you must edit manually your "
+"`conf/config.yml`, you can reuse the former server’s one and adapt its "
+"database credentials."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:24
+msgid ""
+"**Do not perform any schema update if no app/gen-src/GeneratedNodeSources"
+" classes is available**, it will erase your NodesSources data as their "
+"entities files haven’t been generated yet."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:27
+msgid ""
+"When you have edited your ``app/conf/config.yml`` file, regenerate your "
+"*Doctrine* entities class files:"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:33
+msgid "Now you can perform a schema update without losing your nodes data:"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:45
+msgid ""
+"If you are using an OPcode cache like XCache or APC, you’ll need to purge"
+" cache manually because it can't be done from a CLI interface as they are"
+" shared cache engines. The most effective way is to restart your *PHP-"
+"FPM* service or *Apache* if your are using *mod_php*."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:50
+msgid "Install assets"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:52
+msgid ""
+"By default, web theme assets are not tracked by *Git*. Make sure that you"
+" installed every theme assets using ``bin/roadiz themes:assets:install`` "
+"command. You should use ``--symlink --relative`` options when possible to"
+" prevent updating assets manually. For Windows users, remove "
+"``--relative`` option to create *absolute* symlinks."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:65
+msgid ""
+"*composer.json* file should execute Roadiz default themes asset install "
+"automatically after each update or install."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:69
+msgid "Synchronize documents and fonts"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:71
+msgid ""
+"You can move your ``files/`` folder using SFTP but the best way is to use"
+" ``rsync`` command as it will upload only newer files and it is much "
+"faster."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:81
+msgid ""
+"It works in the other way too. If you want to work on your local copy "
+"with up to date files and fonts, you can download actual files from the "
+"production website:"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:93
+msgid "Moving to a non-SSH hosting plan"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:95
+msgid ""
+"You have nearly finished your brand new website using Roadiz. You have "
+"been working on your own server using Git and Composer, up to this point "
+"everything went well."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:98
+msgid ""
+"Now you have to push to production, but your prod-server has no SSH "
+"connection. You are stuck with an SFTP connection or worst, an old FTP "
+"one. Don’t panic, it will take a little more time but it is still "
+"possible."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:102
+msgid ""
+"Many shared-plan hosting companies offer you only one or two databases. "
+"When moving a Roadiz website, make sure that your database is empty and "
+"do not contain orphan tables, you must respect the rule “One app = One "
+"database”."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:106
+msgid ""
+"If you can ZIP on your production server or if you are going to push your"
+" files via FTP, do not forget to exclude ``.git`` and ``node_modules`` "
+"folders! These folders have **lots** of useless files for a production "
+"SSH-less environment. Here is a sample ZIP command to exclude them: ``zip"
+" -r mywebsite.zip mywebsite/ -x \"mywebsite/.git/*\" "
+"\"mywebsite/themes/**/static/node_modules/*\"``."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:112
+msgid ""
+"Before transferring your website, make sure you have ``.htaccess`` file "
+"in every sensitive folders. You can use the ``bin/roadiz "
+"generate:htaccess`` on your computer."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:113
+msgid ""
+"If you have at least SFTP, you should have to rights to zip/unzip on your"
+" distant server. So zip the whole Roadiz folder."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:114
+msgid ""
+"If you only have FTP, you must be prepared to transfer your Roadiz "
+"folder, file-by-file. Just get yourself a nice cup of coffee."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:115
+msgid ""
+"Once everything is copied on your production server, verify than you have"
+" the same files as on your dev-server."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:116
+msgid "Import your database dump with phpmyadmin or pgmyadmin."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:117
+msgid "Edit your ``conf/config.yml`` to match your new database credentials."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:118
+msgid ""
+"Verify that root ``.htaccess`` file contains every information to enable "
+"Apache url-rewriting."
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:119
+msgid "Try to connect to your website"
+msgstr ""
+
+#: ../../src/developer/first-steps/moving.rst:120
+msgid ""
+"If it doesn’t work or display anything, read your PHP log file to "
+"understand where the problem comes from. It might be your database "
+"credentials or an outdated PHP version. Check that your hosting manager "
+"has installed every needed PHP extensions, see :ref:`getting-started`."
+msgstr ""
+

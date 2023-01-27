@@ -29,7 +29,7 @@ in a tree-shaped way. It’s intuitive and it works the same as your computer fi
 
 - To edit a node’ content, simply click on it.
 - To move a node across your tree, drag & drop using its handle (round or rombus shape). You can drop a node after or before an other one. You can also drop inside just by moving your mouse a bit on the right, you should see the node shadow to shift right.
-- Other actions are available from each node’ contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over.
+- Other actions are available from each node contextual menu. Right click on the node or click on the arrow at the right when you pass your mouse over.
 
 Contextual menu actions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -40,7 +40,7 @@ Contextual menu actions
 - *Move to last position:* basically the same for the last position.
 - *Delete node:* to move current node to the trashcan. A confirmation page will be prompt before really deleting a node.
 - *Hide/Show:* Change a node’ visibility. A hidden node won’t be displayed in Urls and your website, even if you are an administrator.
-- *Publish/Unpublish:* Change a node’ publication status. Unpublished nodes aren’t visible to anonymous visitors, but visible for back-office users using ``preview.php`` entry point.
+- *Publish/Unpublish:* Change a node’ publication status. Unpublished nodes are not visible to anonymous visitors, but visible for back-office users using ``?_preview=1`` query parameter.
 - *Publish offspring:* Publish a node and all its children nodes recursively.
 - *Duplicate:* Copy all current node’ content and relationships into a new node.
 
@@ -154,12 +154,12 @@ default ordering in the *Edit tab*. And node-types set as *publishable* will dis
     :align: center
 
 Tree view becomes very interesting if you have many many children nodes, when you have blog posts
-or portfolio projects for example. 
+or portfolio projects for example.
 
 .. image:: ./img/add-stack-type.png
     :align: center
 
-Then you can add *stack type* in *Edit tab* to make some handy 
+Then you can add *stack type* in *Edit tab* to make some handy
 quick-add buttons to this view.
 
 .. image:: ./img/quick-add-button.png
@@ -188,13 +188,13 @@ To improve status visibility, *draft* and *pending* nodes have a rhombus shape a
 Preview unpublished nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them
-using a dedicated *entry point* called ``preview.php``, yes this is not very original. We decided to create
-a different entry point not to share the same URL with your public website as it could create confusing errors if your
-website is hosted behing a reverse proxy engine.
+Unpublished nodes are not viewable for anonymous visitors, Roadiz allows backend users to preview them
+adding a dedicated *query parameter* called ``?_preview=1`` in your website URLs. Using a different URL than your
+public website is very important as it could lead to errors or to expose unpublished content if your website
+is hosted behind a reverse proxy cache like *Varnish*.
 
 For example, if your ``my-news`` page is not published yet, connecting to ``http://mywebsite.com/my-news`` will lead
 to a 404 page for your anonymous visitors, as well as you too. If you want to preview it, you’ll have to connect to
-``http://mywebsite.com/preview.php/my-news``. This URL will only allow authentified backend users, other people will
-be blocked.
+``http://mywebsite.com/my-news?_preview=1``. This URL will only allow authenticated backend users, other people will
+be denied.
 

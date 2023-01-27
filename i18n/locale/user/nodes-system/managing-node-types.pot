@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# Copyright (C) 2022, Ambroise Maupate & Julien Blanchet
 # This file is distributed under the same license as the Roadiz documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: Roadiz documentation 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgid "You can export and import a node-type if you have a .json file. See *Othe
 msgstr ""
 
 #: ../../src/user/nodes-system/managing-node-types.rst:28
-msgid "Upon filling the two mandatory settings *Name* (that developpers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type."
+msgid "Upon filling the two mandatory settings *Name* (that developers will use) and *Display Name* (that back-office users will see), you are now ready to create your first node type."
 msgstr ""
 
 #: ../../src/user/nodes-system/managing-node-types.rst:31
@@ -129,5 +129,5 @@ msgid "You can write an .json file yourself if you feel like it, but it is proba
 msgstr ""
 
 #: ../../src/user/nodes-system/managing-node-types.rst:155
-msgid "You are close to fully master Roadiz' back-office powers ! Keep refering to this documention if you have any problem, and let us know if any information goes missing."
+msgid "You are close to fully master Roadiz back-office powers! Keep referring to this documentation if you have any problem, and let us know if any information goes missing."
 msgstr ""

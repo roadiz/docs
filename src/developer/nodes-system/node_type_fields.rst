@@ -27,6 +27,7 @@ This following fields stores simple data in your custom node-source database tab
 - Email
 - Color
 - Single geographic coordinates
+- Multiple geographic coordinates
 - JSON code
 - CSS code
 - Country code (ISO 3166-1 alpha-2)
@@ -37,19 +38,43 @@ This following fields stores simple data in your custom node-source database tab
 - Multiple relationship using a provider
 - Custom collection
 
-.. note ::
-    *Single geographic coordinates* field stores its data in JSON format. Make sure you
-    don’t have manually written data in its input field.
-
-.. warning ::
-    To use *Single geographic coordinates* you must create a *Google API Console* account with *Maps API v3* activated.
-    Then, create a *Browser key* and paste it in “Google Client ID” parameter in Roadiz settings
-    to enable *geographic* node-type fields. If you didn't do it, a simple text input will
-    be display instead of *Roadiz Map Widget*.
-
 .. image:: ./img/field-types.*
    :align: center
    :width: 300
+
+Single and multiple geographic coordinates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Geographic coordinates are stored in JSON format in your database using `GeoJSON <https://geojson.org/>`_ schema:
+
+- A single point will be stored as a GeoJSON *feature* in order to hold additional properties such as *zoom*,
+- Multiple points will be stored as a GeoJSON *feature collection*
+
+By default, Roadiz back-office uses *Leaflet* library with *Open Street Map* for tiles rendering and basic geo-coding features.
+
+Markdown options
+^^^^^^^^^^^^^^^^
+
+You can restrict Markdown fields buttons using the following YAML configuration:
+
+.. code-block:: YAML
+
+    allow_h2: false
+    allow_h3: false
+    allow_h4: false
+    allow_h5: false
+    allow_h6: false
+    allow_bold: false
+    allow_italic: false
+    allow_blockquote: false
+    allow_list: false
+    allow_nbsp: false
+    allow_nb_hyphen: false
+    allow_image: false
+    allow_return: false
+    allow_link: false
+    allow_hr: false
+    allow_preview: false
 
 Virtual data
 ^^^^^^^^^^^^
@@ -119,6 +144,36 @@ You must fill the *default values* field for these two types.
     orderBy:
         - field: slug
           direction: ASC
+
+You can use a custom proxy entity to support persisting ``position`` on your relation. Roadiz will generate a one-to-many
+relationship with proxy entity instead of a many-to-many.
+In this scenario you are responsible for creating and migrating ``Themes\MyTheme\Entities\PositionedCity`` entity. If you are migrating from a non-proxied many-to-many relation, you should keep the same table and field names to keep data intact.
+
+.. code-block:: YAML
+
+    # Entity class name
+    classname: Themes\MyTheme\Entities\City
+    # Displayable is the method used to display entity name
+    displayable: getName
+    # Same as Displayable but for a secondary information
+    alt_displayable: getZipCode
+    # Searchable entity fields
+    searchable:
+        - name
+        - slug
+    # This order will only be used for explorer
+    orderBy:
+        - field: slug
+          direction: ASC
+    # Use a proxy entity
+    proxy:
+        classname: Themes\MyTheme\Entities\PositionedCity
+        self: nodeSource
+        relation: city
+        # This order will preserve position
+        orderBy:
+            - field: position
+              direction: ASC
 
 Single and multiple provider
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -4,7 +4,7 @@
 Handling nodes and their hierarchy
 ==================================
 
-By default, if you use Entities API methods or trasversing Twig filters,
+By default, if you use Entities API methods or traversing Twig filters,
 Roadiz will automatically handle security parameters such as ``node.status`` and
 ``preview`` mode.
 
@@ -12,7 +12,7 @@ Roadiz will automatically handle security parameters such as ``node.status`` and
 
     // Secure method to get node-sources
     // Implicitly check node.status
-    $this->get('nodeSourceApi')->getBy([
+    $this->nodeSourceApi->getBy([
         'node.nodeType' => $blogPostType,
         'translation' => $translation,
     ], [
@@ -26,7 +26,7 @@ current user is logged-in and if preview mode is *ON* to display or not *unpubli
 
     // Insecure method to get node-sources
     // Doctrine raw method will get all node-sources
-    $this->get('em')->getRepository('GeneratedNodeSources\NSBlogPost')->findBy([], [
+    $this->managerRegistry->getRepository(NSBlogPost::class)->findBy([], [
         'publishedAt' => 'DESC',
         'translation' => $translation,
     ]);
@@ -38,7 +38,7 @@ return every node-sources, **even unpublished, archived and deleted ones**.
 Hierarchy
 ^^^^^^^^^
 
-To trasverse node-sources hierarchy, the easier method is to use *Twig* filters
+To traverse node-sources hierarchy, the easier method is to use *Twig* filters
 on your ``nodeSource`` entity. Filters will implicitly set ``translation`` from
 origin node-source.
 
@@ -75,7 +75,7 @@ the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom 
 
 .. code-block:: php
 
-    $children = $this->get('nodeSourceApi')->getBy([
+    $children = $this->nodeSourceApi->getBy([
         'node.parent' => $nodeSource,
         'node.visible' => true,
         'publishedAt' => ['>=', new \DateTime()],
@@ -86,13 +86,13 @@ the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom 
 
 .. warning::
 
-    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydratation. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria.
+    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydration. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria.
 
     .. code-block:: php
 
         // Here Doctrine will only join NSPage table to NodesSources
-        $children = $this->get('nodeSourceApi')->getBy([
-            'node.nodeType' => $this->get('nodeTypesBag')->get('Page'),
+        $children =$this->nodeSourceApi->getBy([
+            'node.nodeType' => $this->nodeTypesBag->get('Page'),
             'node.parent' => $nodeSource,
             'node.visible' => true,
             'publishedAt' => ['>=', new \DateTime()],
@@ -104,7 +104,7 @@ the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom 
 Visibility
 ^^^^^^^^^^
 
-There are two parametres that you must take care of in your themes and your
+There are two parameters that you must take care of in your themes and your
 controllers, because they are not mandatory in all website cases:
 
 - Visibility
@@ -132,7 +132,7 @@ field.
         public function indexAction(
             Request $request,
             Node $node = null,
-            Translation $translation = null
+            TranslationInterface $translation = null
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
@@ -177,10 +177,9 @@ transition. This can prevent unwanted behaviours and you can track changes with 
 
 .. code-block:: php
 
-    /** @var Registry $registry */
-    $registry = $this->get('workflow.registry');
-    if ($registry->get($node)->can($node, 'publish')) {
-        $registry->get($node)->apply($node, 'publish');
+    $nodeWorkflow = $this->workflowRegistry->get($node);
+    if ($nodeWorkflow->can($node, 'publish')) {
+        $nodeWorkflow->apply($node, 'publish');
     }
 
 
@@ -198,7 +197,7 @@ You can use ``generateUrl()`` in your controllers to get a node-source’ path o
         public function indexAction(
             Request $request,
             Node $node = null,
-            Translation $translation = null
+            TranslationInterface $translation = null
         ) {
             $this->prepareThemeAssignation($node, $translation);
 
@@ -226,7 +225,7 @@ You can override default node-source path generation in order to use ``{{ path()
 in your *Twig* templates but with a custom logic. For example, you have a ``Link`` node-type
 which purpose only is to link to an other node in your website. When you call *path* or *URL*
 generation on it, you should prefer getting its linked node path, so you can listen
-to ``RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return
+to ``RZ\Roadiz\CoreBundle\Event\NodesSources\NodesSourcesPathGeneratingEvent:class`` event and stop propagation to return
 your linked node path instead of your *link* node path.
 
 .. code-block:: php
@@ -234,11 +233,11 @@ your linked node path instead of your *link* node path.
     use GeneratedNodeSources\NSLink;
     use Symfony\Component\EventDispatcher\EventDispatcherInterface;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-    use RZ\Roadiz\Core\Events\NodesSources\NodesSourcesPathGeneratingEvent;
+    use RZ\Roadiz\CoreBundle\Event\NodesSources\NodesSourcesPathGeneratingEvent;
 
     class LinkPathGeneratingEventListener implements EventSubscriberInterface
     {
-        public static function getSubscribedEvents()
+        public static function getSubscribedEvents(): array
         {
             return [
                 NodesSourcesPathGeneratingEvent:class => ['onLinkPathGeneration']
@@ -277,7 +276,7 @@ your linked node path instead of your *link* node path.
                     /*
                      * Dispatch a path generation again for linked node-source.
                      */
-                    $dispatcher->dispatch(NodesSourcesEvents::NODE_SOURCE_PATH_GENERATING, $subEvent);
+                    $dispatcher->dispatch($subEvent);
                     /*
                      * Fill main event with sub-event data
                      */
@@ -292,15 +291,4 @@ your linked node path instead of your *link* node path.
         }
     }
 
-
-Then register your subscriber to the Roadiz event dispatcher in your theme ``setupDependencyInjection``:
-
-.. code-block:: php
-
-    /** @var EventDispatcher $dispatcher */
-    $dispatcher = $container['dispatcher'];
-    $dispatcher->addSubscriber(new LinkPathGeneratingEventListener());
-
-This method has an other great benefit: it allows your path logic to be cached inside node-source url’ cache
-provider, instead of generating your custom URL inside your Twig templates or PHP controllers.
 

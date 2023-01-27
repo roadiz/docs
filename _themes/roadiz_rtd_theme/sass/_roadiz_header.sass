@@ -1,0 +1,149 @@
+#roadiz-header
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  height: $header-height
+  padding: 0px
+  border-bottom: 1px solid #cccccc
+  color: #EEE
+  background-color: #ebebeb
+  @include background-image(linear-gradient(top, #EBEBEB 50%,#E2E2E2 100%))
+  z-index: 990
+  +box-sizing()
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  .roadiz-title
+    display: inline-block
+    vertical-align: top
+    margin: 0
+
+  #roadiz-title-link
+    position: relative
+    display: inline-block
+    vertical-align: top
+    text-align: center
+    font-size: 11px
+    line-height: $header-height
+    height: $header-height
+    text-transform: uppercase
+    font-weight: bold
+    width: 299px
+    color: #888
+    padding-left: 17px
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9)
+    overflow: hidden
+    +box-sizing()
+    +transition(0.4s background ease-out)
+
+    &:hover
+      background: lighten(#c8c8c8, 17%)
+
+    .roadiz-icon-roadiz
+      margin-right: 11px
+      top: 1px
+      color: #323232
+      font-size: 91px
+      font-weight: normal
+      display: inline-block
+
+      &:before
+        line-height: $header-height
+
+    display: inline-block
+
+  #roadiz-title-link-text
+    position: relative
+    display: inline-block
+    vertical-align: top
+    line-height: $header-height
+
+
+  #roadiz-header-links-list
+    display: inline-block
+    margin: 0
+    padding: 0
+    vertical-align: top
+
+  .roadiz-header-link-item
+    display: inline-block
+    vertical-align: top
+    position: relative
+    color: #c8c8c8
+    border-left: 1px solid #cccccc
+    font-weight: 600
+    +box-sizing()
+    +transition(0.4s background ease-out)
+
+    &.active
+      background: #fff
+      cursor: default
+      color: #60707e
+
+      a
+        cursor: default
+
+      &:hover
+        background: #fff
+
+    &:hover
+      background: lighten(#c8c8c8, 17%)
+
+    &:last-child
+      border-right: none
+
+  .roadiz-header-link
+    display: block
+    height: $header-height
+    color: #545454
+    padding: 0 17px
+    font-size: 11px
+    font-weight: bold
+    line-height: $header-height
+    text-transform: uppercase
+    +box-sizing()
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9)
+
+    &.roadiz-icon-github
+      font-size: 19px
+
+      &:before
+        line-height: $header-height
+
++media($tablet)
+  #roadiz-header
+    display: none
+
+  .wy-nav-content-wrap
+    padding-top: 0px
+
+
+#alpha-ribbon
+  position: fixed
+  top: 0
+  right: 0
+  width: 120px
+  height: 120px
+  overflow: hidden
+  z-index: 995
+
++media($tablet)
+  #alpha-ribbon
+    display: none
+
+#alpha-ribbon-inner
+  position: relative
+  top: -31px
+  right: -22px
+  width: 180px
+  height: 25px
+  font-size: 11px
+  line-height: 25px
+  text-align: center
+  text-transform: uppercase
+  background: $menu-logo-color
+  color: #1a1a1a
+  font-weight: 600
+  @include transform(rotate(45deg))
+  @include transform-origin(0,0)

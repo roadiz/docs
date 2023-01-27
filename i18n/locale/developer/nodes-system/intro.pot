@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2020, Ambroise Maupate & Julien Blanchet
+# Copyright (C) 2022, Ambroise Maupate & Julien Blanchet
 # This file is distributed under the same license as the Roadiz documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Roadiz documentation 1.5.3\n"
+"Project-Id-Version: Roadiz documentation 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgid "Most of node-types management will be done in your backoffice interface. 
 msgstr ""
 
 #: ../../src/developer/nodes-system/intro.rst:52
-msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/roadiz orm:schema-tool:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
+msgid "Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create a specific table per node-type. Do not forget to execute ``bin/console doctrine:schema:update`` tools to perform updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before** upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could delete existing data since *Doctrine* won’t recognize specific tables."
 msgstr ""
 
 #: ../../src/developer/nodes-system/intro.rst:58

@@ -51,7 +51,7 @@ msgstr "Un nouvel utilisateur sans mot de passe aura son compte verrouillé jusq
 
 #: ../../src/user/users/intro.rst:35
 msgid "The command-line ``bin/console users:create loginname`` starts a new interactive user creation session. You will create a new user with login and email, you can also choose if it's a backend user and if it's a superadmin."
-msgstr ""
+msgstr "La ligne de commande ``bin/console users:create loginname`` démarre une nouvelle session interactive de création d'un utilisateur. Vous allez créer un nouvel utilisateur avec son nom d’utilisateur et son email, vous pouvez aussi choisir si il s’agit d’un utilisateur backend ou bien super-admin."
 
 #: ../../src/user/users/intro.rst:39
 msgid "Delete user"
@@ -63,7 +63,7 @@ msgstr "Vous pouvez supprimer des utilisateurs en cliquant sur l'icône de la co
 
 #: ../../src/user/users/intro.rst:46
 msgid "The command ``bin/console users:delete loginname`` delete the user \"loginname\"."
-msgstr ""
+msgstr "La commande ``bin/console users:delete loginname`` supprime l'utilisateur \"loginname\"."
 
 #: ../../src/user/users/intro.rst:49
 msgid "Adding role"

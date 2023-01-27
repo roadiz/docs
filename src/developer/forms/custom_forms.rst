@@ -18,6 +18,116 @@ The answer is saved in two entities:
 
 The CustomFormAnswer will store the IP and the submitted time. While question answer will be in CustomFormFieldAttribute with the CustomFormAnswer id and the CustomFormField id.
 
+Exposing a custom form in your API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Custom-form can be filled in a headless context, using _definition_ and _post_ endpoints:
+
+.. code-block:: http
+
+   GET {{baseUrl}}/api/custom_forms/:id/definition
+
+Custom form definition is a **JSON form schema** meant to give your frontend application a recipe to build a HTML form:
+
+.. code-block:: json
+
+   {
+       "title": "",
+       "type": "object",
+       "properties": {
+           "subject": {
+               "type": "string",
+               "title": "Subject",
+               "attr": {
+                   "data-group": null,
+                   "placeholder": null
+               },
+               "description": "Est aut quas eum error architecto.",
+               "propertyOrder": 1
+           },
+           "email": {
+               "type": "string",
+               "title": "Email",
+               "attr": {
+                   "data-group": null,
+                   "placeholder": null
+               },
+               "description": "Email address",
+               "widget": "email",
+               "propertyOrder": 2
+           },
+           "test": {
+               "title": "TEST",
+               "type": "object",
+               "properties": {
+                   "message": {
+                       "type": "string",
+                       "title": "Message",
+                       "attr": {
+                           "data-group": "TEST",
+                           "placeholder": null
+                       },
+                       "widget": "textarea",
+                       "propertyOrder": 1
+                   },
+                   "fichier": {
+                       "type": "string",
+                       "title": "File",
+                       "attr": {
+                           "data-group": "TEST",
+                           "placeholder": null
+                       },
+                       "widget": "file",
+                       "propertyOrder": 2
+                   }
+               },
+               "required": [
+                   "fichier"
+               ],
+               "attr": {
+                   "data-group-wrapper": "test"
+               },
+               "propertyOrder": 3
+           }
+       },
+       "required": [
+           "subject",
+           "email",
+           "test"
+       ]
+   }
+
+Then you can send your data to the **post** endpoint using *FormData* and respecting field hierarchy:
+
+.. figure:: ./img/custom_form_post.png
+    :align: center
+
+.. code-block:: http
+
+   POST {{baseUrl}}/api/custom_forms/:id/post
+
+If there are any error, a *JSON* response will give you details fields-by-fields.
+
+If post is successful, APi will respond an empty ``202 Accepted`` response
+
+.. figure:: ./img/custom_form_post_response.png
+    :align: center
+
+Then you will be able to see all your form submits in Roadiz backoffice :
+
+.. image:: ./img/custom_form_entry.png
+    :align: left
+
+In Manage custom forms section / Answers
+
+.. figure:: ./img/custom_form_answers.png
+    :align: center
+
+.. note:: Any file attached to your custom-form answers will be uploaded as private documents.
+
+.. figure:: ./img/custom_form_response.png
+    :align: center
+
 Adding custom form to your theme
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -31,11 +141,11 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
 .. code-block:: php
    :linenos:
 
-    use RZ\Roadiz\Core\Entities\CustomForm;
-    use RZ\Roadiz\Core\Exceptions\EntityAlreadyExistsException;
-    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+    use RZ\Roadiz\CoreBundle\Entity\CustomForm;
+    use RZ\Roadiz\CoreBundle\Exception\EntityAlreadyExistsException;
+    use RZ\Roadiz\CoreBundle\Exception\ForceResponseException;
     use Symfony\Cmf\Component\Routing\RouteObjectInterface;
-    use RZ\Roadiz\Utils\CustomForm\CustomFormHelper;
+    use RZ\Roadiz\CoreBundle\CustomForm\CustomFormHelper;
     use Symfony\Component\Form\FormError;
     use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -43,9 +153,9 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
 
     /*
      * Get your custom form instance from your node-source
-     * only if you added a *custom-form reference field*.
+     * only if you added a *custom_form reference field*.
      */
-    $customForms = $this->nodeSource->getCustomformReference();
+    $customForms = $this->nodeSource->getCustomFormReference();
     if (isset($customForms[0]) && $customForms[0] instanceof CustomForm) {
         /** @var CustomForm $customForm */
         $customForm = $customForms[0];
@@ -60,12 +170,8 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
              * Roadiz custom form entity.
              * You can add a Google Recaptcha passing following options.
              */
-            $helper = new CustomFormHelper($this->get('em'), $customForm);
-            $form = $helper->getFormFromAnswer($this->get('formFactory'), null, true, [
-                'recaptcha_public_key' => $this->get('settingsBag')->get('recaptcha_public_key'),
-                'recaptcha_private_key' => $this->get('settingsBag')->get('recaptcha_private_key'),
-                'request' => $request,
-            ]);
+            $helper = $this->customFormHelperFactory->createHelper($customForm);
+            $form = $helper->getForm($request, false, true);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
@@ -99,7 +205,6 @@ if you used ``{{ nodeSource|render(@AwesomeTheme) }}`` Twig filter.
                 }
             }
 
-            $this->assignation['session']['messages'] = $this->get('session')->getFlashBag()->all();
             $this->assignation['form'] = $form->createView();
         }
     }
@@ -134,8 +239,33 @@ If you didn’t do it yet, create a custom form theme in your ``views/`` folder:
     {%- endblock form_row %}
 
     {% block recaptcha_widget -%}
-        <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
-    {%- endblock recaptcha_widget %}
+       <input id="my-form-recaptcha" type="hidden" name="{{ form.vars.name }}" />
+       <script src="https://www.google.com/recaptcha/api.js?render={{ configs.publicKey }}"></script>
+       <script>
+           /*
+            * Google Recaptcha v3
+            * @see https://developers.google.com/recaptcha/docs/v3
+            */
+           (function() {
+               if (!window.grecaptcha) {
+                   console.warn('Recaptcha is not loaded');
+               }
+               var form = document.getElementById('my-form');
+               form.addEventListener('submit', function (event) {
+                   event.preventDefault();
+                   window.grecaptcha.ready(function() {
+                       window.grecaptcha.execute('{{ configs.publicKey }}', {action: 'submit'}).then(function(token) {
+                           var input = document.getElementById('my-form-recaptcha');
+                           if (input) {
+                               input.value = token;
+                           }
+                           form.submit()
+                       });
+                   });
+               });
+           })();
+       </script>
+   {%- endblock recaptcha_widget %}
 
 In your main view, add your form and use your custom form theme:
 

@@ -118,7 +118,7 @@ msgid "Using Solr API"
 msgstr ""
 
 #: ../../src/developer/services/index.rst:49
-msgid "Solr is a really powerful tool to search over your node database with a clever plain-text search engine and the ability to highlight your criteria in the search results. Before going further, make sure that a Solr server is available and that it is well configured in your ``config.yml``. You can use the ``bin/roadiz solr:check`` command to verify and then ``bin/roadiz solr:reindex`` command to force synchronizing your node database with Solr index."
+msgid "Solr is a really powerful tool to search over your node database with a clever plain-text search engine and the ability to highlight your criteria in the search results. Before going further, make sure that a Solr server is available and that it is well configured in your ``config.yml``. You can use the ``bin/console solr:check`` command to verify and then ``bin/console solr:reindex`` command to force synchronizing your node database with Solr index."
 msgstr ""
 
 #: ../../src/developer/services/index.rst:56

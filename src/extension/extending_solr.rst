@@ -3,7 +3,6 @@
 Extending Solr indexation
 -------------------------
 
-
 How to index page blocks contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -16,81 +15,105 @@ it’s persisted into *Solr* engine (especially ``collection_txt`` field):
 .. code-block:: php
 
     <?php
+
     declare(strict_types=1);
 
-    namespace Themes\MyTheme\Event;
+    namespace App\EventSubscriber;
 
-    use GeneratedNodeSources\NSGroupBlock;
-    use GeneratedNodeSources\NSPage;
-    use Pimple\Container;
-    use RZ\Roadiz\Core\ContainerAwareInterface;
-    use RZ\Roadiz\Core\ContainerAwareTrait;
-    use RZ\Roadiz\Core\Entities\NodesSources;
-    use RZ\Roadiz\Core\Events\NodesSources\NodesSourcesIndexingEvent;
-    use RZ\Roadiz\Core\SearchEngine\SolariumFactoryInterface;
-    use RZ\Roadiz\Core\SearchEngine\SolariumNodeSource;
+    use RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker;
+    use RZ\Roadiz\CoreBundle\Entity\NodesSources;
+    use RZ\Roadiz\CoreBundle\Event\NodesSources\NodesSourcesIndexingEvent;
+    use RZ\Roadiz\CoreBundle\SearchEngine\SolariumFactoryInterface;
+    use RZ\TreeWalker\WalkerContextInterface;
+    use RZ\TreeWalker\WalkerInterface;
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-    final class PageIndexingEventSubscriber implements EventSubscriberInterface, ContainerAwareInterface
+    /**
+     * Index sub nodes content into any reachable node-source.
+     */
+    final class NodeSourceIndexingEventSubscriber implements EventSubscriberInterface
     {
-        use ContainerAwareTrait;
+        private WalkerContextInterface $walkerContext;
+        private SolariumFactoryInterface $solariumFactory;
+        private int $maxLevel;
 
-        public function __construct(Container $container)
-        {
-            $this->container = $container;
+        /**
+         * @param WalkerContextInterface $walkerContext
+         * @param SolariumFactoryInterface $solariumFactory
+         * @param int $maxLevel
+         */
+        public function __construct(
+            WalkerContextInterface $walkerContext,
+            SolariumFactoryInterface $solariumFactory,
+            int $maxLevel = 5
+        ) {
+            $this->walkerContext = $walkerContext;
+            $this->solariumFactory = $solariumFactory;
+            $this->maxLevel = $maxLevel;
         }
 
         /**
          * @inheritDoc
          */
-        public static function getSubscribedEvents()
+        public static function getSubscribedEvents(): array
         {
             return [
                 NodesSourcesIndexingEvent::class => ['onIndexing'],
             ];
         }
 
-        public function onIndexing(NodesSourcesIndexingEvent $event)
+        public function onIndexing(NodesSourcesIndexingEvent $event): void
         {
             $nodeSource = $event->getNodeSource();
-            if ($nodeSource instanceof NSPage || $nodeSource instanceof NSGroupBlock) {
+
+            if (null !== $nodeSource->getNode() && $nodeSource->isReachable() && !$event->isSubResource()) {
                 $assoc = $event->getAssociations();
 
-                /*
-                 * Fetch every non-reachable blocks
-                 * to gather their text content in master page document
-                 */
-                $children = $this->container['nodeSourceApi']->getBy([
-                    'node.nodeType.reachable' => false,
-                    'node.visible' => true,
-                    'translation' => $nodeSource->getTranslation(),
-                    'node.parent' => $nodeSource->getNode(),
-                ]);
+                $blockWalker = AutoChildrenNodeSourceWalker::build(
+                    $nodeSource,
+                    $this->walkerContext,
+                    $this->maxLevel
+                );
 
-                /** @var NodesSources $child */
-                foreach ($children as $child) {
-                    /** @var SolariumNodeSource $solarium */
-                    $solarium = $this->container[SolariumFactoryInterface::class]->createWithNodesSources($child);
-                    // Fetch all fields array association AS sub-resources (i.e. do not index their title)
-                    $childAssoc = $solarium->getFieldsAssoc(true);
-                    $assoc['collection_txt'] = array_merge(
-                        $assoc['collection_txt'],
-                        $childAssoc['collection_txt']
-                    );
+                // Need a locale field
+                $locale = $nodeSource->getTranslation()->getLocale();
+                $lang = \Locale::getPrimaryLanguage($locale) ?? 'fr';
+
+                foreach ($blockWalker->getChildren() as $subWalker) {
+                    $this->walkAndIndex($subWalker, $assoc, $lang);
                 }
 
                 $event->setAssociations($assoc);
             }
         }
+
+        /**
+         * @param WalkerInterface $walker
+         * @param array $assoc
+         * @param string $locale
+         * @throws \Exception
+         */
+        protected function walkAndIndex(WalkerInterface $walker, array &$assoc, string $locale): void
+        {
+            $item = $walker->getItem();
+            if ($item instanceof NodesSources) {
+                $solarium = $this->solariumFactory->createWithNodesSources($walker->getItem());
+                // Fetch all fields array association AS sub-resources (i.e. do not index their title)
+                $childAssoc = $solarium->getFieldsAssoc(true);
+                $assoc['collection_txt'] = array_filter(array_merge(
+                    $assoc['collection_txt'],
+                    $childAssoc['collection_txt']
+                ));
+                if (!empty($childAssoc['collection_txt_' . $locale])) {
+                    $assoc['collection_txt_' . $locale] .= PHP_EOL . $childAssoc['collection_txt_' . $locale];
+                }
+            }
+            if ($walker->count() > 0) {
+                foreach ($walker->getChildren() as $subWalker) {
+                    $this->walkAndIndex($subWalker, $assoc, $locale);
+                }
+            }
+        }
     }
 
 
-Then register this subscriber to your event-dispatcher:
-
-.. code-block:: php
-
-    # In your theme ServiceProvider…
-    $container->extend('dispatcher', function (EventDispatcherInterface $dispatcher, Container $c) {
-        $dispatcher->addSubscriber(new PageIndexingEventSubscriber($c));
-        return $dispatcher;
-    });

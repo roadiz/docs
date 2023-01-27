@@ -187,9 +187,10 @@ msgstr "Si votre système n'est pas configuré pour avoir *php* situé dans ``/u
 
 #: ../../src/developer/first-steps/manual_config.rst:290
 msgid "Default command with no arguments will show you the available commands list. Each command has its own parameters. You can use the argument ``--help`` to get more information about each tool:"
-msgstr ""
+msgstr "La commande par défaut sans argument vous montrera la liste des commandes disponibles. Chaque commande a ses propres paramètres. Vous pouvez utiliser l'argument ``--help`` pour obtenir plus d'informations sur chaque outil :"
 
 #: ../../src/developer/first-steps/manual_config.rst:298
 msgid "We even made *Doctrine* CLI tools directly available from Roadiz Console. Be careful, these are powerful commands which can alter your database and make you lose precious data. Especially when you will need to update your database schema after a Theme or a Core update. **Always make a database back-up before any Doctrine operation**."
 msgstr "Nous avons même rendu les outils CLI *Doctrine* directement disponibles à partir de Roadiz Console. Attention, ce sont des commandes puissantes qui peuvent modifier votre base de données et vous faire perdre des données précieuses. Surtout lorsque vous aurez besoin de mettre à jour votre schéma de base de données auprès d'un thème ou suite à une mise à jour du noyau. **Faites toujours une sauvegarde de la base de données avant toute opération Doctrine**."
+
 

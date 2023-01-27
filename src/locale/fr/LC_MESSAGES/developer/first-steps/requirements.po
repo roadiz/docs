@@ -80,4 +80,3 @@ msgstr ""
 #: ../../src/developer/first-steps/requirements.rst:29
 msgid "Git"
 msgstr ""
-

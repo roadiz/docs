@@ -23,7 +23,7 @@ Here is an example to create your contact form in your controller action.
     use Symfony\Component\Form\Extension\Core\Type\FileType;
     use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-    …
+    // …
     // Create contact-form manager and add 3 default fields.
     $contactFormManager = $this->createContactFormManager()
                                ->withDefaultFields();
@@ -61,11 +61,8 @@ Here is an example to create your contact form in your controller action.
 
     $form = $contactFormManager->getForm();
 
-    // Assignate your form view to display it in Twig.
-    $this->assignation['contactForm'] = $form->createView();
-
 In this example, we used ``withDefaultFields`` method which add automatically ``email``, ``name`` and ``message``
-fields with right validation contraints. This method is optional and you can add any field you want manually, just
+fields with right validation constraints. This method is optional and you can add any field you want manually, just
 keep in mind that you should always ask for an ``email``.
 
 Then in your contact page Twig template:
@@ -97,17 +94,17 @@ to make your redirection response **bubble** through *Twig* render. The only way
 Twig is to **throw an exception** and to pass your Redirect or Json response within your
 Exception.
 
-Roadiz makes this possible with ``RZ\Roadiz\Core\Exceptions\ForceResponseException``.
-For example, in a ``Themes\MyAwesomeTheme\Controllers\Blocks\ContactBlockController``, instead of
+Roadiz makes this possible with ``RZ\Roadiz\CoreBundle\Exception\ForceResponseException``.
+For example, in a ``App/Controllers/ContactBlockController``, instead of
 returning the ``contactFormManager`` response, you will have to throw a ``ForceResponseException``
 with it as an argument.
 
 .. code-block:: php
    :linenos:
 
-    // ./themes/MyAwesomeTheme/Controllers/Blocks/ContactBlockController.php
+    // ./src/Controllers/ContactBlockController.php
 
-    use RZ\Roadiz\Core\Exceptions\ForceResponseException;
+    use RZ\Roadiz\CoreBundle\Exception\ForceResponseException;
 
     …
     // Create contact-form manager and add 3 default fields.
@@ -122,11 +119,6 @@ with it as an argument.
     }
 
     $form = $contactFormManager->getForm();
-
-    // Assign your form view to display it in Twig.
-    $this->assignation['contactForm'] = $form->createView();
-
-    return $this->render('blocks/contactformblock.html.twig', $this->assignation);
 
 Then, in your *master* controller (i.e. ``PageController``), ``render`` method will automatically
 catch your *ForceResponseException* exception in order to extract the forced response object. Then
@@ -172,21 +164,34 @@ Then, just use ``withGoogleRecaptcha()`` method on your contact-form manager.
 
 Do not forget to add recaptcha form-template and to embed google’s javascript.
 
-.. code-block:: html
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-
 .. code-block:: html+jinja
 
     {# In your theme’ forms.html.twig file #}
     {% block recaptcha_widget -%}
-        <div class="g-recaptcha" data-sitekey="{{ configs.publicKey }}"></div>
-    {%- endblock recaptcha_widget %}
-
-Sending contact form and accept application/json
-------------------------------------------------
-
-If you want to send your contact form using `window.fetch` and `window.FormData`, Roadiz
-will still generate an html-based `Response` or `RedirectResponse`. You need to add `Accept: application/json`
-header to your request so that Roadiz will respond as JSON. Roadiz `JsonResponse` will contain *success* message or
-*error* messages for each wrong fields.
+       <input id="my-form-recaptcha" type="hidden" name="{{ form.vars.name }}" />
+       <script src="https://www.google.com/recaptcha/api.js?render={{ configs.publicKey }}"></script>
+       <script>
+           /*
+            * Google Recaptcha v3
+            * @see https://developers.google.com/recaptcha/docs/v3
+            */
+           (function() {
+               if (!window.grecaptcha) {
+                   console.warn('Recaptcha is not loaded');
+               }
+               var form = document.getElementById('my-form');
+               form.addEventListener('submit', function (event) {
+                   event.preventDefault();
+                   window.grecaptcha.ready(function() {
+                       window.grecaptcha.execute('{{ configs.publicKey }}', {action: 'submit'}).then(function(token) {
+                           var input = document.getElementById('my-form-recaptcha');
+                           if (input) {
+                               input.value = token;
+                           }
+                           form.submit()
+                       });
+                   });
+               });
+           })();
+       </script>
+   {%- endblock recaptcha_widget %}
