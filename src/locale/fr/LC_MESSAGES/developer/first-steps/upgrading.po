@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:23\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -26,34 +26,34 @@ msgid "**Always do a database backup before upgrading.** You can use the *mysqld
 msgstr ""
 
 #: ../../src/developer/first-steps/upgrading.rst:11
-msgid "With Roadiz command (MySQL only): ``bin/console database:dump -c`` will generate a SQL file in ``app/`` folder"
-msgstr ""
-
-#: ../../src/developer/first-steps/upgrading.rst:12
 msgid "With a MySQL server: ``mysqldump -u[user] -p[user_password] [database_name] > dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:13
+#: ../../src/developer/first-steps/upgrading.rst:12
 msgid "With a PostgreSQL server: ``pg_dump -U [user] [database_name] -f dumpfilename.sql``"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:16
-msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard edition*, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
+#: ../../src/developer/first-steps/upgrading.rst:15
+msgid "Use *Composer* to update dependencies or Roadiz itself with *Standard* or *Headless* editions, make sure that your Roadiz *version constraint* is set in your project ``composer.json`` file, then:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:24
+#: ../../src/developer/first-steps/upgrading.rst:22
+msgid "Run database registered migrations (some migrations will be skipped according to your database type). Doctrine migrations are the default method to upgrade all none-node-type related entities:"
+msgstr ""
+
+#: ../../src/developer/first-steps/upgrading.rst:29
 msgid "In order to avoid losing sensible node-sources data. You should regenerate your node-source entities classes files:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:31
-msgid "Then run database schema update, first review migration details to see if no data will be removed:"
+#: ../../src/developer/first-steps/upgrading.rst:36
+msgid "Then check if there is no pending SQL changes due to your Roadiz node-types:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:38
-msgid "Then, if migration summary is OK (no data loss), perform the following changes:"
+#: ../../src/developer/first-steps/upgrading.rst:44
+msgid "Then, clear your app caches:"
 msgstr ""
 
-#: ../../src/developer/first-steps/upgrading.rst:52
-msgid "If you are using an OPcode cache like XCache or APC, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
+#: ../../src/developer/first-steps/upgrading.rst:53
+msgid "If you are using a runtime cache like OPcache or APCu, you’ll need to purge cache manually because it can't be done from a CLI interface as they are shared cache engines. As a last chance try, you can restart your ``php-fpm`` service."
 msgstr ""
 

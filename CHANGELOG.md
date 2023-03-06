@@ -1,3 +1,16 @@
+## [v2.1.0](https://github.com/roadiz/docs/compare/v2.0.2...v2.1.0) (2023-03-06)
+
+
+### Features
+
+* Added geoJson fields doc ([a85e701](https://github.com/roadiz/docs/commit/a85e701cc0a3c6c8ee4801ffd41fde545074365d))
+* Added new `document_private` serialization group ([265af45](https://github.com/roadiz/docs/commit/265af45c9f6ff37f728de51cc7ba8a8b9a6b3c14))
+
+
+### Bug Fixes
+
+* Missed document_thumbnails serialization group ([831be93](https://github.com/roadiz/docs/commit/831be93f885f7868e26865b086e2666e3e075c0e))
+
 ## [v2.0.2](https://github.com/roadiz/docs/compare/v2.0.1...v2.0.2) (2022-10-18)
 
 ### Features

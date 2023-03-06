@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: roadiz-cms-documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 22:16+0200\n"
-"PO-Revision-Date: 2020-09-23 20:48\n"
+"POT-Creation-Date: 2022-08-05 11:31+0200\n"
+"PO-Revision-Date: 2022-08-05 10:32\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,4 @@ msgstr ""
 #: ../../src/developer/index.rst:3
 msgid "Developer documentation"
 msgstr "Développeur - Documentation"
-
-#: ../../src/developer/index.rst:5
-msgid "Developer documentation deals with Roadiz’ inside and how to create your own themes. It requires a minimum of *Twig* templating knowledge and oriented-object *PHP* skills."
-msgstr ""
 
