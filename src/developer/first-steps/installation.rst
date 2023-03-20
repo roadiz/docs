@@ -26,7 +26,12 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
     and `docker-compose <https://docs.docker.com/compose/>`_. We recommend you to learn these awesome tools if you're not
     using them yet.
+    You still can use Roadiz without Docker, but you will have to install and configure a *PHP* environment, *MySQL* database, and a web server. If you are not using *docker* or *docker-compose*, just ignore ``docker-compose exec -u www-data app`` prefix in the following commands.
 
+.. note::
+
+    Keep in mind that Roadiz v2 is a complete rewrite to become a true *Symfony* Bundle, it is true a *Symfony* app and behaves like that.
+    Roadiz v2 is meant to be used as a headless CMS with *API Platform*. But you still can use *Controllers* and *Twig* templates, but there is no more theme logic, just Symfony Bundles and your own code (in ``./src`` folder).
 
 *Composer* will prompt you if you want to can versioning history. Choose the default answer ``no`` as we definitely
 want to replace *roadiz/skeleton* *Git* with our own versioning. Then you will be able to customize every files
@@ -39,11 +44,13 @@ Generate JWT private and public keys
 
 .. code-block:: bash
 
-    # Generate a strong secret
-    openssl rand --base64 16;
-    # Fill JWT_PASSPHRASE env var.
-    openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096;
-    openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout;
+    # Generate Symfony secrets
+    docker-compose exec -u www-data app bin/console secrets:generate-keys;
+    # Set a random passphrase for Application secret and JWT keys
+    docker-compose exec -u www-data app bin/console secrets:set APP_SECRET --random;
+    docker-compose exec -u www-data app bin/console secrets:set JWT_PASSPHRASE --random;
+    # Use built-in command to generate your key pair
+    docker-compose exec -u www-data app bin/console lexik:jwt:generate-keypair;
 
 
 Install database
