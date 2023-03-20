@@ -1,3 +1,10 @@
+## [v2.1.1](https://github.com/roadiz/docs/compare/v2.1.0...v2.1.1) (2023-03-20)
+
+
+### Features
+
+* Improve Roadiz requirements and install sections ([5c1d032](https://github.com/roadiz/docs/commit/5c1d032de5a485e9838b515c17857ea5176f3634))
+
 ## [v2.1.0](https://github.com/roadiz/docs/compare/v2.0.2...v2.1.0) (2023-03-06)
 
 
