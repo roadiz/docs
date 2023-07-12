@@ -36,7 +36,11 @@ Here is an example of API resource for a ``Page`` node-type, you'll find default
                         - document_display
 
             getByPath:
-                method: GET
+                method: 'GET'
+                path: '/web_response_by_path'
+                read: false
+                controller: RZ\Roadiz\CoreBundle\Api\Controller\GetWebResponseByPathController
+                pagination_enabled: false
                 normalization_context:
                     groups:
                         - web_response

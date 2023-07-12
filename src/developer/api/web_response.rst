@@ -147,7 +147,7 @@ Then create you own custom resource to hold your menus tree-walkers and common c
     use App\TreeWalker\MenuNodeSourceWalker;
     use Doctrine\Persistence\ManagerRegistry;
     use Psr\Cache\CacheItemPoolInterface;
-    use RZ\Roadiz\CoreBundle\Api\Model\NodesSourcesHeadFactory;
+    use RZ\Roadiz\CoreBundle\Api\Model\NodesSourcesHeadFactoryInterface;
     use RZ\Roadiz\Core\AbstractEntities\TranslationInterface;
     use RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker;
     use RZ\Roadiz\CoreBundle\Bag\Settings;
@@ -169,7 +169,7 @@ Then create you own custom resource to hold your menus tree-walkers and common c
         private Settings $settingsBag;
         private NodeSourceApi $nodeSourceApi;
         private CacheItemPoolInterface $cacheItemPool;
-        private NodesSourcesHeadFactory $nodesSourcesHeadFactory;
+        private NodesSourcesHeadFactoryInterface $nodesSourcesHeadFactory;
         private PreviewResolverInterface $previewResolver;
 
         public function __construct(
@@ -178,7 +178,7 @@ Then create you own custom resource to hold your menus tree-walkers and common c
             WalkerContextInterface $walkerContext,
             Settings $settingsBag,
             NodeSourceApi $nodeSourceApi,
-            NodesSourcesHeadFactory $nodesSourcesHeadFactory,
+            NodesSourcesHeadFactoryInterface $nodesSourcesHeadFactory,
             CacheItemPoolInterface $cacheItemPool,
             PreviewResolverInterface $previewResolver
         ) {
