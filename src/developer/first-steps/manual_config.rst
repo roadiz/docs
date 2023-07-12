@@ -189,6 +189,12 @@ Roadiz uses *Doctrine* to map object entities to database tables.
                     dir: '%kernel.project_dir%/src/GeneratedEntity'
                     prefix: 'App\GeneratedEntity'
                     alias: App\GeneratedEntity
+                gedmo_loggable:
+                    type: attribute
+                    prefix: Gedmo\Loggable\Entity\MappedSuperclass
+                    dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity/MappedSuperclass"
+                    alias: GedmoLoggableMappedSuperclass
+                    is_bundle: false
 
 Use ``type: attribute`` or ``type: annotation`` according to your Doctrine mapping type.
 
