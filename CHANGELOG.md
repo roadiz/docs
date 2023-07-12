@@ -1,3 +1,17 @@
+## [v2.1.2](https://github.com/roadiz/docs/compare/v2.1.1...v2.1.2) (2023-07-12)
+
+
+### Features
+
+* Added flyssytem configuration example ([67547b7](https://github.com/roadiz/docs/commit/67547b71790690c92f1824efb5c48c157a7d99ef))
+
+
+### Bug Fixes
+
+* Missing `gedmo_loggable` doctrine mapping ([6c8a519](https://github.com/roadiz/docs/commit/6c8a519e0deb1c3536ff7c3e31ca8301c506c14c))
+* Use dotEnv variables for Recaptcha secret and site keys ([941d1fd](https://github.com/roadiz/docs/commit/941d1fd100b62356c517e5bab6a9d51fe5d06abb))
+* WebResponse configuration and `NodesSourcesHeadFactoryInterface` ([ecbcf69](https://github.com/roadiz/docs/commit/ecbcf699a98de998f1d9bdd34a584adf44abdab9))
+
 ## [v2.1.1](https://github.com/roadiz/docs/compare/v2.1.0...v2.1.1) (2023-03-20)
 
 
