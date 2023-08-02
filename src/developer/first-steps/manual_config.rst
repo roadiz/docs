@@ -278,6 +278,15 @@ do not forget to empty your caches **and** image caches to see changes.
     Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead
     time on the first time you request an image.
 
+Enable Two-factor authentication
+--------------------------------
+
+Roadiz can use *Two-factor authentication* to secure your back-office access. You need to install
+``composer require roadiz/two-factor-bundle`` and configure it in your ``config/packages/scheb_2fa.yaml`` and
+``config/packages/security.yaml`` files.
+
+See `Two-factor authentication bundle documentation <https://github.com/roadiz/two-factor-bundle/tree/develop#configuration>`_.
+
 Console commands
 ----------------
 
