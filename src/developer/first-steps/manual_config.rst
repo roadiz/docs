@@ -114,6 +114,17 @@ to each configured proxy **when user clears back-office caches**, and it will cr
     Make sure you `configured your external reverse proxy <https://github.com/roadiz/roadiz/blob/develop/samples/varnish_default.vcl>`_
     in order to receive and handle ``BAN`` and ``PURGE`` HTTP requests.
 
+With API Platform you also need to configure ``http_cache`` invalidation section:
+
+.. code-block:: yaml
+
+    # config/packages/api_platform.yaml
+    api_platform:
+        http_cache:
+            invalidation:
+                enabled: true
+                varnish_urls: ['%env(VARNISH_URL)%']
+
 
 Cloudflare proxy cache
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -286,6 +297,66 @@ Roadiz can use *Two-factor authentication* to secure your back-office access. Yo
 ``config/packages/security.yaml`` files.
 
 See `Two-factor authentication bundle documentation <https://github.com/roadiz/two-factor-bundle/tree/develop#configuration>`_.
+
+OpenID SSO authentication
+-------------------------
+
+Roadiz can use *OpenID* authentication to allow your users to log in with their Google account.
+
+It supports  2 modes:
+
+-  **Requires local user**: Users must have a local account to be able to log in with OpenID.
+    This is the default mode.
+-  **No local user required**: Users can log in with OpenID without having a local account. A virtual
+    account will be created for them with their email address as username and roles listed in ``granted_roles``.
+    With this mode, you cannot use Preview mode as it requires a local user.
+
+For both modes, you can restrict users to a specific domain with ``hosted_domain`` parameter.
+
+.. code-block:: yaml
+
+    # config/packages/roadiz_rozier.yaml
+    roadiz_rozier:
+        open_id:
+            # Verify User info in JWT at each login
+            verify_user_info: false
+            # Standard OpenID autodiscovery URL, required to enable OpenId login in Roadiz CMS.
+            discovery_url: '%env(string:OPEN_ID_DISCOVERY_URL)%'
+            # For public identity providers (such as Google), restrict users emails by their domain.
+            hosted_domain: '%env(string:OPEN_ID_HOSTED_DOMAIN)%'
+            # OpenID identity provider OAuth2 client ID
+            oauth_client_id: '%env(string:OPEN_ID_CLIENT_ID)%'
+            # OpenID identity provider OAuth2 client secret
+            oauth_client_secret: '%env(string:OPEN_ID_CLIENT_SECRET)%'
+            requires_local_user: false
+            granted_roles:
+                - ROLE_USER
+                - ROLE_BACKEND_USER
+                - ROLE_ACCESS_VERSIONS
+                - ROLE_ACCESS_DOCTRINE_CACHE_DELETE
+                - ROLE_ACCESS_DOCUMENTS
+                - ROLE_ACCESS_DOCUMENTS_LIMITATIONS
+                - ROLE_ACCESS_DOCUMENTS_DELETE
+                - ROLE_ACCESS_DOCUMENTS_CREATION_DATE
+                - ROLE_ACCESS_NODES
+                - ROLE_ACCESS_NODES_DELETE
+                - ROLE_ACCESS_NODES_SETTING
+                - ROLE_ACCESS_NODES_STATUS
+                - ROLE_ACCESS_REDIRECTIONS
+                - ROLE_ACCESS_TAGS
+                - ROLE_ACCESS_TAGS_DELETE
+                - ROLE_ACCESS_CUSTOMFORMS
+                - ROLE_ACCESS_CUSTOMFORMS_DELETE
+                - ROLE_ACCESS_CUSTOMFORMS_RETENTION
+                - ROLE_ACCESS_ATTRIBUTES
+                - ROLE_ACCESS_ATTRIBUTES_DELETE
+                - ROLE_ACCESS_NODE_ATTRIBUTES
+                - ROLE_ACCESS_SETTINGS
+                - ROLE_ACCESS_LOGS
+                - ROLE_ACCESS_USERS
+                - ROLE_ACCESS_USERS_DELETE
+                - ROLE_ACCESS_GROUPS
+                - ROLE_ACCESS_TRANSLATIONS
 
 Console commands
 ----------------
