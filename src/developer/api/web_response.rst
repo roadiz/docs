@@ -93,6 +93,159 @@ API will expose a WebResponse single item containing:
     }
 
 
+Override WebResponse block walker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Imagine you have a block (*ArticleFeedBlock*) which should list latest news (*Article*). You can use TreeWalker mechanism to fetch latest news and
+expose them as children of your block. This would require to create a custom TreeWalker definition:
+
+..  code-block:: php
+
+    <?php
+
+    # src/TreeWalker/Definition/ArticleFeedBlockDefinition.php
+    declare(strict_types=1);
+
+    namespace App\TreeWalker\Definition;
+
+    use App\GeneratedEntity\NSArticle;
+    use App\GeneratedEntity\NSArticleFeedBlock;
+    use Doctrine\ORM\Tools\Pagination\Paginator;
+    use RZ\Roadiz\CoreBundle\Api\TreeWalker\NodeSourceWalkerContext;
+    use RZ\Roadiz\CoreBundle\Entity\NodesSources;
+    use RZ\TreeWalker\Definition\ContextualDefinitionTrait;
+    use RZ\TreeWalker\Definition\StoppableDefinition;
+    use RZ\TreeWalker\WalkerInterface;
+
+    final class ArticleFeedBlockDefinition implements StoppableDefinition
+    {
+        use ContextualDefinitionTrait;
+
+        public function isStoppingCollectionOnceInvoked(): bool
+        {
+            return true;
+        }
+
+        /**
+         * @param NodesSources $source
+         * @param WalkerInterface $walker
+         * @return array
+         * @throws \Exception
+         */
+        public function __invoke(NodesSources $source, WalkerInterface $walker): array
+        {
+            if ($this->context instanceof NodeSourceWalkerContext) {
+                $this->context->getStopwatch()->start(self::class);
+                if (!$source instanceof NSArticleFeedBlock) {
+                    throw new \InvalidArgumentException('Source must be instance of ' . NSArticleFeedBlock::class);
+                }
+
+                $criteria = [
+                    'node.visible' => true,
+                    'publishedAt' => ['<=', new \DateTime()],
+                    'translation' => $source->getTranslation(),
+                    'node.nodeType' => $this->context->getNodeTypesBag()->get('Article')
+                ];
+
+                // Prevent Article feed to list root Article again
+                $root = $walker->getRoot()->getItem();
+                if ($root instanceof NSArticle) {
+                    $criteria['id'] = ['!=', $root->getId()];
+                }
+
+                if (null !== $source->getNode() && \count($source->getNode()->getTags()) > 0) {
+                    $criteria['tags'] = $source->getNode()->getTags();
+                    $criteria['tagExclusive'] = true;
+                }
+
+                $count = (int) ($source->getListingCount() ?? 4);
+
+                $children = $this->context->getNodeSourceApi()->getBy($criteria, [
+                    'publishedAt' => 'DESC'
+                ], $count);
+
+
+                if ($children instanceof Paginator) {
+                    $iterator = $children->getIterator();
+                    if ($iterator instanceof \ArrayIterator) {
+                        $children = $iterator->getArrayCopy();
+                    } else {
+                        throw new \RuntimeException('Unexpected iterator type');
+                    }
+                }
+
+                $this->context->getStopwatch()->stop(self::class);
+
+                return $children;
+            }
+            throw new \InvalidArgumentException('Context should be instance of ' . NodeSourceWalkerContext::class);
+        }
+    }
+
+And register it in a new ``AutoChildrenWalker`` class which extends default ``RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker``:
+
+..  code-block:: php
+
+    <?php
+
+    # src/TreeWalker/AppAutoChildrenWalker.php
+    declare(strict_types=1);
+
+    namespace App\TreeWalker;
+
+    use App\GeneratedEntity\NSArticleFeedBlock;
+    use App\TreeWalker\Definition\ArticleFeedBlockDefinition;
+    use RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker;
+
+    final class AppAutoChildrenWalker extends AutoChildrenNodeSourceWalker
+    {
+        protected function initializeAdditionalDefinitions(): void
+        {
+            parent::initializeAdditionalDefinitions();
+
+            $this->addDefinition(
+                NSArticleFeedBlock::class,
+                new ArticleFeedBlockDefinition($this->getContext())
+            );
+        }
+    }
+
+
+Then you'll need to register your custom ``AppAutoChildrenWalker`` for your ``/api/web_response_by_path`` endpoint:
+
+You can override WebResponse block walker class by creating a custom ``App\Api\DataTransformer\WebResponseDataTransformer`` class
+which extends ``RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer``.
+
+..  code-block:: php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace App\Api\DataTransformer;
+
+    use App\TreeWalker\AppAutoChildrenWalker;
+    use RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer;
+
+    final class WebResponseDataTransformer extends WebResponseOutputDataTransformer
+    {
+        protected function getChildrenNodeSourceWalkerClassname(): string
+        {
+            return AppAutoChildrenWalker::class;
+        }
+    }
+
+Then register your custom class in your ``config/services.yaml`` file to override default WebResponse data transformer:
+
+..  code-block:: yaml
+
+    # config/services.yaml
+    services:
+        RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer:
+        class: App\Api\DataTransformer\WebResponseDataTransformer
+
+
+
 Retrieve common content
 -----------------------
 
