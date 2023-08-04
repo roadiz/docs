@@ -96,14 +96,13 @@ API will expose a WebResponse single item containing:
 Override WebResponse block walker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Imagine you have a block (*ArticleFeedBlock*) which should list latest news (*Article*). You can use TreeWalker mechanism to fetch latest news and
-expose them as children of your block. This would require to create a custom TreeWalker definition:
+Imagine you have a block (*ArticleFeedBlock*) which should list latest news (*Article*). You can use tree-walker mechanism to fetch latest news and
+expose them as if they were children of your article feed block. This requires to create a custom definition:
 
 ..  code-block:: php
 
     <?php
 
-    # src/TreeWalker/Definition/ArticleFeedBlockDefinition.php
     declare(strict_types=1);
 
     namespace App\TreeWalker\Definition;
@@ -182,69 +181,38 @@ expose them as children of your block. This would require to create a custom Tre
         }
     }
 
-And register it in a new ``AutoChildrenWalker`` class which extends default ``RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker``:
+Then create a definition factory which will be injected using Symfony autoconfigure tag ``roadiz_core.tree_walker_definition_factory``.
+
+``roadiz_core.tree_walker_definition_factory`` tag must include a ``classname`` attribute which will be used to match your definition factory with the right node source class.
 
 ..  code-block:: php
 
     <?php
 
-    # src/TreeWalker/AppAutoChildrenWalker.php
     declare(strict_types=1);
 
-    namespace App\TreeWalker;
+    namespace App\TreeWalker\Definition;
 
     use App\GeneratedEntity\NSArticleFeedBlock;
-    use App\TreeWalker\Definition\ArticleFeedBlockDefinition;
-    use RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker;
+    use RZ\Roadiz\CoreBundle\Api\TreeWalker\Definition\DefinitionFactoryInterface;
+    use RZ\TreeWalker\WalkerContextInterface;
+    use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
-    final class AppAutoChildrenWalker extends AutoChildrenNodeSourceWalker
+    #[AutoconfigureTag(
+        name:'roadiz_core.tree_walker_definition_factory',
+        attributes: ['classname' => NSArticleFeedBlock::class]
+    )]
+    final class ArticleFeedBlockDefinitionFactory implements DefinitionFactoryInterface
     {
-        protected function initializeAdditionalDefinitions(): void
+        public function create(WalkerContextInterface $context, bool $onlyVisible = true): callable
         {
-            parent::initializeAdditionalDefinitions();
-
-            $this->addDefinition(
-                NSArticleFeedBlock::class,
-                new ArticleFeedBlockDefinition($this->getContext())
-            );
+            return new ArticleFeedBlockDefinition($context);
         }
     }
 
+This way, all tree-walkers will be able to use your custom definition anytime a ``NSArticleFeedBlock`` is encountered.
 
-Then you'll need to register your custom ``AppAutoChildrenWalker`` for your ``/api/web_response_by_path`` endpoint:
-
-You can override WebResponse block walker class by creating a custom ``App\Api\DataTransformer\WebResponseDataTransformer`` class
-which extends ``RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer``.
-
-..  code-block:: php
-
-    <?php
-
-    declare(strict_types=1);
-
-    namespace App\Api\DataTransformer;
-
-    use App\TreeWalker\AppAutoChildrenWalker;
-    use RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer;
-
-    final class WebResponseDataTransformer extends WebResponseOutputDataTransformer
-    {
-        protected function getChildrenNodeSourceWalkerClassname(): string
-        {
-            return AppAutoChildrenWalker::class;
-        }
-    }
-
-Then register your custom class in your ``config/services.yaml`` file to override default WebResponse data transformer:
-
-..  code-block:: yaml
-
-    # config/services.yaml
-    services:
-        RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseOutputDataTransformer:
-        class: App\Api\DataTransformer\WebResponseDataTransformer
-
-
+You can debug all registered definition factories using ``bin/console debug:container --tag=roadiz_core.tree_walker_definition_factory`` command.
 
 Retrieve common content
 -----------------------
