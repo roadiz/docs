@@ -254,7 +254,10 @@ frontend application.
                         - translation_base
                         - document_display
 
-Then create you own custom resource to hold your menus tree-walkers and common content:
+Then create you own custom resource to hold your menus tree-walkers and common content. Tree-walkers will be created using
+``RZ\Roadiz\CoreBundle\Api\TreeWalker\TreeWalkerGenerator`` service.
+TreeWalkerGenerator will create a ``App\TreeWalker\MenuNodeSourceWalker`` instance for each node source of type ``Menu`` located
+on your website root.
 
 ..  code-block:: php
 
@@ -264,18 +267,14 @@ Then create you own custom resource to hold your menus tree-walkers and common c
 
     namespace App\Controller;
 
-    use App\Model\CommonContent;
+    use App\Api\Model\CommonContent;
     use App\TreeWalker\MenuNodeSourceWalker;
     use Doctrine\Persistence\ManagerRegistry;
-    use Psr\Cache\CacheItemPoolInterface;
-    use RZ\Roadiz\CoreBundle\Api\Model\NodesSourcesHeadFactoryInterface;
     use RZ\Roadiz\Core\AbstractEntities\TranslationInterface;
-    use RZ\Roadiz\CoreBundle\Api\TreeWalker\AutoChildrenNodeSourceWalker;
-    use RZ\Roadiz\CoreBundle\Bag\Settings;
-    use RZ\Roadiz\CoreBundle\EntityApi\NodeSourceApi;
+    use RZ\Roadiz\CoreBundle\Api\Model\NodesSourcesHeadFactoryInterface;
+    use RZ\Roadiz\CoreBundle\Api\TreeWalker\TreeWalkerGenerator;
     use RZ\Roadiz\CoreBundle\Preview\PreviewResolverInterface;
     use RZ\Roadiz\CoreBundle\Repository\TranslationRepository;
-    use RZ\TreeWalker\WalkerContextInterface;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\RequestStack;
@@ -286,31 +285,22 @@ Then create you own custom resource to hold your menus tree-walkers and common c
     {
         private RequestStack $requestStack;
         private ManagerRegistry $managerRegistry;
-        private WalkerContextInterface $walkerContext;
-        private Settings $settingsBag;
-        private NodeSourceApi $nodeSourceApi;
-        private CacheItemPoolInterface $cacheItemPool;
         private NodesSourcesHeadFactoryInterface $nodesSourcesHeadFactory;
         private PreviewResolverInterface $previewResolver;
+        private TreeWalkerGenerator $treeWalkerGenerator;
 
         public function __construct(
             RequestStack $requestStack,
             ManagerRegistry $managerRegistry,
-            WalkerContextInterface $walkerContext,
-            Settings $settingsBag,
-            NodeSourceApi $nodeSourceApi,
             NodesSourcesHeadFactoryInterface $nodesSourcesHeadFactory,
-            CacheItemPoolInterface $cacheItemPool,
-            PreviewResolverInterface $previewResolver
+            PreviewResolverInterface $previewResolver,
+            TreeWalkerGenerator $treeWalkerGenerator
         ) {
             $this->requestStack = $requestStack;
-            $this->walkerContext = $walkerContext;
-            $this->cacheItemPool = $cacheItemPool;
-            $this->nodeSourceApi = $nodeSourceApi;
             $this->managerRegistry = $managerRegistry;
             $this->nodesSourcesHeadFactory = $nodesSourcesHeadFactory;
-            $this->settingsBag = $settingsBag;
             $this->previewResolver = $previewResolver;
+            $this->treeWalkerGenerator = $treeWalkerGenerator;
         }
 
         public function __invoke(): ?CommonContent
@@ -318,64 +308,18 @@ Then create you own custom resource to hold your menus tree-walkers and common c
             try {
                 $request = $this->requestStack->getMainRequest();
                 $translation = $this->getTranslationFromRequest($request);
-                $home = $this->nodeSourceApi->getOneBy([
-                    'node.home' => true,
-                    'translation' => $translation
-                ]);
-                $mainMenu = $this->nodeSourceApi->getOneBy([
-                    'node.nodeName' => 'main-menu',
-                    'translation' => $translation
-                ]);
-                $footerMenu = $this->nodeSourceApi->getOneBy([
-                    'node.nodeName' => 'footer-menu',
-                    'translation' => $translation
-                ]);
-                $errorPage = $this->nodeSourceApi->getOneBy([
-                    'node.nodeName' => 'error-page',
-                    'translation' => $translation
-                ]);
 
                 $resource = new CommonContent();
 
-                if (null !== $home) {
-                    $resource->home = $home;
-                }
-                if (null !== $mainMenu) {
-                    $resource->mainMenuWalker = MenuNodeSourceWalker::build(
-                        $mainMenu,
-                        $this->walkerContext,
-                        3,
-                        $this->cacheItemPool
-                    );
-                }
-                if (null !== $footerMenu) {
-                    $resource->footerMenuWalker = MenuNodeSourceWalker::build(
-                        $footerMenu,
-                        $this->walkerContext,
-                        3,
-                        $this->cacheItemPool
-                    );
-                }
-                if (null !== $footer) {
-                    $resource->footerWalker = AutoChildrenNodeSourceWalker::build(
-                        $footer,
-                        $this->walkerContext,
-                        3,
-                        $this->cacheItemPool
-                    );
-                }
-                if (null !== $errorPage) {
-                    $resource->errorPageWalker = AutoChildrenNodeSourceWalker::build(
-                        $errorPage,
-                        $this->walkerContext,
-                        3,
-                        $this->cacheItemPool
-                    );
-                }
-                if (null !== $request) {
-                    $request->attributes->set('data', $resource);
-                }
+                $request?->attributes->set('data', $resource);
                 $resource->head = $this->nodesSourcesHeadFactory->createForTranslation($translation);
+                $resource->home = $resource->head->getHomePage();
+                $resource->menus = $this->treeWalkerGenerator->getTreeWalkersForTypeAtRoot(
+                    'Menu',
+                    MenuNodeSourceWalker::class,
+                    $translation,
+                    3
+                );
                 return $resource;
             } catch (ResourceNotFoundException $exception) {
                 throw new NotFoundHttpException($exception->getMessage(), $exception);
@@ -416,9 +360,17 @@ Then create you own custom resource to hold your menus tree-walkers and common c
 
         protected function getTranslationRepository(): TranslationRepository
         {
-            return $this->managerRegistry->getRepository(TranslationInterface::class);
+            $repository = $this->managerRegistry->getRepository(TranslationInterface::class);
+            if (!$repository instanceof TranslationRepository) {
+                throw new \RuntimeException(
+                    'Translation repository must be instance of ' .
+                    TranslationRepository::class
+                );
+            }
+            return $repository;
         }
     }
+
 
 Then, the following resource will be exposed:
 
@@ -426,7 +378,7 @@ Then, the following resource will be exposed:
 
     {
         "@context": "/api/contexts/CommonContent",
-        "@id": "/api/common_content?id=unique",
+        "@id": "/api/common_content",
         "@type": "CommonContent",
         "home": {
             "@id": "/api/pages/11",
@@ -444,92 +396,72 @@ Then, the following resource will be exposed:
             "slug": "accueil",
             "url": "/fr"
         },
-        "mainMenuWalker": {
-            "@type": "MenuNodeSourceWalker",
-            "@id": "_:3341",
-            "children": [],
-            "childrenCount": 0,
-            "item": {
-                "@id": "/api/menus/2",
-                "@type": "Menu",
-                "title": "Menu principal",
-                "publishedAt": "2022-04-12T00:39:00+02:00",
-                "node": {
-                    "@type": "Node",
-                    "@id": "/api/nodes/1",
-                    "visible": false,
-                    "tags": []
+        "menus": {
+            "mainMenuWalker": {
+                "@type": "MenuNodeSourceWalker",
+                "@id": "_:3341",
+                "children": [],
+                "childrenCount": 0,
+                "item": {
+                    "@id": "/api/menus/2",
+                    "@type": "Menu",
+                    "title": "Menu principal",
+                    "publishedAt": "2022-04-12T00:39:00+02:00",
+                    "node": {
+                        "@type": "Node",
+                        "@id": "/api/nodes/1",
+                        "visible": false,
+                        "tags": []
+                    },
+                    "slug": "main-menu"
                 },
-                "slug": "main-menu"
+                "level": 0,
+                "maxLevel": 3
             },
-            "level": 0,
-            "maxLevel": 3
-        },
-        "footerMenuWalker": {
-            "@type": "MenuNodeSourceWalker",
-            "@id": "_:2381",
-            "children": [],
-            "childrenCount": 0,
-            "item": {
-                "@id": "/api/menus/3",
-                "@type": "Menu",
-                "linkInternalReference": [],
-                "title": "Menu du pied de page",
-                "publishedAt": "2022-04-12T11:18:12+02:00",
-                "node": {
-                    "@type": "Node",
-                    "@id": "/api/nodes/2",
-                    "visible": false,
-                    "tags": []
+            "footerMenuWalker": {
+                "@type": "MenuNodeSourceWalker",
+                "@id": "_:2381",
+                "children": [],
+                "childrenCount": 0,
+                "item": {
+                    "@id": "/api/menus/3",
+                    "@type": "Menu",
+                    "linkInternalReference": [],
+                    "title": "Menu du pied de page",
+                    "publishedAt": "2022-04-12T11:18:12+02:00",
+                    "node": {
+                        "@type": "Node",
+                        "@id": "/api/nodes/2",
+                        "visible": false,
+                        "tags": []
+                    },
+                    "slug": "footer-menu"
                 },
-                "slug": "footer-menu"
+                "level": 0,
+                "maxLevel": 3
             },
-            "level": 0,
-            "maxLevel": 3
-        },
-        "footerWalker": {
-            "@type": "AutoChildrenNodeSourceWalker",
-            "@id": "_:2377",
-            "children": [],
-            "childrenCount": 0,
-            "item": {
-                "@id": "/api/footers/16",
-                "@type": "Footer",
-                "content": "",
-                "title": "Pied de page",
-                "publishedAt": "2022-04-12T19:02:47+02:00",
-                "node": {
-                    "@type": "Node",
-                    "@id": "/api/nodes/15",
-                    "visible": false,
-                    "tags": []
+            "footerWalker": {
+                "@type": "AutoChildrenNodeSourceWalker",
+                "@id": "_:2377",
+                "children": [],
+                "childrenCount": 0,
+                "item": {
+                    "@id": "/api/footers/16",
+                    "@type": "Footer",
+                    "content": "",
+                    "title": "Pied de page",
+                    "publishedAt": "2022-04-12T19:02:47+02:00",
+                    "node": {
+                        "@type": "Node",
+                        "@id": "/api/nodes/15",
+                        "visible": false,
+                        "tags": []
+                    },
+                    "slug": "footer"
                 },
-                "slug": "footer"
-            },
-            "level": 0,
-            "maxLevel": 3
-        },
-        "errorPageWalker": {
-            "@type": "AutoChildrenNodeSourceWalker",
-            "@id": "_:3465",
-            "children": [],
-            "childrenCount": 0,
-            "item": {
-                "@id": "/api/pages/153",
-                "@type": "Page",
-                "title": "Page d'erreur",
-                "publishedAt": "2022-05-12T17:16:40+02:00",
-                "node": {
-                    "@type": "Node",
-                    "@id": "/api/nodes/146",
-                    "visible": false,
-                    "tags": []
-                },
-                "slug": "error-page",
-                "url": "/fr/error-page"
-            },
-            "level": 0,
-            "maxLevel": 3
+                "level": 0,
+                "maxLevel": 3
+            }
         },
         "head": {
             "@type": "NodesSourcesHead",
