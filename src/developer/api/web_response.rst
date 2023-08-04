@@ -227,17 +227,17 @@ frontend application.
 ..  code-block:: yaml
 
     # config/api_resources/common_content.yml
-
     App\Api\Model\CommonContent:
-        collectionOperations: {}
-        itemOperations:
+        operations:
             getCommonContent:
+                class: ApiPlatform\Metadata\Get
                 method: 'GET'
-                path: '/common_content'
+                uriTemplate: '/common_content'
                 read: false
                 controller: App\Controller\GetCommonContentController
                 pagination_enabled: false
-                normalization_context:
+                normalizationContext:
+                    enable_max_depth: true
                     pagination_enabled: false
                     groups:
                         - get
@@ -250,9 +250,18 @@ frontend application.
                         - nodes_sources_base
                         - nodes_sources_default
                         - urls
+                        - blocks_urls
                         - tag_base
                         - translation_base
                         - document_display
+                        - document_folders
+
+
+.. note::
+
+    Keep in mind that ``/api/common_content`` endpoint uses ``nodes_sources_base`` normalization group which **will
+    only include essential node sources data**. You can add more groups to include more data, such as ``nodes_sources_default``
+    or ``nodes_sources_cta`` if you grouped some fields into a *CTA* label.
 
 Then create you own custom resource to hold your menus tree-walkers and common content. Tree-walkers will be created using
 ``RZ\Roadiz\CoreBundle\Api\TreeWalker\TreeWalkerGenerator`` service.
