@@ -63,6 +63,7 @@ Here is an example of API resource for a ``Page`` node-type, you'll find default
                     enable_max_depth: true
                     groups:
                         - nodes_sources
+                        - node_listing
                         - urls
                         - tag_base
                         - translation_base
