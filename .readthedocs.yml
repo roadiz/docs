@@ -17,7 +17,6 @@ formats:
 
 # Optionally set the version of Python and requirements required to build your docs
 python:
-    version: 3.8
     install:
         - requirements: ./stable-req.txt
 submodules:
@@ -26,5 +25,4 @@ submodules:
 build:
     os: ubuntu-22.04
     tools:
-        python: "3"
-        nodejs: "16"
+        python: "3.8"
