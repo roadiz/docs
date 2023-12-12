@@ -47,6 +47,12 @@ Serialization groups
     node_attributes
         Serialize Nodes with their ``attribute values``.
 
+    node_listing
+        Serialize Nodes and NodesSources with their ``listing children options``.
+        Adds ``listingSortOptions`` field to node-sources, with for example ``{ "node.position": "ASC" }`` to be able to fetch
+        children nodes in a the same order as in the back-office. If the current serialized node-source' parent is hiding its children,
+        ``listingSortOptions`` will be contain parent's ``listingSortOptions`` instead.
+
     tag
         Serialize Tag.
 

@@ -42,6 +42,9 @@ different configuration on development and on your production server without bot
 Generate JWT private and public keys
 ------------------------------------
 
+When using `composer create-project` command, you should have JWT secret and certificate automatically generated.
+If not, you can generate them using the following commands:
+
 .. code-block:: bash
 
     # Generate Symfony secrets
@@ -61,9 +64,11 @@ Install database
     # Create and migrate Roadiz database schema
     docker-compose exec -u www-data app bin/console doctrine:migrations:migrate
     # Migrate any existing data types
-    docker-compose exec -u www-data app bin/console themes:migrate ./src/Resources/config.yml
+    docker-compose exec -u www-data app bin/console app:migrate
     # Install base Roadiz fixtures, default translation, roles and settings
     docker-compose exec -u www-data app bin/console install
+    # Stop workers to force restart them
+    docker compose exec -u www-data app php bin/console messenger:stop-workers
     # Clear cache
     docker-compose exec -u www-data app bin/console cache:clear
     # Create your admin account

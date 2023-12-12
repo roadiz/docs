@@ -175,37 +175,67 @@ Roadiz uses *Doctrine* to map object entities to database tables.
     # config/packages/doctrine.yaml
     doctrine:
         orm:
-            mappings:
-                App:
-                    is_bundle: false
-                    type: attribute
-                    dir: '%kernel.project_dir%/src/Entity'
-                    prefix: 'App\Entity'
-                    alias: App
-                RoadizCoreBundle:
-                    is_bundle: true
-                    type: attribute
-                    dir: 'src/Entity'
-                    prefix: 'RZ\Roadiz\CoreBundle\Entity'
-                    alias: RoadizCoreBundle
-                RZ\Roadiz\Core:
-                    is_bundle: false
-                    type: attribute
-                    dir: '%kernel.project_dir%/vendor/roadiz/models/src/Roadiz/Core/AbstractEntities'
-                    prefix: 'RZ\Roadiz\Core\AbstractEntities'
-                    alias: AbstractEntities
-                App\GeneratedEntity:
-                    is_bundle: false
-                    type: attribute
-                    dir: '%kernel.project_dir%/src/GeneratedEntity'
-                    prefix: 'App\GeneratedEntity'
-                    alias: App\GeneratedEntity
-                gedmo_loggable:
-                    type: attribute
-                    prefix: Gedmo\Loggable\Entity\MappedSuperclass
-                    dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity/MappedSuperclass"
-                    alias: GedmoLoggableMappedSuperclass
-                    is_bundle: false
+            auto_generate_proxy_classes: true
+            default_entity_manager: default
+            entity_managers:
+                # Put `logger` entity manager first to select it as default for Log entity
+                logger:
+                    naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+                    mappings:
+                        ## Just sharding EM to avoid having Logs in default EM
+                        ## and flushing bad entities when storing log entries.
+                        RoadizCoreLogger:
+                            is_bundle: false
+                            type: attribute
+                            dir: '%kernel.project_dir%/vendor/roadiz/core-bundle/src/Logger/Entity'
+                            prefix: 'RZ\Roadiz\CoreBundle\Logger\Entity'
+                            alias: RoadizCoreLogger
+                default:
+                    dql:
+                        string_functions:
+                            JSON_CONTAINS: Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonContains
+                    naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+                    auto_mapping: true
+                    mappings:
+                        ## Keep RoadizCoreLogger to avoid creating different migrations since we are using
+                        ## the same database for both entity managers. Just sharding EM to avoid
+                        ## having Logs in default EM and flushing bad entities when storing log entries.
+                        RoadizCoreLogger:
+                            is_bundle: false
+                            type: attribute
+                            dir: '%kernel.project_dir%/vendor/roadiz/core-bundle/src/Logger/Entity'
+                            prefix: 'RZ\Roadiz\CoreBundle\Logger\Entity'
+                            alias: RoadizCoreLogger
+                        RoadizCoreBundle:
+                            is_bundle: true
+                            type: attribute
+                            dir: 'src/Entity'
+                            prefix: 'RZ\Roadiz\CoreBundle\Entity'
+                            alias: RoadizCoreBundle
+                        RZ\Roadiz\Core:
+                            is_bundle: false
+                            type: attribute
+                            dir: '%kernel.project_dir%/lib/Models/src/Core/AbstractEntities'
+                            prefix: 'RZ\Roadiz\Core\AbstractEntities'
+                            alias: AbstractEntities
+                        App\GeneratedEntity:
+                            is_bundle: false
+                            type: attribute
+                            dir: '%kernel.project_dir%/src/GeneratedEntity'
+                            prefix: 'App\GeneratedEntity'
+                            alias: App\GeneratedEntity
+                        App:
+                            is_bundle: false
+                            type: attribute
+                            dir: '%kernel.project_dir%/src/Entity'
+                            prefix: 'App\Entity'
+                            alias: App
+                        gedmo_loggable:
+                            type: attribute
+                            prefix: Gedmo\Loggable\Entity\MappedSuperclass
+                            dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity/MappedSuperclass"
+                            alias: GedmoLoggableMappedSuperclass
+                            is_bundle: false
 
 Use ``type: attribute`` or ``type: annotation`` according to your Doctrine mapping type.
 
@@ -289,6 +319,15 @@ do not forget to empty your caches **and** image caches to see changes.
     Take note that each generated image is sent to *kraken.io* servers. It can generate some overhead
     time on the first time you request an image.
 
+Enable Two-factor authentication
+--------------------------------
+
+Roadiz can use *Two-factor authentication* to secure your back-office access. You need to install
+``composer require roadiz/two-factor-bundle`` and configure it in your ``config/packages/scheb_2fa.yaml`` and
+``config/packages/security.yaml`` files.
+
+See `Two-factor authentication bundle documentation <https://github.com/roadiz/two-factor-bundle/tree/develop#configuration>`_.
+
 OpenID SSO authentication
 -------------------------
 
@@ -348,7 +387,6 @@ For both modes, you can restrict users to a specific domain with ``hosted_domain
                 - ROLE_ACCESS_USERS_DELETE
                 - ROLE_ACCESS_GROUPS
                 - ROLE_ACCESS_TRANSLATIONS
-
 
 Console commands
 ----------------

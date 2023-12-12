@@ -1,3 +1,18 @@
+## [v2.2.0](https://github.com/roadiz/docs/compare/v2.1.3...v2.2.0) (2023-12-12)
+
+
+### Features
+
+* `node_listing` serialization group ([f1d0cc8](https://github.com/roadiz/docs/commit/f1d0cc8e76936ce418ed85df94913b7fe6d6c3bd))
+* CommonContent example using TreeWalkerGenerator ([5b41dea](https://github.com/roadiz/docs/commit/5b41dea712541b218992892ef2e73ccf02db8e89))
+* New auto tree walker definition injection ([137805c](https://github.com/roadiz/docs/commit/137805c61e41d498e634767caf5c1037196a03e0))
+* Upgraded to Roadiz 2.2, php 8.2 recommended ([3e0db39](https://github.com/roadiz/docs/commit/3e0db39fd1275cfd6f81941eea008af7441775f6))
+
+
+### Bug Fixes
+
+* Fixed api resource operation syntax ([dc7e4a2](https://github.com/roadiz/docs/commit/dc7e4a2228f8f5a7d23a19c970e5f9b8d9fa72ce))
+
 ## [v2.1.3](https://github.com/roadiz/docs/compare/v2.1.2...v2.1.3) (2023-08-04)
 
 ## [v2.1.2](https://github.com/roadiz/docs/compare/v2.1.1...v2.1.2) (2023-07-12)
