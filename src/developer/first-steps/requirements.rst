@@ -12,11 +12,11 @@ Roadiz requires an HTTP server for static assets and **SSH access** with out/ing
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 8.0+ **required**, 8.1 recommended
+* PHP 8.1+ **required**, 8.2 recommended
 * Install theses PHP extensions (which are installed and enabled by default in most PHP installations): JSON, Intl, cURL, MBString, Ctype, iconv, PCRE, Session, Zip, SimpleXML, and Tokenizer;
 * Your php.ini needs to have the ``date.timezone`` setting
 * You need to have at least version 2.6.21 of libxml
-* PHP *OPcache* + *APCu* (APC 3.0.17+ or another opcode cache needs to be installed)
+* PHP *OPcache*
 * ``php.ini`` recommended settings
 
     - ``short_open_tag = Off``
@@ -39,10 +39,10 @@ Using Docker as a development and production environment
 **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
 and `docker-compose <https://docs.docker.com/compose/>`_ because it eases up development and deployments stages using tools such as *Gitlab* or *Github Actions*. We recommend creating Docker images containing **all your project sources and dependencies**.
 
-You can use our `official Docker images <https://hub.docker.com/r/roadiz/php81-fpm-alpine>`_ with *PHP-FPM* and *Nginx* already setup for you.
+You can use our `official Docker images <https://hub.docker.com/r/roadiz/php82-fpm-alpine>`_ with *PHP-FPM* and *Nginx* already setup for you.
 We recommend that you create your own Docker image based on this official one.
 
-- https://hub.docker.com/r/roadiz/php81-fpm-alpine PHP-FPM 8.1 container ready for Roadiz and Symfony apps. Used for main application, async workers and cron jobs.
+- https://hub.docker.com/r/roadiz/php82-fpm-alpine PHP-FPM 8.2 container ready for Roadiz and Symfony apps. Used for main application, async workers and cron jobs.
 - https://hub.docker.com/r/roadiz/nginx-alpine Nginx container ready for Roadiz and Symfony apps. Used for static assets and proxying to PHP-FPM container.
 
 ``docker-compose`` is meant to be used on the host machine (especially on Windows and macOs hosts). *Docker* is not mandatory if you prefer to install PHP and a web server directly on your host, just follow official Symfony instructions : https://symfony.com/doc/current/setup.html#technical-requirements
