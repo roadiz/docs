@@ -65,6 +65,15 @@ Serialization groups
     tag_children
         Serialize Tags with their ``children``, do not use with ``tag_parent`` group.
 
+    tag_documents
+        Serialize Tags with their ``documents``.
+
+    tag_color
+        Serialize Tags with their ``color`` field.
+
+    tag_children_order
+        Serialize Tags with their ``children_order`` fields.
+
     node_type
         Serialize entities in a ``NodeType`` context.
 
