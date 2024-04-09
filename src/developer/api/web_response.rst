@@ -101,7 +101,7 @@ If you manage your node-types from your back-office, new node-types web-response
 
 Example of a ``WebResponse`` resource configuration in your ``config/api_resources/web_response.yaml`` configuration file containing two operations for ``blogpost`` and ``page`` node-types:
 
-..  code-block:: yaml
+.. code-block:: yaml
 
     resources:
         App\Api\Model\WebResponse:
@@ -300,7 +300,7 @@ affect API performances.
 For these common content, you can create a ``/api/common_content`` API endpoint in your project which will fetched only once in your
 frontend application.
 
-..  code-block:: yaml
+.. code-block:: yaml
 
     resources:
         # config/api_resources/common_content.yml

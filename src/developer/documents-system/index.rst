@@ -25,7 +25,7 @@ you must declare 3 storages:
 
 Following example shows how to configure Flysystem to use *Scaleway* Object Storage (S3 compatible) service:
 
-..  code-block:: yaml
+.. code-block:: yaml
 
     # config/packages/flysystem.yaml
     # Read the documentation at https://github.com/thephpleague/flysystem-bundle/blob/master/docs/1-getting-started.md
