@@ -92,6 +92,82 @@ API will expose a WebResponse single item containing:
         "hidingBlocks": false
     }
 
+Configure WebResponse endpoints
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+WebResponse endpoints are contextualized using their ``item`` type. For example, you can change any normalization context options according to your node-type. To achieve this, Roadiz call a dedicated controller for ``/web_response_by_path`` endpoint (``RZ\Roadiz\CoreBundle\Api\Controller\GetWebResponseByPathController``) and will look for a ``********_get_by_path`` operation name in your app to override ApiPlatform ``_api_operation`` and ``_api_operation_name`` request parameters.
+
+If you manage your node-types from your back-office, new node-types web-response endpoints will be appended automatically to the ``config/api_resources/web_response.yaml`` folder. Only reachable node-types will be exposed.
+
+Example of a ``WebResponse`` resource configuration in your ``config/api_resources/web_response.yaml`` configuration file containing two operations for ``blogpost`` and ``page`` node-types:
+
+..  code-block:: yaml
+
+    resources:
+        App\Api\Model\WebResponse:
+            operations:
+                blogpost_get_by_path:
+                    method: GET
+                    class: ApiPlatform\Metadata\Get
+                    uriTemplate: /web_response_by_path
+                    read: false
+                    controller: RZ\Roadiz\CoreBundle\Api\Controller\GetWebResponseByPathController
+                    normalizationContext:
+                        pagination_enabled: false
+                        enable_max_depth: true
+                        groups:
+                            - nodes_sources
+                            - node_listing
+                            - urls
+                            - tag_base
+                            - tag_parent
+                            - translation_base
+                            - document_display
+                            - document_thumbnails
+                            - document_display_sources
+                            - nodes_sources_lien
+                            - web_response
+                            - walker
+                            - children
+                    openapiContext:
+                        tags:
+                            - WebResponse
+                        summary: 'Get a resource by its path wrapped in a WebResponse object'
+                        description: 'Get a resource by its path wrapped in a WebResponse'
+                        parameters:
+                            - { type: string, name: path, in: query, required: true, description: 'Resource path, or `/` for home page', schema: { type: string } }
+                page_get_by_path:
+                    method: GET
+                    class: ApiPlatform\Metadata\Get
+                    uriTemplate: /web_response_by_path
+                    read: false
+                    controller: RZ\Roadiz\CoreBundle\Api\Controller\GetWebResponseByPathController
+                    normalizationContext:
+                        pagination_enabled: false
+                        enable_max_depth: true
+                        groups:
+                            - nodes_sources
+                            - node_listing
+                            - urls
+                            - tag_base
+                            - tag_parent
+                            - translation_base
+                            - document_display
+                            - document_thumbnails
+                            - document_display_sources
+                            - nodes_sources_mise_en_forme
+                            - nodes_sources_lien
+                            - web_response
+                            - walker
+                            - children
+                    openapiContext:
+                        tags:
+                            - WebResponse
+                        summary: 'Get a resource by its path wrapped in a WebResponse object'
+                        description: 'Get a resource by its path wrapped in a WebResponse'
+                        parameters:
+                            - { type: string, name: path, in: query, required: true, description: 'Resource path, or `/` for home page', schema: { type: string } }
+
 
 Override WebResponse block walker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -226,35 +302,36 @@ frontend application.
 
 ..  code-block:: yaml
 
-    # config/api_resources/common_content.yml
-    App\Api\Model\CommonContent:
-        operations:
-            getCommonContent:
-                class: ApiPlatform\Metadata\Get
-                method: 'GET'
-                uriTemplate: '/common_content'
-                read: false
-                controller: App\Controller\GetCommonContentController
-                pagination_enabled: false
-                normalizationContext:
-                    enable_max_depth: true
+    resources:
+        # config/api_resources/common_content.yml
+        App\Api\Model\CommonContent:
+            operations:
+                getCommonContent:
+                    class: ApiPlatform\Metadata\Get
+                    method: 'GET'
+                    uriTemplate: '/common_content'
+                    read: false
+                    controller: App\Controller\GetCommonContentController
                     pagination_enabled: false
-                    groups:
-                        - get
-                        - common_content
-                        - web_response
-                        - walker
-                        - walker_level
-                        - children
-                        - children_count
-                        - nodes_sources_base
-                        - nodes_sources_default
-                        - urls
-                        - blocks_urls
-                        - tag_base
-                        - translation_base
-                        - document_display
-                        - document_folders
+                    normalizationContext:
+                        enable_max_depth: true
+                        pagination_enabled: false
+                        groups:
+                            - get
+                            - common_content
+                            - web_response
+                            - walker
+                            - walker_level
+                            - children
+                            - children_count
+                            - nodes_sources_base
+                            - nodes_sources_default
+                            - urls
+                            - blocks_urls
+                            - tag_base
+                            - translation_base
+                            - document_display
+                            - document_folders
 
 
 .. note::
