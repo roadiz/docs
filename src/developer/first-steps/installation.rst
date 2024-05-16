@@ -17,6 +17,8 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     # fit your development environment (OS, UID).
     # .env file will be tracked by Git
     #
+    # Customize docker-compose.yml file to set your stack name
+    #
     # Initialize your Docker environment
     docker-compose build
     docker-compose up -d --force-recreate
@@ -64,7 +66,7 @@ Install database
     # Create and migrate Roadiz database schema
     docker-compose exec -u www-data app bin/console doctrine:migrations:migrate
     # Migrate any existing data types
-    docker-compose exec -u www-data app bin/console app:migrate
+    docker-compose exec -u www-data app bin/console app:install
     # Install base Roadiz fixtures, default translation, roles and settings
     docker-compose exec -u www-data app bin/console install
     # Stop workers to force restart them
