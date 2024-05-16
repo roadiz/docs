@@ -11,6 +11,11 @@ these environments. As a first try, you should always call
 ``bin/console cache:clear;`` (replace *prod* by your environment)
 in command line.
 
+.. code-block:: shell
+
+    bin/console cache:clear --env=prod;
+    bin/console cache:pool:clear cache.global_clearer --env=prod;
+
 Problem with entities and Doctrine cache?
 -----------------------------------------
 
@@ -19,6 +24,7 @@ node-sources entity classes and upgrade database schema.
 
 .. code-block:: shell
 
-    bin/console generate:nsentities;
-    bin/console doctrine:schema:update --dump-sql --force;
+    bin/console doctrine:migrations:migrate -n;
+    bin/console app:install -n;
     bin/console cache:clear;
+    bin/console cache:pool:clear cache.global_clearer;
