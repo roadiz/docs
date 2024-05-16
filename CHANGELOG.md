@@ -2,7 +2,14 @@
 
 All notable changes to Roadiz Doc will be documented in this file.
 
-## [2.2.1](https://github.com/roadiz/docs/compare/v2.2.0...2.2.1) - 2024-02-27
+## [2.3.0](https://github.com/roadiz/docs/compare/v2.2.1...v2.3.0) - 2024-05-16
+
+### Features
+
+- Upgrade `developer/troubleshooting.rst` - ([ebb5431](https://github.com/roadiz/docs/commit/ebb5431ce7ffcfe626e024bd6039f244e7dc67fd))
+- Update new API platform resource config and WebResponse configuration - ([c5821b0](https://github.com/roadiz/docs/commit/c5821b0a96671dc3ef9d960a79aad5e42ffac643))
+
+## [2.2.1](https://github.com/roadiz/docs/compare/v2.2.0...v2.2.1) - 2024-02-27
 
 ### Bug Fixes
 
