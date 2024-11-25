@@ -37,15 +37,12 @@ Using Docker as a development and production environment
 --------------------------------------------------------
 
 **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
-and `docker-compose <https://docs.docker.com/compose/>`_ because it eases up development and deployments stages using tools such as *Gitlab* or *Github Actions*. We recommend creating Docker images containing **all your project sources and dependencies**.
+and `docker compose <https://docs.docker.com/compose/>`_ because it eases up development and deployments stages using tools such as *Gitlab* or *Github Actions*. We recommend creating Docker images containing **all your project sources and dependencies**.
 
-You can use our `official Docker images <https://hub.docker.com/r/roadiz/php82-fpm-alpine>`_ with *PHP-FPM* and *Nginx* already setup for you.
-We recommend that you create your own Docker image based on this official one.
+*Roadiz Skeleton* project includes a multi-stage ``Dockerfile`` with PHP, Nginx and Varnish. Feel free to customize it according to your project needs.
+You can use ``docker-bake.hcl`` in you CI pipeline to build all your project Docker images at once.
 
-- https://hub.docker.com/r/roadiz/php82-fpm-alpine PHP-FPM 8.2 container ready for Roadiz and Symfony apps. Used for main application, async workers and cron jobs.
-- https://hub.docker.com/r/roadiz/nginx-alpine Nginx container ready for Roadiz and Symfony apps. Used for static assets and proxying to PHP-FPM container.
-
-``docker-compose`` is meant to be used on the host machine (especially on Windows and macOs hosts). *Docker* is not mandatory if you prefer to install PHP and a web server directly on your host, just follow official Symfony instructions : https://symfony.com/doc/current/setup.html#technical-requirements
+``docker compose`` is meant to be used on the host machine (especially on Windows and macOs hosts). *Docker* is not mandatory if you prefer to install PHP and a web server directly on your host, just follow official Symfony instructions : https://symfony.com/doc/current/setup.html#technical-requirements
 
 
 One container per process

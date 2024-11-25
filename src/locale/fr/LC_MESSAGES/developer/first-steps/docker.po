@@ -22,8 +22,8 @@ msgid "Using Docker for development"
 msgstr "Utiliser Docker pour le développement"
 
 #: ../../src/developer/first-steps/docker.rst:6
-msgid "Roadiz standard edition is shipped with a ``docker-compose`` example environment ready to use for development. *Docker* on Linux will provide awesome performances and a production-like environment without bloating your development machine. Performances won't be as good on *macOS* or *Windows* hosts, but it will prevent installing singled versioned PHP and MySQL directly on your computer."
-msgstr "La Standard Edition de Roadiz est fournie avec un exemple d'environnement ``docker-compose`` prêt à être utilisé pour le développement. *Docker* sur Linux fournira des performances natives et un environnement quasiment identique à la production sans avoir d'installer des paquets supplémentaires votre machine de développement. Les performances ne seront pas aussi bonnes sur les hôtes *macOS* ou *Windows*, mais cela évitera l'installation de PHP et de MySQL directement sur votre ordinateur."
+msgid "Roadiz standard edition is shipped with a ``docker compose`` example environment ready to use for development. *Docker* on Linux will provide awesome performances and a production-like environment without bloating your development machine. Performances won't be as good on *macOS* or *Windows* hosts, but it will prevent installing singled versioned PHP and MySQL directly on your computer."
+msgstr "La Standard Edition de Roadiz est fournie avec un exemple d'environnement ``docker compose`` prêt à être utilisé pour le développement. *Docker* sur Linux fournira des performances natives et un environnement quasiment identique à la production sans avoir d'installer des paquets supplémentaires votre machine de développement. Les performances ne seront pas aussi bonnes sur les hôtes *macOS* ou *Windows*, mais cela évitera l'installation de PHP et de MySQL directement sur votre ordinateur."
 
 #: ../../src/developer/first-steps/docker.rst:11
 msgid "First, edit ``.env`` file and configure it according to your host machine (you can copy it from ``.env.dist`` if it does not exist)."

@@ -36,35 +36,6 @@ You can configure *Doctrine* strategy for NodesSources inheritance classes in ``
 
     If you change this setting after creating content in your website, all node-sources data will be lost.
 
-Themes (compatibility with v1.x)
---------------------------------
-
-Themes are statically registered into Roadiz configuration for better performances
-and delaying database usage. You have to register any front-end theme in your ``config/packages/roadiz_compat.yaml`` file.
-Theme priority is not handled here but in each of your themes by overriding static ``$priority`` value;
-
-.. code-block:: yaml
-
-    # config/packages/roadiz_compat.yaml
-    roadiz_compat:
-        themes:
-            -
-                classname: \Themes\DefaultTheme\DefaultThemeApp
-                hostname: '*'
-                routePrefix: ''
-            -
-                classname: \Themes\FooBarTheme\FooBarThemeApp
-                hostname: 'foobar.test'
-                routePrefix: ''
-
-You can define hostname specific themes and add a route-prefix for your routing. Defaults values
-are ``'*'`` for the *hostname* and ``''`` (empty string) for the route-prefix.
-
-.. warning::
-
-    No theme configuration will lead into a 404 error on your website home page. But you will still have
-    access to the back-office which is now hard-registered into Roadiz configuration.
-
 .. _solr_endpoint:
 
 Solr endpoint
