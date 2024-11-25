@@ -104,7 +104,7 @@ Example of a ``WebResponse`` resource configuration in your ``config/api_resourc
 .. code-block:: yaml
 
     resources:
-        App\Api\Model\WebResponse:
+        RZ\Roadiz\CoreBundle\Api\Model\WebResponse:
             operations:
                 blogpost_get_by_path:
                     method: GET
@@ -570,3 +570,87 @@ Then, the following resource will be exposed:
             "shareImage": null
         }
     }
+
+Decorate WebResponse with custom properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can decorate WebResponse to add custom properties. This will require transformation using a custom transformer and your own ``App\Api\Model\WebResponse`` model object.
+Your _transformer_ must implement ``RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseDataTransformerInterface``.
+
+First, override _WebResponse_ class and declare it in Roadiz Core configuration:
+
+..  code-block:: php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace App\Api\Model;
+
+    use RZ\Roadiz\CoreBundle\Api\Model\BlocksAwareWebResponseInterface;
+    use RZ\Roadiz\CoreBundle\Api\Model\RealmsAwareWebResponseInterface;
+    use RZ\Roadiz\CoreBundle\Api\Model\WebResponseInterface;
+    use RZ\Roadiz\CoreBundle\Api\Model\WebResponseTrait;
+
+    final class WebResponse implements WebResponseInterface, BlocksAwareWebResponseInterface, RealmsAwareWebResponseInterface
+    {
+        use WebResponseTrait;
+
+        // Declare any custom property you need
+        public string $fooBar = '';
+    }
+
+..  code-block:: yaml
+
+    # config/packages/roadiz_core.yaml
+    roadiz_core:
+        webResponseClass: App\Api\Model\WebResponse
+
+Then create your custom transformer by decorating ``RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseDataTransformerInterface`` service:
+
+..  code-block:: php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace App\Api\DataTransformer;
+
+    use App\Api\Model\WebResponse;
+    use RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseDataTransformerInterface;
+
+    final readonly class WebResponseDataTransformer implements WebResponseDataTransformerInterface
+    {
+        public function __construct(
+            protected WebResponseDataTransformerInterface $dataTransformer,
+        ) {
+        }
+
+        public function createWebResponse(): WebResponseInterface
+        {
+            return new WebResponse();
+        }
+
+        public function transform($object, string $to, array $context = [], ?WebResponseInterface $output = null): ?WebResponseInterface
+        {
+            $output = $this->dataTransformer->transform($object, $to, $context, $this->createWebResponse());
+
+            if ($output instanceof WebResponse) {
+                // Inject your custom properties data here
+                $output->fooBar = 'Test';
+            }
+
+            return $output;
+        }
+    }
+
+And declare your new transformer in your services configuration:
+
+..  code-block:: yaml
+
+    # config/services.yaml
+    services:
+        App\Api\DataTransformer\WebResponseDataTransformer:
+            decorates: RZ\Roadiz\CoreBundle\Api\DataTransformer\WebResponseDataTransformerInterface
+            arguments:
+                - '@App\Api\DataTransformer\WebResponseDataTransformer.inner'
