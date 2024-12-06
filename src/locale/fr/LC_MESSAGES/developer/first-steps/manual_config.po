@@ -22,7 +22,7 @@ msgid "Manual configuration"
 msgstr "Configuration manuelle"
 
 #: ../../src/developer/first-steps/manual_config.rst:6
-msgid "Roadiz is a full-stack Symfony application. It follows its configuration scheme as described in https://symfony.com/doc/5.4/configuration.html"
+msgid "Roadiz is a full-stack Symfony application. It follows its configuration scheme as described in https://symfony.com/doc/6.4/configuration.html"
 msgstr ""
 
 #: ../../src/developer/first-steps/manual_config.rst:10
@@ -138,7 +138,7 @@ msgid "Roadiz uses *Symfony Mailer* to send emails."
 msgstr ""
 
 #: ../../src/developer/first-steps/manual_config.rst:199
-msgid "https://symfony.com/doc/5.4/mailer.html#transport-setup"
+msgid "https://symfony.com/doc/6.4/mailer.html#transport-setup"
 msgstr ""
 
 #: ../../src/developer/first-steps/manual_config.rst:202

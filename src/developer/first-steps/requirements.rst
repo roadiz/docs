@@ -6,13 +6,13 @@ Requirements
 
 .. _requirements:
 
-Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/5.4/setup.html#technical-requirements>`_ to
+Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/6.4/setup.html#technical-requirements>`_ to
 optimize your local or production setup.
 Roadiz requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections.
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 8.1+ **required**, 8.2 recommended
+* PHP 8.2+ **required**, 8.3 recommended
 * Install theses PHP extensions (which are installed and enabled by default in most PHP installations): JSON, Intl, cURL, MBString, Ctype, iconv, PCRE, Session, Zip, SimpleXML, and Tokenizer;
 * Your php.ini needs to have the ``date.timezone`` setting
 * You need to have at least version 2.6.21 of libxml
@@ -24,7 +24,7 @@ Here is a short summary of mandatory elements before installing Roadiz:
     - ``register_globals = Off``
     - ``session.auto_start = Off``
 
-* MariaDB 10.5.2+ or MySQL 8.0+ database with `JSON_*` functions support
+* MariaDB 10.11+ or MySQL 8.0+ database with `JSON_*` functions support
 * Install `Composer <https://getcomposer.org/download/>`_, which is used to install PHP packages.
 * Git
 

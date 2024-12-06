@@ -4,7 +4,7 @@ Manual configuration
 ====================
 
 Roadiz is a full-stack Symfony application. It follows its configuration scheme as described in
-https://symfony.com/doc/5.4/configuration.html
+https://symfony.com/doc/6.4/configuration.html
 
 Choose your inheritance model
 -----------------------------
@@ -145,6 +145,8 @@ Roadiz uses *Doctrine* to map object entities to database tables.
 
     # config/packages/doctrine.yaml
     doctrine:
+        dbal:
+            url: '%env(resolve:DATABASE_URL)%'
         orm:
             auto_generate_proxy_classes: true
             default_entity_manager: default
@@ -208,14 +210,29 @@ Roadiz uses *Doctrine* to map object entities to database tables.
                             alias: GedmoLoggableMappedSuperclass
                             is_bundle: false
 
-Use ``type: attribute`` or ``type: annotation`` according to your Doctrine mapping type.
+            resolve_target_entities:
+                Symfony\Component\Security\Core\User\UserInterface: RZ\Roadiz\CoreBundle\Entity\User
+
+                # Roadiz Core
+                RZ\Roadiz\Documents\Models\DocumentInterface: RZ\Roadiz\CoreBundle\Entity\Document
+                RZ\Roadiz\Documents\Models\FolderInterface: RZ\Roadiz\CoreBundle\Entity\Folder
+                RZ\Roadiz\Contracts\NodeType\NodeTypeInterface: RZ\Roadiz\CoreBundle\Entity\NodeType
+                RZ\Roadiz\CoreBundle\Model\AttributeInterface: RZ\Roadiz\CoreBundle\Entity\Attribute
+                RZ\Roadiz\CoreBundle\Model\AttributeTranslationInterface: RZ\Roadiz\CoreBundle\Entity\AttributeTranslation
+                RZ\Roadiz\CoreBundle\Model\AttributeGroupInterface: RZ\Roadiz\CoreBundle\Entity\AttributeGroup
+                RZ\Roadiz\CoreBundle\Model\AttributeGroupTranslationInterface: RZ\Roadiz\CoreBundle\Entity\AttributeGroupTranslation
+                RZ\Roadiz\CoreBundle\Model\AttributeValueInterface: RZ\Roadiz\CoreBundle\Entity\AttributeValue
+                RZ\Roadiz\CoreBundle\Model\AttributeValueTranslationInterface: RZ\Roadiz\CoreBundle\Entity\AttributeValueTranslation
+                RZ\Roadiz\Core\AbstractEntities\TranslationInterface: RZ\Roadiz\CoreBundle\Entity\Translation
+
+Use ``type: attribute`` whenever possible. Doctrine annotation are deprecated.
 
 Configure mailer
 ----------------
 
 Roadiz uses *Symfony Mailer* to send emails.
 
-https://symfony.com/doc/5.4/mailer.html#transport-setup
+https://symfony.com/doc/6.4/mailer.html#transport-setup
 
 .. note::
     Pay attention that many external SMTP services (*Mandrill*, *Mailjet*…) only accept email from validated domains.
@@ -234,14 +251,13 @@ create a lower quality version of your image if they are too big and offer on-th
     # config/packages/rz_intervention_request.yaml
     parameters:
         env(IR_DEFAULT_QUALITY): '90'
-        env(IR_MAX_PIXEL_SIZE): '1920'
-        ir_default_quality: '%env(int:IR_DEFAULT_QUALITY)%'
-        ir_max_pixel_size: '%env(int:IR_MAX_PIXEL_SIZE)%'
+        env(IR_MAX_PIXEL_SIZE): '2500'
+        env(IR_DRIVER): 'gd'
 
     rz_intervention_request:
-        driver: 'gd'
-        default_quality: '%ir_default_quality%'
-        max_pixel_size: '%ir_max_pixel_size%'
+        driver: '%env(IR_DRIVER)%'
+        default_quality: '%env(int:IR_DEFAULT_QUALITY)%'
+        max_pixel_size: '%env(int:IR_MAX_PIXEL_SIZE)%'
         cache_path: "%kernel.project_dir%/public/assets"
         files_path: "%kernel.project_dir%/public/files"
         jpegoptim_path: /usr/bin/jpegoptim
@@ -297,7 +313,7 @@ Roadiz can use *Two-factor authentication* to secure your back-office access. Yo
 ``composer require roadiz/two-factor-bundle`` and configure it in your ``config/packages/scheb_2fa.yaml`` and
 ``config/packages/security.yaml`` files.
 
-See `Two-factor authentication bundle documentation <https://github.com/roadiz/two-factor-bundle/tree/develop#configuration>`_.
+See `Two-factor authentication bundle documentation <https://github.com/roadiz/two-factor-bundle#configuration>`_.
 
 OpenID SSO authentication
 -------------------------
