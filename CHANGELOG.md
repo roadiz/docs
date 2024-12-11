@@ -2,6 +2,13 @@
 
 All notable changes to Roadiz Doc will be documented in this file.
 
+## [2.4.0](https://github.com/roadiz/docs/compare/v2.3.0...v2.4.0) - 2024-12-11
+
+### Documentation
+
+- Use `docker compose` - ([1b94914](https://github.com/roadiz/docs/commit/1b94914cabaa80648742f96e963305ddc9b05c9d))
+- Added Decorate WebResponse with custom properties section - ([942c1d1](https://github.com/roadiz/docs/commit/942c1d1b228e91614ca90d86de9e5d1dc98839b1))
+
 ## [2.3.0](https://github.com/roadiz/docs/compare/v2.2.1...v2.3.0) - 2024-05-16
 
 ### Features

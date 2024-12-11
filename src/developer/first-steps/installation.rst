@@ -13,22 +13,22 @@ For new projects **Roadiz** can be easily setup using ``create-project`` command
     cd my-website
     # Create a local Dotenv to store your secrets
     cp .env .env.local
-    # Edit your docker-compose parameter in .env to
+    # Edit your docker compose parameter in .env to
     # fit your development environment (OS, UID).
     # .env file will be tracked by Git
     #
-    # Customize docker-compose.yml file to set your stack name
+    # Customize docker compose.yml file to set your stack name
     #
     # Initialize your Docker environment
-    docker-compose build
-    docker-compose up -d --force-recreate
+    docker compose build
+    docker compose up -d --force-recreate
 
 .. warning::
 
     **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
-    and `docker-compose <https://docs.docker.com/compose/>`_. We recommend you to learn these awesome tools if you're not
+    and `docker compose <https://docs.docker.com/compose/>`_. We recommend you to learn these awesome tools if you're not
     using them yet.
-    You still can use Roadiz without Docker, but you will have to install and configure a *PHP* environment, *MySQL* database, and a web server. If you are not using *docker* or *docker-compose*, just ignore ``docker-compose exec -u www-data app`` prefix in the following commands.
+    You still can use Roadiz without Docker, but you will have to install and configure a *PHP* environment, *MySQL* database, and a web server. If you are not using *docker* or *docker compose*, just ignore ``docker compose exec app`` prefix in the following commands.
 
 .. note::
 
@@ -50,12 +50,12 @@ If not, you can generate them using the following commands:
 .. code-block:: bash
 
     # Generate Symfony secrets
-    docker-compose exec -u www-data app bin/console secrets:generate-keys;
+    docker compose exec app bin/console secrets:generate-keys;
     # Set a random passphrase for Application secret and JWT keys
-    docker-compose exec -u www-data app bin/console secrets:set APP_SECRET --random;
-    docker-compose exec -u www-data app bin/console secrets:set JWT_PASSPHRASE --random;
+    docker compose exec app bin/console secrets:set APP_SECRET --random;
+    docker compose exec app bin/console secrets:set JWT_PASSPHRASE --random;
     # Use built-in command to generate your key pair
-    docker-compose exec -u www-data app bin/console lexik:jwt:generate-keypair;
+    docker compose exec app bin/console lexik:jwt:generate-keypair;
 
 
 Install database
@@ -64,17 +64,17 @@ Install database
 .. code-block:: bash
 
     # Create and migrate Roadiz database schema
-    docker-compose exec -u www-data app bin/console doctrine:migrations:migrate
+    docker compose exec app bin/console doctrine:migrations:migrate
     # Migrate any existing data types
-    docker-compose exec -u www-data app bin/console app:install
+    docker compose exec app bin/console app:install
     # Install base Roadiz fixtures, default translation, roles and settings
-    docker-compose exec -u www-data app bin/console install
+    docker compose exec app bin/console install
     # Stop workers to force restart them
-    docker compose exec -u www-data app php bin/console messenger:stop-workers
+    docker compose exec app php bin/console messenger:stop-workers
     # Clear cache
-    docker-compose exec -u www-data app bin/console cache:clear
+    docker compose exec app bin/console cache:clear
     # Create your admin account
-    docker-compose exec -u www-data app bin/console users:create -m username@roadiz.io -b -s username
+    docker compose exec app bin/console users:create -m username@roadiz.io -b -s username
 
 
 Then connect to ``http://localhost:${YOUR_PORT}/rz-admin`` to access your freshly-created Roadiz backoffice.

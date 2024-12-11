@@ -22,7 +22,7 @@ msgid "Requirements"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:9
-msgid "Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/5.4/setup.html#technical-requirements>`_ to optimize your local or production setup. Roadiz requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections. Here is a short summary of mandatory elements before installing Roadiz:"
+msgid "Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/6.4/setup.html#technical-requirements>`_ to optimize your local or production setup. Roadiz requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections. Here is a short summary of mandatory elements before installing Roadiz:"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:14
@@ -30,7 +30,7 @@ msgid "Nginx or Apache, with a dedicated virtual host as described below."
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:15
-msgid "PHP 7.4+ **required**, 8.1 recommended"
+msgid "PHP 8.2+ **required**, 8.3 recommended"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:16
@@ -70,7 +70,7 @@ msgid "``session.auto_start = Off``"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:27
-msgid "MariaDB 10.5.2+ or MySQL 5.7+ database with `JSON_*` functions support"
+msgid "MariaDB 10.11+ or MySQL 8.0+ database with `JSON_*` functions support"
 msgstr ""
 
 #: ../../src/developer/first-steps/requirements.rst:28

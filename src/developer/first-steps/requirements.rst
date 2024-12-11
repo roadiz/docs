@@ -6,13 +6,13 @@ Requirements
 
 .. _requirements:
 
-Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/5.4/setup.html#technical-requirements>`_ to
+Roadiz is a Symfony application running with PHP. You can follow regular `Symfony requirements <https://symfony.com/doc/6.4/setup.html#technical-requirements>`_ to
 optimize your local or production setup.
 Roadiz requires an HTTP server for static assets and **SSH access** with out/ingoing allowed connections.
 Here is a short summary of mandatory elements before installing Roadiz:
 
 * Nginx or Apache, with a dedicated virtual host as described below.
-* PHP 8.1+ **required**, 8.2 recommended
+* PHP 8.2+ **required**, 8.3 recommended
 * Install theses PHP extensions (which are installed and enabled by default in most PHP installations): JSON, Intl, cURL, MBString, Ctype, iconv, PCRE, Session, Zip, SimpleXML, and Tokenizer;
 * Your php.ini needs to have the ``date.timezone`` setting
 * You need to have at least version 2.6.21 of libxml
@@ -24,7 +24,7 @@ Here is a short summary of mandatory elements before installing Roadiz:
     - ``register_globals = Off``
     - ``session.auto_start = Off``
 
-* MariaDB 10.5.2+ or MySQL 8.0+ database with `JSON_*` functions support
+* MariaDB 10.11+ or MySQL 8.0+ database with `JSON_*` functions support
 * Install `Composer <https://getcomposer.org/download/>`_, which is used to install PHP packages.
 * Git
 
@@ -37,15 +37,12 @@ Using Docker as a development and production environment
 --------------------------------------------------------
 
 **Roadiz** and **Symfony** development and production environments heavily rely on `Docker <https://docs.docker.com/get-started/>`_
-and `docker-compose <https://docs.docker.com/compose/>`_ because it eases up development and deployments stages using tools such as *Gitlab* or *Github Actions*. We recommend creating Docker images containing **all your project sources and dependencies**.
+and `docker compose <https://docs.docker.com/compose/>`_ because it eases up development and deployments stages using tools such as *Gitlab* or *Github Actions*. We recommend creating Docker images containing **all your project sources and dependencies**.
 
-You can use our `official Docker images <https://hub.docker.com/r/roadiz/php82-fpm-alpine>`_ with *PHP-FPM* and *Nginx* already setup for you.
-We recommend that you create your own Docker image based on this official one.
+*Roadiz Skeleton* project includes a multi-stage ``Dockerfile`` with PHP, Nginx and Varnish. Feel free to customize it according to your project needs.
+You can use ``docker-bake.hcl`` in you CI pipeline to build all your project Docker images at once.
 
-- https://hub.docker.com/r/roadiz/php82-fpm-alpine PHP-FPM 8.2 container ready for Roadiz and Symfony apps. Used for main application, async workers and cron jobs.
-- https://hub.docker.com/r/roadiz/nginx-alpine Nginx container ready for Roadiz and Symfony apps. Used for static assets and proxying to PHP-FPM container.
-
-``docker-compose`` is meant to be used on the host machine (especially on Windows and macOs hosts). *Docker* is not mandatory if you prefer to install PHP and a web server directly on your host, just follow official Symfony instructions : https://symfony.com/doc/current/setup.html#technical-requirements
+``docker compose`` is meant to be used on the host machine (especially on Windows and macOs hosts). *Docker* is not mandatory if you prefer to install PHP and a web server directly on your host, just follow official Symfony instructions : https://symfony.com/doc/current/setup.html#technical-requirements
 
 
 One container per process
