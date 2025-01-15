@@ -31,20 +31,20 @@ Following example shows how to configure Flysystem to use *Scaleway* Object Stor
     # Read the documentation at https://github.com/thephpleague/flysystem-bundle/blob/master/docs/1-getting-started.md
     services:
         scaleway_public_client:
-            class: 'AsyncAws\SimpleS3\SimpleS3Client'
+            class: 'AsyncAws\S3\S3Client'
             arguments:
-                -  endpoint: '%env(SCALEWAY_STORAGE_ENDPOINT)%'
-                   accessKeyId: '%env(SCALEWAY_STORAGE_ID)%'
-                   accessKeySecret: '%env(SCALEWAY_STORAGE_SECRET)%'
-                   region: '%env(SCALEWAY_STORAGE_REGION)%'
+                -  endpoint: '%env(SCW_STORAGE_ENDPOINT)%'
+                   accessKeyId: '%env(SCW_STORAGE_ACCESS_KEY)%'
+                   accessKeySecret: '%env(SCW_STORAGE_SECRET_KEY)%'
+                   region: '%env(SCW_STORAGE_REGION)%'
         # Private client must be different for allowing copy across file systems.
         scaleway_private_client:
-            class: 'AsyncAws\SimpleS3\SimpleS3Client'
+            class: 'AsyncAws\S3\S3Client'
             arguments:
-                -  endpoint: '%env(SCALEWAY_STORAGE_ENDPOINT)%'
-                   accessKeyId: '%env(SCALEWAY_STORAGE_ID)%'
-                   accessKeySecret: '%env(SCALEWAY_STORAGE_SECRET)%'
-                   region: '%env(SCALEWAY_STORAGE_REGION)%'
+                -  endpoint: '%env(SCW_STORAGE_ENDPOINT)%'
+                   accessKeyId: '%env(SCW_STORAGE_ACCESS_KEY)%'
+                   accessKeySecret: '%env(SCW_STORAGE_SECRET_KEY)%'
+                   region: '%env(SCW_STORAGE_REGION)%'
 
     flysystem:
         storages:
