@@ -50,7 +50,7 @@ msgid "If you need to traverse node-source graph from your controllers you can u
 msgstr ""
 
 #: ../../src/developer/nodes-system/nodes.rst:89
-msgid "Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydration. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria."
+msgid "Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydration. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeTypeName`` criteria."
 msgstr ""
 
 #: ../../src/developer/nodes-system/nodes.rst:105

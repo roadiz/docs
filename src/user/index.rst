@@ -27,6 +27,5 @@ password reset link.
 
    write-in-markdown/index
    nodes-system/managing-nodes
-   nodes-system/managing-node-types
    documents-system/intro
    users/intro

@@ -86,7 +86,7 @@ msgid "You can directly assign your children blocks at the beginning of your *Tw
 msgstr ""
 
 #: ../../src/developer/themes/custom_assignations.rst:147
-msgid "You can use different *block* types in the same *page*. Just create as many node-types as you need and add their name to your *Page* ``children_node`` default values. Then add each node-type into ``children`` criteria using an array instead of a single value: ``node.nodeType : [bags.nodeTypes.get('BasicBlock'), bags.nodeTypes.get('AnotherBlock')]``. That way, you will be able to create awesome pages with different looks but with the same template (basic blocks, gallery blocks, etc)."
+msgid "You can use different *block* types in the same *page*. Just create as many node-types as you need and add their name to your *Page* ``children_node`` default values. Then add each node-type into ``children`` criteria using an array instead of a single value: ``node.nodeTypeName : ['BasicBlock', 'AnotherBlock']``. That way, you will be able to create awesome pages with different looks but with the same template (basic blocks, gallery blocks, etc)."
 msgstr ""
 
 #: ../../src/developer/themes/custom_assignations.rst:153

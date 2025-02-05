@@ -27,7 +27,7 @@ It will contain all fields that Roadiz will use to generate an extended node-sou
 For example, a node-type "Page" will contain "content" and "header image" fields.
 The "title" field is always available as it is hard-coded in ``NodesSources`` class.
 After saving your node-type, Roadiz generates a ``NSPage`` class which extends the ``NodesSources`` class.
-You will find it in the ``gen-src/GeneratedNodeSources`` (or ``app/gen-src/GeneratedNodeSources`` with *Roadiz Standard edition*).
+You will find it in the ``src/GeneratedEntity/`` folder.
 Then Roadiz calls *Doctrine* update tool to migrate your database schema.
 **Do not modify the generated class.** You’ll have to update it by the backend interface.
 
@@ -37,23 +37,27 @@ Here is a schema to understand how node-types can define custom fields into node
    :align: center
 
 
-Most of node-types management will be done in your backoffice interface. You will be able to
-create, update node-types objects and each of their node-type fields independently. But if you prefer,
-you can use CLI commands to create types and fields. With Roadiz CLI commands you get several tools to manage node-types.
+All node-types management will be done by editing ``app/config/node_types/*.yaml`` files. You will be able to
+create, update node-types objects and each of their node-type fields independently.
+Some CLI commands are available to export, list and validate types and fields.
 We really encourage you to check the commands with ``--help`` argument, as following:
 
 .. code-block:: console
 
-    bin/console nodetypes:add-fields
-    bin/console nodetypes:create
-    bin/console nodetypes:delete
-    bin/console nodetypes:list
+    nodetypes:default-values  Get all default values for a field across all node-types.
+    nodetypes:export-files    Migrate database node-types to YAML files.
+    nodetypes:list            List available node-types or fields for a given node-type name
+    nodetypes:validate-files  Import all node-type YAML files and validate them.
 
-Keep in mind that each node-type or node-type fields operation require a database update as Doctrine have to create
-a specific table per node-type. Do not forget to execute ``bin/console doctrine:schema:update`` tools to perform
-updates. It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before**
+
+Keep in mind that each new node-type or adding/removing node-type fields operation will require a database migration.
+Doctrine has to create specific columns per node-type and fields. Do not forget to execute ``bin/console app:migrate`` command to
+generate a new Doctrine migration based on your changes.
+It’s very important to understand that *Doctrine* needs to see your node-types generated classes **before**
 upgrading database schema. If they don’t exist, it won’t able to create your custom types tables, or worst, it could
-delete existing data since *Doctrine* won’t recognize specific tables.
+delete existing data since *Doctrine* won’t recognize specific tables. You can execute ``bin/console generate:nsentities``
+to regenerate your node-types PHP classes.
+
 
 Now let's have a look on node-sources.
 

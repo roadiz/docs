@@ -13,7 +13,7 @@ Roadiz will automatically handle security parameters such as ``node.status`` and
     // Secure method to get node-sources
     // Implicitly check node.status
     $this->nodeSourceApi->getBy([
-        'node.nodeType' => $blogPostType,
+        'node.nodeTypeName' => $blogPostType->getName(),
         'translation' => $translation,
     ], [
         'publishedAt' => 'DESC'
@@ -86,13 +86,13 @@ the *Entity API*. Moreover, Nodes-sources API allows you to filter using custom 
 
 .. warning::
 
-    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydration. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeType`` criteria.
+    Browsing your node graph (calling children or parents) could be very greedy and unoptimized if you have lots of node-types. Internally *Doctrine* will *inner-join* every nodes-sources tables to perform polymorphic hydration. So, make sure you filter your queries by one ``NodeType`` as much as possible with ``nodeSourceApi`` and ``node.nodeTypeName`` criteria.
 
     .. code-block:: php
 
         // Here Doctrine will only join NSPage table to NodesSources
         $children =$this->nodeSourceApi->getBy([
-            'node.nodeType' => $this->nodeTypesBag->get('Page'),
+            'node.nodeTypeName' => 'Page',
             'node.parent' => $nodeSource,
             'node.visible' => true,
             'publishedAt' => ['>=', new \DateTime()],

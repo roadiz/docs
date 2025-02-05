@@ -16,27 +16,27 @@ Simple data
 
 This following fields stores simple data in your custom node-source database table.
 
-- Single-line text
-- Date
-- Date and time
-- Basic text
-- Markdown text
-- Boolean
-- Integer number
-- Decimal number
-- Email
-- Color
-- Single geographic coordinates
-- Multiple geographic coordinates
-- JSON code
-- CSS code
-- Country code (ISO 3166-1 alpha-2)
-- YAML code
-- Many to many join
-- Many to one join
-- Single relationship using a provider
-- Multiple relationship using a provider
-- Custom collection
+- Single-line text: ``string``
+- Date: ``date``
+- Date and time: ``date-time``
+- Basic long text: ``text``
+- Markdown text: ``markdown``
+- Boolean: ``boolean``
+- Integer number: ``integer``
+- Decimal number: ``decimal``
+- Email: ``email``
+- Colour: ``colour``
+- Single geographic coordinates: ``geographic.coordinates``
+- Multiple geographic coordinates: ``multiple.geographic.coordinates``
+- JSON code: ``json``
+- CSS code: ``css``
+- Country code (ISO 3166-1 alpha-2): ``country``
+- YAML code: ``yaml``
+- Many to many join: ``many-to-many``
+- Many to one join: ``many-to-one``
+- Single relationship using a provider: ``single-provider``
+- Multiple relationship using a provider: ``multiple-provider``
+- Custom collection: ``collection``
 
 .. image:: ./img/field-types.*
    :align: center
@@ -83,9 +83,9 @@ Virtual types do not really store data in node-source table. They display custom
 widgets in your editing page to link documents, nodes or custom-forms with
 your node-source.
 
-- Documents
-- Nodes references
-- Custom form
+- Documents: ``documents``
+- Nodes references: ``nodes``
+- Custom form: ``custom-forms``
 
 Complex data
 ^^^^^^^^^^^^
@@ -93,9 +93,9 @@ Complex data
 These fields types must be created with *default values* (comma separated) in order to
 display available default choices for “select-box” types:
 
-- Single choice
-- Multiple choices
-- Children nodes
+- Single choice: ``single-choice``
+- Multiple choices: ``multiple-choice``
+- Children nodes: ``children-nodes``
 
 *Children node* field type is a special virtual field that will display a custom
 node-tree inside your editing page. You can add *quick-create* buttons by listing

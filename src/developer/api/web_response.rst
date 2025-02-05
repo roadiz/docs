@@ -219,7 +219,7 @@ expose them as if they were children of your article feed block. This requires t
                     'node.visible' => true,
                     'publishedAt' => ['<=', new \DateTime()],
                     'translation' => $source->getTranslation(),
-                    'node.nodeType' => $this->context->getNodeTypesBag()->get('Article')
+                    'node.nodeTypeName' => 'Article'
                 ];
 
                 // Prevent Article feed to list root Article again
