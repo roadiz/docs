@@ -71,7 +71,8 @@ singlehtml:
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 livehtml:
-	sphinx-autobuild --ignore "*/$(BUILDDIR)/*" \
+	sphinx-autobuild --host 0.0.0.0 --port 8000 \
+						--ignore "*/$(BUILDDIR)/*" \
 						--ignore "*/_static/*" \
 						--ignore "*/Makefile" \
 						--ignore "*/.idea/*" \
