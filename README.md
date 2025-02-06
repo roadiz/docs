@@ -6,22 +6,16 @@
 ## Install locally
 
 ```bash
-# Make sure python3 is setup
-# On MacOS, use brew
-# brew install python3
+docker compose build
 
-pip3 install sphinx  --user
-pip3 install sphinx-intl --user
-pip3 install sphinx-autobuild --user
-pip3 install recommonmark --user
-pip3 install pygments-markdown-lexer --user
+docker compose up
 ```
 
 ## Prepare translations
 
 ```bash
 make gettext
-sphinx-intl update -p _build/locale -l fr
+docker compose run --rm sphinx /home/sphinx/.local/bin/sphinx-intl update -p _build/locale -l fr
 ```
 
 Then translate each *.po* file with *PoEdit*.

@@ -1,0 +1,9 @@
+services:
+    sphinx:
+        build:
+            context: .
+            target: sphinx
+        volumes:
+            - .:/app
+        ports:
+            - 8000:8000/tcp
