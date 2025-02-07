@@ -11,173 +11,207 @@ If you want to know more about what a node-type is, please visit the other secti
 Add node-type
 -------------
 
-You need to create a new file in ``config/node_types/`` with name the name of your node type in lower case (``nodetypename.yaml``).
+To add a new node type, follow these steps:
 
-this file need to respect the structure of an nodeType and the type of the parameters :
+1. **Create the YAML file**  
+   In the ``config/node_types/`` directory, create a file named after your node type in lowercase (e.g., ``nodetypename.yaml``).
 
-.. code-block:: YAML
+2. **Follow the required structure**  
+   The file must follow the correct structure and parameter types:
 
-    # name is a string type, is required
-    name: nodeTypeName
-    # displayName is a string type, is required
-    displayName: node type name
-    # color is a string type, is optionnal
-    color: '#000000'
-    # description is a string type, is optionnal
-    description: nodeTypeName description
-    # visible is a boolean type, is optionnal
-    visible: true
-    # publishable is a boolean type, is optionnal
-    publishable: false
-    # attributable is a boolean type, is optionnal
-    attributable: true
-    # sortingAttributesByWeight is a boolean type, is optionnal
-    sortingAttributesByWeight: false
-    # reachable is a boolean type, is optionnal
-    reachable: true
-    # hidingNodes is a boolean type, is optionnal
-    hidingNodes: false
-    # hidingNonReachableNodes is a boolean type, is optionnal
-    hidingNonReachableNodes: true
-    # for the nodeTypeField read the section Adding node-type field.
-    fields :
-        - ...
-        - ...
-    # defaultTtl is a integer type, is optionnal
-    defaultTtl: 15
-    # searchable is a boolean type, is optionnal
-    searchable: true
+   .. code-block:: yaml
 
+      # 'name' is a required string.
+      name: nodeTypeName
 
-⚠️ You can use ``nodetypes:validate-files`` for check if the structure of your file is correct.
+      # 'displayName' is a required string.
+      displayName: node type name
 
-If your files was correct you can run ``app:migrate`` command and check :
+      # 'color' is an optional string.
+      color: '#000000'
 
-#. If your ``src/GeneratedEntity/NSnodeTypeName.php`` was correctly generate.
-#. If your ``config/api_ressources/nsnodetypename.yml`` was correctly generate (you can test it with api: ``{{url}}/api/docs``).
+      # 'description' is an optional string.
+      description: nodeTypeName description
+
+      # 'visible' is an optional boolean.
+      visible: true
+
+      # 'publishable' is an optional boolean.
+      publishable: false
+
+      # 'attributable' is an optional boolean.
+      attributable: true
+
+      # 'sortingAttributesByWeight' is an optional boolean.
+      sortingAttributesByWeight: false
+
+      # 'reachable' is an optional boolean.
+      reachable: true
+
+      # 'hidingNodes' is an optional boolean.
+      hidingNodes: false
+
+      # 'hidingNonReachableNodes' is an optional boolean.
+      hidingNonReachableNodes: true
+
+      # 'fields' defines the list of fields for the node type.
+      # More explanation in the section on node
+      fields:
+          - ...
+          - ...
+
+      # 'defaultTtl' is an optional integer.
+      defaultTtl: 15
+
+      # 'searchable' is an optional boolean.
+      searchable: true
+
+.. note::
+   You can use the ``nodetypes:validate-files`` command to check if your file structure is correct.
+
+Once validated, run the ``app:migrate`` command and verify:
+
+#. The ``src/GeneratedEntity/NSnodeTypeName.php`` file was correctly generated.
+#. The API configuration in ``config/api_ressources/nsnodetypename.yml`` is correct (you can test it via ``{{url}}/api/docs``).
 
 Delete node-type
 ----------------
 
-You need to remove the file associate with the node type you want to remove into ``config/node_types/``, ``src/GeneratedEntity/`` and ``config/api_resources/``
+To delete a node type, remove the associated files from the following directories:
 
-⚠️ When you delete a node type, it does not delete the nodes that are linked to that type in the database.
-You need to create a migration (command: ``bin/console doctrine:migrations:generate``) with one of the two solutions.
+- ``config/node_types/``
+- ``src/GeneratedEntity/``
+- ``config/api_resources/``
 
-* ‼️Soft delete, if you want to change into another existing node type, you can keep data of node and children:
+.. warning::
+   Deleting a node type **does not** remove the nodes linked to that type in the database.  
+   You need to create a migration (command: ``bin/console doctrine:migrations:generate``) and choose one of the following solutions.
 
-.. code-block:: PHP
+Soft Delete
+************
 
-    public function up(Schema $schema): void
-    {
-        $this->addSql('UPDATE nodes SET nodetype_name = AnotherNodeTypeName WHERE nodetype_name = NodeTypeName');
-        $this->addSql('UPDATE nodes_sources SET discr = AnotherNodeTypeName WHERE discr = NodeTypeName');
-    }
+If you want to transfer nodes to another existing node type while keeping their data, use a migration like this:
 
-    public function down(Schema $schema): void
-    {
-    }
+.. code-block:: php
 
-💡If you want to keep your data without transferring it into another nodetype you can juste create an nodeType named ghostNodeType who was not visible and without field,
-And you can tranfer your nodes to this nodeType
+   public function up(Schema $schema): void
+   {
+       $this->addSql("UPDATE nodes SET nodetype_name = 'AnotherNodeTypeName' WHERE nodetype_name = 'NodeTypeName'");
+       $this->addSql("UPDATE nodes_sources SET discr = 'AnotherNodeTypeName' WHERE discr = 'NodeTypeName'");
+   }
 
-* ‼️Hard delete, if you want to delete all data of nodes an children nodes associate with that nodeType:
+   public function down(Schema $schema): void
+   {
+       // Leave empty
+   }
 
-.. code-block:: PHP
+.. note::
+    Alternatively, if you want to keep your data without transferring it to another node type,
+    you can create a "ghost" node type (``ghostNodeType``) with property visible to ``false`` and has no fields, then transfer your nodes there.
 
-    public function up(Schema $schema): void
-    {
-        $this->addSql('DELETE nodes WHERE nodetype_name = NodeTypeName');
-        $this->addSql('DELETE nodes_sources WHERE discr = NodeTypeName');
-    }
+Hard Delete
+************
 
-    public function down(Schema $schema): void
-    {
-    }
+To completely delete all nodes (and children) associated with the node type, use a migration like this:
 
+.. warning::
+    This method will delete all node and also his children in cascade
+
+.. code-block:: php
+
+   public function up(Schema $schema): void
+   {
+       $this->addSql("DELETE FROM nodes WHERE nodetype_name = 'NodeTypeName'");
+       $this->addSql("DELETE FROM nodes_sources WHERE discr = 'NodeTypeName'");
+   }
+
+   public function down(Schema $schema): void
+   {
+       // Leave empty
+   }
 
 Adding node-type field
-----------------------
+-----------------------
 
-Into the `yaml` node type file the parameters fields is an array of each field you want to add.
+To add fields to a node type, modify the ``fields`` property in your YAML file.  
+For example:
 
-Exemple :
+.. code-block:: yaml
 
-.. code-block:: YAML
+   fields:
+       -
+           # Example field with minimal requirements
+           name: field_name_1
+           label: Field Name
+           type: string
+       -
+           # Example field with all possible parameters
+           name: field_name_2
+           label: Field Name Two
+           type: markdown
+           groupName: string
+           placeholder: string
+           description: string
+           minLength: 0
+           maxLength: 50
+           serializationMaxDepth: 2
+           universal: false
+           excludeFromSearch: false
+           excludedFromSerialization: false
+           indexed: false
+           visible: true
+           expanded: false
+           defaultValues: null  # depends on the type
+           normalizationContext:
+               groups:
+                   - get
+                   - nodes_sources_base
+                   - nodes_sources_default
+           serializationGroups: null
+           serializationExclusionExpression: null
 
-    fields :
-        -
-            # exemple field with minimal requirement
-            name: field_name_1
-            label: field Name
-            type: string
-        -
-            # exemple with all parameters a field can have
-            name: field_name_2
-            label: Field Name Two
-            type: markdown
-            groupName: string
-            placeholder: string
-            description: string
-            minLength: 0
-            maxLength: 50
-            serializationMaxDepth: 2
-            universal: false
-            excludeFromSearch: false
-            excludedFromSerialization: false
-            indexed: false
-            visible: true
-            expanded: false
-            defaultValues: null # depend on type
-            normalizationContext:
-                groups:
-                    - get
-                    - nodes_sources_base
-                    - nodes_sources_default
-            serializationGroups: null
-            serializationExclusionExpression: null
+For more details on field types and parameters, refer to :ref:`nodes-type-fields`.
 
-For have more information of type of field see :ref:`nodes-type-fields`
+.. note::
+   Always validate your file with ``nodetypes:validate-files`` before running ``app:migrate``.  
+   This command will:
 
-⚠️ You can use ``nodetypes:validate-files`` for check if the structure of your file is correct.
-
-If your files was correct you can run ``app:migrate`` command.
-
-This command update your node source entity and generate migration for add your fields in node_sources if it does'nt already exist in another node type.
+   - Update your node source entity.
+   - Generate a migration to add your fields to ``node_sources`` if they do not already exist in another node type.
 
 Removing node-type field
 ------------------------
 
-To remove a field of a node type you need to go to the config file of you node type into ``config/node_types/``.
+To remove a field from a node type, open the YAML file in ``config/node_types/``  
+and delete the corresponding field from the ``fields`` array.
 
-And remove the field you want to delete into fields array (example you want to remove field_name_2) :
+**Example:**
 
-BEFORE :
+Before (removing ``field_name_2``):
 
-.. code-block:: YAML
+.. code-block:: yaml
 
-    fields :
-        -
-            name: field_name_1
-            label: field Name
-            type: string
-        -
-            name: field_name_2
-            label: Field Name Two
-            type: markdown
+   fields:
+       -
+           name: field_name_1
+           label: Field Name
+           type: string
+       -
+           name: field_name_2
+           label: Field Name Two
+           type: markdown
 
-AFTER :
+After:
 
-.. code-block:: YAML
+.. code-block:: yaml
 
-    fields :
-        -
-            name: field_name_1
-            label: field Name
-            type: string
+   fields:
+       -
+           name: field_name_1
+           label: Field Name
+           type: string
 
-⚠️ You can use ``nodetypes:validate-files`` for check if the structure of your file is correct.
-
-If your files was correct you can run ``app:migrate`` command.
-
-This command update your node source entity and generate migration for drop your field in node_sources if it does'nt already exist in another node type.
+.. note::
+   As with adding fields, validate your file with ``nodetypes:validate-files`` and then run ``app:migrate``.  
+   This command will update your node source entity and generate a migration to drop the field from ``node_sources``  
+   if it is not used by another node type.
