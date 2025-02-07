@@ -25,7 +25,7 @@ To add a new node type, follow these steps:
       name: nodeTypeName
 
       # 'displayName' is a required string.
-      displayName: node type name
+      displayName: 'The node type display name for editors'
 
       # 'color' is an optional string.
       color: '#000000'
@@ -55,12 +55,12 @@ To add a new node type, follow these steps:
       hidingNonReachableNodes: true
 
       # 'fields' defines the list of fields for the node type.
-      # More explanation in the section on node
+      # This section will be explained below in "Adding node-type field"
       fields:
           - ...
           - ...
 
-      # 'defaultTtl' is an optional integer.
+      # 'defaultTtl' is an optional integer. It represents the number of minutes node' responses will live in HTTP cache
       defaultTtl: 15
 
       # 'searchable' is an optional boolean.
@@ -71,8 +71,8 @@ To add a new node type, follow these steps:
 
 Once validated, run the ``app:migrate`` command and verify:
 
-#. The ``src/GeneratedEntity/NSnodeTypeName.php`` file was correctly generated.
-#. The API configuration in ``config/api_ressources/nsnodetypename.yml`` is correct (you can test it via ``{{url}}/api/docs``).
+#. The ``src/GeneratedEntity/NSNodeTypeName.php`` file was correctly generated.
+#. The API configuration in ``config/api_resources/nsnodetypename.yml`` is correct (you can test it via ``{{url}}/api/docs``).
 
 Delete node-type
 ----------------
@@ -107,7 +107,7 @@ If you want to transfer nodes to another existing node type while keeping their 
 
 .. note::
     Alternatively, if you want to keep your data without transferring it to another node type,
-    you can create a "ghost" node type (``ghostNodeType``) with property visible to ``false`` and has no fields, then transfer your nodes there.
+    you can create a "ghost" node type (``GhostNodeType``) with property visible to ``false`` and has no fields, then transfer your nodes there.
 
 Hard Delete
 ************
@@ -177,7 +177,7 @@ For more details on field types and parameters, refer to :ref:`nodes-type-fields
    This command will:
 
    - Update your node source entity.
-   - Generate a migration to add your fields to ``node_sources`` if they do not already exist in another node type.
+   - Generate a migration to add your fields to ``node_sources`` database table if they do not already exist in another node type.
 
 Removing node-type field
 ------------------------
@@ -213,5 +213,5 @@ After:
 
 .. note::
    As with adding fields, validate your file with ``nodetypes:validate-files`` and then run ``app:migrate``.  
-   This command will update your node source entity and generate a migration to drop the field from ``node_sources``  
+   This command will update your node source entity and generate a migration to drop the field from ``node_sources``
    if it is not used by another node type.
