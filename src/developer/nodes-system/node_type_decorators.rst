@@ -4,7 +4,8 @@
 Node-type Decorators
 ====================
 
-Roadiz allows you to customize any non-structural properties of node types and their fields.
+Roadiz allows you to customize any node-types and node-type fields **non-structural** properties.
+This can be handy if you need to change node-types appearence (display names, colors) in Back-office without needing to update your project configuration or emptying caches.
 
 Entity representation
 ---------------------
@@ -38,7 +39,7 @@ It consists of the ``node type name`` and the ``node type field name`` separated
 
 This property is used to define the *node type property* or *node type field property* we want to customize.
 
-It consist of a ``Enum`` who depend if the path contain a field or not.
+It consists of a ``Enum`` which depends on the path containing a field or not.
 
 **List of the property for node type :**
 
@@ -57,7 +58,7 @@ It consist of a ``Enum`` who depend if the path contain a field or not.
 #. field_max_length
 
 .. note::
-    Exemple of ``property`` for the content field of a Page :
+    Example of ``property`` for the content field of a Page :
 
     ``field_label``
 
@@ -71,7 +72,7 @@ It consist of a ``Enum`` who depend if the path contain a field or not.
 ``value`` property :
 ^^^^^^^^^^^^^^^^^^^
 
-This property is used to define the value who override default.
+This property is used to override the default value. Default values come from your `node_types/*.yaml` files.
 
 It consists of a string linked to its property type.
 
