@@ -78,7 +78,7 @@ It consists of a string linked to its property type.
 
 List of the property type :
 
-    - **displayName** => text type
+    - **display_name** => text type
     - **description** => text type
     - **color** => hexadecimal color type
     - **field_label** => text type
